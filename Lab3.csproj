@@ -299,6 +299,7 @@
     <Compile Include="MentoringProgram.aspx.designer.cs">
       <DependentUpon>MentoringProgram.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Scholarship.aspx.cs">
       <DependentUpon>Scholarship.aspx</DependentUpon>
