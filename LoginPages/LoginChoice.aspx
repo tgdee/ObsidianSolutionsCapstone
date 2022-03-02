@@ -30,6 +30,11 @@
             </asp:Table>
             <asp:Button ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click"/>
             <asp:Button ID="btnMember" runat="server" Text="Member" OnClick="btnMember_Click"  />
+            <br />
+            <formview>
+                Need to create a new account? 
+                <asp:Button ID="btnNewAccount" runat="server" Text="Create New Account" OnClick="btnNewAccount_Click" />
+            </formview>
         </div>
     </form>
 </body>

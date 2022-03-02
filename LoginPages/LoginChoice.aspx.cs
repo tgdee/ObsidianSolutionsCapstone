@@ -35,5 +35,10 @@ namespace Lab3
         {
             Response.Redirect("MemberLoginPage.aspx");
         }
+
+        protected void btnNewAccount_Click(object sender, EventArgs e)
+        {
+            // Response.Redirect("~/NewAccount.aspx");
+        }
     }
 }
