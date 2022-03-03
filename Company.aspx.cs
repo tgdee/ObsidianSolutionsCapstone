@@ -25,6 +25,7 @@ namespace Lab3
 
         protected void btnAddRow_Click(object sender, EventArgs e)
         {
+            ltError.Text = "";
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
 

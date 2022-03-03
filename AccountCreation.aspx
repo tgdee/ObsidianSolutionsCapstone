@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h4> Create New Account ></h4>
+    <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
      <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>
@@ -34,6 +35,15 @@
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter Password"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <br />
+    <br />
+    <asp:Label ID="lblAccountType" runat="server" Text="Account Type: "></asp:Label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <asp:DropDownList ID="ddlAccountType" runat="server">
+        <asp:ListItem Text="Student" Value="1"></asp:ListItem>
+        <asp:ListItem Text="Alum" Value="2"></asp:ListItem>
+    </asp:DropDownList>
+
 
     <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
 </asp:Content>
