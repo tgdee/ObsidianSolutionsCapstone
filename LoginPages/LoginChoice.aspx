@@ -32,7 +32,9 @@
             <asp:Button ID="btnMember" runat="server" Text="Member" OnClick="btnMember_Click"  />
             <br />
             <formview>
-                Need to create a new account? 
+                <%--Need to create a new account? --%>
+                <asp:Label ID="LblAccount" runat="server" Text="Don't have an account yet?" Font-Bold="true"></asp:Label>
+                <br />
                 <asp:Button ID="btnNewAccount" runat="server" Text="Create New Account" OnClick="btnNewAccount_Click" />
             </formview>
         </div>

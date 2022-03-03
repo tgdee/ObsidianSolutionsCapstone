@@ -38,7 +38,7 @@ namespace Lab3
 
         protected void btnNewAccount_Click(object sender, EventArgs e)
         {
-            // Response.Redirect("~/NewAccount.aspx");
+            Response.Redirect("~/NewAccount.aspx");
         }
     }
 }
