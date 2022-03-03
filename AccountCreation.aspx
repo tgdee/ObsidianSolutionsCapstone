@@ -2,8 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h4> Create New Account ></h4>
+    <h4> Create New Account </h4>
     <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
+    <br />
      <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>

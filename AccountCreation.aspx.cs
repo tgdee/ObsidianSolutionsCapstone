@@ -38,7 +38,7 @@ namespace Lab3
                     using (SqlCommand cmd = new SqlCommand(insertStringUserLogin, dbConnection))        // Create first insert command
                     {
                         string fName = txtFirstName.Text;
-                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox
+                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox with value of 1 on ddl being student and value 2 being member
                         string userName = txtUserName.Text;
                         int accountType = Int32.Parse(ddlAccountType.SelectedValue);
 
@@ -56,7 +56,7 @@ namespace Lab3
                     string queryLastUserId = "SELECT UserID FROM UserLogin WHERE UserId=(SELECT max(UserID) FROM UserLogin)";   // Query to get most recent userId which
                                                                                                                                 // will be the just created UserLogin
 
-                    string insertStringPass = "INSERT INTO Pass (UserID, Username, PassdwordHash) " +           // insert string for Pass table
+                    string insertStringPass = "INSERT INTO Pass (UserID, Username, PasswordHash) " +           // insert string for Pass table
                         "VALUES (@userId, @userName, @passWordHash)";
 
                     using (SqlCommand cmd = new SqlCommand(insertStringPass, dbConnection))         // Create SqlCommand for insertString
@@ -71,6 +71,16 @@ namespace Lab3
                         cmd.Parameters.Add("@passWordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(passWord);   // with PasswordHash's HashPassword
 
                         cmd.ExecuteNonQuery();
+
+                    }
+
+                    if(Int32.Parse(ddlAccountType.SelectedValue) == 1)
+                    {
+                        Response.Redirect("~/LoginPages/StudentLoginPage.aspx");        // Redirect to student login if created account was a student
+                    }
+                    else
+                    {
+                        Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
                     }
 
                 }
