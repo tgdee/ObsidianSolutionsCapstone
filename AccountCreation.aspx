@@ -5,8 +5,9 @@
     <h4> Create New Account </h4>
     <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
     <br />
+    <br />
      <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp
     <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfFirstName" runat="server" ControlToValidate="txtFirstName" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
@@ -20,7 +21,7 @@
     <br />
     <br />
     <asp:Label ID="lblUserName" runat="server" Text="Username:"></asp:Label>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp
     <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter Username"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfUserName" runat="server" ControlToValidate="txtUserName" ErrorMessage="Enter Username" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
@@ -33,7 +34,7 @@
     <br />
     <br />
     <asp:Label ID="lblPassword" runat="server" Text="Password:"></asp:Label>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp
     <asp:TextBox ID="txtPassword" runat="server" placeholder="Enter Password"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
