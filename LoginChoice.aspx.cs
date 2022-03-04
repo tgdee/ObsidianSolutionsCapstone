@@ -82,9 +82,9 @@ namespace Lab3
 
                 sc.Close();
             }
-            catch
+            catch (SqlException ex)
             {
-                lblStatus.Text = "Database Error.";
+                lblStatus.Text = ex.Message;
             }
         }  
     }
