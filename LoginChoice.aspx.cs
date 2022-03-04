@@ -28,15 +28,6 @@ namespace Lab3
 
         }
 
-        //protected void btnStudent_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("StudentLoginPage.aspx");
-        //}
-
-        //protected void btnMember_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("MemberLoginPage.aspx");
-        //}
 
         protected void btnNewAccount_Click(object sender, EventArgs e)
         {
@@ -77,9 +68,10 @@ namespace Lab3
                     }
                 }
                 else // if the username doesn't exist, it will show failure
-                    lblStatus.Text = "Login failed.";
+                    lblStatus.Text = "Invalid Password or Username";
 
                 sc.Close();
+                sc.Dispose();
             }
             catch (SqlException ex)
             {
