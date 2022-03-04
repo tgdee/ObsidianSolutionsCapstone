@@ -45,7 +45,7 @@ namespace Lab3
                         cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = fName;
                         cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lName;      // Add values as parameters
                         cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
-                        cmd.Parameters.Add("@accountType", SqlDbType.Int).Value = accountType;
+                        cmd.Parameters.Add("@accountType", SqlDbType.NVarChar, 10).Value = accountType;
 
                         cmd.ExecuteNonQuery();
 
