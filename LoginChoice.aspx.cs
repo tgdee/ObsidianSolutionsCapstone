@@ -71,6 +71,7 @@ namespace Lab3
                             lblStatus.Text = "Success!";
                             txtUsername.Enabled = false;
                             txtPassword.Enabled = false;
+                            Response.Redirect("~/Homepage.aspx");
                         }
                         else
                             lblStatus.Text = "Password is wrong.";

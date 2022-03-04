@@ -75,14 +75,15 @@ namespace Lab3
 
                     }
 
-                    if(Int32.Parse(ddlAccountType.SelectedValue) == 1)
-                    {
-                        Response.Redirect("~/LoginPages/StudentLoginPage.aspx");        // Redirect to student login if created account was a student
-                    }
-                    else
-                    {
-                        Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
-                    }
+                    //if(Int32.Parse(ddlAccountType.SelectedValue) == 1)
+                    //{
+                    //    Response.Redirect("~/LoginPages/StudentLoginPage.aspx");        // Redirect to student login if created account was a student
+                    //}
+                    //else
+                    //{
+                    //    Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
+                    //}
+                    Response.Redirect("~/LoginChoice.aspx");
 
                 }
                 catch (Exception ex)

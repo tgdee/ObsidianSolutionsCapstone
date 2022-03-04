@@ -21,14 +21,14 @@ namespace Lab3
             {
 
                 Session["MustLogin"] = "You Must Login to Access that Page!";
-                Response.Redirect("LoginPages/LoginChoice.aspx");
+                Response.Redirect("LoginChoice.aspx");
             }
         }
 
         protected void btnFullLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("LoginPages/LoginChoice.aspx");
+            Response.Redirect("LoginChoice.aspx");
         }
 
     }
