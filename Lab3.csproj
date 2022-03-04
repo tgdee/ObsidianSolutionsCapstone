@@ -144,9 +144,9 @@
     <Content Include="Internship.aspx" />
     <Content Include="InternshipApplication.aspx" />
     <Content Include="JobApplication.aspx" />
-    <Content Include="LoginPages\LoginChoice.aspx" />
-    <Content Include="LoginPages\MemberLoginPage.aspx" />
-    <Content Include="LoginPages\StudentLoginPage.aspx" />
+    <Content Include="LoginChoice.aspx" />
+    <Content Include="MemberLoginPage.aspx" />
+    <Content Include="StudentLoginPage.aspx" />
     <Content Include="MemberTest.aspx" />
     <Content Include="MentoringProgram.aspx" />
     <Content Include="Scholarship.aspx" />
@@ -272,25 +272,25 @@
     <Compile Include="JobApplication.aspx.designer.cs">
       <DependentUpon>JobApplication.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginPages\LoginChoice.aspx.cs">
+    <Compile Include="LoginChoice.aspx.cs">
       <DependentUpon>LoginChoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginPages\LoginChoice.aspx.designer.cs">
+    <Compile Include="LoginChoice.aspx.designer.cs">
       <DependentUpon>LoginChoice.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginPages\MemberLoginPage.aspx.cs">
+    <Compile Include="MemberLoginPage.aspx.cs">
       <DependentUpon>MemberLoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginPages\MemberLoginPage.aspx.designer.cs">
+    <Compile Include="MemberLoginPage.aspx.designer.cs">
       <DependentUpon>MemberLoginPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="LoginPages\StudentLoginPage.aspx.cs">
+    <Compile Include="StudentLoginPage.aspx.cs">
       <DependentUpon>StudentLoginPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="LoginPages\StudentLoginPage.aspx.designer.cs">
+    <Compile Include="StudentLoginPage.aspx.designer.cs">
       <DependentUpon>StudentLoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberTest.aspx.cs">
