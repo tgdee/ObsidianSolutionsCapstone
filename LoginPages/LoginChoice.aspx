@@ -24,18 +24,39 @@
                 <asp:TableRow>
                     <asp:TableCell>
                         <br />
-                        <asp:Label ID="lblChoice" runat="server" Text="Are you a Student or Faculty Member?" Font-Bold="true"></asp:Label>
+                        <asp:Label ID="lblUsername" runat="server" Text="Username" Font-Bold="true"></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtUsername" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:Label ID="LblPassword" runat="server" Text="Password" Font-Bold="true"></asp:Label>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        <asp:TextBox ID="txtPassword" runat="server"></asp:TextBox>
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-            <asp:Button ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click"/>
-            <asp:Button ID="btnMember" runat="server" Text="Member" OnClick="btnMember_Click"  />
+            
+
+            <asp:Button ID="btnGo" runat="server" Text="Login ->" OnClick="btnGo_Click" />
+            <br />
+          <%--  <asp:Button ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click"/>
+            <asp:Button ID="btnMember" runat="server" Text="Member" OnClick="btnMember_Click"  />--%>
             <br />
             <formview>
                 <%--Need to create a new account? --%>
                 <asp:Label ID="LblAccount" runat="server" Text="Don't have an account yet?" Font-Bold="true"></asp:Label>
                 <br />
                 <asp:Button ID="btnNewAccount" runat="server" Text="Create New Account" OnClick="btnNewAccount_Click" />
+                <br />
+                <asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="true" Font-Size="Larger"></asp:Label>
             </formview>
         </div>
     </form>
