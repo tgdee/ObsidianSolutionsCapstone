@@ -28,7 +28,7 @@
     <br />
     <br />
     <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter Email"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter Email" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
