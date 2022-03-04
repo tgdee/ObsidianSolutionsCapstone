@@ -38,14 +38,14 @@ namespace Lab3
                     using (SqlCommand cmd = new SqlCommand(insertStringUserLogin, dbConnection))        // Create first insert command
                     {
                         string fName = txtFirstName.Text;
-                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox with value of 1 on ddl being student and value 2 being member
+                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox with value of 1
                         string userName = txtUserName.Text;
-                        int accountType = Int32.Parse(ddlAccountType.SelectedValue);
+                        string accountType = ddlAccountType.SelectedItem.Text;
 
                         cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = fName;
                         cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lName;      // Add values as parameters
                         cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
-                        cmd.Parameters.Add("@accountType", SqlDbType.NVarChar, 10).Value = accountType;
+                        cmd.Parameters.Add("@accountType", SqlDbType.NVarChar, 7).Value = accountType;
 
 
                         cmd.ExecuteNonQuery();
@@ -83,7 +83,7 @@ namespace Lab3
                     //{
                     //    Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
                     //}
-                    Response.Redirect("~/LoginChoice.aspx");
+                    
 
                 }
                 catch (Exception ex)
@@ -96,6 +96,7 @@ namespace Lab3
                 {
                     dbConnection.Close();
                     dbConnection.Dispose();
+                    Response.Redirect("~/LoginChoice.aspx");
                 }
             }
             
