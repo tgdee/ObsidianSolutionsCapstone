@@ -45,6 +45,7 @@ namespace Lab3
 
         protected void btnGo_Click(object sender, EventArgs e)
         {
+
             // connect to database to retrieve stored password string
             try
             {
@@ -68,13 +69,11 @@ namespace Lab3
 
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
-                            lblStatus.Text = "Success!";
-                            txtUsername.Enabled = false;
-                            txtPassword.Enabled = false;
+                            Session["Username"] = txtUsername.Text;
                             Response.Redirect("~/Homepage.aspx");
                         }
                         else
-                            lblStatus.Text = "Password is wrong.";
+                            lblStatus.Text = "Invalid Password or Username";
                     }
                 }
                 else // if the username doesn't exist, it will show failure

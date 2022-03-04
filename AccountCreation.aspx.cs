@@ -20,7 +20,7 @@ namespace Lab3
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
             
-            ltError.Text = "";          // Reset error box in case of previous error
+                     // Reset error box in case of previous error
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Create webconfiguratiuon to AUTH database
 
@@ -96,7 +96,7 @@ namespace Lab3
                 {
                     dbConnection.Close();
                     dbConnection.Dispose();
-                    Response.Redirect("~/LoginChoice.aspx");
+                    
                 }
             }
             
