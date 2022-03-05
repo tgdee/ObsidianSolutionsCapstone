@@ -43,7 +43,7 @@ namespace Lab3
                         lblMessage.Text = "Resume Uploaded";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
 
-                        var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+                        var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
                         SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString);
 

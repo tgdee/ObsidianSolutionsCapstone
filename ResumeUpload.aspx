@@ -14,6 +14,9 @@
             <asp:Button ID="btnUpload" runat="server" Text="Upload File" OnClick="btnUpload_Click" />
             <br />
             <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
+            <br />
+            
+            <br />
         </div>
     </form>
 </body>

@@ -64,5 +64,7 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+
+    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
 </asp:Content>

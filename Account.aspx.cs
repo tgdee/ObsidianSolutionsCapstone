@@ -77,6 +77,20 @@ namespace Lab3
             }
         }
 
+        protected void DisplayResume()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using(SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                //try
+                //{
+                    //string queryResume = "SELECT FileName, FileLocation"
+                    //SqlCommand cmd = 
+                //}
+            }
+        }
+
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
             
