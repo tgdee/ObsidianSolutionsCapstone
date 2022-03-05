@@ -83,9 +83,14 @@ namespace Lab3
                     //{
                     //    Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
                     //}
-                    
 
+                    txtFirstName.Text = "";
+                    txtLastName.Text = "";
+                    txtUserName.Text = "";
+                    txtEmail.Text = "";
+                    txtPassword.Text = "";
                 }
+                
                 catch (Exception ex)
                 {
 
@@ -94,9 +99,10 @@ namespace Lab3
                 }
                 finally
                 {
+
                     dbConnection.Close();
                     dbConnection.Dispose();
-                    
+                    Response.Redirect("~/LoginChoice.aspx");
                 }
             }
             
