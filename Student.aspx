@@ -1,10 +1,71 @@
 ﻿<%@ Page Title="Student Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="Lab3._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <h1>Student Information Page</h1>
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
+    
+    
+
+
+
+
+
+    <asp:Label ID="Label8" runat="server" Text="First Name"></asp:Label>
+    <asp:TextBox ID="TextBox8" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label9" runat="server" Text="Last Name"></asp:Label>
+    <asp:TextBox ID="TextBox9" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label10" runat="server" Text="Grade"></asp:Label>
+    <asp:TextBox ID="TextBox11" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label11" runat="server" Text="GraduationYear"></asp:Label>
+    <asp:TextBox ID="TextBox10" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label12" runat="server" Text="Major"></asp:Label>
+    <asp:TextBox ID="TextBox12" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label13" runat="server" Text="PhoneNumber"></asp:Label>
+    <asp:TextBox ID="TextBox13" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label14" runat="server" Text="Email"></asp:Label>
+    <asp:TextBox ID="TextBox14" runat="server" ValidationGroup="1"></asp:TextBox>
+
+
+
+    <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" />
+
+
+
+
+    <asp:GridView ID="gvSearch" runat="server" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated"></asp:GridView>
+
+
+
+
+    
+
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
     <asp:GridView ID="gvStudent" CssClass="table table-striped student-table" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" DataKeyNames="StudentID" DataSourceID="StudentDataSource">
         <Columns>
             <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True" SortExpression="StudentID" Visible="False" />
