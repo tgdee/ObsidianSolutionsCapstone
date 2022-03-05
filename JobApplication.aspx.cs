@@ -38,9 +38,9 @@ namespace Lab3
                 try
                 {
                     //create the string variables from text input
-                    string CompanyName = txtCompany.Text.ToString();
-                    string Date = txtDate.Text.ToString();
-                    string Position = txtPosition.Text.ToString();
+                    string CompanyName = txtCompany.Text;
+                    string Date = txtDate.Text;
+                    string Position = txtPosition.Text;
 
 
 

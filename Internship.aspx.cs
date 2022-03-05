@@ -39,7 +39,7 @@ namespace Lab3
 
                     using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                     {
-                        string companyName = txtCompanyName.Text.ToString();
+                        string companyName = txtCompanyName.Text;
                         string internshipType = txtInternshipType.Text;
                         DateTime startDateTime = DateTime.Parse(txtInternshipStartDate.Text);
                         string city = txtInternshipCity.Text;

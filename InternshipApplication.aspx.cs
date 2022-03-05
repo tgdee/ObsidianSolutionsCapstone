@@ -27,14 +27,15 @@ namespace Lab3
                 try
                 {
 
-                    string CompanyName = txtCompany.Text.ToString();
-                    string Date = txtDate.Text.ToString();
-                    string Position = txtPosition.Text.ToString();
+                    string CompanyName = HttpUtility.HtmlEncode(txtCompany.Text);
+                    string Date = HttpUtility.HtmlEncode(txtDate.Text);
+                    string Position = HttpUtility.HtmlEncode(txtPosition.Text);
 
 
 
                     string StudEmail = ddlStudent.SelectedValue;
 
+                    // Needs to be paramertized
                     string getStudentIdSql = "SELECT Student.StudentID FROM Student WHERE Student.Email='" + StudEmail + "'";
 
                     dbConnection.Open();
