@@ -21,7 +21,8 @@ namespace Lab3
             else
             {
 
-                Session["MustLogin"] = "You Must Login to Access that Page!";
+                lblUserStat.Text = "You Must Login to Access That Page";
+                lblUserStat.ForeColor = Color.Red;
                 Response.Redirect("LoginChoice.aspx");
             }
         }

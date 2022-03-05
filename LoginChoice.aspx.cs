@@ -30,19 +30,6 @@ namespace Lab3
 
         }
 
-        protected void loginTrigger()
-        {
-            
-        }
-        //protected void btnStudent_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("StudentLoginPage.aspx");
-        //}
-
-        //protected void btnMember_Click(object sender, EventArgs e)
-        //{
-        //    Response.Redirect("MemberLoginPage.aspx");
-        //}
 
         protected void btnNewAccount_Click(object sender, EventArgs e)
         {
@@ -51,6 +38,7 @@ namespace Lab3
 
         protected void btnGo_Click(object sender, EventArgs e)
         {
+
             // connect to database to retrieve stored password string
             try
             {
@@ -74,20 +62,18 @@ namespace Lab3
 
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
-                            
-                            lblStatus.Text = "Success!";
-                            txtUsername.Enabled = false;
-                            txtPassword.Enabled = false;
+                            Session["Username"] = txtUsername.Text;
                             Response.Redirect("~/Homepage.aspx");
                         }
                         else
-                            lblStatus.Text = "Password is wrong.";
+                            lblStatus.Text = "Invalid Password or Username";
                     }
                 }
                 else // if the username doesn't exist, it will show failure
-                    lblStatus.Text = "Login failed.";
+                    lblStatus.Text = "Invalid Password or Username";
 
                 sc.Close();
+                sc.Dispose();
             }
             catch (SqlException ex)
             {

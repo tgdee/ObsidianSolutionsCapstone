@@ -47,8 +47,6 @@
 
             <asp:Button ID="btnGo" runat="server" Text="Login ->" OnClick="btnGo_Click" />
             <br />
-          <%--  <asp:Button ID="btnStudent" runat="server" Text="Student" OnClick="btnStudent_Click"/>
-            <asp:Button ID="btnMember" runat="server" Text="Member" OnClick="btnMember_Click"  />--%>
             <br />
             <formview>
                 <%--Need to create a new account? --%>
