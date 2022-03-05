@@ -10,9 +10,11 @@ using System.Data.SqlClient;
 
 namespace Lab3
 {
+    
+    
     public partial class LoginChoice : System.Web.UI.Page
     {
-         
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,6 +30,10 @@ namespace Lab3
 
         }
 
+        protected void loginTrigger()
+        {
+            
+        }
         //protected void btnStudent_Click(object sender, EventArgs e)
         //{
         //    Response.Redirect("StudentLoginPage.aspx");
@@ -68,6 +74,7 @@ namespace Lab3
 
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
+                            
                             lblStatus.Text = "Success!";
                             txtUsername.Enabled = false;
                             txtPassword.Enabled = false;
