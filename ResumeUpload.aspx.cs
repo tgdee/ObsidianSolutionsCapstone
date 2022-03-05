@@ -49,13 +49,15 @@ namespace Lab3
 
                         try
                         {
-                            string insertString = "INSERT INTO Resume (FileName, FileLocation) VALUES (@fileName, @fileLocation)";
+                            string insertString = "INSERT INTO Resume (FileName, FileLocation, Username) VALUES (@fileName, @fileLocation, @userName)";
+                            string userName = Session["Username"].ToString();
                             dbConnection.Open();
 
                             using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                             {
                                 cmd.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload1.FileName.ToString();
                                 cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = "~/Resumes/" + FileUpload1.FileName;
+                                cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
                                 cmd.ExecuteNonQuery();
                             }
                         }
