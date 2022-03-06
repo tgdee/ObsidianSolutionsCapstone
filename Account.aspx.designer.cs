@@ -114,6 +114,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfPassword;
 
         /// <summary>
+        /// txtNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewPassword;
+
+        /// <summary>
+        /// rqfNewPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfNewPassword;
+
+        /// <summary>
         /// btnUpdate control.
         /// </summary>
         /// <remarks>
@@ -130,5 +148,23 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvDisplay;
+
+        /// <summary>
+        /// lblSelected control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelected;
+
+        /// <summary>
+        /// btnDelete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDelete;
     }
 }

@@ -34,7 +34,7 @@ namespace Lab3
 
         protected void BindDataList()
         {
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
             using(SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
@@ -44,18 +44,9 @@ namespace Lab3
                     dlAccount.DataBind();
                     connection.Open();
                     string username = Session["Username"].ToString();
-                    string sqlCommandString = "";
-                    if (Session["AccountType"].ToString().Equals("Student"))
-                    {
-                        sqlCommandString = "SELECT Student.FirstName, Student.LastName, Student.Email, StudentUser.Password " +
-                            "FROM Student INNER JOIN StudentUser ON Student.StudentID=StudentUser.StudentID AND StudentUser.UserName= '" + username + "'";
-                    }
-                    else if (Session["AccountType"].ToString().Equals("Alum"))
-                    {
-                        sqlCommandString = "SELECT Member.FirstName, Member.LastName, Member.Email, MemberUser.Password " +
-                            "FROM Member INNER JOIN MemberUser ON Member.MemberID=MemberUser.MemberID AND MemberUser.Username= '" + username + "'";
-                    }
+                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
@@ -86,8 +77,8 @@ namespace Lab3
             {
                 try
                 {
-                    string userName = Session["Username"].ToString();       // Find the current username of whomever is signed in
-                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
+                    string userName = Session["Username"].ToString();                                           // Find the current username of whomever is signed in
+                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";  
 
                     dbConnection.Open();
                     
@@ -95,11 +86,11 @@ namespace Lab3
                     {
                         cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
 
-                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);
+                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // FIll SqlDataAdapter using SELECT query
                         DataTable dt = new DataTable();
-                        sdr.Fill(dt);
-                        gvDisplay.DataSource = dt;
-                        gvDisplay.DataBind();
+                        sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
+                        gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
+                        gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
 
 
                     }
@@ -120,52 +111,49 @@ namespace Lab3
         {
             
 
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];            // Connect to AUTH from configuration
 
-            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))        // Create SQL Connection from Lab3
             {
                 try
                 {
-                    ltError.Text = "";
+                    ltError.Text = "";                                      // Clear errors in case there is old error 
                     dbConnection.Open();
-                    string username = Session["Username"].ToString();
+                    string username = Session["Username"].ToString();       // Get the username of whomever is signed in from the Session variable
                     string firstName = txtFirstName.Text;
                     string lastName = txtLastName.Text;
                     string email = txtEmail.Text;
-                    string password = txtPassword.Text;
+                    string oldPassword = txtPassword.Text;
+                    string newPassword = txtNewPassword.Text;
 
-                    string sql1 = "";
-                    string sql2 = "";
 
-                    if(Session["AccountType"].ToString().Equals("Student"))
+                    string updateAccountSql = "UPDATE UserLogin SET FirstName=@firstName, LastName=@lastName, Email=@email WHERE Username=@userName";
+                    SqlCommand cmd = new SqlCommand(updateAccountSql, dbConnection);
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = firstName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lastName;       // Prepare sql command to update userlogin table
+                    cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
+
+                    string updatePassSql = "UPDATE Pass SET PasswordHash=@passwordHash";
+                    SqlCommand cmd1 = new SqlCommand(updatePassSql, dbConnection);                  // Prepare sql command to update Pass table
+                    cmd1.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(newPassword);
+
+                    string queryCurrentPassword = "SELECT PasswordHash FROM Pass WHERE Username=@userName";
+                    SqlCommand cmd2 = new SqlCommand(queryCurrentPassword, dbConnection);                   // Get the current password to check with the old 
+                    cmd2.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
+                    string currentPassword = cmd2.ExecuteScalar().ToString();
+
+                    if (PasswordHash.ValidatePassword(oldPassword, currentPassword))                // Check the old password and only update if it matches
                     {
-                        sql1 = string.Format("UPDATE Student SET Student.FirstName=@FirstName, Student.LastName=@LastName, Student.Email=@Email " +
-                        "FROM Student INNER JOIN StudentUser " +
-                        "ON Student.StudentID=StudentUser.StudentID AND StudentUser.Username = '" + username + "'");
-
-                        sql2 = string.Format("UPDATE StudentUser SET StudentUser.Password=@Password FROM StudentUser " +
-                           "INNER JOIN Student ON StudentUser.StudentID=Student.StudentID WHERE StudentUser.UserName='" + username + "'");
+                        cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
+                        BindDataList();
                     }
-                    else if (Session["AccountType"].ToString().Equals("Alum"))
+                    else
                     {
-                        sql1 = string.Format("UPDATE Member SET Member.FirstName=@FirstName, Member.LastName=@LastName, Member.Email=@Email " +
-                            "FROM Member INNER JOIN MemberUser " +
-                            "ON Member.MemberID=MemberUser.MemberID AND MemberUser.UserName = '" + username + "'");
-                        sql2 = string.Format("UPDATE MemberUser SET MemberUser.Password=@Password FROM MemberUser " +
-                            "INNER JOIN Member ON MemberUser.MemberID=Member.MemberID WHERE MemberUser.UserName= '" + username + "'");
+                        ltError.Text = "Incorrect Old Password Update Failed";
                     }
 
-
-                    SqlCommand cmd1 = new SqlCommand(sql1, dbConnection);
-                    SqlCommand cmd2 = new SqlCommand(sql2, dbConnection);
-                    cmd1.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd1.Parameters.AddWithValue("@LastName", lastName);
-                    cmd1.Parameters.AddWithValue("@Email", email);
-                    cmd2.Parameters.AddWithValue("@Password", password);
-
-                    cmd1.ExecuteNonQuery();
-                    cmd2.ExecuteNonQuery();
-                    BindDataList();
 
                 }
                 catch (SqlException ex) 
@@ -182,6 +170,7 @@ namespace Lab3
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtPassword.Text = "";
+            txtNewPassword.Text = "";
 
         }
 
@@ -195,9 +184,44 @@ namespace Lab3
             Response.End();
         }
 
-        protected void gvDisplay_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow row = gvDisplay.SelectedRow;
 
+            lblSelected.Text = "Currently Selected Resume: " + row.Cells[2].Text + ".";     // Notify the user which row is currently selected
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvDisplay.SelectedRow;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+                    string deleteResume = "DELETE FROM Resume WHERE FileLocation=@fileLocation";
+                    dbConnection.Open();
+                    SqlCommand cmd = new SqlCommand(deleteResume, dbConnection);
+                    cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = row.Cells[3].Text;
+                    cmd.ExecuteNonQuery();
+                    lblSelected.Text = "";
+                    DisplayResume();
+                }
+                catch (SqlException ex)
+                {
+                    lblSelected.Text = ex.Message;
+
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
+            }
+            
+                
         }
     }
 }
