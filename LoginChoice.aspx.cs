@@ -61,11 +61,20 @@ namespace Lab3
                     {
                         string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
 
-                        if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash) && GetApprovedStatus().Equals("Approved")) // if the entered password matches what is stored, it will show success
+                        if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
                             Session["Username"] = txtUsername.Text;
                             Session["AccountType"] = GetAccountType();
-                            Response.Redirect("~/Homepage.aspx");
+                            if(GetApprovedStatus().Equals("Approved") || GetApprovedStatus().Equals("Admin"))   // Login if the user is approved or admin
+                            {
+                                Response.Redirect("~/Homepage.aspx");
+                            }
+                            else
+                            {
+                                Session.Abandon();
+                                lblStatus.Text = "Unapproved Account Contact Administrator";            // Abandon session and tell user his account is unapproved
+                            }
+                            
                         }
                         else
                             lblStatus.Text = "Invalid Password or Username";
@@ -91,7 +100,7 @@ namespace Lab3
             {
 
                 dbConnection.Open();
-                string queryAccountType = "SELECT AccountType FROM UserLogin WHERE Username=@userName";
+                string queryAccountType = "SELECT AccountType FROM UserLogin WHERE Username=@userName";         // Get the users account type to track permissions
                 string userName = Session["Username"].ToString();
                 SqlCommand cmd = new SqlCommand(queryAccountType, dbConnection);
                 cmd.Parameters.Add("@userName", System.Data.SqlDbType.NVarChar, 20).Value = userName;
@@ -110,7 +119,7 @@ namespace Lab3
 
             using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
-                string queryApprovedStatus = "SELECT AccountState FROM UserLogin WHERE Username=@userName";
+                string queryApprovedStatus = "SELECT AccountState FROM UserLogin WHERE Username=@userName";     // Get the users approval state
                 string userName = Session["Username"].ToString();
                 dbConnection.Open();
                 SqlCommand cmd = new SqlCommand(queryApprovedStatus, dbConnection);
