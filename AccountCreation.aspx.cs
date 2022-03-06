@@ -62,18 +62,18 @@ namespace Lab3
                     string insertStringPass = "INSERT INTO Pass (UserID, Username, PasswordHash) " +           // insert string for Pass table
                         "VALUES (@userId, @userName, @passWordHash)";
 
-                    using (SqlCommand cmd = new SqlCommand(insertStringPass, dbConnection))         // Create SqlCommand for insertString
+                    using (SqlCommand cmd1 = new SqlCommand(insertStringPass, dbConnection))         // Create SqlCommand for insertString
                     {
                         SqlCommand queryCmd = new SqlCommand(queryLastUserId, dbConnection);        // Create SqlCommand for userId query
                         int userId = (Int32)queryCmd.ExecuteScalar();                               // Store the userId to int variable
                         string userName = txtUserName.Text;
                         string passWord = txtPassword.Text;
 
-                        cmd.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
-                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 30).Value = userName;                                   // Add the values as parameters
-                        cmd.Parameters.Add("@passWordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(passWord);   // with PasswordHash's HashPassword
+                        cmd1.Parameters.Add("@userId", SqlDbType.Int).Value = userId;
+                        cmd1.Parameters.Add("@userName", SqlDbType.NVarChar, 30).Value = userName;                                   // Add the values as parameters
+                        cmd1.Parameters.Add("@passWordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(passWord);   // with PasswordHash's HashPassword
 
-                        cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
 
                     }
 
@@ -85,7 +85,7 @@ namespace Lab3
                     txtPassword.Text = "";
                 }
                 
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
 
                     ltError.Text = ex.Message;      // Display exceptions in literal
@@ -96,7 +96,6 @@ namespace Lab3
 
                     dbConnection.Close();
                     dbConnection.Dispose();
-                    Response.Redirect("~/LoginChoice.aspx");
                 }
             }
             

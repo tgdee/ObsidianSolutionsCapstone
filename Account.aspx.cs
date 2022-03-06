@@ -111,7 +111,7 @@ namespace Lab3
         {
             
 
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];            // Connect to Lab3 from configuration
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];            // Connect to AUTH from configuration
 
             using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))        // Create SQL Connection from Lab3
             {
@@ -170,6 +170,7 @@ namespace Lab3
             txtFirstName.Text = "";
             txtLastName.Text = "";
             txtPassword.Text = "";
+            txtNewPassword.Text = "";
 
         }
 
@@ -205,6 +206,7 @@ namespace Lab3
                     SqlCommand cmd = new SqlCommand(deleteResume, dbConnection);
                     cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = row.Cells[3].Text;
                     cmd.ExecuteNonQuery();
+                    lblSelected.Text = "";
                     DisplayResume();
                 }
                 catch (SqlException ex)
