@@ -71,8 +71,9 @@
         </asp:TableRow>
     </asp:Table>
     <br />
-    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation">
+    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnRowDeleting="gvDisplay_RowDeleting">
         <Columns>
+            <asp:CommandField ShowDeleteButton="true" ButtonType="Button" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Download Resume" ValidationGroup="DisplayResumeValidation" OnClick="LinkButton1_Click"></asp:LinkButton>
