@@ -4,7 +4,7 @@
 <asp:Content ContentPlaceHolderID="MainContent" runat="server"> 
  <br />
     <br />
-    <h1>Job Application Page </h1>
+    <h1>Internship Application Page </h1>
         <h4>
             <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
         </h4>
