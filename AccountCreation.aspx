@@ -48,4 +48,7 @@
 
 
     <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
+    <br />
+    <br />
+    <asp:Button ID="btnReturn" runat="server" Text="Previous Page <-" OnClick="btnRetur_Click" />
 </asp:Content>
