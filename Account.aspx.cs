@@ -130,20 +130,20 @@ namespace Lab3
                     string updateAccountSql = "UPDATE UserLogin SET FirstName=@firstName, LastName=@lastName, Email=@email WHERE Username=@userName";
                     SqlCommand cmd = new SqlCommand(updateAccountSql, dbConnection);
                     cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = firstName;
-                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lastName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lastName;       // Prepare sql command to update userlogin table
                     cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
                     cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
 
                     string updatePassSql = "UPDATE Pass SET PasswordHash=@passwordHash";
-                    SqlCommand cmd1 = new SqlCommand(updatePassSql, dbConnection);
+                    SqlCommand cmd1 = new SqlCommand(updatePassSql, dbConnection);                  // Prepare sql command to update Pass table
                     cmd1.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(newPassword);
 
                     string queryCurrentPassword = "SELECT PasswordHash FROM Pass WHERE Username=@userName";
-                    SqlCommand cmd2 = new SqlCommand(queryCurrentPassword, dbConnection);
+                    SqlCommand cmd2 = new SqlCommand(queryCurrentPassword, dbConnection);                   // Get the current password to check with the old 
                     cmd2.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
                     string currentPassword = cmd2.ExecuteScalar().ToString();
 
-                    if(currentPassword.Equals(PasswordHash.HashPassword(oldPassword)))
+                    if (PasswordHash.ValidatePassword(oldPassword, currentPassword))                // Check the old password and only update if it matches
                     {
                         cmd.ExecuteNonQuery();
                         cmd1.ExecuteNonQuery();
