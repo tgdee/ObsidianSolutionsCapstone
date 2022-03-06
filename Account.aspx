@@ -64,7 +64,17 @@
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>
-    <asp:GridView ID="GridView1" runat="server"></asp:GridView>
+    <br />
+    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation">
+        <Columns>
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:LinkButton ID="LinkButton1" runat="server" Text="Download Resume" OnClick="LinkButton1_Click"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
 
-    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
+    </asp:GridView>
+
+
 </asp:Content>

@@ -20,7 +20,7 @@ namespace Lab3
             if (Session["Username"] == null)
             {
                 Session["MustLogin"] = "You Must Login to Access that Page!";
-                Response.Redirect("LoginPages/LoginChoice.aspx");
+                Response.Redirect("~/LoginChoice.aspx");
             }
 
 
@@ -79,15 +79,39 @@ namespace Lab3
 
         protected void DisplayResume()
         {
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Connect to AUTH Database where Resume table is
 
             using(SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
-                //try
-                //{
-                    //string queryResume = "SELECT FileName, FileLocation"
-                    //SqlCommand cmd = 
-                //}
+                try
+                {
+                    string userName = Session["Username"].ToString();       // Find the current username of whomever is signed in
+                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
+
+                    dbConnection.Open();
+                    
+                    using (SqlCommand cmd = new SqlCommand(queryResume, dbConnection))
+                    {
+                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+
+                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);
+                        DataTable dt = new DataTable();
+                        sdr.Fill(dt);
+                        gvDisplay.DataSource = dt;
+                        gvDisplay.DataBind();
+
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
             }
         }
 
@@ -158,6 +182,16 @@ namespace Lab3
             txtLastName.Text = "";
             txtPassword.Text = "";
 
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            LinkButton linkDownload = sender as LinkButton;
+            GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
+            string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
+            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
+            Response.TransmitFile(Server.MapPath(downloadFile));
+            Response.End();
         }
     }
 }

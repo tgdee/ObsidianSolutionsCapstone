@@ -63,6 +63,7 @@ namespace Lab3
                         if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
                         {
                             Session["Username"] = txtUsername.Text;
+                            Session["AccountType"] = GetAccountType();
                             Response.Redirect("~/Homepage.aspx");
                         }
                         else
@@ -79,6 +80,37 @@ namespace Lab3
             {
                 lblStatus.Text = ex.Message;
             }
-        }  
+        }
+
+        protected string GetAccountType()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+
+                string queryAccountType = "SELECT AccountType FROM UserLogin WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                SqlCommand cmd = new SqlCommand(queryAccountType, dbConnection);
+                cmd.Parameters.Add("@userName", System.Data.SqlDbType.NVarChar, 20).Value = userName;
+
+                string accountType = cmd.ExecuteScalar().ToString();
+
+                return accountType;
+
+            }
+
+        }
+
+        protected string GetApprovedStatus()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                string queryApprovedStatus = "SELECT AccountState FROM UserLogin WHERE ";
+            }
+        }
+
     }
 }
