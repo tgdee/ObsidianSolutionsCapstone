@@ -12,40 +12,34 @@
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
     
-    
-
-
-
-
 
     <asp:Label ID="Label8" runat="server" Text="First Name"></asp:Label>
-    <asp:TextBox ID="TextBox8" runat="server" ValidationGroup="1"></asp:TextBox>
+    &nbsp
+    <asp:TextBox ID="txtFirstNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
     <asp:Label ID="Label9" runat="server" Text="Last Name"></asp:Label>
-    <asp:TextBox ID="TextBox9" runat="server" ValidationGroup="1"></asp:TextBox>
+    &nbsp
+    <asp:TextBox ID="txtLastNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="Label10" runat="server" Text="Grade"></asp:Label>
-    <asp:TextBox ID="TextBox11" runat="server" ValidationGroup="1"></asp:TextBox>
+    <asp:Label ID="Label14" runat="server" Text="Username"></asp:Label>
+    &nbsp
+    <asp:TextBox ID="txtUserNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="Label11" runat="server" Text="GraduationYear"></asp:Label>
-    <asp:TextBox ID="TextBox10" runat="server" ValidationGroup="1"></asp:TextBox>
+    <asp:Label ID="Label10" runat="server" Text="Email"></asp:Label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtEmailSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="Label12" runat="server" Text="Major"></asp:Label>
-    <asp:TextBox ID="TextBox12" runat="server" ValidationGroup="1"></asp:TextBox>
+    <asp:Label ID="Label11" runat="server" Text="Account State:"></asp:Label>
+    &nbsp
+    <asp:DropDownList ID="ddlAccountState" runat="server">
+        <asp:ListItem Text="Approved" Value="1"></asp:ListItem>
+        <asp:ListItem Text="Unapproved" Value="2"></asp:ListItem>
+    </asp:DropDownList>
     <br />
-    <asp:Label ID="Label13" runat="server" Text="PhoneNumber"></asp:Label>
-    <asp:TextBox ID="TextBox13" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="Label14" runat="server" Text="Email"></asp:Label>
-    <asp:TextBox ID="TextBox14" runat="server" ValidationGroup="1"></asp:TextBox>
-
-
-
     <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" />
-
     <br />
-    <asp:Label ID="LblFile" runat="server" Text="Upload Resume:"></asp:Label>
-    
+    <br />
 
     <asp:GridView ID="gvSearch" runat="server" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated"></asp:GridView>
 

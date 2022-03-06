@@ -14,7 +14,7 @@ namespace Lab3
 {
     public partial class _Default : Page
     {
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3ConnectionString"].ConnectionString);
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,16 +28,15 @@ namespace Lab3
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchQuery = "SELECT * FROM Student WHERE(FirstName like '%' + @firstName + '%' or LastName like '&' + @LastName + '%' or Grade like '&' + @Grade + '%'" +
-                "or GraduationYear like '&' + @GraduationYear + '%' or Major like '&' + @Major + '%' or PhoneNumber like '&' + @PhoneNumber + '%' or Email like '&' + @Email + '%')";
+            string searchQuery = "SELECT * FROM UserLogin WHERE(FirstName like '%' + @FirstName + '%' or LastName like '&' + @LastName + '%' or Username like '&' + @Username + '%'" +
+                "or Email like '&' + @Email + '%') AND AccountState = @AccountState AND AccountType='Student'";
             SqlCommand cmd = new SqlCommand(searchQuery, con);
-            cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 50).Value = TextBox8.Text;
-            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = TextBox9.Text;
-            cmd.Parameters.Add("@Grade", SqlDbType.NVarChar, 50).Value = TextBox10.Text;
-            cmd.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 4).Value = TextBox11.Text;
-            cmd.Parameters.Add("@Major", SqlDbType.NVarChar, 50).Value = TextBox12.Text;
-            cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = TextBox13.Text;
-            cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = TextBox14.Text;
+            cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
+            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
+            cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = txtUserNameSearch.Text;
+            cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmailSearch.Text;
+            cmd.Parameters.Add("@AccountState", SqlDbType.NVarChar, 10).Value = ddlAccountState.SelectedItem.Text;
+
 
             con.Open();
             cmd.ExecuteNonQuery();
@@ -47,11 +46,9 @@ namespace Lab3
 
             da.Fill(ds, "FirstName");
             da.Fill(ds, "LastName");
-            da.Fill(ds, "Grade");
-            da.Fill(ds, "GraduationYear");
-            da.Fill(ds, "Major");
-            da.Fill(ds, "PhoneNumber");
+            da.Fill(ds, "Username");
             da.Fill(ds, "Email");
+            da.Fill(ds, "AccountState");
             gvSearch.DataSource = ds;
 
             gvSearch.DataBind();
