@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Web.Configuration;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace Lab3
 {
@@ -60,7 +61,7 @@ namespace Lab3
                     {
                         string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
 
-                        if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                        if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash) && GetApprovedStatus().Equals("Approved")) // if the entered password matches what is stored, it will show success
                         {
                             Session["Username"] = txtUsername.Text;
                             Session["AccountType"] = GetAccountType();
@@ -89,6 +90,7 @@ namespace Lab3
             using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
 
+                dbConnection.Open();
                 string queryAccountType = "SELECT AccountType FROM UserLogin WHERE Username=@userName";
                 string userName = Session["Username"].ToString();
                 SqlCommand cmd = new SqlCommand(queryAccountType, dbConnection);
@@ -108,7 +110,15 @@ namespace Lab3
 
             using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
-                string queryApprovedStatus = "SELECT AccountState FROM UserLogin WHERE ";
+                string queryApprovedStatus = "SELECT AccountState FROM UserLogin WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+                SqlCommand cmd = new SqlCommand(queryApprovedStatus, dbConnection);
+                cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+
+                string accountType = cmd.ExecuteScalar().ToString();
+
+                return accountType;
             }
         }
 
