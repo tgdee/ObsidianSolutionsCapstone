@@ -86,8 +86,8 @@ namespace Lab3
             {
                 try
                 {
-                    string userName = Session["Username"].ToString();       // Find the current username of whomever is signed in
-                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
+                    string userName = Session["Username"].ToString();                                           // Find the current username of whomever is signed in
+                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";  
 
                     dbConnection.Open();
                     
@@ -95,11 +95,11 @@ namespace Lab3
                     {
                         cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
 
-                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);
+                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // FIll SqlDataAdapter using SELECT query
                         DataTable dt = new DataTable();
-                        sdr.Fill(dt);
-                        gvDisplay.DataSource = dt;
-                        gvDisplay.DataBind();
+                        sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
+                        gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
+                        gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
 
 
                     }
@@ -120,15 +120,15 @@ namespace Lab3
         {
             
 
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];            // Connect to Lab3 from configuration
 
-            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))        // Create SQL Connection from Lab3
             {
                 try
                 {
-                    ltError.Text = "";
+                    ltError.Text = "";                                      // Clear errors in case there is old error 
                     dbConnection.Open();
-                    string username = Session["Username"].ToString();
+                    string username = Session["Username"].ToString();       // Get the username of whomever is signed in from the Session variable
                     string firstName = txtFirstName.Text;
                     string lastName = txtLastName.Text;
                     string email = txtEmail.Text;
@@ -137,11 +137,11 @@ namespace Lab3
                     string sql1 = "";
                     string sql2 = "";
 
-                    if(Session["AccountType"].ToString().Equals("Student"))
+                    if(Session["AccountType"].ToString().Equals("Student"))         // Determine if whomever is signed is a student user or an alum user
                     {
                         sql1 = string.Format("UPDATE Student SET Student.FirstName=@FirstName, Student.LastName=@LastName, Student.Email=@Email " +
                         "FROM Student INNER JOIN StudentUser " +
-                        "ON Student.StudentID=StudentUser.StudentID AND StudentUser.Username = '" + username + "'");
+                        "ON Student.StudentID=StudentUser.StudentID AND StudentUser.Username = '" + username + "'");                    // Use two sql statements for two different tables
 
                         sql2 = string.Format("UPDATE StudentUser SET StudentUser.Password=@Password FROM StudentUser " +
                            "INNER JOIN Student ON StudentUser.StudentID=Student.StudentID WHERE StudentUser.UserName='" + username + "'");
@@ -195,9 +195,43 @@ namespace Lab3
             Response.End();
         }
 
-        protected void gvDisplay_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
         {
+            GridViewRow row = gvDisplay.SelectedRow;
 
+            lblSelected.Text = "Currently Selected Resume: " + row.Cells[2].Text + ".";     // Notify the user which row is currently selected
+        }
+
+        protected void btnDelete_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvDisplay.SelectedRow;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+                    string deleteResume = "DELETE FROM Resume WHERE FileLocation=@fileLocation";
+                    dbConnection.Open();
+                    SqlCommand cmd = new SqlCommand(deleteResume, dbConnection);
+                    cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = row.Cells[3].Text;
+                    cmd.ExecuteNonQuery();
+                    DisplayResume();
+                }
+                catch (SqlException ex)
+                {
+                    lblSelected.Text = ex.Message;
+
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
+            }
+            
+                
         }
     }
 }

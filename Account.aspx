@@ -71,17 +71,18 @@
         </asp:TableRow>
     </asp:Table>
     <br />
-    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnRowDeleting="gvDisplay_RowDeleting">
+    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnSelectedIndexChanged="gvDisplay_SelectedIndexChanged" >
         <Columns>
-            <asp:CommandField ShowDeleteButton="true" ButtonType="Button" />
+            <asp:CommandField ShowSelectButton="true" />
             <asp:TemplateField>
                 <ItemTemplate>
                     <asp:LinkButton ID="LinkButton1" runat="server" Text="Download Resume" ValidationGroup="DisplayResumeValidation" OnClick="LinkButton1_Click"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-
     </asp:GridView>
+    <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
+    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
 
 
 </asp:Content>
