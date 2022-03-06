@@ -52,17 +52,25 @@ namespace Lab3
                         dbConnection.Open();
                         SqlCommand cmd = new SqlCommand(updateToApprove, dbConnection);
                         cmd.ExecuteNonQuery();
+                        Response.Redirect("~/AdminPage.aspx");
                     }
-                    else
+                    else if (row.Cells[6].Text.Equals("Approved"))
                     {
                         // Update sql
                         string updateToUnapprove = "UPDATE UserLogin SET UserLogin.AccountState='Unapproved' WHERE UserLogin.UserID=" + row.Cells[1].Text;
                         dbConnection.Open();
                         SqlCommand cmd = new SqlCommand(updateToUnapprove, dbConnection);
                         cmd.ExecuteNonQuery();
+                        Response.Redirect("~/AdminPage.aspx");
+                    }
+                    else
+                    {
+                        lblSelected.ForeColor = System.Drawing.Color.Red;
+                        lblSelected.Text = "Cannot Approve or Unapprove Admin";
+
                     }
 
-                    Response.Redirect("~/AdminPage.aspx");
+                    
 
                 }
                 catch (SqlException ex)
