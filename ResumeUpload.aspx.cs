@@ -32,10 +32,11 @@ namespace Lab3
                 else
                 {
                     int fileSize = FileUpload1.PostedFile.ContentLength;
+                    int fileNameLength = FileUpload1.FileName.ToString().Length;
 
-                    if(fileSize > 2097152)
+                    if(fileSize > 2097152 || fileNameLength > 20)          // Prevent file larger than this many bytes or 2MB from being uploaded
                     {
-                        lblMessage.Text = "Maximum File Size (2MB) Exceeded";
+                        lblMessage.Text = "Maximum File Size (2MB) Exceeded OR Maximum File Name of 20 Letters Exceeded";
                     }
                     else
                     {

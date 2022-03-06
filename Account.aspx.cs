@@ -27,6 +27,7 @@ namespace Lab3
             if (!IsPostBack)
             {
                 BindDataList();
+                DisplayResume();
             }
 
         }
@@ -44,12 +45,12 @@ namespace Lab3
                     connection.Open();
                     string username = Session["Username"].ToString();
                     string sqlCommandString = "";
-                    if ((bool)Session["isStudent"])
+                    if (Session["AccountType"].ToString().Equals("Student"))
                     {
                         sqlCommandString = "SELECT Student.FirstName, Student.LastName, Student.Email, StudentUser.Password " +
                             "FROM Student INNER JOIN StudentUser ON Student.StudentID=StudentUser.StudentID AND StudentUser.UserName= '" + username + "'";
                     }
-                    else if ((bool)Session["isMember"])
+                    else if (Session["AccountType"].ToString().Equals("Alum"))
                     {
                         sqlCommandString = "SELECT Member.FirstName, Member.LastName, Member.Email, MemberUser.Password " +
                             "FROM Member INNER JOIN MemberUser ON Member.MemberID=MemberUser.MemberID AND MemberUser.Username= '" + username + "'";
