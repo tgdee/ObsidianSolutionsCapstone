@@ -19,8 +19,7 @@ namespace Lab3
 
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
-            
-                     // Reset error box in case of previous error
+
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Create webconfiguratiuon to AUTH database
 
@@ -28,8 +27,9 @@ namespace Lab3
             {
                 try
                 {
-                    string insertStringUserLogin = "INSERT INTO UserLogin (FirstName, LastName, Username, AccountType) " +      // Insert statement for UserLogin table
-                        "VALUES (@firstName, @lastName, @userName, @accountType)";
+                    string insertStringUserLogin = "INSERT INTO UserLogin (FirstName, LastName, Username, Email, AccountType) " +      // Insert statement for UserLogin table
+                        "VALUES (@firstName, @lastName, @userName, @email, @accountType)";
+
 
                     
 
@@ -38,13 +38,15 @@ namespace Lab3
                     using (SqlCommand cmd = new SqlCommand(insertStringUserLogin, dbConnection))        // Create first insert command
                     {
                         string fName = txtFirstName.Text;
-                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox with value of 1
+                        string lName = txtLastName.Text;            // Get values to insert from ddl and txtbox 
                         string userName = txtUserName.Text;
+                        string email = txtEmail.Text;
                         string accountType = ddlAccountType.SelectedItem.Text;
 
                         cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = fName;
                         cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lName;      // Add values as parameters
                         cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                        cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
                         cmd.Parameters.Add("@accountType", SqlDbType.NVarChar, 7).Value = accountType;
 
 
@@ -75,14 +77,6 @@ namespace Lab3
 
                     }
 
-                    //if(Int32.Parse(ddlAccountType.SelectedValue) == 1)
-                    //{
-                    //    Response.Redirect("~/LoginPages/StudentLoginPage.aspx");        // Redirect to student login if created account was a student
-                    //}
-                    //else
-                    //{
-                    //    Response.Redirect("~/LoginPages/MemberLoginPage.aspx");         // Redirect to member login if created account was a member
-                    //}
 
                     txtFirstName.Text = "";
                     txtLastName.Text = "";

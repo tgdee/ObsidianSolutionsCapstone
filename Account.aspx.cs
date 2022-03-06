@@ -34,7 +34,7 @@ namespace Lab3
 
         protected void BindDataList()
         {
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
             using(SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
@@ -44,18 +44,9 @@ namespace Lab3
                     dlAccount.DataBind();
                     connection.Open();
                     string username = Session["Username"].ToString();
-                    string sqlCommandString = "";
-                    if (Session["AccountType"].ToString().Equals("Student"))
-                    {
-                        sqlCommandString = "SELECT Student.FirstName, Student.LastName, Student.Email, StudentUser.Password " +
-                            "FROM Student INNER JOIN StudentUser ON Student.StudentID=StudentUser.StudentID AND StudentUser.UserName= '" + username + "'";
-                    }
-                    else if (Session["AccountType"].ToString().Equals("Alum"))
-                    {
-                        sqlCommandString = "SELECT Member.FirstName, Member.LastName, Member.Email, MemberUser.Password " +
-                            "FROM Member INNER JOIN MemberUser ON Member.MemberID=MemberUser.MemberID AND MemberUser.Username= '" + username + "'";
-                    }
+                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
@@ -132,40 +123,37 @@ namespace Lab3
                     string firstName = txtFirstName.Text;
                     string lastName = txtLastName.Text;
                     string email = txtEmail.Text;
-                    string password = txtPassword.Text;
+                    string oldPassword = txtPassword.Text;
+                    string newPassword = txtNewPassword.Text;
 
-                    string sql1 = "";
-                    string sql2 = "";
 
-                    if(Session["AccountType"].ToString().Equals("Student"))         // Determine if whomever is signed is a student user or an alum user
+                    string updateAccountSql = "UPDATE UserLogin SET FirstName=@firstName, LastName=@lastName, Email=@email WHERE Username=@userName";
+                    SqlCommand cmd = new SqlCommand(updateAccountSql, dbConnection);
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 20).Value = firstName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lastName;
+                    cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
+
+                    string updatePassSql = "UPDATE Pass SET PasswordHash=@passwordHash";
+                    SqlCommand cmd1 = new SqlCommand(updatePassSql, dbConnection);
+                    cmd1.Parameters.Add("@passwordHash", SqlDbType.NVarChar, 256).Value = PasswordHash.HashPassword(newPassword);
+
+                    string queryCurrentPassword = "SELECT PasswordHash FROM Pass WHERE Username=@userName";
+                    SqlCommand cmd2 = new SqlCommand(queryCurrentPassword, dbConnection);
+                    cmd2.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = username;
+                    string currentPassword = cmd2.ExecuteScalar().ToString();
+
+                    if(currentPassword.Equals(PasswordHash.HashPassword(oldPassword)))
                     {
-                        sql1 = string.Format("UPDATE Student SET Student.FirstName=@FirstName, Student.LastName=@LastName, Student.Email=@Email " +
-                        "FROM Student INNER JOIN StudentUser " +
-                        "ON Student.StudentID=StudentUser.StudentID AND StudentUser.Username = '" + username + "'");                    // Use two sql statements for two different tables
-
-                        sql2 = string.Format("UPDATE StudentUser SET StudentUser.Password=@Password FROM StudentUser " +
-                           "INNER JOIN Student ON StudentUser.StudentID=Student.StudentID WHERE StudentUser.UserName='" + username + "'");
+                        cmd.ExecuteNonQuery();
+                        cmd1.ExecuteNonQuery();
+                        BindDataList();
                     }
-                    else if (Session["AccountType"].ToString().Equals("Alum"))
+                    else
                     {
-                        sql1 = string.Format("UPDATE Member SET Member.FirstName=@FirstName, Member.LastName=@LastName, Member.Email=@Email " +
-                            "FROM Member INNER JOIN MemberUser " +
-                            "ON Member.MemberID=MemberUser.MemberID AND MemberUser.UserName = '" + username + "'");
-                        sql2 = string.Format("UPDATE MemberUser SET MemberUser.Password=@Password FROM MemberUser " +
-                            "INNER JOIN Member ON MemberUser.MemberID=Member.MemberID WHERE MemberUser.UserName= '" + username + "'");
+                        ltError.Text = "Incorrect Old Password Update Failed";
                     }
 
-
-                    SqlCommand cmd1 = new SqlCommand(sql1, dbConnection);
-                    SqlCommand cmd2 = new SqlCommand(sql2, dbConnection);
-                    cmd1.Parameters.AddWithValue("@FirstName", firstName);
-                    cmd1.Parameters.AddWithValue("@LastName", lastName);
-                    cmd1.Parameters.AddWithValue("@Email", email);
-                    cmd2.Parameters.AddWithValue("@Password", password);
-
-                    cmd1.ExecuteNonQuery();
-                    cmd2.ExecuteNonQuery();
-                    BindDataList();
 
                 }
                 catch (SqlException ex) 
