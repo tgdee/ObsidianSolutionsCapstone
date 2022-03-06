@@ -52,7 +52,7 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Homepage.aspx">Homepage</a></li>
+                        <li><a runat="server" href="~/AdminPage/AdminHomepage.aspx">Homepage</a></li>
                         <li><a runat="server" href="~/Student.aspx">Student</a></li>
                         <li><a runat="server" href="~/MemberTest.aspx">Member</a></li>
                         <li><a runat="server" href="~/MentoringProgram.aspx">Mentoring Program</a></li>
