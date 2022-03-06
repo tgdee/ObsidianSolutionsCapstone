@@ -65,7 +65,11 @@ namespace Lab3
                         {
                             Session["Username"] = txtUsername.Text;
                             Session["AccountType"] = GetAccountType();
-                            if(GetApprovedStatus().Equals("Approved") || GetApprovedStatus().Equals("Admin"))   // Login if the user is approved or admin
+                            if((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Student")))   // Login if the user is approved or admin
+                            {
+                                Response.Redirect("~/StudentHomepage.aspx");
+                            }
+                            else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")) || GetApprovedStatus().Equals("Admin"))
                             {
                                 Response.Redirect("~/Homepage.aspx");
                             }

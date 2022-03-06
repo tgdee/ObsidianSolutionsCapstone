@@ -15,16 +15,14 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
             //Creates the restriction of accesing the pages depending on if the user is a member or a student
         {
-            if (Session["Username"] == null)
-            {
-                Session["MustLogin"] = "You Must Login to Access that Page!";
-                Response.Redirect("LoginPages/LoginChoice.aspx");
-            }
-            if ((bool)Session["isMember"])
-            {
-                Response.Redirect("~/Homepage.aspx");
-                Session["GetOuttaHereMember"] = "You are not a student";
-            }
+
+
+            //if (Session["Username"] == null)
+            //{
+            //    Session["MustLogin"] = "You Must Login to Access that Page!";
+            //    Response.Redirect("LoginPages/LoginChoice.aspx");
+            //}
+            
         }
 
         protected void btnApply_Click(object sender, EventArgs e)
