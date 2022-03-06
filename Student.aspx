@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Student Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="Lab3._Default" %>
 
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
@@ -42,8 +43,9 @@
 
     <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" />
 
-
-
+    <br />
+    <asp:Label ID="LblFile" runat="server" Text="Upload Resume:"></asp:Label>
+    
 
     <asp:GridView ID="gvSearch" runat="server" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated"></asp:GridView>
 
