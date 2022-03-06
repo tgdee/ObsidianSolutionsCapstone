@@ -49,7 +49,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li><a runat="server" href="~/InternshipApplication.aspx">Internship Application</a></li>
-                        <li><a runat="server" href="~/JobApplication.aspx">Scholarship Application</a></li>
+                        <li><a runat="server" href="~/JobApplication.aspx">Job Application</a></li>
                         <li><a runat="server" href="~/ScholarshipApplication.aspx">Scholarship Application</a></li>
                     </ul>
                 </div>
@@ -57,7 +57,7 @@
          </div>
 
         <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - DukeGroup: ShaneMcCarthy, Timothy Goeke</p>

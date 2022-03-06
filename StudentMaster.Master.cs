@@ -11,6 +11,7 @@ namespace Lab3
     public partial class StudentMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
+            //Creates the restricstion on entering pages if you are a member or student
         {
             if (Session["Username"] != null)
             {
@@ -24,13 +25,19 @@ namespace Lab3
                 lblUserStat.ForeColor = Color.Red;
                 Response.Redirect("LoginChoice.aspx");
             }
+
+            if ((string)Session["AccountType"] == "Alum")
+            {
+                Response.Redirect("~/Homepage.aspx");
+                Session["GetOuttaHereMember"] = "You are not a student";
+            }
         }
 
 
         protected void btnFullLogout_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("LoginChoice.aspx");
+            Response.Redirect("LoginC");
 
         }
     }
