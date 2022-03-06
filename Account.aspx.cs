@@ -137,7 +137,7 @@ namespace Lab3
                     string sql1 = "";
                     string sql2 = "";
 
-                    if((bool)Session["isStudent"])
+                    if(Session["AccountType"].ToString().Equals("Student"))
                     {
                         sql1 = string.Format("UPDATE Student SET Student.FirstName=@FirstName, Student.LastName=@LastName, Student.Email=@Email " +
                         "FROM Student INNER JOIN StudentUser " +
@@ -146,7 +146,7 @@ namespace Lab3
                         sql2 = string.Format("UPDATE StudentUser SET StudentUser.Password=@Password FROM StudentUser " +
                            "INNER JOIN Student ON StudentUser.StudentID=Student.StudentID WHERE StudentUser.UserName='" + username + "'");
                     }
-                    else if ((bool)Session["isMember"])
+                    else if (Session["AccountType"].ToString().Equals("Alum"))
                     {
                         sql1 = string.Format("UPDATE Member SET Member.FirstName=@FirstName, Member.LastName=@LastName, Member.Email=@Email " +
                             "FROM Member INNER JOIN MemberUser " +
@@ -193,6 +193,11 @@ namespace Lab3
             Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
             Response.TransmitFile(Server.MapPath(downloadFile));
             Response.End();
+        }
+
+        protected void gvDisplay_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+
         }
     }
 }
