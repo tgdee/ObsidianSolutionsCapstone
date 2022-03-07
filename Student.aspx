@@ -12,7 +12,7 @@
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
     
-
+    <h3>Search Student</h3>
     <asp:Label ID="Label8" runat="server" Text="First Name"></asp:Label>
     &nbsp
     <asp:TextBox ID="txtFirstNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
@@ -22,11 +22,11 @@
     <asp:TextBox ID="txtLastNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
     <asp:Label ID="Label14" runat="server" Text="Username"></asp:Label>
-    &nbsp
+    &nbsp&nbsp
     <asp:TextBox ID="txtUserNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
     <asp:Label ID="Label10" runat="server" Text="Email"></asp:Label>
-    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtEmailSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
     <asp:Label ID="Label11" runat="server" Text="Account State:"></asp:Label>
@@ -41,8 +41,28 @@
     <br />
     <br />
 
-    <asp:GridView ID="gvSearch" runat="server" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated"></asp:GridView>
+    <asp:GridView ID="gvSearch" runat="server" OnSelectedIndexChanged="gvSearch_SelectedIndexChanged" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated">
+        <Columns>
+            <asp:CommandField ShowSelectButton="true" />
+        </Columns>
+    </asp:GridView>
+    <br />
+    <asp:Label ID="lblSelectedStudent" runat="server" ></asp:Label>
 
+
+    <br />
+    <br />
+    <h3>Uploaded Resumes of Selected Student</h3>
+    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnSelectedIndexChanged="gvDisplay_SelectedIndexChanged" >
+        <Columns>
+            <asp:CommandField ShowSelectButton="false" />
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:LinkButton ID="lbDownloadResume" runat="server" Text="Download Resume" ValidationGroup="DisplayResumeValidation" OnClick="lbDownloadResume_Click"></asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 
 
 

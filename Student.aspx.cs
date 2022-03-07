@@ -49,9 +49,15 @@ namespace Lab3
             da.Fill(ds, "Username");
             da.Fill(ds, "Email");
             da.Fill(ds, "AccountState");
+            ViewState["ds"] = ds;
             gvSearch.DataSource = ds;
 
             gvSearch.DataBind();
+            if(gvSearch.Rows.Count == 1)
+            {
+                gvSearch.HeaderRow.Cells[1].Visible = false;
+                gvSearch.Rows[0].Cells[1].Visible = false;
+            }
 
             con.Close();
 
@@ -123,12 +129,75 @@ namespace Lab3
 
         protected void gvStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void gvSearch_RowCreated(object sender, GridViewRowEventArgs e)
         {
-            e.Row.Cells[0].Visible = false;
+
+        }
+
+        protected void gvSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvSearch.SelectedRow;
+
+            lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[2].Text + " " + row.Cells[3].Text;
+
+            DisplayResume();
+        }
+
+        protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void lbDownloadResume_Click(object sender, EventArgs e)
+        {
+            LinkButton linkDownload = sender as LinkButton;
+            GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
+            string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
+            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
+            Response.TransmitFile(Server.MapPath(downloadFile));
+            Response.End();
+        }
+
+        protected void DisplayResume()
+        {
+        
+                try
+                {
+                    GridViewRow row = gvSearch.SelectedRow;
+
+
+
+                    string userName = row.Cells[4].Text;                                                                          // Find the current username of whomever is signed in
+                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
+
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(queryResume, con))
+                    {
+                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+
+                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // Fill SqlDataAdapter using SELECT query
+                        DataTable dt = new DataTable();
+                        sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
+                        gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
+                        gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
+
+
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    con.Close();
+                    con.Dispose();
+                }
+            
         }
     }
 }
