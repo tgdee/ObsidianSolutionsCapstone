@@ -55,7 +55,7 @@ namespace Lab3
 
                     SqlDataReader reader = command.ExecuteReader();         // create a reader
 
-                    if (reader.HasRows)                                 // if the username exists, it will continue
+                    if (reader.HasRows)                                     // if the username exists, it will continue
                     {
                         while (reader.Read())                               // this will read the single record that matches the entered username
                         {
