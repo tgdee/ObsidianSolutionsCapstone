@@ -129,7 +129,11 @@ namespace Lab3
 
         protected void gvStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            GridViewRow row = gvStudent.SelectedRow;
+
+            Session["SelectedUsername"] = row.Cells[1].Text;
+
+            Response.Redirect("~/StudentInformation.aspx");
         }
 
         protected void gvSearch_RowCreated(object sender, GridViewRowEventArgs e)

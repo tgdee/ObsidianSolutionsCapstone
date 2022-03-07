@@ -32,7 +32,7 @@ namespace Lab3
             }
 
 
-            lblSelected.Text = "Currently Selected UserID: " + row.Cells[1].Text + ".";         // Display which user is selected 
+            lblSelected.Text = "Currently Selected UserID: " + row.Cells[2].Text + " " + row.Cells[3].Text + ".";         // Display which user is selected 
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)
@@ -48,20 +48,24 @@ namespace Lab3
                     if (row.Cells[6].Text.Equals("Unapproved"))         // Check if the row is unapproved 
                     {
                         // Update sql
-                        string updateToApprove = "UPDATE UserLogin SET UserLogin.AccountState='Approved' WHERE UserLogin.UserID=" + row.Cells[1].Text;
+                        string updateToApprove = "UPDATE UserLogin SET UserLogin.AccountState='Approved' WHERE UserLogin.Username=@Username";
+                        SqlCommand sqlCommand = new SqlCommand(updateToApprove, dbConnection);
+                        sqlCommand.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = row.Cells[4].Text;
                         dbConnection.Open();
-                        SqlCommand cmd = new SqlCommand(updateToApprove, dbConnection);
-                        cmd.ExecuteNonQuery();
+                        sqlCommand.ExecuteNonQuery();
                         Response.Redirect("~/AdminPages/AdminPage.aspx");
+
                     }
                     else if (row.Cells[6].Text.Equals("Approved"))
                     {
                         // Update sql
-                        string updateToUnapprove = "UPDATE UserLogin SET UserLogin.AccountState='Unapproved' WHERE UserLogin.UserID=" + row.Cells[1].Text;
+                        string updateToUnapprove = "UPDATE UserLogin SET UserLogin.AccountState='Unapproved' WHERE UserLogin.Username=@Username";
+                        SqlCommand sqlCommand = new SqlCommand(updateToUnapprove, dbConnection);
+                        sqlCommand.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = row.Cells[4].Text;
                         dbConnection.Open();
-                        SqlCommand cmd = new SqlCommand(updateToUnapprove, dbConnection);
-                        cmd.ExecuteNonQuery();
+                        sqlCommand.ExecuteNonQuery();
                         Response.Redirect("~/AdminPages/AdminPage.aspx");
+                        
                     }
                     else
                     {

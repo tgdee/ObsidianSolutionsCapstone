@@ -148,7 +148,8 @@
                     <asp:Label ID="Label7" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
+            <asp:CommandField ShowEditButton="False" ValidationGroup="UpdateValidation" />
+            <asp:CommandField ShowSelectButton="True" ValidationGroup="UpdateValidation" />
             
 
         </Columns>

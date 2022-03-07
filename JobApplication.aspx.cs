@@ -37,7 +37,7 @@ namespace Lab3
                 {
                     //create the string variables from text input
                     string CompanyName = txtCompany.Text;
-                    string Date = txtDate.Text;
+                    string Date = DateTime.Now.ToString();
                     string Position = txtPosition.Text;
 
 
