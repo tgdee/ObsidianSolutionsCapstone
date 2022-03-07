@@ -63,6 +63,7 @@ namespace Lab3
 
                             if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash))    // if the entered password matches what is stored, it will show success
                             {
+                                Session["CannotDo"] = "";
                                 Session["Username"] = txtUsername.Text;
                                 Session["AccountType"] = GetAccountType();
                                 if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Student")))     // Login if the user is approved or admin
