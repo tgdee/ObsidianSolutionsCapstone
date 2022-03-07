@@ -15,7 +15,27 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(Session["Username"] == null)
+            {
+                Response.Redirect("~/LoginChoice.aspx");
+            }
 
+            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account viewing Student pages
+            {
+                Session["CannotDo"] = "You are not an Admin";
+                Response.Redirect("~/StudentHomepage.aspx");
+
+            }
+            else if ((string)Session["AccountType"] == "Alum") // Restrictions on the Admin account viewing student pages
+            {
+                Session["CannotDo"] = "You are not an Admin";
+                Response.Redirect("~/Homepage.aspx");
+
+            }
+            else
+            {
+                Session["CannotDo"] = "";
+            }
         }
 
         protected void gvApprovedAccounts_SelectedIndexChanged(object sender, EventArgs e)

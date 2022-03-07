@@ -25,7 +25,7 @@ namespace Lab3
 
                 lblUserStat.Text = "You Must Login to Access That Page";
                 lblUserStat.ForeColor = Color.Red;
-                Response.Redirect("LoginChoice.aspx");
+                Response.Redirect("~/LoginChoice.aspx");
             }
 
             if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account viewing Student pages
