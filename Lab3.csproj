@@ -148,6 +148,9 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="AdminPages\AdminHomepage.aspx" />
+    <Content Include="AdminPages\AdminStudent.aspx" />
+    <Content Include="AdminPages\AdminMember.aspx" />
+    <Content Include="AdminPages\AdminMentor.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\5db340cf51d14.image.jpg" />
@@ -267,6 +270,27 @@
     </Compile>
     <Compile Include="AdminPages\AdminHomepage.aspx.designer.cs">
       <DependentUpon>AdminHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.designer.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminMember.aspx.cs">
+      <DependentUpon>AdminMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminMember.aspx.designer.cs">
+      <DependentUpon>AdminMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminMentor.aspx.cs">
+      <DependentUpon>AdminMentor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminMentor.aspx.designer.cs">
+      <DependentUpon>AdminMentor.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentHomepage.aspx.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>

@@ -52,7 +52,7 @@ namespace Lab3
                         dbConnection.Open();
                         SqlCommand cmd = new SqlCommand(updateToApprove, dbConnection);
                         cmd.ExecuteNonQuery();
-                        Response.Redirect("~/AdminPage.aspx");
+                        Response.Redirect("~/AdminPages/AdminPage.aspx");
                     }
                     else if (row.Cells[6].Text.Equals("Approved"))
                     {
@@ -61,7 +61,7 @@ namespace Lab3
                         dbConnection.Open();
                         SqlCommand cmd = new SqlCommand(updateToUnapprove, dbConnection);
                         cmd.ExecuteNonQuery();
-                        Response.Redirect("~/AdminPage.aspx");
+                        Response.Redirect("~/AdminPages/AdminPage.aspx");
                     }
                     else
                     {

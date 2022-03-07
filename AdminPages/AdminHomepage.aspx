@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="AdminHomepage.aspx.cs" Inherits="Lab3.Homepage" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPages/AdminMaster.Master" AutoEventWireup="true" CodeBehind="AdminHomepage.aspx.cs" Inherits="Lab3.AdminHomepage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:Label ID="lblUserStat" runat="server" Text="" Font-Bold="true"></asp:Label>
     <asp:Panel runat="server" HorizontalAlign="Center">

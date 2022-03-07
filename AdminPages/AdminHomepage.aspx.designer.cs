@@ -11,7 +11,7 @@ namespace Lab3
 {
 
 
-    public partial class Homepage
+    public partial class AdminHomepage
     {
 
         /// <summary>
