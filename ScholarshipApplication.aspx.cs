@@ -20,11 +20,11 @@ namespace Lab3
                 Session["MustLogin"] = "You Must Login to Access that Page!";
                 Response.Redirect("LoginPages/LoginChoice.aspx");
             }
-            if ((bool)Session["isMember"])
-            {
-                Response.Redirect("~/Homepage.aspx");
-                Session["GetOuttaHereMember"] = "You are not a student";
-            }
+            //if ((string)Session["AccountType"] == "Alum" || (string)Session["AccountType"] == "Admin")
+            //{
+            //    Response.Redirect("~/Homepage.aspx");
+                 
+            //}
         }
 
         protected void ddlStudent_SelectedIndexChanged(object sender, EventArgs e)

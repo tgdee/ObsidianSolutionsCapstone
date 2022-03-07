@@ -91,7 +91,7 @@ namespace Lab3
 
         protected void btnReturn_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/AdminHomepage.aspx");
+            Response.Redirect("~/AdminPages/AdminHomepage.aspx");
         }
     }
 }

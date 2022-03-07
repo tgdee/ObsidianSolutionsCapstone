@@ -26,7 +26,7 @@ namespace Lab3
                 Response.Redirect("LoginChoice.aspx");
             }
 
-            if ((string)Session["AccountType"] == "Alum")
+            if ((string)Session["AccountType"] == "Alum" || (string)Session["AccountType"] == "Admin")
             {
                 Response.Redirect("~/Homepage.aspx");
                 Session["GetOuttaHereMember"] = "You are not a student";

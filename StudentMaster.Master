@@ -63,6 +63,7 @@
 
         <div>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                <asp:Label ID="lblNope" runat="server" Text=""></asp:Label>
             </asp:ContentPlaceHolder>
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - DukeGroup: ShaneMcCarthy, Timothy Goeke</p>

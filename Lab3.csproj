@@ -127,7 +127,7 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminPages\AdminAccountCreation.aspx" />
-    <Content Include="AdminPages\AdminAccount - Copy.aspx" />
+    <Content Include="AdminPages\AdminAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
     <Content Include="AdminPages\AdminPage.aspx" />
@@ -214,12 +214,12 @@
     <Compile Include="AdminPages\AdminAccountCreation.aspx.designer.cs">
       <DependentUpon>AdminAccountCreation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminPages\AdminAccount - Copy.aspx.cs">
-      <DependentUpon>AdminAccount - Copy.aspx</DependentUpon>
+    <Compile Include="AdminPages\AdminAccount.aspx.cs">
+      <DependentUpon>AdminAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPages\AdminAccount - Copy.aspx.designer.cs">
-      <DependentUpon>AdminAccount - Copy.aspx</DependentUpon>
+    <Compile Include="AdminPages\AdminAccount.aspx.designer.cs">
+      <DependentUpon>AdminAccount.aspx</DependentUpon>
     </Compile>
     <Compile Include="Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
