@@ -128,7 +128,7 @@
     <Content Include="About.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
-    <Content Include="AdminPage.aspx" />
+    <Content Include="AdminPages\AdminPage.aspx" />
     <Content Include="Company.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -147,6 +147,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="AdminPages\AdminHomepage.aspx" />
+    <Content Include="AdminPages\AdminStudent.aspx" />
+    <Content Include="AdminPages\AdminMember.aspx" />
+    <Content Include="AdminPages\AdminMentor.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\5db340cf51d14.image.jpg" />
@@ -162,7 +166,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="AccountCreationMaster.Master" />
-    <Content Include="AdminMaster.Master" />
+    <Content Include="AdminPages\AdminMaster.Master" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -219,18 +223,18 @@
     <Compile Include="AccountCreationMaster.Master.designer.cs">
       <DependentUpon>AccountCreationMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="AdminMaster.Master.cs">
+    <Compile Include="AdminPages\AdminMaster.Master.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminMaster.Master.designer.cs">
+    <Compile Include="AdminPages\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="AdminPage.aspx.cs">
+    <Compile Include="AdminPages\AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPage.aspx.designer.cs">
+    <Compile Include="AdminPages\AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -259,6 +263,34 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminHomepage.aspx.cs">
+      <DependentUpon>AdminHomepage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminHomepage.aspx.designer.cs">
+      <DependentUpon>AdminHomepage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.designer.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminMember.aspx.cs">
+      <DependentUpon>AdminMember.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminMember.aspx.designer.cs">
+      <DependentUpon>AdminMember.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminMentor.aspx.cs">
+      <DependentUpon>AdminMentor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminMentor.aspx.designer.cs">
+      <DependentUpon>AdminMentor.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentHomepage.aspx.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>

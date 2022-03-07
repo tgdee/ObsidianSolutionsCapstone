@@ -10,7 +10,7 @@ using System.Web.Configuration;
 
 namespace Lab3
 {
-    public partial class MentoringProgram : System.Web.UI.Page
+    public partial class AdminMentor: System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

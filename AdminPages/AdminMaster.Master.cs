@@ -13,5 +13,11 @@ namespace Lab3
         {
 
         }
+
+        protected void btnFullLogout_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("~/LoginChoice.aspx");
+        }
     }
 }

@@ -69,9 +69,13 @@ namespace Lab3
                             {
                                 Response.Redirect("~/StudentHomepage.aspx");
                             }
-                            else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")) || GetApprovedStatus().Equals("Admin"))
+                            else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")))
                             {
                                 Response.Redirect("~/Homepage.aspx");
+                            }
+                            else if (GetApprovedStatus().Equals("Admin"))
+                            {
+                                Response.Redirect("~/AdminPages/AdminHomepage");
                             }
                             else
                             {
