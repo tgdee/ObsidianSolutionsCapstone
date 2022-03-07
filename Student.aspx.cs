@@ -168,8 +168,6 @@ namespace Lab3
                 {
                     GridViewRow row = gvSearch.SelectedRow;
 
-
-
                     string userName = row.Cells[4].Text;                                                                          // Find the current username of whomever is signed in
                     string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
 

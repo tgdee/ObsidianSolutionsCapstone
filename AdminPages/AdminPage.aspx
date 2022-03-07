@@ -13,7 +13,7 @@
             <asp:GridView ID="gvApprovedAccounts" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
-                    <asp:BoundField DataField="UserID" HeaderText="UserID" InsertVisible="False" ReadOnly="True" SortExpression="UserID" />
+                    <asp:BoundField DataField="UserID" HeaderText="UserID" Visible="false" ReadOnly="True" SortExpression="UserID" />
                     <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
                     <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
                     <asp:BoundField DataField="Username" HeaderText="Username" SortExpression="Username" />
