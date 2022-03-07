@@ -10,8 +10,11 @@ namespace Lab3
 {
     public partial class AdminMaster : System.Web.UI.MasterPage
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+
             if (Session["Username"] != null)
             {
                 lblUserStat.Text = Session["Username"] + " is logged in!";
@@ -24,6 +27,27 @@ namespace Lab3
                 lblUserStat.ForeColor = Color.Red;
                 Response.Redirect("LoginChoice.aspx");
             }
+
+            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account viewing Student pages
+            {
+                Session["CannotDo"] = "You are not an Admin";
+                Response.Redirect("~/StudentHomepage.aspx");
+
+            }
+            else if ((string)Session["AccountType"] == "Alum") // Restrictions on the Admin account viewing student pages
+            {
+                Session["CannotDo"] = "You are not an Admin";
+                Response.Redirect("~/Homepage.aspx");
+
+            }
+            else
+            {
+                lblNope.Text = "";
+            }
+
+            lblNope.ForeColor = Color.Red;
+            lblNope.Text = Session["CannotDo"].ToString();
+
         }
 
         protected void btnFullLogout_Click(object sender, EventArgs e)

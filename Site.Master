@@ -69,6 +69,7 @@
             </div>
         </div>
         <div class="container body-content">
+            <asp:Label ID="lblNope" runat="server" Text="" Font-Bold="true" Font-Size="Large"></asp:Label>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
