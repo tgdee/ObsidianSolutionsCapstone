@@ -132,6 +132,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.GridView gvSearch;
 
         /// <summary>
+        /// lblSelectedStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedStudent;
+
+        /// <summary>
+        /// gvDisplay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvDisplay;
+
+        /// <summary>
         /// gvStudent control.
         /// </summary>
         /// <remarks>
