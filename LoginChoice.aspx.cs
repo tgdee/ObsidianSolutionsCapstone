@@ -47,52 +47,53 @@ namespace Lab3
                 
 
                 sc.Open();
-                System.Data.SqlClient.SqlCommand findPass = new System.Data.SqlClient.SqlCommand();
-                findPass.Connection = sc;
                 // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES
-                findPass.CommandText = "SELECT PasswordHash FROM Pass WHERE Username = @Username";
-                findPass.Parameters.Add(new SqlParameter("@Username", txtUsername.Text));
 
-                SqlDataReader reader = findPass.ExecuteReader(); // create a reader
-
-                if (reader.HasRows) // if the username exists, it will continue
+                using (var command = new SqlCommand("dbo.JeremyEzellLab3", sc) { CommandType = CommandType.StoredProcedure })
                 {
-                    while (reader.Read()) // this will read the single record that matches the entered username
-                    {
-                        string storedHash = reader["PasswordHash"].ToString(); // store the database password into this variable
+                    command.Parameters.Add("@UserName", SqlDbType.NVarChar, 20).Value = txtUsername.Text;
 
-                        if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash)) // if the entered password matches what is stored, it will show success
+                    SqlDataReader reader = command.ExecuteReader();         // create a reader
+
+                    if (reader.HasRows)                                 // if the username exists, it will continue
+                    {
+                        while (reader.Read())                               // this will read the single record that matches the entered username
                         {
-                            Session["Username"] = txtUsername.Text;
-                            Session["AccountType"] = GetAccountType();
-                            if((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Student")))   // Login if the user is approved or admin
+                            string storedHash = reader["PasswordHash"].ToString();              // store the database password into this variable
+
+                            if (PasswordHash.ValidatePassword(txtPassword.Text, storedHash))    // if the entered password matches what is stored, it will show success
                             {
-                                Response.Redirect("~/StudentHomepage.aspx");
-                            }
-                            else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")))
-                            {
-                                Response.Redirect("~/Homepage.aspx");
-                            }
-                            else if (GetApprovedStatus().Equals("Admin"))
-                            {
-                                Response.Redirect("~/AdminPages/AdminHomepage");
+                                Session["Username"] = txtUsername.Text;
+                                Session["AccountType"] = GetAccountType();
+                                if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Student")))     // Login if the user is approved or admin
+                                {
+                                    Response.Redirect("~/StudentHomepage.aspx");
+                                }
+                                else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")))
+                                {
+                                    Response.Redirect("~/Homepage.aspx");
+                                }
+                                else if (GetApprovedStatus().Equals("Admin"))
+                                {
+                                    Response.Redirect("~/AdminPages/AdminHomepage");
+                                }
+                                else
+                                {
+                                    Session.Abandon();
+                                    lblStatus.Text = "Unapproved Account Contact Administrator";                    // Abandon session and tell user his account is unapproved
+                                }
+
                             }
                             else
-                            {
-                                Session.Abandon();
-                                lblStatus.Text = "Unapproved Account Contact Administrator";            // Abandon session and tell user his account is unapproved
-                            }
-                            
+                                lblStatus.Text = "Invalid Password or Username";
                         }
-                        else
-                            lblStatus.Text = "Invalid Password or Username";
                     }
-                }
-                else // if the username doesn't exist, it will show failure
-                    lblStatus.Text = "Invalid Password or Username";
+                    else 
+                        lblStatus.Text = "Invalid Password or Username";                                            // if the username doesn't exist, it will show failure
 
-                sc.Close();
-                sc.Dispose();
+                    sc.Close();
+                    sc.Dispose();
+                }
             }
             catch (SqlException ex)
             {
