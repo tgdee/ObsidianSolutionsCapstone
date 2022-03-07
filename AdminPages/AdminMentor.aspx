@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPages/AdminMentor.Master" AutoEventWireup="true" CodeBehind="AdminMentor.aspx.cs" Inherits="Lab3.AdminMentor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/AdminPages/AdminMaster.Master" AutoEventWireup="true" CodeBehind="AdminMentor.aspx.cs" Inherits="Lab3.AdminMentor" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />

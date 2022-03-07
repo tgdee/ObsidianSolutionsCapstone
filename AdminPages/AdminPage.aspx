@@ -25,6 +25,8 @@
             <br />
             <asp:Button ID="btnApprove" runat="server" Text="Approve/Unapprove" OnClick="btnApprove_Click" />
         </div>
+        <br />
+        <asp:Button ID="btnReturn" runat="server" Text="Previous Page <-" OnClick="btnReturn_Click" />
     </form>
     <asp:SqlDataSource ID="UserAccounts" runat="server" ConnectionString="<%$ ConnectionStrings:AUTHConnectionString %>" DeleteCommand="DELETE FROM [UserLogin] WHERE [UserID] = @UserID" InsertCommand="INSERT INTO [UserLogin] ([FirstName], [LastName], [Username], [AccountType]) VALUES (@FirstName, @LastName, @Username, @AccountType)" SelectCommand="SELECT * FROM [UserLogin] ORDER BY [UserID]" UpdateCommand="UPDATE [UserLogin] SET [FirstName] = @FirstName, [LastName] = @LastName, [Username] = @Username, [AccountType] = @AccountType WHERE [UserID] = @UserID">
         <DeleteParameters>
