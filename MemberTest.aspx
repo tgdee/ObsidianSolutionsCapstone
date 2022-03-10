@@ -11,6 +11,11 @@
         <Columns>
             <asp:CommandField ShowEditButton="False" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" Visible="False" />
+            <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:Label ID="LblMemberID" runat="server" Text='<%# Bind("MemberID") %>' Visible="true"></asp:Label>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="First Name" SortExpression="FirstName">
                 <EditItemTemplate>
                     <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("FirstName") %>'></asp:TextBox>

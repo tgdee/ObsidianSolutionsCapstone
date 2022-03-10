@@ -13,8 +13,10 @@ namespace Lab3
 {
     public partial class MemberTest : System.Web.UI.Page
     {
+        public static string memberID;
         protected void Page_Load(object sender, EventArgs e)
         {
+            
             if (!IsPostBack)
             {
 
@@ -67,23 +69,29 @@ namespace Lab3
 
         protected void gvMember_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
-                var sqlCom = new SqlCommand("Select MemberID from Member", dbConnection);
+            GridViewRow row = gvMember.SelectedRow;        // Makes a gridview row equal to the selected row of gvStudent
 
-                dbConnection.Open();
+            memberID = row.Cells[0].Text;
 
-                Session["MemberID"] = sqlCom.ExecuteScalar();
+            
+            //try
+            //{
+            //    SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+            //    var sqlCom = new SqlCommand("Select MemberID from Member", dbConnection);
 
-                dbConnection.Close();
-                
-            }
-            catch (SqlException ex)
-            {
+            //    dbConnection.Open();
 
-                ltError.Text = ex.Message;
-            }
+            //    Session["MemberID"] = sqlCom.ExecuteScalar();
+
+            //    dbConnection.Close();
+
+            //}
+            //catch (SqlException ex)
+            //{
+
+            //    ltError.Text = ex.Message;
+            //}
+
             Response.Redirect("~/MemberInformation.aspx");
         }
     }
