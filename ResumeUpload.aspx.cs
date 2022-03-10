@@ -18,15 +18,43 @@ namespace Lab3
 
         }
 
+        protected string GetStudentIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
+            {
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+
+                string studentId = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
+                    
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    studentId = cmd.ExecuteScalar().ToString();
+                }
+
+                return studentId;
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
+
+        }
+
         protected void btnUpload_Click(object sender, EventArgs e)
         {
             if (FileUpload1.HasFile)
             {
                 string fileExtension = Path.GetExtension(FileUpload1.FileName);
 
-                if(fileExtension.ToLower() != ".pdf" && fileExtension.ToLower() != ".docx")
+                if(fileExtension.ToLower() != ".pdf")
                 {
-                    lblMessage.Text = "Only Files with .pdf or .docx Extension are Allowed";
+                    lblMessage.Text = "Only Files with .pdf Extension are Allowed";
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
                 else
@@ -44,21 +72,18 @@ namespace Lab3
                         lblMessage.Text = "Resume Uploaded";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
 
-                        var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
-
-                        SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString);
+                        SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
                         try
                         {
-                            string insertString = "INSERT INTO Resume (FileName, FileLocation, Username) VALUES (@fileName, @fileLocation, @userName)";
-                            string userName = Session["Username"].ToString();
+                            string insertString = "INSERT INTO Resume (FileName, FileLocation, StudentID) VALUES (@fileName, @fileLocation, @StudentID)";
                             dbConnection.Open();
 
                             using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                             {
                                 cmd.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload1.FileName.ToString();
                                 cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = "~/Resumes/" + FileUpload1.FileName;
-                                cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                                cmd.Parameters.Add("@StudentID", SqlDbType.Int).Value = GetStudentIDFromSql();
                                 cmd.ExecuteNonQuery();
                             }
                         }

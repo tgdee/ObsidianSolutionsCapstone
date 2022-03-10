@@ -33,9 +33,9 @@ namespace Lab3
 
                 using (var sqlComm = new SqlCommand("dbo.spUpdateStudentInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    string selectedUserName = Session["SelectedUserName"].ToString();
+                    int selectedStudentId = Int32.Parse(Session["StudentID"].ToString());
 
-                    sqlComm.Parameters.Add("@UserName", SqlDbType.NVarChar, 20).Value = selectedUserName;
+                    sqlComm.Parameters.Add("@StudentID", SqlDbType.Int).Value = selectedStudentId;
                     sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
                     sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
                     sqlComm.Parameters.Add("@Grade", SqlDbType.NVarChar, 20).Value = txtGrade.Text;
@@ -68,17 +68,17 @@ namespace Lab3
                 using (var sqlComm = new SqlCommand("dbo.spStudentInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
 
-                    string selectedUserName = Session["SelectedUserName"].ToString();
+                    string selectedStudentId = Session["StudentID"].ToString();
 
                     dlStudentInfo.DataSource = null;
                     dlStudentInfo.DataBind();
                     dbConnection.Open();
-                    sqlComm.Parameters.Add("@UserName", SqlDbType.NVarChar, 20).Value = selectedUserName; 
+                    sqlComm.Parameters.Add("@StudentID", SqlDbType.Int).Value = Int32.Parse(selectedStudentId); 
                    
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlComm);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
-                    if (dt.Rows.Count >= 0)
+                    if (dt.Rows.Count > 0)
                     {
                         dlStudentInfo.DataSource = dt;
                         dlStudentInfo.DataBind();

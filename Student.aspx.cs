@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
+using System.Net;
 
 
 namespace Lab3
@@ -15,6 +16,7 @@ namespace Lab3
     public partial class _Default : Page
     {
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,7 +30,7 @@ namespace Lab3
 
         protected void DisplayGvStudent()
         {
-            
+
             try
             {
                 string searchQuery = "SELECT * FROM Student";
@@ -63,13 +65,13 @@ namespace Lab3
 
 
 
-                gvStudent.HeaderRow.Cells[1].Visible = false;
+                gvStudent.HeaderRow.Cells[2].Visible = false;
 
 
 
                 for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
                 {
-                    gvStudent.Rows[i].Cells[1].Visible = false;
+                    gvStudent.Rows[i].Cells[2].Visible = false;
                 }
 
             }
@@ -83,43 +85,45 @@ namespace Lab3
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchQuery = "SELECT * FROM UserLogin WHERE(FirstName like '%' + @FirstName + '%' or LastName like '&' + @LastName + '%' or Username like '&' + @Username + '%'" +
-                "or Email like '&' + @Email + '%') AND AccountState = @AccountState AND AccountType='Student'";
+            string searchQuery = "SELECT * FROM Student WHERE(FirstName like '%' + @FirstName + '%' or LastName like '&' + @LastName + '%' or Username like '&' + @Username + '%'" +
+                "or Email like '&' + @Email + '%' or Grade like '&' + @Grade + '%' or GraduationYear like '&' + @GraduationYear + '%' or Major like '&' + @Major + '%' or PhoneNumber like '&' + @PhoneNumber + '%')";
             SqlCommand cmd = new SqlCommand(searchQuery, con);
             cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
-            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
+            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
             cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = txtUserNameSearch.Text;
             cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmailSearch.Text;
-            cmd.Parameters.Add("@AccountState", SqlDbType.NVarChar, 10).Value = ddlAccountState.SelectedItem.Text;
-
+            cmd.Parameters.Add("@Grade", SqlDbType.NVarChar, 10).Value = txtGrade.Text;
+            cmd.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 4).Value = txtGraduationYear.Text;
+            cmd.Parameters.Add("@Major", SqlDbType.NVarChar, 50).Value = txtMajor.Text;
+            cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = txtPhoneNumber.Text;
 
             con.Open();
-            cmd.ExecuteNonQuery();
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataSet ds = new DataSet();
 
-            da.Fill(ds, "FirstName");
-            da.Fill(ds, "LastName");
-            da.Fill(ds, "Username");
-            da.Fill(ds, "Email");
-            da.Fill(ds, "AccountState");
-            ViewState["ds"] = ds;
-            gvSearch.DataSource = da;
 
-            gvSearch.DataBind();
-            if(gvSearch.Rows.Count == 1)
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
+
+            DataTable dt = new DataTable();
+
+            dataAdapter.Fill(dt);
+
+            gvStudent.DataSource = dt;
+
+            gvStudent.DataBind();
+
+
+
+
+
+
+            for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
             {
-                gvSearch.HeaderRow.Cells[1].Visible = false;
-                gvSearch.Rows[0].Cells[1].Visible = false;          
+                gvStudent.HeaderRow.Cells[2].Visible = false;
+                gvStudent.Rows[i].Cells[2].Visible = false;
             }
 
             con.Close();
 
-            
         }
-
-
 
 
         protected void btnAddRow_Click(object sender, EventArgs e)
@@ -186,75 +190,74 @@ namespace Lab3
         {
             GridViewRow row = gvStudent.SelectedRow;        // Makes a gridview row equal to the selected row of gvStudent
 
-            string studentId = row.Cells[1].Text;        // Stores the student id in Session for use on Student Information page
+            string studentId = row.Cells[2].Text;        // Stores the student id in Session for use on Student Information page
 
-            Session["StudenID"] = studentId;
+            Session["StudentID"] = studentId;
 
             Response.Redirect("~/StudentInformation.aspx");         // Redirect to student information page
         }
 
-        protected void gvSearch_RowCreated(object sender, GridViewRowEventArgs e)
+
+
+        protected void lbViewPDF_Click(object sender, EventArgs e)
         {
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-        }
+            GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;
 
-        protected void gvSearch_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = gvSearch.SelectedRow;
-
-            lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[2].Text + " " + row.Cells[3].Text;
-
-            DisplayResume();
-        }
-
-
-        protected void lbDownloadResume_Click(object sender, EventArgs e)
-        {
-            //LinkButton linkDownload = sender as LinkButton;
-            //GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
-            //string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
-            //Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
-            //Response.TransmitFile(Server.MapPath(downloadFile));
-            //Response.End();
-        }
-
-        protected void DisplayResume()
-        {
+            string studentId = clickedRow.Cells[2].Text;
 
             try
             {
+                string queryResume = "SELECT FileLocation FROM Resume WHERE StudentID=@studentId";
 
-                string userName = Session["Username"].ToString();
+                connection.Open();
 
-                string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";      // Find the current username of whomever is signed in
+                string fileLocation = "";
 
-                con.Open();
-
-                using (SqlCommand cmd = new SqlCommand(queryResume, con))
+                using (SqlCommand cmd = new SqlCommand(queryResume, connection))
                 {
-                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    cmd.Parameters.Add("StudentID", SqlDbType.NVarChar, 20).Value = studentId;
 
-                    SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // Fill SqlDataAdapter using SELECT query
-                    DataTable dt = new DataTable();
-                    sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
-                    
+                    SqlDataReader reader = cmd.ExecuteReader();
 
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            fileLocation = reader["FileLocation"].ToString();
+                            string filePath = Server.MapPath(fileLocation);
+
+                            WebClient user = new WebClient();
+
+                            Byte[] fileBuffer = user.DownloadData(filePath);
+
+                            if (fileBuffer != null)
+                            {
+                                Response.ContentType = "application/pdf";
+                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);
+                                Response.AddHeader("content-length", fileBuffer.Length.ToString());
+                                Response.BinaryWrite(fileBuffer);
+
+                            }
+                            else
+                            {
+                                ltError.Text = "No Resume Available";
+                            }
+                        }
+
+                    }
 
 
                 }
+
             }
             catch (SqlException ex)
             {
                 ltError.Text = ex.Message;
             }
-            finally
-            {
-                con.Close();
-                con.Dispose();
-            }
+
 
         }
-
-
     }
 }

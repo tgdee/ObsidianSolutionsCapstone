@@ -13,11 +13,11 @@
         </asp:TableHeaderRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:DataList ID="dlMemberInfo" runat="server" RepeatDirection="Vertical" RepeatColumns="3" RepeatLayout="Flow" CellPadding="50" CellSpacing="40">
+                <asp:DataList ID="dlMemberInfo" runat="server" RepeatDirection="Vertical" RepeatColumns="4" RepeatLayout="Flow" CellPadding="50" CellSpacing="40">
                     <HeaderTemplate>
                         <table>
                             <tr>
-                                <%--<th style="width:300px" align="left">Username</th>--%>
+                                <th style="width:300px" align="left">Username</th>
                                 <th style="width:300px" align="left">First Name</th>
                                 <th style="width:300px" align="left">Last Name</th>
                                 <th style="width:300px" align="left">Email</th> 
@@ -27,7 +27,7 @@
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <%--<td style="width:300px" align="left"> <asp:Label ID="lblUsername" runat="server" ></asp:Label></td>--%>
+                                <td style="width:300px" align="left"> <asp:Label ID="lblUsername" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "UserName") %>'></asp:Label></td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblFirstName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FirstName") %>' ></asp:Label> </td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblLastName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "LastName") %>' ></asp:Label></td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblEmail" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Email" ) %>' ></asp:Label></td>

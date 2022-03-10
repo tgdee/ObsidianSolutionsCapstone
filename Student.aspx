@@ -4,9 +4,6 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
-    <br />
-    <br />
-    <br />
     <h1>Student Information Page</h1>
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
@@ -29,51 +26,54 @@
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtEmailSearch" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="Label11" runat="server" Text="Account State:"></asp:Label>
+    <asp:Label ID="Label11" runat="server" Text="Grade"></asp:Label>
     &nbsp
-    <asp:DropDownList ID="ddlAccountState" runat="server">
-        <asp:ListItem Text="Approved" Value="1"></asp:ListItem>
-        <asp:ListItem Text="Unapproved" Value="2"></asp:ListItem>
-    </asp:DropDownList>
+    <asp:TextBox ID="txtGrade" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label1" runat="server" Text="Graduation Year"></asp:Label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtGraduationYear" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label2" runat="server" Text="Major"></asp:Label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtMajor" runat="server" ValidationGroup="1"></asp:TextBox>
+    <br />
+    <asp:Label ID="Label3" runat="server" Text="Phone Number"></asp:Label>
+    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtPhoneNumber" runat="server" ValidationGroup="1"></asp:TextBox>
+    
     <br />
     <br />
     <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" />
     <br />
     <br />
-
-
-
-
-    <asp:GridView ID="gvSearch" runat="server" OnSelectedIndexChanged="gvSearch_SelectedIndexChanged" EmptyDataText="Student Record Not Found" OnRowCreated="gvSearch_RowCreated">
-        <Columns>
-            <asp:CommandField ShowSelectButton="true" />
-        </Columns>
-    </asp:GridView>
     <br />
-    <asp:Label ID="lblSelectedStudent" runat="server" ></asp:Label>
-
-
+    <br />
     <br />
     <br />
 
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
 
     <asp:GridView ID="gvStudent" runat="server" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" Width="500px" EmptyDataText="Student Record Not Found">
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
              <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbDownloadResume" runat="server" Text="Load Resume" ValidationGroup="DisplayResumeValidation" OnClick="lbDownloadResume_Click"></asp:LinkButton>
+                    <asp:LinkButton ID="lbViewPDF" runat="server" Text="View Resume" ValidationGroup="ViewPDF" OnClientClick="openInNewTab()" OnClick="lbViewPDF_Click">View Resume</asp:LinkButton>
+                    <script type="text/javascript">
+                        function openInNewTab() {
+                            window.document.forms[0].target = '_blank';
+                            setTimeout(function () { window.document.forms[0].target = ''; }, 0);
+                        }
+                    </script>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+
+
+    <br />
+    <br />
+
 
 
     <asp:Label ID="LblFirstName" runat="server" Text="First Name"></asp:Label>

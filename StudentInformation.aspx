@@ -13,32 +13,32 @@
         </asp:TableHeaderRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:DataList ID="dlStudentInfo" runat="server" RepeatDirection="Vertical" RepeatLayout="Flow" CellPadding="50" CellSpacing="40">
+                <asp:DataList ID="dlStudentInfo" runat="server" RepeatDirection="Vertical" RepeatLayout="Flow" CellPadding="50" CellSpacing="50">
                     <HeaderTemplate>
                         <table>
                             <tr>
-                                <th style="width:300px" align="left">Username</th>
-                                <th style="width:300px" align="left">First Name</th>
-                                <th style="width:300px" align="left">Last Name</th>
-                                <th style="width:300px" align="left">Grade</th>
-                                <th style="width:300px" align="left">Graduation Year</th>
-                                <th style="width:300px" align="left">Major</th>
-                                <th style="width:300px" align="left">PhoneNumber</th>
-                                <th style="width:300px" align="left">Email</th> 
+                                <th style="width:400px" align="left">Username</th>
+                                <th style="width:400px" align="left">First Name</th>
+                                <th style="width:400px" align="left">Last Name</th>
+                                <th style="width:400px" align="left">Grade</th>
+                                <th style="width:400px" align="left">Graduation Year</th>
+                                <th style="width:400px" align="left">Major</th>
+                                <th style="width:400px" align="left">PhoneNumber</th>
+                                <th style="width:400px" align="left">Email</th> 
                             </tr>
                         </table>
                     </HeaderTemplate>
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblUsername" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblFirstName" runat="server" ></asp:Label> </td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblLastName" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblGrade" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblGraduationYear" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblMajor" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblPhoneNumber" runat="server" ></asp:Label></td>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblEmail" runat="server" ></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblUsername" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "UserName") %>' ></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblFirstName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FirstName") %>' ></asp:Label> </td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblLastName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "LastName") %>'></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblGrade" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Grade") %>'></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblGraduationYear" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "GraduationYear") %>'></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblMajor" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Major") %>'></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblPhoneNumber" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "PhoneNumber") %>'></asp:Label></td>
+                                <td style="width:400px" align="left"> <asp:Label ID="lblEmail" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Email") %>'></asp:Label></td>
                             </tr>
                         </table>
                     </ItemTemplate>
