@@ -105,6 +105,18 @@ namespace Lab3
 
         }
 
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            if ((string)Session["AccountType"] == "Admin")
+            {
+                Response.Redirect("~/AdminPages/AdminInternship.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Internship.aspx");
+            }
+        }
+
         //protected void BindDataList()
         //{
         //    try
@@ -116,13 +128,13 @@ namespace Lab3
 
         //            string selectedMemberId = Session["MemberID"].ToString();
         //            int memberId = Int32.Parse(selectedMemberId);
-                    
+
 
         //            dlMemberInfo.DataSource = null;
         //            dlMemberInfo.DataBind();
         //            dbConnection.Open();
         //            sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = memberId; 
-                   
+
         //            SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlComm);
         //            DataTable dt = new DataTable();
         //            dataAdapter.Fill(dt);

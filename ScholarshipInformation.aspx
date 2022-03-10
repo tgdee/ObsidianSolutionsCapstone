@@ -57,6 +57,9 @@
             <asp:TableCell>
                 <br />
                 <asp:Button ID="btnUpdate" runat="server" Text="Update" ValidationGroup="UpdateValidation" OnClick="btnUpdate_Click" />
+                <br />
+                <br />
+                <asp:Button ID="btnReturn" runat="server" Text="<- Previouse Page" ValidationGroup="PreviousValidation" OnClick="btnReturn_Click"
             </asp:TableCell>
         </asp:TableRow>
     </asp:Table>

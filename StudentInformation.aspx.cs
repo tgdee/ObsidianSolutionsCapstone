@@ -98,5 +98,16 @@ namespace Lab3
 
         }
 
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            if ((string)Session["AccountType"] == "Admin")
+            {
+                Response.Redirect("~/AdminPages/AdminStudent.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Student.aspx");
+            }
+        }
     }
 }
