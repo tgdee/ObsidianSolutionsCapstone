@@ -112,7 +112,7 @@ namespace Lab3
                 da.Fill(ds, "Email");
                 da.Fill(ds, "FirstName");
                 da.Fill(ds, "LastName");
-                da.Fill(ds, "MemberID");
+                
 
 
                 ViewState["ds"] = ds;
