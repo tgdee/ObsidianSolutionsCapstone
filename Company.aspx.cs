@@ -92,7 +92,7 @@ namespace Lab3
         {
             try
             {
-                string searchQuery = "SELECT * FROM Member";
+                string searchQuery = "SELECT * FROM Company";
 
                 SqlCommand cmd = new SqlCommand(searchQuery, con);
 
