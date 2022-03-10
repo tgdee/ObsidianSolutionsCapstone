@@ -9,7 +9,14 @@
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
     <%--Create the user input boxes for all of the user input--%>
-    <asp:GridView ID="gvInternship" runat="server" AutoGenerateColumns="False" DataSourceID="CompanyDataSource" DataKeyNames="EmployerID"  Width="1000px">
+
+    <asp:GridView ID="gvCompany" runat="server" OnSelectedIndexChanged="gvCompany_SelectedIndexChanged" Width="500px" EmptyDataText="Company Record Not Found" >
+        <Columns>
+            <asp:CommandField ShowSelectButton="true" />
+        </Columns>
+
+    </asp:GridView>
+    <%--<asp:GridView ID="gvInternship" runat="server" AutoGenerateColumns="False" DataSourceID="CompanyDataSource" DataKeyNames="EmployerID"  Width="1000px">
         <Columns>
             <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="EmployerID" HeaderText="EmployerID" InsertVisible="False" ReadOnly="True" SortExpression="EmployerID" Visible="False" />
@@ -62,7 +69,7 @@
 
 
         </Columns>
-    </asp:GridView>
+    </asp:GridView>--%>
     <br />
     <%--Creates all the boxes for new information to be added--%>
     <asp:Label ID="lblMeetingTime" runat="server" Text="Meeting Time:"></asp:Label>

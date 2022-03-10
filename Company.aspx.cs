@@ -13,12 +13,15 @@ namespace Lab3
 {
     public partial class Company : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);      // Create an initial conenction with the database 
+
         protected void Page_Load(object sender, EventArgs e)
             //Master Page covers the restriction of accesing pages without login
         {
+
             if (!Page.IsPostBack)
             {
-
+                DisplayGvEmployer();
             }
         }
 
@@ -74,7 +77,70 @@ namespace Lab3
 
         }
 
+        protected void gvCompany_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvCompany.SelectedRow;    //Select a specific row within the grid view
 
+            string check = row.Cells[1].Text;   // Chooses the cell with the information wanted
+
+            Session["EmployerID"] = check;
+
+            Response.Redirect("~/CompanyInformation.aspx"); //Redirect to the page for informaiton to be edited
+        }
+
+        protected void DisplayGvEmployer()
+        {
+            try
+            {
+                string searchQuery = "SELECT * FROM Member";
+
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "EmployerID");
+                da.Fill(ds, "MeetingTime");
+                da.Fill(ds, "CompanyName");
+                da.Fill(ds, "Email");
+                da.Fill(ds, "FirstName");
+                da.Fill(ds, "LastName");
+                da.Fill(ds, "MemberID");
+
+
+                ViewState["ds"] = ds;
+
+                gvCompany.DataSource = ds;
+
+                gvCompany.DataBind();
+
+
+
+                gvCompany.HeaderRow.Cells[1].Visible = false;
+
+
+
+                for (int i = 0; i < gvCompany.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                {
+                    gvCompany.Rows[i].Cells[1].Visible = false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+
+
+        }
     }
 
 }
