@@ -123,12 +123,13 @@ namespace Lab3
 
 
 
-                gvCompany.HeaderRow.Cells[1].Visible = false;
+                
 
 
 
                 for (int i = 0; i < gvCompany.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
                 {
+                    gvCompany.HeaderRow.Cells[1].Visible = false;
                     gvCompany.Rows[i].Cells[1].Visible = false;
                 }
 

@@ -17,8 +17,6 @@ namespace Lab3
     {
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -30,7 +28,6 @@ namespace Lab3
 
         protected void DisplayGvStudent()
         {
-
             try
             {
                 string searchQuery = "SELECT * FROM Student";
@@ -109,10 +106,6 @@ namespace Lab3
             gvStudent.DataSource = dt;
 
             gvStudent.DataBind();
-
-
-
-
 
 
             for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
