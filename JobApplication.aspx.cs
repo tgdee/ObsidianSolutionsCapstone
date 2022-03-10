@@ -13,16 +13,36 @@ namespace Lab3
     public partial class JobApplication : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-            //Creates the restriction of accesing the pages depending on if the user is a member or a student
         {
 
+        }
 
-            //if (Session["Username"] == null)
-            //{
-            //    Session["MustLogin"] = "You Must Login to Access that Page!";
-            //    Response.Redirect("LoginPages/LoginChoice.aspx");
-            //}
-            
+        protected string GetStudentIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
+            {
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+
+                string studentId = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
+
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    studentId = cmd.ExecuteScalar().ToString();
+                }
+
+                return studentId;
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
+
         }
 
         protected void btnApply_Click(object sender, EventArgs e)
@@ -36,46 +56,36 @@ namespace Lab3
                 try
                 {
                     //create the string variables from text input
-                    string CompanyName = txtCompany.Text;
-                    string Date = DateTime.Now.ToString();
-                    string Position = txtPosition.Text;
-
-
-
-                    string StudEmail = ddlStudent.SelectedValue;
+                    string companyName = ddlCompanyNames.SelectedItem.Text;
+                    string date = DateTime.Now.ToString();
+                    string position = txtPosition.Text;
+                    string applyingStudentId = GetStudentIDFromSql();
                     
-
-                    string getStudentIdSql = "SELECT Student.StudentID FROM Student WHERE Student.Email='" + StudEmail + "'";
-                    //opens the dataase conenction and places information inside
                     dbConnection.Open();
 
-                    SqlCommand sqlCommand = new SqlCommand(getStudentIdSql, dbConnection);
-                    string studentId = sqlCommand.ExecuteScalar().ToString();
 
                     string insertString = "INSERT INTO JobApplication (CompanyName, ApplicationDate, PositionTitle, StudentID) " +
-                            " VALUES (@param1, @param2, @param3, @param4)";
+                            " VALUES (@companyName, @applicationDate, @positionTitle, @studentId)";
 
                     
                     using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                     {
 
-                        cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = CompanyName;
-                        cmd.Parameters.Add("@param2", SqlDbType.Date).Value = Date;
-                        cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = Position;
-                        cmd.Parameters.Add("@param4", SqlDbType.Int).Value = studentId;
+                        cmd.Parameters.Add("@companyName", SqlDbType.NVarChar, 50).Value = companyName;
+                        cmd.Parameters.Add("@applicationDate", SqlDbType.Date).Value = date;
+                        cmd.Parameters.Add("@positionTitle", SqlDbType.NVarChar, 50).Value = position;
+                        cmd.Parameters.Add("@studentId", SqlDbType.Int).Value = applyingStudentId;
 
 
                         cmd.ExecuteNonQuery();
-
-                        dbConnection.Close();
 
 
                     }
 
 
                 }
-                //Catch any error on the user input and display message
-                catch (Exception ex)
+                
+                catch (SqlException ex)                        //Catch Sql Exception
                 {
                     lblError.Text = ex.Message;
 
@@ -86,11 +96,8 @@ namespace Lab3
                     dbConnection.Dispose();
                 }
 
-                //After executing the text boxes will clear
-                txtCompany.Text = "";
-                txtDate.Text = "";
-                txtPosition.Text = "";
-
+                                                            
+                txtPosition.Text = "";                          //Clear textbox after insert
 
             }
         }

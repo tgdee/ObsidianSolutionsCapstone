@@ -33,49 +33,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblCompany;
 
         /// <summary>
-        /// txtCompany control.
+        /// ddlCompanyNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompany;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompanyNames;
 
         /// <summary>
-        /// reqFieldValidatorCompany control.
+        /// rfvCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldValidatorCompany;
-
-        /// <summary>
-        /// lblDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
-
-        /// <summary>
-        /// txtDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
-
-        /// <summary>
-        /// reqFieldValidatorDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldValidatorDate;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompanyName;
 
         /// <summary>
         /// lblPosition control.
@@ -105,22 +78,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldValidatorPosition;
 
         /// <summary>
-        /// lblStudentID control.
+        /// lblStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStudentID;
+        protected global::System.Web.UI.WebControls.Label lblStudentEmail;
 
         /// <summary>
-        /// ddlStudent control.
+        /// txtStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudent;
+        protected global::System.Web.UI.WebControls.TextBox txtStudentEmail;
+
+        /// <summary>
+        /// rfvStudentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStudentEmail;
 
         /// <summary>
         /// btnApply control.
@@ -132,21 +114,12 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnApply;
 
         /// <summary>
-        /// MemberSource control.
+        /// sdsCompanyNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource MemberSource;
-
-        /// <summary>
-        /// ScholarshipSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ScholarshipSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsCompanyNames;
     }
 }

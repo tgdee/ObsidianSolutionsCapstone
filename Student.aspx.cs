@@ -62,14 +62,18 @@ namespace Lab3
 
 
 
-                gvStudent.HeaderRow.Cells[2].Visible = false;
+
 
 
 
                 for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
                 {
+                    gvStudent.HeaderRow.Cells[2].Visible = false;
                     gvStudent.Rows[i].Cells[2].Visible = false;
+
                 }
+
+                con.Close();
 
             }
             catch (SqlException ex)
@@ -241,6 +245,8 @@ namespace Lab3
 
                     }
 
+                    reader.Close();
+                    connection.Close();
 
                 }
 
