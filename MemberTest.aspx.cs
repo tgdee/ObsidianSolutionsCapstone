@@ -65,5 +65,26 @@ namespace Lab3
 
         }
 
+        protected void gvMember_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+                var sqlCom = new SqlCommand("Select MemberID from Member", dbConnection);
+
+                dbConnection.Open();
+
+                Session["MemberID"] = sqlCom.ExecuteScalar();
+
+                dbConnection.Close();
+                
+            }
+            catch (SqlException ex)
+            {
+
+                ltError.Text = ex.Message;
+            }
+            Response.Redirect("~/MemberInformation.aspx");
+        }
     }
 }

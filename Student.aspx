@@ -82,7 +82,7 @@
     <br />
     <br />
     <br />
-    <asp:GridView ID="gvStudent" CssClass="table table-striped student-table" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" DataKeyNames="StudentID" DataSourceID="StudentDataSource">
+    <asp:GridView ID="gvStudent" CssClass="table table-striped student-table" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" DataKeyNames="StudentID" DataSourceID="StudentDataSource" AutoGenerateEditButton ="false">
         <Columns>
             <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True" SortExpression="StudentID" Visible="False" />
             <asp:TemplateField HeaderText="FirstName" SortExpression="FirstName">

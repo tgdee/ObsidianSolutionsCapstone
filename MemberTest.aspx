@@ -7,9 +7,9 @@
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
-    <asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px">
+    <asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px" AutoGenerateEditButton="false" OnSelectedIndexChanged="gvMember_SelectedIndexChanged">
         <Columns>
-            <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
+            <asp:CommandField ShowEditButton="False" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" Visible="False" />
             <asp:TemplateField HeaderText="First Name" SortExpression="FirstName">
                 <EditItemTemplate>
@@ -37,9 +37,14 @@
                 <ItemTemplate>
                     <asp:Label ID="Label3" runat="server" Text='<%# Bind("Email") %>'></asp:Label>
                 </ItemTemplate>
+                
 
-<ItemStyle HorizontalAlign="Center"></ItemStyle>
-            </asp:TemplateField>
+                
+            
+                <ItemStyle HorizontalAlign="Center"></ItemStyle>
+                </asp:TemplateField>
+            
+                <asp:CommandField ShowSelectButton="True" ValidationGroup="UpdateValidation" />
         </Columns>
         <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
         <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />

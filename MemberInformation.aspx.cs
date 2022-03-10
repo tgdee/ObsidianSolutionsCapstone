@@ -12,7 +12,7 @@ using System.Drawing;
 
 namespace Lab3
 {
-    public partial class StudentInformation : System.Web.UI.Page
+    public partial class MemberInformation : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -31,17 +31,13 @@ namespace Lab3
 
                 dbConnection.Open();
 
-                using (var sqlComm = new SqlCommand("dbo.spUpdateStudentInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
+                using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    string selectedUserName = Session["SelectedUserName"].ToString();
+                    string selectedMemberID = Convert.ToString(Session["MemberID"]);
 
-                    sqlComm.Parameters.Add("@UserName", SqlDbType.NVarChar, 20).Value = selectedUserName;
+                    sqlComm.Parameters.Add("@MemberID", SqlDbType.NVarChar, 20).Value = selectedMemberID;
                     sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
                     sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
-                    sqlComm.Parameters.Add("@Grade", SqlDbType.NVarChar, 20).Value = txtGrade.Text;
-                    sqlComm.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 20).Value = txtGraduationYear.Text;
-                    sqlComm.Parameters.Add("@Major", SqlDbType.NVarChar, 20).Value = txtMajor.Text;
-                    sqlComm.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = txtPhoneNumber.Text;
                     sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
 
                     sqlComm.ExecuteNonQuery();
@@ -62,30 +58,29 @@ namespace Lab3
         {
             try
             {
-                
                 SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
-                using (var sqlComm = new SqlCommand("dbo.spStudentInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
+                using (var sqlComm = new SqlCommand("dbo.spMemberInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
 
-                    string selectedUserName = Session["SelectedUserName"].ToString();
+                    string selectedMemberID = Convert.ToString(Session["MemberID"]);
 
-                    dlStudentInfo.DataSource = null;
-                    dlStudentInfo.DataBind();
+                    dlMemberInfo.DataSource = null;
+                    dlMemberInfo.DataBind();
                     dbConnection.Open();
-                    sqlComm.Parameters.Add("@UserName", SqlDbType.NVarChar, 20).Value = selectedUserName; 
+                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberID; 
                    
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlComm);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
-                    if (dt.Rows.Count >= 0)
+                    if (dt.Rows.Count > 0)
                     {
-                        dlStudentInfo.DataSource = dt;
-                        dlStudentInfo.DataBind();
+                        dlMemberInfo.DataSource = dt;
+                        dlMemberInfo.DataBind();
                     }
                     else
                     {
-                        ltError.Text = "Student Information For this Student Does Not Exist. Please Create it on the Student Page";  // NEED TO CREATE THIS ON OTHER PAGES!!!
+                        ltError.Text = "Member Information For this Member Does Not Exist. Please Create it on the Member Page";  // NEED TO CREATE THIS ON OTHER PAGES!!!
                     }
 
                     dbConnection.Close();

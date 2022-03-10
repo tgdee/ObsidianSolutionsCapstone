@@ -46,7 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button> 
-                      <a class="navbar-brand" runat="server" href="~/">Welcome to DukeGroup!</a>
+                      <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to DukeGroup!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
@@ -71,7 +71,7 @@
             </footer>
         </div>
         <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
-        <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" />
+        <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>
     </form>
 </body>
 </html>
