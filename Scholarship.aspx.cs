@@ -100,7 +100,7 @@ namespace Lab3
                 da.Fill(ds, "ScholarshipName");
                 da.Fill(ds, "ScholarshipAmount");
                 da.Fill(ds, "ScholarshipType");
-                da.Fill(ds, "SchoalrshipCondition");
+                da.Fill(ds, "ScholarrshipCondition");
                
 
 

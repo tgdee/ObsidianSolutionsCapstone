@@ -157,6 +157,7 @@
     <Content Include="AdminPages\AdminInternship.aspx" />
     <Content Include="AdminPages\AdminScholarship.aspx" />
     <Content Include="CompanyInformation.aspx" />
+    <Content Include="InternshipInformation.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
@@ -342,6 +343,13 @@
     </Compile>
     <Compile Include="CompanyInformation.aspx.designer.cs">
       <DependentUpon>CompanyInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InternshipInformation.aspx.cs">
+      <DependentUpon>InternshipInformation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InternshipInformation.aspx.designer.cs">
+      <DependentUpon>InternshipInformation.aspx</DependentUpon>
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
