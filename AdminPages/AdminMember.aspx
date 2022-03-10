@@ -7,7 +7,12 @@
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
-    <asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px">
+    <asp:GridView ID="gvMember" runat="server" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
+        <Columns>
+            <asp:CommandField ShowSelectButton="true"/>
+        </Columns>
+    </asp:GridView>
+    <%--<asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px">
         <Columns>
             <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" Visible="False" />
@@ -51,7 +56,7 @@
         <SortedDescendingCellStyle BackColor="#F6F0C0" />
         <SortedDescendingHeaderStyle BackColor="#7E0000" />
 
-    </asp:GridView>
+    </asp:GridView>--%>
     <br />
 
     <asp:Label ID="lblMemberFirstName" runat="server" Text="First Name:"></asp:Label>

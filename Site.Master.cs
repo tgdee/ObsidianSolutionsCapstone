@@ -32,12 +32,12 @@ namespace Lab3
                 Response.Redirect("~/StudentHomepage.aspx");
 
             }
-            else if ((string)Session["AccountType"] == "Admin") // Restrictions on the Admin account viewing student pages
-            {
-                Session["CannotDo"] = "You are not a Member";
-                Response.Redirect("~/AdminPages/AdminHomepage.aspx");
+            //else if ((string)Session["AccountType"] == "Admin") // Restrictions on the Admin account viewing student pages
+            //{
+            //    Session["CannotDo"] = "You are not a Member";
+            //    Response.Redirect("~/AdminPages/AdminHomepage.aspx");
 
-            }
+            //}
             else
             {
                 lblNope.Text = "";

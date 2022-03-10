@@ -7,7 +7,12 @@
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
-    <asp:GridView ID="gvScholarship" runat="server" AutoGenerateColumns="False" DataKeyNames="ScholarshipID" DataSourceID="ScholarshipDataSource" Width="734px">
+    <asp:GridView ID="gvScholarship" runat="server" OnSelectedIndexChanged="gvScholarship_SelectedIndexChanged" Width="500px" EmptyDataText ="Scholarship Record Not Found">
+        <Columns>
+            <asp:CommandField ShowSelectButton="true" />
+        </Columns>
+    </asp:GridView>
+    <%--<asp:GridView ID="gvScholarship" runat="server" AutoGenerateColumns="False" DataKeyNames="ScholarshipID" DataSourceID="ScholarshipDataSource" Width="734px">
         <Columns>
             <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="ScholarshipID" HeaderText="ScholarshipID" InsertVisible="False" ReadOnly="True" SortExpression="ScholarshipID" Visible="False" />
@@ -48,7 +53,7 @@
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
-    </asp:GridView>
+    </asp:GridView>--%>
     <br />
 
     <asp:Label ID="lblScholarshipName" runat="server" Text="Scholarship Name:"></asp:Label>

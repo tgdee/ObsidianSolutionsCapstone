@@ -12,7 +12,7 @@ using System.Drawing;
 
 namespace Lab3
 {
-    public partial class MemberInformation : System.Web.UI.Page
+    public partial class CompanyInformation : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -36,14 +36,16 @@ namespace Lab3
 
                 dbConnection.Open();
 
-                using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
+                using (var sqlComm = new SqlCommand("dbo.spUpdateCompanyInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());
+                    
+                    int selectedEmployerId = Int32.Parse(Session["EmployerID"].ToString());
 
-
-                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
-                    sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
-                    sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
+                    sqlComm.Parameters.Add("@EmployerID", SqlDbType.Int).Value = selectedEmployerId;
+                    sqlComm.Parameters.Add("@MeetingTime", SqlDbType.DateTime).Value = txtMeetingTime.Text;
+                    sqlComm.Parameters.Add("@CompanyName", SqlDbType.NVarChar, 50).Value = txtCompanyName.Text;
+                    sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 50).Value = txtFirstName.Text;
+                    sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 50).Value = txtLastName.Text;
                     sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
 
                     sqlComm.ExecuteNonQuery();
@@ -66,15 +68,15 @@ namespace Lab3
         {
             try
             {
-                int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());     // get the memberId frome the session variable set on member test
+                int selectedMemberId = Int32.Parse(Session["EmployerID"].ToString());     // get the memberId frome the session variable set on member test
 
 
                 con.Open();
 
-                using (var command = new SqlCommand("dbo.spMemberInformation", con) { CommandType = CommandType.StoredProcedure })
+                using (var command = new SqlCommand("dbo.spCompanyInformation", con) { CommandType = CommandType.StoredProcedure })
                 {
 
-                    command.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
+                    command.Parameters.Add("@EmployerID", SqlDbType.Int).Value = selectedMemberId;
 
                     SqlDataAdapter da = new SqlDataAdapter(command);
 
@@ -106,17 +108,15 @@ namespace Lab3
 
         protected void btnReturn_Click(object sender, EventArgs e)
         {
-            if((string)Session["AccountType"] == "Admin")
+            if ((string)Session["AccountType"] == "Admin")
             {
-                Response.Redirect("~/AdminPages/AdminMember.aspx");
+                Response.Redirect("~/AdminPages/AdminCompany.aspx");
             }
             else
             {
-                Response.Redirect("~/MemberTest.aspx");
+                Response.Redirect("~/Company.aspx");
             }
         }
-
-      
 
         //protected void BindDataList()
         //{

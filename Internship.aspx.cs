@@ -15,10 +15,12 @@ namespace Lab3
     public partial class Internship : System.Web.UI.Page
     {
 
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);      // Create an initial conenction with the database 
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            DisplayGvInternship();
         }
 
 
@@ -76,6 +78,70 @@ namespace Lab3
             txtInternshipCity.Text = "";
             txtInternshipStartDate.Text = "";
             txtInternshipType.Text = "";
+        }
+
+        protected void gvInternship_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvInternship.SelectedRow;    //Select a specific row within the grid view
+
+            string check = row.Cells[1].Text;   // Chooses the cell with the information wanted
+
+            Session["InternshipID"] = check;
+
+            Response.Redirect("~/InternshipInformation.aspx"); //Redirect to the page for informaiton to be edited
+        }
+
+        protected void DisplayGvInternship()
+        {
+            try
+            {
+                string searchQuery = "SELECT * FROM Internship";
+
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "InternshipID");
+                da.Fill(ds, "CompanyName");
+                da.Fill(ds, "InternshipType");          //Fill the new adapter with variables
+                da.Fill(ds, "InternshipStartDate");
+                da.Fill(ds, "InternshipCity");
+
+
+
+                ViewState["ds"] = ds;
+
+                gvInternship.DataSource = ds;
+
+                gvInternship.DataBind();
+
+
+
+                gvInternship.HeaderRow.Cells[1].Visible = false;
+
+
+
+                for (int i = 0; i < gvInternship.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                {
+                    gvInternship.Rows[i].Cells[1].Visible = false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+
+
         }
     }
 }

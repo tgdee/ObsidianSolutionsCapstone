@@ -13,11 +13,12 @@ namespace Lab3
 {
     public partial class AdminMember : System.Web.UI.Page
     {
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                DisplayGvMember();
             }
 
         }
@@ -65,5 +66,64 @@ namespace Lab3
 
         }
 
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvMember.SelectedRow;
+
+            string check = row.Cells[1].Text;
+
+            Session["MemberID"] = check;
+
+            Response.Redirect("~/MemberInformation.aspx");
+        }
+        protected void DisplayGvMember()
+        {
+            try
+            {
+                string searchQuery = "SELECT * FROM Member";
+
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "MemberID");
+                da.Fill(ds, "FirstName");
+                da.Fill(ds, "LastName");
+                da.Fill(ds, "Email");
+
+                ViewState["ds"] = ds;
+
+                gvMember.DataSource = ds;
+
+                gvMember.DataBind();
+
+
+
+                gvMember.HeaderRow.Cells[1].Visible = false;
+
+
+
+                for (int i = 0; i < gvMember.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                {
+                    gvMember.Rows[i].Cells[1].Visible = false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+
+
+        }
     }
 }

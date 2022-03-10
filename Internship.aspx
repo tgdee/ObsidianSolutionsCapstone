@@ -7,7 +7,12 @@
        <h4>
            <asp:Literal ID="ltError" runat="server"></asp:Literal>
        </h4>
-       <asp:GridView ID="gvInternship" runat="server" AutoGenerateColumns="False" DataSourceID="InternshipDataSource" DataKeyNames="InternshipID" Width="1000px">
+       <asp:GridView ID="gvInternship" runat="server" Width =" 700px" OnSelectedIndexChanged ="gvInternship_SelectedIndexChanged" EmptyDataText ="Internship record not found">
+           <Columns>
+               <asp:CommandField ShowSelectButton="true"/>
+           </Columns>
+       </asp:GridView>
+       <%--<asp:GridView ID="gvInternship" runat="server" AutoGenerateColumns="False" DataSourceID="InternshipDataSource" DataKeyNames="InternshipID" Width="1000px">
            <Columns>
                <asp:BoundField DataField="InternshipID" HeaderText="InternshipID" InsertVisible="False" ReadOnly="True" SortExpression="InternshipID" Visible="False" />
                <asp:TemplateField HeaderText="Company Name" SortExpression="CompanyName">
@@ -50,7 +55,7 @@
                <asp:CommandField ShowEditButton="True" ValidationGroup="UpdateValidation" />
 
            </Columns>
-       </asp:GridView>
+       </asp:GridView>--%>
        <br />
        
        <asp:Label ID="lblCompanyName" runat="server" Text="Company Name:"></asp:Label>

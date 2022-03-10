@@ -12,7 +12,7 @@ using System.Drawing;
 
 namespace Lab3
 {
-    public partial class MemberInformation : System.Web.UI.Page
+    public partial class ScholarshipInformation : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -36,15 +36,16 @@ namespace Lab3
 
                 dbConnection.Open();
 
-                using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
+                using (var sqlComm = new SqlCommand("dbo.spUpdateScholarshipInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());
+                    int selectedScholarshipId = Int32.Parse(Session["ScholarshipID"].ToString());
 
 
-                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
-                    sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
-                    sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
-                    sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
+                    sqlComm.Parameters.Add("@ScholarshipID", SqlDbType.Int).Value = selectedScholarshipId;
+                    sqlComm.Parameters.Add("@ScholarshipName", SqlDbType.NVarChar, 50).Value = txtName.Text;
+                    sqlComm.Parameters.Add("@ScholarshipAmount", SqlDbType.Int).Value = txtAmount.Text;
+                    sqlComm.Parameters.Add("@ScholarshipType", SqlDbType.NVarChar, 50).Value = txtType.Text;
+                    sqlComm.Parameters.Add("@ScholarshipCondition", SqlDbType.NVarChar, 50).Value = txtCondition.Text;
 
                     sqlComm.ExecuteNonQuery();
 
@@ -66,15 +67,15 @@ namespace Lab3
         {
             try
             {
-                int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());     // get the memberId frome the session variable set on member test
+                int selectedScholarshipId = Int32.Parse(Session["ScholarshipID"].ToString());     // get the memberId frome the session variable set on member test
 
 
                 con.Open();
 
-                using (var command = new SqlCommand("dbo.spMemberInformation", con) { CommandType = CommandType.StoredProcedure })
+                using (var command = new SqlCommand("dbo.spScholarshipInformation", con) { CommandType = CommandType.StoredProcedure })
                 {
 
-                    command.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
+                    command.Parameters.Add("@ScholarshipID", SqlDbType.Int).Value = selectedScholarshipId; // Creat the Scholarship ID variable 
 
                     SqlDataAdapter da = new SqlDataAdapter(command);
 
@@ -106,17 +107,15 @@ namespace Lab3
 
         protected void btnReturn_Click(object sender, EventArgs e)
         {
-            if((string)Session["AccountType"] == "Admin")
+            if ((string)Session["AccountType"] == "Admin")
             {
-                Response.Redirect("~/AdminPages/AdminMember.aspx");
+                Response.Redirect("~/AdminPages/AdminScholarship.aspx");
             }
             else
             {
-                Response.Redirect("~/MemberTest.aspx");
+                Response.Redirect("~/Scholarship.aspx");
             }
         }
-
-      
 
         //protected void BindDataList()
         //{
