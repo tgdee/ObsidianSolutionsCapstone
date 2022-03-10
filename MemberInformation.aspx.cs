@@ -16,8 +16,11 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            
+            if (!Page.IsPostBack)
             {
+
+
                 BindDataList();
             }
 
@@ -33,9 +36,10 @@ namespace Lab3
 
                 using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    string selectedMemberID = Convert.ToString(Session["MemberID"]);
+                    string selectedMemberID = Session["MemberID"].ToString();
 
-                    sqlComm.Parameters.Add("@MemberID", SqlDbType.NVarChar, 20).Value = selectedMemberID;
+
+                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberID;
                     sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
                     sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
                     sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
@@ -62,9 +66,10 @@ namespace Lab3
 
                 using (var sqlComm = new SqlCommand("dbo.spMemberInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-
-                    string selectedMemberID = Convert.ToString(Session["MemberID"]);
-
+                    //Session["MemberID"] = ((int)Session["MemberID"]);
+                    // selectedMemberID = Session["MemberID"];
+                    int selectedMemberID = 
+                    
                     dlMemberInfo.DataSource = null;
                     dlMemberInfo.DataBind();
                     dbConnection.Open();
