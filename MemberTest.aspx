@@ -8,7 +8,7 @@
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
 
-    <asp:GridView ID="gvMember" runat="server" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" EmptyDataText="Member Record Not Found">
+    <asp:GridView ID="gvMember" runat="server" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
         </Columns>

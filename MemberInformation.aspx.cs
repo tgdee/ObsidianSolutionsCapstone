@@ -38,10 +38,10 @@ namespace Lab3
 
                 using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
                 {
-                    string selectedMemberID = Session["MemberID"].ToString();
+                    int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());
 
 
-                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberID;
+                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
                     sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
                     sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
                     sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
@@ -49,6 +49,8 @@ namespace Lab3
                     sqlComm.ExecuteNonQuery();
 
                     dbConnection.Close();
+
+                    DisplayUserData();
 
 
                 }
@@ -64,7 +66,7 @@ namespace Lab3
         {
             try
             {
-                int memberId = Int32.Parse(Session["MemberID"].ToString());
+                int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());     // get the memberId frome the session variable set on member test
 
 
                 con.Open();
@@ -72,11 +74,7 @@ namespace Lab3
                 using (var command = new SqlCommand("dbo.spMemberInformation", con) { CommandType = CommandType.StoredProcedure })
                 {
 
-                    
-                    
-
-                    command.Parameters.Add("@MemberID", SqlDbType.Int).Value = memberId;
-                   
+                    command.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
 
                     SqlDataAdapter da = new SqlDataAdapter(command);
 
