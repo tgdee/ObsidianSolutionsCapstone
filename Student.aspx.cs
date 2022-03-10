@@ -14,7 +14,7 @@ namespace Lab3
 {
     public partial class _Default : Page
     {
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString);
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -22,9 +22,64 @@ namespace Lab3
 
             if (!Page.IsPostBack)
             {
-
+                DisplayGvStudent();
             }
         }
+
+        protected void DisplayGvStudent()
+        {
+            
+            try
+            {
+                string searchQuery = "SELECT * FROM Student";
+
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "StudentID");
+                da.Fill(ds, "Username");
+                da.Fill(ds, "FirstName");
+                da.Fill(ds, "LastName");
+                da.Fill(ds, "Grade");
+                da.Fill(ds, "GraduationYear");
+                da.Fill(ds, "Major");
+                da.Fill(ds, "PhoneNumber");
+                da.Fill(ds, "Email");
+
+                ViewState["ds"] = ds;
+
+                gvStudent.DataSource = ds;
+
+                gvStudent.DataBind();
+
+
+
+                gvStudent.HeaderRow.Cells[1].Visible = false;
+
+
+
+                for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                {
+                    gvStudent.Rows[i].Cells[1].Visible = false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+        }
+
+
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
@@ -131,7 +186,9 @@ namespace Lab3
         {
             GridViewRow row = gvStudent.SelectedRow;        // Makes a gridview row equal to the selected row of gvStudent
 
-            Session["SelectedUsername"] = row.Cells[8].Text;        // Stores the selected username in Session for use on Student Information page
+            string studentId = row.Cells[1].Text;        // Stores the student id in Session for use on Student Information page
+
+            Session["StudenID"] = studentId;
 
             Response.Redirect("~/StudentInformation.aspx");         // Redirect to student information page
         }
@@ -150,56 +207,54 @@ namespace Lab3
             DisplayResume();
         }
 
-        protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
-        }
 
         protected void lbDownloadResume_Click(object sender, EventArgs e)
         {
-            LinkButton linkDownload = sender as LinkButton;
-            GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
-            string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
-            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
-            Response.TransmitFile(Server.MapPath(downloadFile));
-            Response.End();
+            //LinkButton linkDownload = sender as LinkButton;
+            //GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
+            //string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
+            //Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
+            //Response.TransmitFile(Server.MapPath(downloadFile));
+            //Response.End();
         }
 
         protected void DisplayResume()
         {
-        
-                try
+
+            try
+            {
+
+                string userName = Session["Username"].ToString();
+
+                string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";      // Find the current username of whomever is signed in
+
+                con.Open();
+
+                using (SqlCommand cmd = new SqlCommand(queryResume, con))
                 {
-                    GridViewRow row = gvSearch.SelectedRow;
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
 
-                    string userName = row.Cells[4].Text;                                                                          // Find the current username of whomever is signed in
-                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";
-
-                    con.Open();
-
-                    using (SqlCommand cmd = new SqlCommand(queryResume, con))
-                    {
-                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
-
-                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // Fill SqlDataAdapter using SELECT query
-                        DataTable dt = new DataTable();
-                        sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
-                        gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
-                        gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
+                    SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // Fill SqlDataAdapter using SELECT query
+                    DataTable dt = new DataTable();
+                    sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
+                    
 
 
-                    }
+
                 }
-                catch (SqlException ex)
-                {
-                    ltError.Text = ex.Message;
-                }
-                finally
-                {
-                    con.Close();
-                    con.Dispose();
-                }
-            
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+
         }
+
+
     }
 }
