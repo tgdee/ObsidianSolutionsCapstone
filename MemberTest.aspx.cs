@@ -13,13 +13,14 @@ namespace Lab3
 {
     public partial class MemberTest : System.Web.UI.Page
     {
-        public static string memberID;
+        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
         protected void Page_Load(object sender, EventArgs e)
         {
             
             if (!IsPostBack)
             {
-
+                DisplayGvMember();
             }
 
         }
@@ -69,30 +70,58 @@ namespace Lab3
 
         protected void gvMember_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = gvMember.SelectedRow;        // Makes a gridview row equal to the selected row of gvStudent
+            GridViewRow row = gvMember.SelectedRow;
 
-            memberID = row.Cells[0].Text;
+            string check = row.Cells[1].Text;
 
-            
-            //try
-            //{
-            //    SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
-            //    var sqlCom = new SqlCommand("Select MemberID from Member", dbConnection);
-
-            //    dbConnection.Open();
-
-            //    Session["MemberID"] = sqlCom.ExecuteScalar();
-
-            //    dbConnection.Close();
-
-            //}
-            //catch (SqlException ex)
-            //{
-
-            //    ltError.Text = ex.Message;
-            //}
+            Session["MemberID"] = check;
 
             Response.Redirect("~/MemberInformation.aspx");
+        }
+
+        protected void DisplayGvMember()
+        {
+            try
+            {
+                string searchQuery = "SELECT * FROM Member";
+
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
+
+                con.Open();
+
+                cmd.ExecuteNonQuery();
+
+                SqlDataAdapter da = new SqlDataAdapter();
+
+                da.SelectCommand = cmd;
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "MemberID");
+                da.Fill(ds, "FirstName");
+                da.Fill(ds, "LastName");
+                da.Fill(ds, "Email");
+
+                ViewState["ds"] = ds;
+
+                gvMember.DataSource = ds;
+
+                gvMember.DataBind();
+
+                if(gvMember.Rows.Count == 1)                        // Check if gridview member has rows and if it does hide the member id header and row cells
+                {
+                    gvMember.HeaderRow.Cells[1].Visible = false;
+                    gvMember.Rows[0].Cells[1].Visible = false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+
+            
         }
     }
 }

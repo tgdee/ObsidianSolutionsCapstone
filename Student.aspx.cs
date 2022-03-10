@@ -50,13 +50,13 @@ namespace Lab3
             da.Fill(ds, "Email");
             da.Fill(ds, "AccountState");
             ViewState["ds"] = ds;
-            gvSearch.DataSource = ds;
+            gvSearch.DataSource = da;
 
             gvSearch.DataBind();
             if(gvSearch.Rows.Count == 1)
             {
                 gvSearch.HeaderRow.Cells[1].Visible = false;
-                gvSearch.Rows[0].Cells[1].Visible = false;
+                gvSearch.Rows[0].Cells[1].Visible = false;          
             }
 
             con.Close();

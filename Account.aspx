@@ -19,7 +19,7 @@
         </asp:TableHeaderRow>
         <asp:TableRow>
             <asp:TableCell>
-                <asp:DataList ID="dlAccount" runat="server" RepeatDirection="Vertical" RepeatColumns="4" RepeatLayout="Flow" CellPadding="50" CellSpacing="50">
+                <asp:DataList ID="dlAccount" runat="server" RepeatDirection="Vertical" RepeatColumns="3" RepeatLayout="Flow" CellPadding="50" CellSpacing="50">
                     <HeaderTemplate>
                         <table>
                             <tr>

@@ -7,7 +7,20 @@
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
-    <asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px" AutoGenerateEditButton="false" OnSelectedIndexChanged="gvMember_SelectedIndexChanged">
+
+    <asp:GridView ID="gvMember" runat="server" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" EmptyDataText="Member Record Not Found">
+        <Columns>
+            <asp:CommandField ShowSelectButton="true" />
+        </Columns>
+    </asp:GridView>
+
+
+
+
+
+
+
+    <%--<asp:GridView ID="gvMember" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" DataKeyNames="MemberID" DataSourceID="MemberDataSource" Height="150px" Width="451px" AutoGenerateEditButton="false" OnSelectedIndexChanged="gvMember_SelectedIndexChanged">
         <Columns>
             <asp:CommandField ShowEditButton="False" ValidationGroup="UpdateValidation" />
             <asp:BoundField DataField="MemberID" HeaderText="MemberID" InsertVisible="False" ReadOnly="True" SortExpression="MemberID" Visible="False" />
@@ -62,8 +75,10 @@
         <SortedDescendingHeaderStyle BackColor="#7E0000" />
 
     </asp:GridView>
+    <br />--%>
     <br />
-
+    <br />
+    <br />
     <asp:Label ID="lblMemberFirstName" runat="server" Text="First Name:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtMemberFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>
@@ -87,7 +102,7 @@
 
 
     <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />
-    
+
 
     <asp:SqlDataSource ID="MemberDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" DeleteCommand="DELETE FROM [Member] WHERE [MemberID] = @MemberID" InsertCommand="INSERT INTO [Member] ([FirstName], [LastName], [Email]) VALUES (@FirstName, @LastName, @Email)" SelectCommand="SELECT * FROM [Member] ORDER BY [MemberID]" UpdateCommand="UPDATE [Member] SET [FirstName] = @FirstName, [LastName] = @LastName, [Email] = @Email WHERE [MemberID] = @MemberID">
         <DeleteParameters>
