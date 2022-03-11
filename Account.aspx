@@ -70,7 +70,7 @@
     <h1>Upload Resume</h1>
         <div>
             <asp:FileUpload ID="FileUpload1" runat="server" />
-            <asp:Button ID="btnUpload" runat="server" Text="Upload File" OnClick="btnUpload_Click" />
+            <asp:Button ID="btnUpload" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
             <br />
             <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
             <br />
@@ -80,7 +80,7 @@
 
 
     <br />
-    <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" OnClick="btnViewResume_Click" />
+    <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
     <br />
     <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
 

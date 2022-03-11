@@ -206,14 +206,16 @@ namespace Lab3
                             }
                             else
                             {
-                                ltError.Text = "No Resume Available";
+                                lblMessage.ForeColor = Color.Red;
+                                lblMessage.Text = "No Resume Available";
                             }
                         }
 
                     }
                     else
                     {
-                        ltError.Text = "No Resume Available";
+                        lblMessage.ForeColor = Color.Red;
+                        lblMessage.Text = "No Resume Available";
                     }
 
                     reader.Close();
@@ -273,9 +275,9 @@ namespace Lab3
                     int fileSize = FileUpload1.PostedFile.ContentLength;
                     int fileNameLength = FileUpload1.FileName.ToString().Length;
 
-                    if (fileSize > 2097152 || fileNameLength > 20)          // Prevent file larger than this many bytes or 2MB from being uploaded
+                    if (fileSize > 2097152 || fileNameLength > 30)          // Prevent file larger than this many bytes or 2MB from being uploaded
                     {
-                        lblMessage.Text = "Maximum File Size (2MB) Exceeded OR Maximum File Name of 20 Letters Exceeded";
+                        lblMessage.Text = "Maximum File Size (2MB) Exceeded OR Maximum File Name of 30 Letters Exceeded";
                     }
                     else
                     {
@@ -303,7 +305,9 @@ namespace Lab3
                             }
                             else
                             {
+                                lblMessage.ForeColor = Color.Red;
                                 lblMessage.Text = "Maximum of 1 Resume Uploaded Please Delete then ReUpload!!!";
+
                             }
                             
                         }
@@ -334,21 +338,29 @@ namespace Lab3
             {
                 string queryResume = "SELECT Count(1) FROM Resume WHERE StudentID=@studentId";
 
+                dbConnection.Open();
+
                 SqlCommand command = new SqlCommand(queryResume, dbConnection);
+
+                
 
                 command.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(GetStudentIDFromSql());
 
-                string check = command.ExecuteNonQuery().ToString();
 
-                if(check.Equals("1"))
+
+                string check = command.ExecuteScalar().ToString();
+
+                int intCheck = Convert.ToInt32(check);
+
+                if(intCheck == 0)
                 {
                     dbConnection.Close();
-                    return false;
+                    return true;
                 }
                 else
                 {
                     dbConnection.Close();
-                    return true;
+                    return false;
                 }
 
                 
