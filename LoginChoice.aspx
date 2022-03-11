@@ -6,7 +6,6 @@
 <head runat="server">
     <title></title>
 </head>
-    <%--create the input boxes for the user--%>
 <body>
     <form id="form1" runat="server">
         <div>
@@ -49,7 +48,6 @@
             <br />
             <br />
             <formview>
-                <%--Need to create a new account? --%>
                 <asp:Label ID="LblAccount" runat="server" Text="Don't have an account yet?" Font-Bold="true"></asp:Label>
                 <br />
                 <asp:Button ID="btnNewAccount" runat="server" Text="Create New Account" OnClick="btnNewAccount_Click" />

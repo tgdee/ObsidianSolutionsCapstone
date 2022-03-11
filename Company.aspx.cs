@@ -131,6 +131,8 @@ namespace Lab3
                 {
                     gvCompany.HeaderRow.Cells[1].Visible = false;
                     gvCompany.Rows[i].Cells[1].Visible = false;
+                    gvCompany.HeaderRow.Cells[7].Visible = false;
+                    gvCompany.Rows[i].Cells[7].Visible = false;
                 }
 
             }
@@ -141,6 +143,76 @@ namespace Lab3
 
 
 
+        }
+
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvCurrentJobApplication.SelectedRow;                                   // Create a gridview row to select the row data
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    string studentId = gvCurrentJobApplication.DataKeys[gvCurrentJobApplication.SelectedIndex].Values["StudentID"].ToString();
+
+                    if (row.Cells[6].Text.Equals("Unawarded"))         // Check if the row is unapproved 
+                    {
+                        // Update sql
+                        string updateToApprove = "UPDATE JobApplication SET JobApplication.Awarded='Awarded' WHERE JobApplication.StudentID=@studentId";
+                        SqlCommand sqlCommand = new SqlCommand(updateToApprove, dbConnection);
+                        sqlCommand.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(studentId);
+                        dbConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        Response.Redirect("~/Company.aspx");
+
+                    }
+                    else if (row.Cells[6].Text.Equals("Awarded"))
+                    {
+                        // Update sql
+                        string updateToUnapprove = "UPDATE JobApplication SET JobApplication.Awarded='Unawarded' WHERE JobApplication.StudentID=@studentId";
+                        SqlCommand sqlCommand = new SqlCommand(updateToUnapprove, dbConnection);
+                        sqlCommand.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(studentId);
+                        dbConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        Response.Redirect("~/Company.aspx");
+
+                    }
+
+
+
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
+
+
+            }
+
+        }
+
+        protected void gvCurrentJobApplication_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvCurrentJobApplication.SelectedRow;
+
+            if(row.Cells[6].Text.Equals("Unawarded"))
+            {
+                btnApprove.Text = "Award";
+            }
+            else
+            {
+                btnApprove.Text = "Unaward";
+            }
+
+            lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[4].Text + " " + row.Cells[5].Text + ".";
         }
     }
 

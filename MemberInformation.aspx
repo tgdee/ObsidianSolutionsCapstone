@@ -1,7 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberInformation.aspx.cs" Inherits="Lab3.MemberInformation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
-    <br />
     <asp:Table ID="Table1" runat="server">
         <asp:TableHeaderRow>
             <asp:TableHeaderCell>
@@ -17,7 +15,6 @@
                     <HeaderTemplate>
                         <table>
                             <tr>
-                                <th style="width:300px" align="left">Username</th>
                                 <th style="width:300px" align="left">First Name</th>
                                 <th style="width:300px" align="left">Last Name</th>
                                 <th style="width:300px" align="left">Email</th> 
@@ -27,7 +24,6 @@
                     <ItemTemplate>
                         <table>
                             <tr>
-                                <td style="width:300px" align="left"> <asp:Label ID="lblUsername" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "UserName") %>'></asp:Label></td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblFirstName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "FirstName") %>' ></asp:Label> </td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblLastName" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "LastName") %>' ></asp:Label></td>
                                 <td style="width:300px" align="left"> <asp:Label ID="lblEmail" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Email" ) %>' ></asp:Label></td>

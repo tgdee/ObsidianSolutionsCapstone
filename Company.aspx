@@ -8,9 +8,7 @@
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
-    <%--Create the user input boxes for all of the user input--%>
-
-    <asp:GridView ID="gvCompany" runat="server" OnSelectedIndexChanged="gvCompany_SelectedIndexChanged" Width="500px" EmptyDataText="Company Record Not Found" >
+    <asp:GridView ID="gvCompany" runat="server" OnSelectedIndexChanged="gvCompany_SelectedIndexChanged" Width="1000px" EmptyDataText="Company Record Not Found" >
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
         </Columns>
@@ -74,72 +72,71 @@
     <%--Creates all the boxes for new information to be added--%>
     <asp:Label ID="lblMeetingTime" runat="server" Text="Meeting Time:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:TextBox ID="txtMeetingTime" runat="server" placeholder="MM/DD/YYYY"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfMeeting" runat="server" ControlToValidate="txtMeetingTime" ErrorMessage="Enter Meeting Time" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtMeetingTime" runat="server" ValidationGroup="1" placeholder="MM/DD/YYYY"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfMeeting" runat="server" ValidationGroup="1" ControlToValidate="txtMeetingTime" ErrorMessage="Enter Meeting Time" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
     <br />
     <br />
     <asp:Label ID="lblCompanyName" runat="server" Text="Company Name:"></asp:Label>
     &nbsp&nbsp
-    <asp:TextBox ID="txtCompanyName" runat="server" placeholder="Enter Company Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfCompany" runat="server" ControlToValidate="txtCompanyName" ErrorMessage="Enter Company Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtCompanyName" runat="server" ValidationGroup="1" placeholder="Enter Company Name"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfCompany" runat="server" ValidationGroup="1" ControlToValidate="txtCompanyName" ErrorMessage="Enter Company Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
     <br />
     <br />
     <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:TextBox ID="txtEmail" runat="server" placeholder="Enter Email"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Enter Email" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtEmail" runat="server" ValidationGroup="1" placeholder="Enter Email"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqEmail" runat="server" ValidationGroup="1" ControlToValidate="txtEmail" ErrorMessage="Enter Email" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
     <br />
     <br />
     <asp:Label ID="lblFirstName" runat="server" Text="First Name:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqFirstName" runat="server" ControlToValidate="txtFirstName" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtFirstName" runat="server" ValidationGroup="1" placeholder="Enter First Name"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqFirstName" runat="server" ValidationGroup="1" ControlToValidate="txtFirstName" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:TextBox ID="txtLastName" runat="server" placeholder="Enter Last Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqLastName" runat="server" ControlToValidate="txtLastName" ErrorMessage="Enter Last Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <asp:TextBox ID="txtLastName" runat="server" ValidationGroup="1" placeholder="Enter Last Name"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqLastName" runat="server" ValidationGroup="1" ControlToValidate="txtLastName" ErrorMessage="Enter Last Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
 
 
 
 
     <br />
     <br />
-    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />
-    <%--retrieves data from the specified data sources--%>
-    <asp:SqlDataSource ID="CompanyDataSource"
-        SelectCommand="SELECT * FROM [Company] ORDER BY [EmployerID]"
-        UpdateCommand="UPDATE [Company] SET [MeetingTime] = @MeetingTime, [CompanyName] = @CompanyName, [Email] = @Email, [FirstName] = @FirstName, [LastName] = @LastName, [MemberID] = @MemberID WHERE [EmployerID] = @EmployerID"
-        ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>"
-        runat="server" DeleteCommand="DELETE FROM [Company] WHERE [EmployerID] = @EmployerID" InsertCommand="INSERT INTO [Company] ([MeetingTime], [CompanyName], [Email], [FirstName], [LastName], [MemberID]) VALUES (@MeetingTime, @CompanyName, @Email, @FirstName, @LastName, @MemberID)">
-        <DeleteParameters>
-            <asp:Parameter Name="EmployerID" Type="Int32" />
-        </DeleteParameters>
-        <InsertParameters>
-            <asp:Parameter Name="MeetingTime" Type="DateTime" />
-            <asp:Parameter Name="CompanyName" Type="String" />
-            <asp:Parameter Name="Email" Type="String" />
-            <asp:Parameter Name="FirstName" Type="String" />
-            <asp:Parameter Name="LastName" Type="String" />
-            <asp:Parameter Name="MemberID" Type="Int32" />
-        </InsertParameters>
-        <UpdateParameters>
-            <asp:Parameter Type="DateTime" Name="MeetingTime" />
-            <asp:Parameter Type="String" Name="CompanyName" />
-            <asp:Parameter Type="String" Name="Email" />
-            <asp:Parameter Type="String" Name="FirstName" />
-            <asp:Parameter Type="String" Name="LastName" />
+    <asp:Button ID="btnAddRow" runat="server" ValidationGroup="1" Text="Add New Row" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />
 
-            <asp:Parameter Name="MemberID" Type="Int32" />
-            <asp:Parameter Name="EmployerID" Type="Int32" />
+    <br />
+    <h3>Current Student Job Applications</h3>
+    <asp:GridView ID="gvCurrentJobApplication" runat="server" AutoGenerateColumns="False" DataSourceID="JobApplications" OnSelectedIndexChanged="gvCurrentJobApplication_SelectedIndexChanged" DataKeyNames="StudentID">
+        <Columns>
+            <asp:BoundField DataField="CompanyName" HeaderText="CompanyName" SortExpression="CompanyName" />
+            <asp:BoundField DataField="ApplicationDate" HeaderText="ApplicationDate" SortExpression="ApplicationDate" />
+            <asp:BoundField DataField="PositionTitle" HeaderText="PositionTitle" SortExpression="PositionTitle" />
+            <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+            <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
+            <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
+            <asp:BoundField DataField="Awarded" HeaderText="Awarded" SortExpression="Awarded" />
+            <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True" SortExpression="StudentID" Visible="false" />
+            <asp:CommandField ShowSelectButton="true" />
+        </Columns>
+    </asp:GridView>
 
-        </UpdateParameters>
-    </asp:SqlDataSource>
+    <br />
+    <asp:Label ID="lblSelectedStudent" runat="server" Text=""></asp:Label>
+    <br />
+    <asp:Button ID="btnApprove" runat="server" Text="Award" ValidationGroup="2" OnClick="btnApprove_Click" />
 
+    <asp:SqlDataSource ID="JobApplications" 
+        runat="server"
+        ConnectionString="<%$ ConnectionStrings:Lab3 %>"
+        SelectCommand="SELECT JobApplication.CompanyName, JobApplication.ApplicationDate, JobApplication.PositionTitle, JobApplication.Email, Student.FirstName, Student.LastName, JobApplication.Awarded, Student.StudentID
+                        FROM JobApplication
+                        INNER JOIN Student ON JobApplication.StudentID=Student.StudentID;"
+        ></asp:SqlDataSource>
 </asp:Content>
 
 
