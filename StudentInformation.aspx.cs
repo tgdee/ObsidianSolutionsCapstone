@@ -16,9 +16,21 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!Page.IsPostBack)
+            if (!Page.IsPostBack)
             {
-                BindDataList();
+                if (Session["StudentID"] != null && Session["Username"] != null)
+                {
+                    BindDataList();
+                }
+                else if (Session["Username"] != null)
+                {
+                    Response.Redirect("~/Homepage.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/LoginChoice.aspx");
+                }
+
             }
 
         }

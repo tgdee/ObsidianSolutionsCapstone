@@ -21,9 +21,19 @@ namespace Lab3
             
             if (!Page.IsPostBack)
             {
+                if(Session["MemberID"] != null && Session["Username"] != null)
+                {
+                    DisplayUserData();
+                }
+                else if (Session["Username"] != null)
+                {
+                    Response.Redirect("~/Homepage.aspx");
+                }
+                else
+                {
+                    Response.Redirect("~/LoginChoice.aspx");
+                }
 
-                DisplayUserData();
-                
             }
 
         }
