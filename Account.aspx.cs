@@ -46,7 +46,7 @@ namespace Lab3
                     dlAccount.DataBind();
                     connection.Open();
                     string username = Session["Username"].ToString();
-                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";
+                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
                     command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -146,7 +146,7 @@ namespace Lab3
 
             try
             {
-                string updateResume = "DELETE FROM Resume WHERE StudentID=@studentId";
+                string updateResume = "DELETE FROM Resume WHERE StudentID=@studentId";                  // Use student id to determine which resume to delete
 
                 connection.Open();
 
@@ -173,7 +173,7 @@ namespace Lab3
 
             try
             {
-                string queryResume = "SELECT FileLocation FROM Resume WHERE StudentID=@studentId";
+                string queryResume = "SELECT FileLocation FROM Resume WHERE StudentID=@studentId";              // Use student id to determine which resume to open
 
                 connection.Open();
 
@@ -199,7 +199,7 @@ namespace Lab3
                             if (fileBuffer != null)
                             {
                                 Response.ContentType = "application/pdf";
-                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);
+                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);          // Use WebClient to send HTTP commands to web browser
                                 Response.AddHeader("content-length", fileBuffer.Length.ToString());
                                 Response.BinaryWrite(fileBuffer);
 
@@ -237,7 +237,7 @@ namespace Lab3
 
             try
             {
-                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";              // Get the student id of the currently signed in user
                 string userName = Session["Username"].ToString();
                 dbConnection.Open();
 
@@ -267,7 +267,7 @@ namespace Lab3
 
                 if (fileExtension.ToLower() != ".pdf")
                 {
-                    lblMessage.Text = "Only Files with .pdf Extension are Allowed";
+                    lblMessage.Text = "Only Files with .pdf Extension are Allowed";             // Only allow pdfs
                     lblMessage.ForeColor = System.Drawing.Color.Red;
                 }
                 else
@@ -289,7 +289,7 @@ namespace Lab3
 
                         try
                         {
-                            if (FirstUpload())
+                            if (FirstUpload())          // Only let a student upload a new resume if they do not already have one
                             {
                                 string insertString = "INSERT INTO Resume (FileName, FileLocation, StudentID) VALUES (@fileName, @fileLocation, @StudentID)";
                                 dbConnection.Open();
@@ -306,7 +306,7 @@ namespace Lab3
                             else
                             {
                                 lblMessage.ForeColor = Color.Red;
-                                lblMessage.Text = "Maximum of 1 Resume Uploaded Please Delete then ReUpload!!!";
+                                lblMessage.Text = "Maximum of 1 Resume Uploaded Please Delete then ReUpload!!!";        // Only allow one resume at a time to simplify data storage
 
                             }
                             
@@ -336,7 +336,7 @@ namespace Lab3
 
             try
             {
-                string queryResume = "SELECT Count(1) FROM Resume WHERE StudentID=@studentId";
+                string queryResume = "SELECT Count(1) FROM Resume WHERE StudentID=@studentId";              // Check if a student has a submitted resume
 
                 dbConnection.Open();
 
