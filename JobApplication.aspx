@@ -14,10 +14,10 @@
                     <asp:Label ID="lblCompany" runat="server" Text="Company Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:DropDownList ID="ddlCompanyNames" runat="server" DataSourceID="sdsCompanyNames" ValidationGroup="1" DataTextField="CompanyName" DataValueField="EmployerID" AppendDataBoundItems="true">
+                    <asp:DropDownList ID="ddlCompanyNames" runat="server" DataSourceID="sdsCompanyNames" ValidationGroup="1" DataTextField="CompanyName" DataValueField="CompanyName" AppendDataBoundItems="true">
                         <asp:ListItem Text="Please Select" Value="0"></asp:ListItem>
                     </asp:DropDownList>
-                    <asp:RequiredFieldValidator ID="rfvCompanyName" runat="server" InitialValue="0" ValidationGroup="1" ErrorMessage="Company Name Not Selected" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfvCompanyName" runat="server" ControlToValidate="ddlCompanyNames" InitialValue="0" ValidationGroup="1" ErrorMessage="Company Name Not Selected" ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>

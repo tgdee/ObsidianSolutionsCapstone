@@ -60,12 +60,13 @@ namespace Lab3
                     string date = DateTime.Now.ToString();
                     string position = txtPosition.Text;
                     string applyingStudentId = GetStudentIDFromSql();
+                    string email = txtStudentEmail.Text;
                     
                     dbConnection.Open();
 
 
-                    string insertString = "INSERT INTO JobApplication (CompanyName, ApplicationDate, PositionTitle, StudentID) " +
-                            " VALUES (@companyName, @applicationDate, @positionTitle, @studentId)";
+                    string insertString = "INSERT INTO JobApplication (CompanyName, ApplicationDate, PositionTitle, StudentID, Email) " +
+                            " VALUES (@companyName, @applicationDate, @positionTitle, @studentId, @email)";
 
                     
                     using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
@@ -75,6 +76,7 @@ namespace Lab3
                         cmd.Parameters.Add("@applicationDate", SqlDbType.Date).Value = date;
                         cmd.Parameters.Add("@positionTitle", SqlDbType.NVarChar, 50).Value = position;
                         cmd.Parameters.Add("@studentId", SqlDbType.Int).Value = applyingStudentId;
+                        cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
 
 
                         cmd.ExecuteNonQuery();
@@ -97,8 +99,8 @@ namespace Lab3
                 }
 
                                                             
-                txtPosition.Text = "";                          //Clear textbox after insert
-
+                txtPosition.Text = "";                          //Clear textboxes after insert
+                txtStudentEmail.Text = "";
             }
         }
     }
