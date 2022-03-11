@@ -101,7 +101,7 @@ namespace Lab3
                 da.Fill(ds, "ScholarshipAmount");
                 da.Fill(ds, "ScholarshipType");
                 da.Fill(ds, "ScholarrshipCondition");
-               
+
 
 
                 ViewState["ds"] = ds;
@@ -138,6 +138,8 @@ namespace Lab3
             {
                 try
                 {
+
+
 
                     string applicationNumber = gvScholarshipApplications.DataKeys[gvScholarshipApplications.SelectedIndex].Values["ApplicationNumber"].ToString();
 
@@ -185,6 +187,8 @@ namespace Lab3
         protected void gvScholarshipApplications_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = gvScholarshipApplications.SelectedRow;
+
+            btnAward.Visible = true;            // Show award button now that a user has been selected
 
             if (row.Cells[5].Text.Equals("Unawarded"))
             {

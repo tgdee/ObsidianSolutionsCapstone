@@ -42,6 +42,8 @@ namespace Lab3
         {
             GridViewRow row = gvApprovedAccounts.SelectedRow;       // Create a gridview row to select the row data
 
+            btnApprove.Visible = true;
+
             if(row.Cells[6].Text.Equals("Unapproved"))              // Check the current entry in the AccountState row
             {
                 btnApprove.Text = "Approve";                        // Set the button to describe what it should do

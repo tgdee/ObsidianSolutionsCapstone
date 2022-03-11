@@ -65,9 +65,9 @@ namespace Lab3
                 {
                     dbConnection.Close();
                     dbConnection.Dispose();
-                    
+
                 }
-               
+
 
             }
         }
@@ -145,6 +145,8 @@ namespace Lab3
         {
             GridViewRow row = gvInternshipApplications.SelectedRow;
 
+            btnAward.Visible = true;
+
             if (row.Cells[5].Text.Equals("Unawarded"))
             {
                 btnAward.Text = "Award";
@@ -168,6 +170,7 @@ namespace Lab3
             {
                 try
                 {
+
 
                     string internshipId = gvInternshipApplications.DataKeys[gvInternshipApplications.SelectedIndex].Values["InternshipNumber"].ToString();
 
@@ -193,6 +196,7 @@ namespace Lab3
                         Response.Redirect("~/Internship.aspx");
 
                     }
+
 
 
 
