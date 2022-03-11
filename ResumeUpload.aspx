@@ -15,7 +15,8 @@
             <br />
             <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
             <br />
-            
+            <br />
+            <asp:Button ID="btnReturn" runat="server" Text="<- Previous Page"  OnClick="btnReturn_Click" />
             <br />
         </div>
     </form>

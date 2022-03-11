@@ -228,7 +228,7 @@ namespace Lab3
             }
             else
             {
-                Response.Redirect("~/Homepage.apsx");
+                Response.Redirect("~/Homepage.aspx");
             }
         }
 

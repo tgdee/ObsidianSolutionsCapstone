@@ -119,6 +119,9 @@ namespace Lab3
             }
         }
 
-
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/StudentHomepage.aspx");
+        }
     }
 }
