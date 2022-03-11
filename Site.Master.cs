@@ -21,12 +21,12 @@ namespace Lab3
             else
             {
 
-                lblUserStat.Text = "You Must Login to Access That Page";
+                lblUserStat.Text = "You Must Login to Access That Page";    
                 lblUserStat.ForeColor = Color.Red;
                 Response.Redirect("~/LoginChoice.aspx");
             }
 
-            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account viewing Student pages
+            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account and Member viewing Student pages
             {
                 Session["CannotDo"] = "You are not a Member";
                 Response.Redirect("~/StudentHomepage.aspx");

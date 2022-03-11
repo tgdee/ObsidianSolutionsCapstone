@@ -46,6 +46,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button> 
                       <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to DukeGroup!</a>
                 </div>
@@ -57,6 +58,7 @@
                         <li><a runat="server" href="~/ScholarshipApplication.aspx">Scholarship Application</a></li>
                         <li><a runat="server" href="~/ResumeUpload.aspx">Upload Resume</a></li>
                         <li><a runat="server" href="~/Account.aspx">Account</a></li>
+                        <li><a runat="server" href="~/AccountCreation.aspx">Account Creation</a></li>
                         
                     </ul>
                 </div>
