@@ -61,7 +61,7 @@
                         <li><a runat="server" href="~/Company.aspx">Company</a></li>
                         <li><a runat="server" href="~/Internship.aspx">Internship</a></li>
                         <li><a runat="server" href="~/Scholarship.aspx">Scholarship</a></li>
-                        <li><a runat="server" href="~/Account.aspx">Account</a></li>
+                        <li><a runat="server" href="~/MemberAccount.aspx">Account</a></li>
                         <li><a runat="server" href="~/AccountCreation.aspx">Account Creation</a></li>
 
                     </ul>

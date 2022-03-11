@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Lab3.Account" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberAccount.aspx.cs" Inherits="Lab3.MemberAccount" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
@@ -66,7 +66,7 @@
         </asp:TableRow>
     </asp:Table>
     <br />
-    <h3>Uploaded Resumes</h3>
+   <%-- <h3>Uploaded Resumes</h3>
     <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnSelectedIndexChanged="gvDisplay_SelectedIndexChanged" >
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
@@ -79,7 +79,7 @@
     </asp:GridView>
     <br />
     <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
-    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
+    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />--%>
 
 
 </asp:Content>
