@@ -52,7 +52,7 @@ namespace Lab3
             }
 
 
-            lblSelected.Text = "Currently Selected UserID: " + row.Cells[2].Text + " " + row.Cells[3].Text + ".";         // Display which user is selected 
+            lblSelected.Text = "Currently Selected User: " + row.Cells[2].Text + " " + row.Cells[3].Text + ".";         // Display which user is selected 
         }
 
         protected void btnApprove_Click(object sender, EventArgs e)
