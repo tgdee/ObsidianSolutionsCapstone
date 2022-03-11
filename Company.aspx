@@ -110,7 +110,7 @@
 
     <br />
     <h3>Current Student Job Applications</h3>
-    <asp:GridView ID="gvCurrentJobApplication" runat="server" AutoGenerateColumns="False" DataSourceID="JobApplications" OnSelectedIndexChanged="gvCurrentJobApplication_SelectedIndexChanged" DataKeyNames="StudentID">
+    <asp:GridView ID="gvCurrentJobApplication" runat="server" AutoGenerateColumns="False" DataSourceID="JobApplications" OnSelectedIndexChanged="gvCurrentJobApplication_SelectedIndexChanged" DataKeyNames="ApplicationNumber">
         <Columns>
             <asp:BoundField DataField="CompanyName" HeaderText="CompanyName" SortExpression="CompanyName" />
             <asp:BoundField DataField="ApplicationDate" HeaderText="ApplicationDate" SortExpression="ApplicationDate" />
@@ -119,8 +119,8 @@
             <asp:BoundField DataField="FirstName" HeaderText="FirstName" SortExpression="FirstName" />
             <asp:BoundField DataField="LastName" HeaderText="LastName" SortExpression="LastName" />
             <asp:BoundField DataField="Awarded" HeaderText="Awarded" SortExpression="Awarded" />
-            <asp:BoundField DataField="StudentID" HeaderText="StudentID" InsertVisible="False" ReadOnly="True" SortExpression="StudentID" Visible="false" />
-            <asp:CommandField ShowSelectButton="true" />
+            <asp:BoundField DataField="ApplicationNumber" HeaderText="ApplicationNumber" InsertVisible="False" ReadOnly="True" SortExpression="ApplicationNumber" Visible="false" />
+            <asp:CommandField ShowSelectButton="True" />
         </Columns>
     </asp:GridView>
 
@@ -132,7 +132,7 @@
     <asp:SqlDataSource ID="JobApplications" 
         runat="server"
         ConnectionString="<%$ ConnectionStrings:Lab3 %>"
-        SelectCommand="SELECT JobApplication.CompanyName, JobApplication.ApplicationDate, JobApplication.PositionTitle, JobApplication.Email, Student.FirstName, Student.LastName, JobApplication.Awarded, Student.StudentID
+        SelectCommand="SELECT JobApplication.CompanyName, JobApplication.ApplicationDate, JobApplication.PositionTitle, JobApplication.Email, Student.FirstName, Student.LastName, JobApplication.Awarded, JobApplication.ApplicationNumber
                         FROM JobApplication
                         INNER JOIN Student ON JobApplication.StudentID=Student.StudentID;"
         ></asp:SqlDataSource>

@@ -156,14 +156,14 @@ namespace Lab3
                 try
                 {
 
-                    string studentId = gvCurrentJobApplication.DataKeys[gvCurrentJobApplication.SelectedIndex].Values["StudentID"].ToString();
+                    string applicationNumber = gvCurrentJobApplication.DataKeys[gvCurrentJobApplication.SelectedIndex].Values["ApplicationNumber"].ToString();
 
                     if (row.Cells[6].Text.Equals("Unawarded"))         // Check if the row is unapproved 
                     {
                         // Update sql
-                        string updateToApprove = "UPDATE JobApplication SET JobApplication.Awarded='Awarded' WHERE JobApplication.StudentID=@studentId";
+                        string updateToApprove = "UPDATE JobApplication SET JobApplication.Awarded='Awarded' WHERE JobApplication.ApplicationNumber=@appNumber";
                         SqlCommand sqlCommand = new SqlCommand(updateToApprove, dbConnection);
-                        sqlCommand.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(studentId);
+                        sqlCommand.Parameters.Add("@appNumber", SqlDbType.Int).Value = Int32.Parse(applicationNumber);
                         dbConnection.Open();
                         sqlCommand.ExecuteNonQuery();
                         Response.Redirect("~/Company.aspx");
@@ -172,9 +172,9 @@ namespace Lab3
                     else if (row.Cells[6].Text.Equals("Awarded"))
                     {
                         // Update sql
-                        string updateToUnapprove = "UPDATE JobApplication SET JobApplication.Awarded='Unawarded' WHERE JobApplication.StudentID=@studentId";
+                        string updateToUnapprove = "UPDATE JobApplication SET JobApplication.Awarded='Unawarded' WHERE JobApplication.StudentID=@appNumber";
                         SqlCommand sqlCommand = new SqlCommand(updateToUnapprove, dbConnection);
-                        sqlCommand.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(studentId);
+                        sqlCommand.Parameters.Add("@appNumber", SqlDbType.Int).Value = Int32.Parse(applicationNumber);
                         dbConnection.Open();
                         sqlCommand.ExecuteNonQuery();
                         Response.Redirect("~/Company.aspx");
