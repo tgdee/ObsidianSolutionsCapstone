@@ -66,7 +66,7 @@
     </asp:GridView>
     <br />
     <br />
-    <asp:Label ID="LblFirstName" runat="server" Text="First Name"></asp:Label>
+<%--    <asp:Label ID="LblFirstName" runat="server" Text="First Name"></asp:Label>
     <br />
     <asp:TextBox ID="txtFirstName" runat="server" ValidationGroup="2" placeholder="Enter First Name"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfFirst" runat="server" ControlToValidate="txtFirstName" ValidationGroup="2" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
@@ -108,5 +108,5 @@
     <asp:RequiredFieldValidator ID="rqfEmail" runat="server" ValidationGroup="2" ControlToValidate="txtEmailBox" ErrorMessage="Enter Email" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
     <br />
-    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" ValidationGroup="2" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />
+    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" ValidationGroup="2" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />--%>
 </asp:Content>

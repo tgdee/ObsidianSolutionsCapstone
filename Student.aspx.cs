@@ -17,6 +17,7 @@ namespace Lab3
     {
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -81,35 +82,48 @@ namespace Lab3
 
 
 
-        protected void btnSearch_Click(object sender, EventArgs e)
+
+    protected void btnSearch_Click(object sender, EventArgs e)
         {
-            string searchQuery = "SELECT * FROM Student WHERE(FirstName like '%' + @FirstName + '%' or LastName like '&' + @LastName + '%' or Username like '&' + @Username + '%'" +
-                "or Email like '&' + @Email + '%' or Grade like '&' + @Grade + '%' or GraduationYear like '&' + @GraduationYear + '%' or Major like '&' + @Major + '%' or PhoneNumber like '&' + @PhoneNumber + '%')";
-            SqlCommand cmd = new SqlCommand(searchQuery, con);
-            cmd.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
-            cmd.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
-            cmd.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = txtUserNameSearch.Text;
-            cmd.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmailSearch.Text;
-            cmd.Parameters.Add("@Grade", SqlDbType.NVarChar, 10).Value = txtGrade.Text;
-            cmd.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 4).Value = txtGraduationYear.Text;
-            cmd.Parameters.Add("@Major", SqlDbType.NVarChar, 50).Value = txtMajor.Text;
-            cmd.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = txtPhoneNumber.Text;
+            try
+            {
 
-            con.Open();
+                using (SqlCommand command = new SqlCommand("dbo.spSearchStudentInfo", con) { CommandType = CommandType.StoredProcedure })  // User stored procedure because like is tricky in code
+                {
+                    command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
+                    command.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
+                    command.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = txtUserNameSearch.Text;
+                    command.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmailSearch.Text;
+                    command.Parameters.Add("@Grade", SqlDbType.NVarChar, 10).Value = txtGrade.Text;
+                    command.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 4).Value = txtGraduationYear.Text;
+                    command.Parameters.Add("@Major", SqlDbType.NVarChar, 50).Value = txtMajor.Text;
+                    command.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = txtPhoneNumber.Text;
 
-
-            SqlDataAdapter dataAdapter = new SqlDataAdapter(cmd);
-
-            DataTable dt = new DataTable();
-
-            dataAdapter.Fill(dt);
-
-            gvStudent.DataSource = dt;
-
-            gvStudent.DataBind();
+                    con.Open();
 
 
-            for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);               // Fill a data adapter with data gathered from stored procedure
+
+                    DataTable dt = new DataTable();
+
+                    dataAdapter.Fill(dt);                                                   // Fill a datatable
+
+                    gvStudent.DataSource = dt;                                              // Set the gridview's datasource to the filled datatable
+
+                    gvStudent.DataBind();                                                   // Bind the gridviews datasource data with the displayed gridview
+
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+           
+
+
+            for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells on every row
             {
                 gvStudent.HeaderRow.Cells[2].Visible = false;
                 gvStudent.Rows[i].Cells[2].Visible = false;
@@ -120,63 +134,63 @@ namespace Lab3
         }
 
 
-        protected void btnAddRow_Click(object sender, EventArgs e)
-        {
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+        //protected void btnAddRow_Click(object sender, EventArgs e)
+        //{
+        //    var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
 
 
-            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
-            {
+        //    using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+        //    {
 
-                try
-                {
-                    string insertString = "INSERT INTO Student (FirstName,LastName,Grade,GraduationYear,Major,PhoneNumber,Email) " +
-                        " VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
+        //        try
+        //        {
+        //            string insertString = "INSERT INTO Student (FirstName,LastName,Grade,GraduationYear,Major,PhoneNumber,Email) " +
+        //                " VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
 
-                    dbConnection.Open();
+        //            dbConnection.Open();
 
-                    using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
-                    {
-                        string firstName = txtFirstName.Text;
-                        string lastName = txtLastName.Text;
-                        string grade = txtGradeBox.Text;
-                        int graduationYear = Int32.Parse(txtGradYear.Text);
-                        string major = txtMajorBox.Text;
-                        string phoneNumber = txtPNumber.Text;
-                        string email = txtEmailBox.Text;
-
-
-                        cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = firstName;
-                        cmd.Parameters.Add("@param2", SqlDbType.NVarChar, 50).Value = lastName;
-                        cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = grade;
-                        cmd.Parameters.Add("@param4", SqlDbType.NVarChar, 4).Value = graduationYear;
-                        cmd.Parameters.Add("@param5", SqlDbType.NVarChar, 50).Value = major;
-                        cmd.Parameters.Add("@param6", SqlDbType.NVarChar, 50).Value = phoneNumber;
-                        cmd.Parameters.Add("@param7", SqlDbType.NVarChar, 50).Value = email;
+        //            using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
+        //            {
+        //                string firstName = txtFirstName.Text;
+        //                string lastName = txtLastName.Text;
+        //                string grade = txtGradeBox.Text;
+        //                int graduationYear = Int32.Parse(txtGradYear.Text);
+        //                string major = txtMajorBox.Text;
+        //                string phoneNumber = txtPNumber.Text;
+        //                string email = txtEmailBox.Text;
 
 
+        //                cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = firstName;
+        //                cmd.Parameters.Add("@param2", SqlDbType.NVarChar, 50).Value = lastName;
+        //                cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = grade;
+        //                cmd.Parameters.Add("@param4", SqlDbType.NVarChar, 4).Value = graduationYear;
+        //                cmd.Parameters.Add("@param5", SqlDbType.NVarChar, 50).Value = major;
+        //                cmd.Parameters.Add("@param6", SqlDbType.NVarChar, 50).Value = phoneNumber;
+        //                cmd.Parameters.Add("@param7", SqlDbType.NVarChar, 50).Value = email;
 
 
-                        cmd.ExecuteNonQuery();
-
-                        Response.Redirect("~/Student.aspx");
-
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    ltError.Text = ex.Message;
-                }
-                finally
-                {
-                    dbConnection.Close();
-                    dbConnection.Dispose();
-
-                }
 
 
-            }
-        }
+        //                cmd.ExecuteNonQuery();
+
+        //                Response.Redirect("~/Student.aspx");
+
+        //            }
+        //        }
+        //        catch (SqlException ex)
+        //        {
+        //            ltError.Text = ex.Message;
+        //        }
+        //        finally
+        //        {
+        //            dbConnection.Close();
+        //            dbConnection.Dispose();
+
+        //        }
+
+
+        //    }
+        //}
 
 
 
@@ -197,7 +211,7 @@ namespace Lab3
         {
             SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;
+            GridViewRow clickedRow = ((LinkButton)sender).NamingContainer as GridViewRow;                       // Get the row of the clicked on link button
 
             string studentId = clickedRow.Cells[2].Text;
 
@@ -217,21 +231,21 @@ namespace Lab3
 
                     if (reader.HasRows)
                     {
-                        while (reader.Read())
+                        while (reader.Read())                                               // Check if theres a file to read before reading it
                         {
                             fileLocation = reader["FileLocation"].ToString();
                             string filePath = Server.MapPath(fileLocation);
 
-                            WebClient user = new WebClient();
+                            WebClient user = new WebClient();                               // Use WebClient to send data to new URL
 
-                            Byte[] fileBuffer = user.DownloadData(filePath);
+                            Byte[] fileBuffer = user.DownloadData(filePath);                // Get the bytes of the users resume
 
                             if (fileBuffer != null)
                             {
-                                Response.ContentType = "application/pdf";
-                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);
+                                Response.ContentType = "application/pdf";                                       // Specify opening a resume
+                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);      // Specify file name to HTTP
                                 Response.AddHeader("content-length", fileBuffer.Length.ToString());
-                                Response.BinaryWrite(fileBuffer);
+                                Response.BinaryWrite(fileBuffer);                                               // Write the binary to HTTP
 
                             }
                             else
