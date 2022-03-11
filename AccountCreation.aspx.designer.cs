@@ -24,6 +24,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Literal ltError;
 
         /// <summary>
+        /// lblAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblAccountType;
+
+        /// <summary>
+        /// ddlAccountType control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlAccountType;
+
+        /// <summary>
         /// lblFirstName control.
         /// </summary>
         /// <remarks>
@@ -159,13 +177,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfPassword;
 
         /// <summary>
-        /// lblGrade control.
+        /// pnlTextBox control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrade;
+        protected global::System.Web.UI.WebControls.Panel pnlTextBox;
 
         /// <summary>
         /// txtGrade control.
@@ -186,15 +204,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfGrade;
 
         /// <summary>
-        /// lblGraduationYear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGraduationYear;
-
-        /// <summary>
         /// txtGraduationYear control.
         /// </summary>
         /// <remarks>
@@ -211,15 +220,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfGraduationYear;
-
-        /// <summary>
-        /// lblMajor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMajor;
 
         /// <summary>
         /// txtMajor control.
@@ -240,15 +240,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfMajor;
 
         /// <summary>
-        /// lblPhoneNumber control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPhoneNumber;
-
-        /// <summary>
         /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -265,24 +256,6 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfPhoneNumber;
-
-        /// <summary>
-        /// lblAccountType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAccountType;
-
-        /// <summary>
-        /// ddlAccountType control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlAccountType;
 
         /// <summary>
         /// btnCreateAccount control.

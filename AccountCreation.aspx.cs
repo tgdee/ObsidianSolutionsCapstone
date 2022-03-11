@@ -14,44 +14,9 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            TxtBoxVisibility();
+
         }
 
-
-        protected void TxtBoxVisibility()
-        {
-            if(ddlAccountType.SelectedItem.Text.Equals("Student"))
-            {
-                lblGrade.Visible = true;
-                txtGrade.Visible = true;
-                lblGraduationYear.Visible = true;
-                txtGraduationYear.Visible = true;
-                lblMajor.Visible = true;
-                txtMajor.Visible = true;
-                lblPhoneNumber.Visible = true;
-                txtPhoneNumber.Visible = true;
-                rqfGrade.Enabled = true;
-                rqfGraduationYear.Enabled = true;
-                rqfMajor.Enabled = true;
-                rqfPhoneNumber.Enabled = true;
-
-            }
-            else
-            {
-                lblGrade.Visible = false;
-                txtGrade.Visible = false;
-                lblGraduationYear.Visible = false;
-                txtGraduationYear.Visible = false;
-                lblMajor.Visible = false;
-                txtMajor.Visible = false;
-                lblPhoneNumber.Visible = false;
-                txtPhoneNumber.Visible = false;
-                rqfGrade.Enabled = false;
-                rqfGraduationYear.Enabled = false;
-                rqfMajor.Enabled = false;
-                rqfPhoneNumber.Enabled = false;
-            }
-        }
 
 
         protected void InsertIntoLab3()
@@ -202,7 +167,15 @@ namespace Lab3
 
         protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            TxtBoxVisibility();
+            if (ddlAccountType.SelectedItem.Value == "Y")
+            {
+                pnlTextBox.Visible = true;
+
+            }
+            else
+            {
+                pnlTextBox.Visible = false;
+            }
         }
     }
 }
