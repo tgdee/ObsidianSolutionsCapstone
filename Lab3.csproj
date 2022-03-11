@@ -127,12 +127,9 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="MemberAccount.aspx" />
-    <Content Include="AdminPages\AdminAccountCreation.aspx" />
-    <Content Include="AdminPages\AdminAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
-    <Content Include="AdminPages\AdminPage.aspx" />
-    <Content Include="AdminPages\AdminCompany.aspx" />
+    <Content Include="AdminPage.aspx" />
     <Content Include="Company.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -151,12 +148,6 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="AdminPages\AdminHomepage.aspx" />
-    <Content Include="AdminPages\AdminStudent.aspx" />
-    <Content Include="AdminPages\AdminMember.aspx" />
-    <Content Include="AdminPages\AdminMentor.aspx" />
-    <Content Include="AdminPages\AdminInternship.aspx" />
-    <Content Include="AdminPages\AdminScholarship.aspx" />
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
@@ -220,20 +211,6 @@
     <Compile Include="MemberAccount.aspx.designer.cs">
       <DependentUpon>MemberAccount.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AdminPages\AdminAccountCreation.aspx.cs">
-      <DependentUpon>AdminAccountCreation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminAccountCreation.aspx.designer.cs">
-      <DependentUpon>AdminAccountCreation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminAccount.aspx.cs">
-      <DependentUpon>AdminAccount.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminAccount.aspx.designer.cs">
-      <DependentUpon>AdminAccount.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Account.aspx.cs">
       <DependentUpon>Account.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -262,11 +239,11 @@
     <Compile Include="AdminPages\AdminMaster.Master.designer.cs">
       <DependentUpon>AdminMaster.Master</DependentUpon>
     </Compile>
-    <Compile Include="AdminPages\AdminPage.aspx.cs">
+    <Compile Include="AdminPage.aspx.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AdminPages\AdminPage.aspx.designer.cs">
+    <Compile Include="AdminPage.aspx.designer.cs">
       <DependentUpon>AdminPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -279,13 +256,6 @@
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="AdminPages\AdminCompany.aspx.cs">
-      <DependentUpon>AdminCompany.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminCompany.aspx.designer.cs">
-      <DependentUpon>AdminCompany.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Company.aspx.cs">
       <DependentUpon>Company.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -302,48 +272,6 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminHomepage.aspx.cs">
-      <DependentUpon>AdminHomepage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminHomepage.aspx.designer.cs">
-      <DependentUpon>AdminHomepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminStudent.aspx.cs">
-      <DependentUpon>AdminStudent.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminStudent.aspx.designer.cs">
-      <DependentUpon>AdminStudent.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminMember.aspx.cs">
-      <DependentUpon>AdminMember.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminMember.aspx.designer.cs">
-      <DependentUpon>AdminMember.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminMentor.aspx.cs">
-      <DependentUpon>AdminMentor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminMentor.aspx.designer.cs">
-      <DependentUpon>AdminMentor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminInternship.aspx.cs">
-      <DependentUpon>AdminInternship.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminInternship.aspx.designer.cs">
-      <DependentUpon>AdminInternship.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminScholarship.aspx.cs">
-      <DependentUpon>AdminScholarship.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminScholarship.aspx.designer.cs">
-      <DependentUpon>AdminScholarship.aspx</DependentUpon>
     </Compile>
     <Compile Include="CompanyInformation.aspx.cs">
       <DependentUpon>CompanyInformation.aspx</DependentUpon>
