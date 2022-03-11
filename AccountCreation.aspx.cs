@@ -19,7 +19,7 @@ namespace Lab3
 
 
 
-        protected void InsertIntoLab3()
+        protected void InsertIntoLab3Member()
         {
             SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
@@ -28,8 +28,53 @@ namespace Lab3
 
                 con.Open();
 
-                string insertString = "INSERT INTO Student (FirstName,LastName,Grade,GraduationYear,Major,PhoneNumber,Email) " +
-                        " VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
+                string insertString = "INSERT INTO Member (Username, FirstName, LastName, Email) " +
+                        " VALUES (@userName, @firstName, @lastName, @email)";
+
+
+                using (SqlCommand cmd = new SqlCommand(insertString, con))
+                {
+                    string userName = txtUserName.Text;
+                    string firstName = txtFirstName.Text;
+                    string lastName = txtLastName.Text;
+                    string email = txtEmail.Text;
+
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 50).Value = firstName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 50).Value = lastName;
+                    cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
+
+                    cmd.ExecuteNonQuery();
+
+                }
+
+
+            }
+
+            catch (SqlException ex)                        //Catch Sql Exception
+            {
+                ltError.Text = ex.Message;
+
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
+
+        protected void InsertIntoLab3Student()
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            try
+            {
+
+                con.Open();
+
+                string insertString = "INSERT INTO Student (Username, FirstName, LastName, Grade, GraduationYear, Major, PhoneNumber, Email) " +
+                        " VALUES (@userName, @firstName, @lastName, @grade, @graduationYear, @major, @phoneNumber, @email)";
 
 
                 using (SqlCommand cmd = new SqlCommand(insertString, con))
@@ -41,15 +86,16 @@ namespace Lab3
                     string major = txtMajor.Text;
                     string phoneNumber = txtPhoneNumber.Text;
                     string email = txtEmail.Text;
+                    string userName = txtUserName.Text;
 
-
-                    cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = firstName;
-                    cmd.Parameters.Add("@param2", SqlDbType.NVarChar, 50).Value = lastName;
-                    cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = grade;
-                    cmd.Parameters.Add("@param4", SqlDbType.NVarChar, 4).Value = graduationYear;
-                    cmd.Parameters.Add("@param5", SqlDbType.NVarChar, 50).Value = major;
-                    cmd.Parameters.Add("@param6", SqlDbType.NVarChar, 50).Value = phoneNumber;
-                    cmd.Parameters.Add("@param7", SqlDbType.NVarChar, 50).Value = email;
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 50).Value = firstName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 50).Value = lastName;
+                    cmd.Parameters.Add("@grade", SqlDbType.NVarChar, 50).Value = grade;
+                    cmd.Parameters.Add("@graduationYear", SqlDbType.NVarChar, 4).Value = graduationYear;
+                    cmd.Parameters.Add("@major", SqlDbType.NVarChar, 50).Value = major;
+                    cmd.Parameters.Add("@phoneNumber", SqlDbType.NVarChar, 50).Value = phoneNumber;
+                    cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
 
                     cmd.ExecuteNonQuery();
 
@@ -74,11 +120,15 @@ namespace Lab3
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
 
-            if(ddlAccountType.SelectedItem.Text.Equals("Student"))
+            if (ddlAccountType.SelectedItem.Value == "Y")
             {
-                InsertIntoLab3();
+                InsertIntoLab3Student();
             }
-
+            else
+            {
+                InsertIntoLab3Member();
+            }
+        
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Create webconfiguratiuon to AUTH database
 
@@ -142,6 +192,11 @@ namespace Lab3
                     txtUserName.Text = "";
                     txtEmail.Text = "";
                     txtPassword.Text = "";
+                    txtGrade.Text = "";
+                    txtGraduationYear.Text = "";
+                    txtMajor.Text = "";
+                    txtPhoneNumber.Text = "";
+                    
                 }
                 
                 catch (SqlException ex)
