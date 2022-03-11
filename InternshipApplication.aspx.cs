@@ -17,6 +17,35 @@ namespace Lab3
 
         }
 
+
+        protected string GetStudentIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
+            {
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+
+                string studentId = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
+
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    studentId = cmd.ExecuteScalar().ToString();
+                }
+
+                return studentId;
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
+
+        }
+
         protected void btnApply_Click(object sender, EventArgs e)
         {
 
@@ -27,33 +56,27 @@ namespace Lab3
                 try
                 {
 
-                    string CompanyName = HttpUtility.HtmlEncode(txtCompany.Text);
-                    string Date = HttpUtility.HtmlEncode(txtDate.Text);
-                    string Position = HttpUtility.HtmlEncode(txtPosition.Text);
+                    string companyName = ddlCompanyNames.SelectedItem.Text;
+                    string date = DateTime.Now.ToString();
+                    string position = txtPosition.Text;
+                    string email = txtStudentEmail.Text;
 
-
-
-                    string StudEmail = ddlStudent.SelectedValue;
-
-                    // Needs to be paramertized
-                    string getStudentIdSql = "SELECT Student.StudentID FROM Student WHERE Student.Email='" + StudEmail + "'";
+                    string applyingStudentId = GetStudentIDFromSql();
 
                     dbConnection.Open();
 
-                    SqlCommand sqlCommand = new SqlCommand(getStudentIdSql, dbConnection);
-                    string studentId = sqlCommand.ExecuteScalar().ToString();
-
-                    string insertString = "INSERT INTO InternshipApplication (CompanyName, InternshipDate, PositionTitle, StudentID) " +
-                            " VALUES (@param1, @param2, @param3, @param4)";
+                    string insertString = "INSERT INTO InternshipApplication (CompanyName, InternshipDate, PositionTitle, StudentID, Email) " +
+                            " VALUES (@companyName, @internshipDate, @position, @studentId, @email)";
 
 
                     using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                     {
 
-                        cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = CompanyName;
-                        cmd.Parameters.Add("@param2", SqlDbType.Date).Value = Date;
-                        cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = Position;
-                        cmd.Parameters.Add("@param4", SqlDbType.Int).Value = studentId;
+                        cmd.Parameters.Add("@companyName", SqlDbType.NVarChar, 50).Value = companyName;
+                        cmd.Parameters.Add("@internshipDate", SqlDbType.Date).Value = date;
+                        cmd.Parameters.Add("@position", SqlDbType.NVarChar, 50).Value = position;
+                        cmd.Parameters.Add("@studentId", SqlDbType.Int).Value = applyingStudentId;
+                        cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
 
 
                         cmd.ExecuteNonQuery();
@@ -76,8 +99,8 @@ namespace Lab3
                     dbConnection.Dispose();
                 }
 
-                txtCompany.Text = "";
-                txtDate.Text = "";
+
+                txtStudentEmail.Text = "";
                 txtPosition.Text = "";
 
 

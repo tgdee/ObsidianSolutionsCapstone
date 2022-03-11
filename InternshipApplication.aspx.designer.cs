@@ -33,67 +33,40 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Table Table1;
 
         /// <summary>
-        /// LblCompany control.
+        /// lblInternship control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCompany;
+        protected global::System.Web.UI.WebControls.Label lblInternship;
 
         /// <summary>
-        /// txtCompany control.
+        /// ddlCompanyNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCompany;
+        protected global::System.Web.UI.WebControls.DropDownList ddlCompanyNames;
 
         /// <summary>
-        /// reqFieldValidatorCompany control.
+        /// rfvCompanyName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldValidatorCompany;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompanyName;
 
         /// <summary>
-        /// lblDate control.
+        /// lblPosition control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
-
-        /// <summary>
-        /// txtDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
-
-        /// <summary>
-        /// RequiredFieldDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldDate;
-
-        /// <summary>
-        /// LblPosition control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblPosition;
+        protected global::System.Web.UI.WebControls.Label lblPosition;
 
         /// <summary>
         /// txtPosition control.
@@ -114,22 +87,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPosition;
 
         /// <summary>
-        /// lblEmail control.
+        /// lblStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEmail;
+        protected global::System.Web.UI.WebControls.Label lblStudentEmail;
 
         /// <summary>
-        /// ddlStudent control.
+        /// txtStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudent;
+        protected global::System.Web.UI.WebControls.TextBox txtStudentEmail;
+
+        /// <summary>
+        /// rfvStudentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStudentEmail;
 
         /// <summary>
         /// btnApply control.
@@ -141,12 +123,12 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnApply;
 
         /// <summary>
-        /// StudentTableDataSource control.
+        /// sdsCompanyNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource StudentTableDataSource;
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsCompanyNames;
     }
 }
