@@ -127,5 +127,76 @@ namespace Lab3
 
 
         }
+
+        protected void btnAward_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvScholarshipApplications.SelectedRow;                                   // Create a gridview row to select the row data
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    string applicationNumber = gvScholarshipApplications.DataKeys[gvScholarshipApplications.SelectedIndex].Values["ApplicationNumber"].ToString();
+
+
+                    if (row.Cells[5].Text.Equals("Unawarded"))         // Check if the row is unapproved 
+                    {
+                        // Update sql
+                        string updateToApprove = "UPDATE ScholarshipApplication SET ScholarshipApplication.Awarded='Awarded' WHERE ScholarshipApplication.ApplicationNumber=@appNumber";
+                        SqlCommand sqlCommand = new SqlCommand(updateToApprove, dbConnection);
+                        sqlCommand.Parameters.Add("@appNumber", SqlDbType.Int).Value = applicationNumber;
+                        dbConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        Response.Redirect("~/Scholarship.aspx");
+
+                    }
+                    else if (row.Cells[5].Text.Equals("Awarded"))
+                    {
+                        // Update sql
+                        string updateToUnapprove = "UPDATE ScholarshipApplication SET ScholarshipApplication.Awarded='Unawarded' WHERE ScholarshipApplication.StudentID=@appNumber";
+                        SqlCommand sqlCommand1 = new SqlCommand(updateToUnapprove, dbConnection);
+                        sqlCommand1.Parameters.Add("@appNumber", SqlDbType.Int).Value = applicationNumber;
+                        dbConnection.Open();
+                        sqlCommand1.ExecuteNonQuery();
+                        Response.Redirect("~/Scholarship.aspx");
+
+                    }
+
+
+
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
+
+            }
+
+        }
+
+        protected void gvScholarshipApplications_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvScholarshipApplications.SelectedRow;
+
+            if (row.Cells[5].Text.Equals("Unawarded"))
+            {
+                btnAward.Text = "Award";
+            }
+            else
+            {
+                btnAward.Text = "Unaward";
+            }
+
+            lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[3].Text + " " + row.Cells[4].Text + ".";
+
+        }
     }
 }
