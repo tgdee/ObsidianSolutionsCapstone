@@ -126,6 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="MemberAccount.aspx" />
     <Content Include="AdminPages\AdminAccountCreation.aspx" />
     <Content Include="AdminPages\AdminAccount.aspx" />
     <Content Include="Account.aspx" />
@@ -212,6 +213,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MemberAccount.aspx.cs">
+      <DependentUpon>MemberAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberAccount.aspx.designer.cs">
+      <DependentUpon>MemberAccount.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\AdminAccountCreation.aspx.cs">
       <DependentUpon>AdminAccountCreation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
