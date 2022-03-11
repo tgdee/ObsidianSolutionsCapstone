@@ -1,5 +1,4 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ScholarshipApplication.aspx.cs" Inherits="Lab3.ScholarshipApplication" MasterPageFile="~/StudentMaster.Master" %>
-
 <asp:Content runat="server" ContentPlaceHolderID="MainContent">
     <br />
     <br />
