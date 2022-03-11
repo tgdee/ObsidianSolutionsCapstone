@@ -3,6 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h4> Create New Account </h4>
+    <br />
     <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
     <br />
     <br />
@@ -10,21 +11,18 @@
     &nbsp&nbsp
     <asp:TextBox ID="txtFirstName" runat="server" placeholder="Enter First Name"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfFirstName" runat="server" ControlToValidate="txtFirstName" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-
     <br />
     <br />
     <asp:Label ID="lblLastName" runat="server" Text="Last Name:"></asp:Label>
     &nbsp&nbsp
     <asp:TextBox ID="txtLastName" runat="server" placeholder="Enter Last Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfCompany" runat="server" ControlToValidate="txtLastName" ErrorMessage="Enter Last Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-
+    <asp:RequiredFieldValidator ID="rqfLastName" runat="server" ControlToValidate="txtLastName" ErrorMessage="Enter Last Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
     <br />
     <asp:Label ID="lblUserName" runat="server" Text="Username:"></asp:Label>
     &nbsp&nbsp&nbsp
     <asp:TextBox ID="txtUserName" runat="server" placeholder="Enter Username"></asp:TextBox>
     <asp:RequiredFieldValidator ID="rqfUserName" runat="server" ControlToValidate="txtUserName" ErrorMessage="Enter Username" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-
     <br />
     <br />
     <asp:Label ID="lblEmail" runat="server" Text="Email:"></asp:Label>
@@ -39,9 +37,33 @@
     <asp:RequiredFieldValidator ID="rqfPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
     <br />
     <br />
+    <asp:Label ID="lblGrade" runat="server" Text="Grade:"></asp:Label>
+    &nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtGrade" runat="server" placeholder="Enter Grade"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfGrade" runat="server" ControlToValidate="txtGrade" ErrorMessage="Enter Grade" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <br />
+    <br />
+    <asp:Label ID="lblGraduationYear" runat="server" Text="Enter Graduation Year:"></asp:Label>
+    &nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtGraduationYear" runat="server" placeholder="Enter Year"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfGraduationYear" runat="server" ControlToValidate="txtGraduationYear" ErrorMessage="Enter Year" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <br />
+    <br />
+    <asp:Label ID="lblMajor" runat="server" Text="Major:"></asp:Label>
+    &nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtMajor" runat="server" placeholder="Enter Major"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfMajor" runat="server" ControlToValidate="txtMajor" ErrorMessage="Enter Major" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <br />
+    <br />
+    <asp:Label ID="lblPhoneNumber" runat="server" Text="Phone Number:"></asp:Label>
+    &nbsp&nbsp&nbsp
+    <asp:TextBox ID="txtPhoneNumber" runat="server" placeholder="1231231234"></asp:TextBox>
+    <asp:RequiredFieldValidator ID="rqfPhoneNumber" runat="server" ControlToValidate="txtPhoneNumber" ErrorMessage="Enter Number" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+    <br />
+    <br />
     <asp:Label ID="lblAccountType" runat="server" Text="Account Type: "></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:DropDownList ID="ddlAccountType" runat="server">
+    <asp:DropDownList ID="ddlAccountType" runat="server" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged">
         <asp:ListItem Text="Student" Value="1"></asp:ListItem>
         <asp:ListItem Text="Alum" Value="2"></asp:ListItem>
     </asp:DropDownList>

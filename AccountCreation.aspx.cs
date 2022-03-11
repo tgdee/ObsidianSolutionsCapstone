@@ -14,11 +14,105 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TxtBoxVisibility();
         }
+
+
+        protected void TxtBoxVisibility()
+        {
+            if(ddlAccountType.SelectedItem.Text.Equals("Student"))
+            {
+                lblGrade.Visible = true;
+                txtGrade.Visible = true;
+                lblGraduationYear.Visible = true;
+                txtGraduationYear.Visible = true;
+                lblMajor.Visible = true;
+                txtMajor.Visible = true;
+                lblPhoneNumber.Visible = true;
+                txtPhoneNumber.Visible = true;
+                rqfGrade.Enabled = true;
+                rqfGraduationYear.Enabled = true;
+                rqfMajor.Enabled = true;
+                rqfPhoneNumber.Enabled = true;
+
+            }
+            else
+            {
+                lblGrade.Visible = false;
+                txtGrade.Visible = false;
+                lblGraduationYear.Visible = false;
+                txtGraduationYear.Visible = false;
+                lblMajor.Visible = false;
+                txtMajor.Visible = false;
+                lblPhoneNumber.Visible = false;
+                txtPhoneNumber.Visible = false;
+                rqfGrade.Enabled = false;
+                rqfGraduationYear.Enabled = false;
+                rqfMajor.Enabled = false;
+                rqfPhoneNumber.Enabled = false;
+            }
+        }
+
+
+        protected void InsertIntoLab3()
+        {
+            SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            try
+            {
+
+                con.Open();
+
+                string insertString = "INSERT INTO Student (FirstName,LastName,Grade,GraduationYear,Major,PhoneNumber,Email) " +
+                        " VALUES (@param1, @param2, @param3, @param4, @param5, @param6, @param7)";
+
+
+                using (SqlCommand cmd = new SqlCommand(insertString, con))
+                {
+                    string firstName = txtFirstName.Text;
+                    string lastName = txtLastName.Text;
+                    string grade = txtGrade.Text;
+                    string graduationYear = txtGraduationYear.Text;
+                    string major = txtMajor.Text;
+                    string phoneNumber = txtPhoneNumber.Text;
+                    string email = txtEmail.Text;
+
+
+                    cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = firstName;
+                    cmd.Parameters.Add("@param2", SqlDbType.NVarChar, 50).Value = lastName;
+                    cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = grade;
+                    cmd.Parameters.Add("@param4", SqlDbType.NVarChar, 4).Value = graduationYear;
+                    cmd.Parameters.Add("@param5", SqlDbType.NVarChar, 50).Value = major;
+                    cmd.Parameters.Add("@param6", SqlDbType.NVarChar, 50).Value = phoneNumber;
+                    cmd.Parameters.Add("@param7", SqlDbType.NVarChar, 50).Value = email;
+
+                    cmd.ExecuteNonQuery();
+
+                }
+
+
+            }
+
+            catch (SqlException ex)                        //Catch Sql Exception
+            {
+                ltError.Text = ex.Message;
+
+            }
+            finally
+            {
+                con.Close();
+                con.Dispose();
+            }
+        }
+
 
         protected void btnCreateAccount_Click(object sender, EventArgs e)
         {
+
+            if(ddlAccountType.SelectedItem.Text.Equals("Student"))
+            {
+                InsertIntoLab3();
+            }
 
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Create webconfiguratiuon to AUTH database
@@ -104,6 +198,11 @@ namespace Lab3
         protected void btnRetur_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Homepage.aspx");
+        }
+
+        protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TxtBoxVisibility();
         }
     }
 }

@@ -62,10 +62,6 @@ namespace Lab3
 
 
 
-
-
-
-
                 for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
                 {
                     gvStudent.HeaderRow.Cells[2].Visible = false;
@@ -152,7 +148,7 @@ namespace Lab3
                         cmd.Parameters.Add("@param1", SqlDbType.NVarChar, 50).Value = firstName;
                         cmd.Parameters.Add("@param2", SqlDbType.NVarChar, 50).Value = lastName;
                         cmd.Parameters.Add("@param3", SqlDbType.NVarChar, 50).Value = grade;
-                        cmd.Parameters.Add("@param4", SqlDbType.Int).Value = graduationYear;
+                        cmd.Parameters.Add("@param4", SqlDbType.NVarChar, 4).Value = graduationYear;
                         cmd.Parameters.Add("@param5", SqlDbType.NVarChar, 50).Value = major;
                         cmd.Parameters.Add("@param6", SqlDbType.NVarChar, 50).Value = phoneNumber;
                         cmd.Parameters.Add("@param7", SqlDbType.NVarChar, 50).Value = email;
