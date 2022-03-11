@@ -140,5 +140,76 @@ namespace Lab3
 
 
         }
+
+        protected void gvInternshipApplications_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvInternshipApplications.SelectedRow;
+
+            if (row.Cells[5].Text.Equals("Unawarded"))
+            {
+                btnAward.Text = "Award";
+            }
+            else
+            {
+                btnAward.Text = "Unaward";
+            }
+
+            lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[3].Text + " " + row.Cells[4].Text + ".";
+
+        }
+
+        protected void btnAward_Click(object sender, EventArgs e)
+        {
+            GridViewRow row = gvInternshipApplications.SelectedRow;                                   // Create a gridview row to select the row data
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+
+            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    string internshipId = gvInternshipApplications.DataKeys[gvInternshipApplications.SelectedIndex].Values["InternshipNumber"].ToString();
+
+                    if (row.Cells[5].Text.Equals("Unawarded"))         // Check if the row is unapproved 
+                    {
+                        // Update sql
+                        string updateToApprove = "UPDATE InternshipApplication SET InternshipApplication.Awarded='Awarded' WHERE InternshipApplication.InternshipNumber=@internshipNumber";
+                        SqlCommand sqlCommand = new SqlCommand(updateToApprove, dbConnection);
+                        sqlCommand.Parameters.Add("@internshipNumber", SqlDbType.Int).Value = Int32.Parse(internshipId);
+                        dbConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        Response.Redirect("~/Internship.aspx");
+
+                    }
+                    else if (row.Cells[5].Text.Equals("Awarded"))
+                    {
+                        // Update sql
+                        string updateToUnapprove = "UPDATE InternshipApplication SET InternshipApplication.Awarded='Unawarded' WHERE InternshipApplication.InternshipNumber=@internshipNumber";
+                        SqlCommand sqlCommand = new SqlCommand(updateToUnapprove, dbConnection);
+                        sqlCommand.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(internshipId);
+                        dbConnection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                        Response.Redirect("~/Internship.aspx");
+
+                    }
+
+
+
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    dbConnection.Close();
+                    dbConnection.Dispose();
+                }
+
+
+            }
+
+        }
     }
 }

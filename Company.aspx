@@ -69,7 +69,6 @@
         </Columns>
     </asp:GridView>--%>
     <br />
-    <%--Creates all the boxes for new information to be added--%>
     <asp:Label ID="lblMeetingTime" runat="server" Text="Meeting Time:"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtMeetingTime" runat="server" ValidationGroup="1" placeholder="MM/DD/YYYY"></asp:TextBox>

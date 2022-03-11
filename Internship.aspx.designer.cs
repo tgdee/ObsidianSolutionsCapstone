@@ -159,12 +159,39 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnClear;
 
         /// <summary>
-        /// InternshipDataSource control.
+        /// gvInternshipApplications control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource InternshipDataSource;
+        protected global::System.Web.UI.WebControls.GridView gvInternshipApplications;
+
+        /// <summary>
+        /// lblSelectedStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblSelectedStudent;
+
+        /// <summary>
+        /// btnAward control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAward;
+
+        /// <summary>
+        /// InternshipApplications control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource InternshipApplications;
     }
 }
