@@ -114,13 +114,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtGrade;
 
         /// <summary>
-        /// Label1 control.
+        /// lblGraduationYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label lblGraduationYear;
 
         /// <summary>
         /// txtGraduationYear control.
@@ -132,13 +132,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtGraduationYear;
 
         /// <summary>
-        /// Label2 control.
+        /// Label12 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label12;
 
         /// <summary>
         /// txtMajor control.

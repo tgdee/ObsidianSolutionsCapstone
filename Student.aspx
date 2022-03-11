@@ -32,7 +32,7 @@
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtGraduationYear" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />
-    <asp:Label ID="lblMajor" runat="server" Text="Major"></asp:Label>
+    <asp:Label ID="Label12" runat="server" Text="Major"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
     <asp:TextBox ID="txtMajor" runat="server" ValidationGroup="1"></asp:TextBox>
     <br />

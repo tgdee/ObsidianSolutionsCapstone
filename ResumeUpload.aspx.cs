@@ -110,5 +110,7 @@ namespace Lab3
                 lblMessage.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+
     }
 }

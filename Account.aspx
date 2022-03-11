@@ -66,19 +66,22 @@
         </asp:TableRow>
     </asp:Table>
     <br />
-    <h3>Uploaded Resumes</h3>
-    <asp:GridView ID="gvDisplay" runat="server" DataKeyNames="FileLocation" ValidationGroup="DisplayResumeValidation" OnSelectedIndexChanged="gvDisplay_SelectedIndexChanged" >
-        <Columns>
-            <asp:CommandField ShowSelectButton="true" />
-            <asp:TemplateField>
-                <ItemTemplate>
-                    <asp:LinkButton ID="LinkButton1" runat="server" Text="Download Resume" ValidationGroup="DisplayResumeValidation" OnClick="LinkButton1_Click"></asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
-        </Columns>
-    </asp:GridView>
+
+    <h1>Upload Resume</h1>
+        <div>
+            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:Button ID="btnUpload" runat="server" Text="Upload File" OnClick="btnUpload_Click" />
+            <br />
+            <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
+            <br />
+            <br />
+        </div>
+
+
+
     <br />
-    <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
+    <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" OnClick="btnViewResume_Click" />
+    <br />
     <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
 
 

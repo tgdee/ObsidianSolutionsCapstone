@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
+using System.Net;
 
 namespace Lab3
 {
@@ -27,7 +29,7 @@ namespace Lab3
             if (!IsPostBack)
             {
                 BindDataList();
-                DisplayResume();
+                
             }
 
         }
@@ -69,43 +71,6 @@ namespace Lab3
             }
         }
 
-        protected void DisplayResume()
-        {
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Connect to AUTH Database where Resume table is
-
-            using(SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
-            {
-                try
-                {
-                    string userName = Session["Username"].ToString();                                           // Find the current username of whomever is signed in
-                    string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";  
-
-                    dbConnection.Open();
-                    
-                    using (SqlCommand cmd = new SqlCommand(queryResume, dbConnection))
-                    {
-                        cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
-
-                        SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // FIll SqlDataAdapter using SELECT query
-                        DataTable dt = new DataTable();
-                        sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
-                        gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
-                        gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
-
-
-                    }
-                }
-                catch (SqlException ex)
-                {
-                    ltError.Text = ex.Message;
-                }
-                finally
-                {
-                    dbConnection.Close();
-                    dbConnection.Dispose();
-                }
-            }
-        }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
@@ -174,54 +139,226 @@ namespace Lab3
 
         }
 
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            LinkButton linkDownload = sender as LinkButton;
-            GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
-            string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
-            Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
-            Response.TransmitFile(Server.MapPath(downloadFile));
-            Response.End();
-        }
-
-        protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            GridViewRow row = gvDisplay.SelectedRow;
-
-            lblSelected.Text = "Currently Selected Resume: " + row.Cells[2].Text + ".";     // Notify the user which row is currently selected
-        }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            GridViewRow row = gvDisplay.SelectedRow;
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
-            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
-
-            using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            try
             {
-                try
+                string updateResume = "DELETE FROM Resume WHERE StudentID=@studentId";
+
+                connection.Open();
+
+                using (SqlCommand cmd = new SqlCommand(updateResume, connection))
                 {
-                    string deleteResume = "DELETE FROM Resume WHERE FileLocation=@fileLocation";
-                    dbConnection.Open();
-                    SqlCommand cmd = new SqlCommand(deleteResume, dbConnection);
-                    cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = row.Cells[3].Text;
+                    cmd.Parameters.Add("StudentID", SqlDbType.NVarChar, 20).Value = GetStudentIDFromSql();
+
                     cmd.ExecuteNonQuery();
-                    lblSelected.Text = "";
-                    DisplayResume();
-                }
-                catch (SqlException ex)
-                {
-                    lblSelected.Text = ex.Message;
 
                 }
-                finally
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+
+        }
+
+        protected void btnViewResume_Click(object sender, EventArgs e)
+        {
+            SqlConnection connection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+
+            try
+            {
+                string queryResume = "SELECT FileLocation FROM Resume WHERE StudentID=@studentId";
+
+                connection.Open();
+
+                string fileLocation = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryResume, connection))
                 {
-                    dbConnection.Close();
-                    dbConnection.Dispose();
+                    cmd.Parameters.Add("StudentID", SqlDbType.Int).Value = Int32.Parse(GetStudentIDFromSql());
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            fileLocation = reader["FileLocation"].ToString();
+                            string filePath = Server.MapPath(fileLocation);
+
+                            WebClient user = new WebClient();
+
+                            Byte[] fileBuffer = user.DownloadData(filePath);
+
+                            if (fileBuffer != null)
+                            {
+                                Response.ContentType = "application/pdf";
+                                Response.AddHeader("Content-Disposition", "inline; filename=" + filePath);
+                                Response.AddHeader("content-length", fileBuffer.Length.ToString());
+                                Response.BinaryWrite(fileBuffer);
+
+                            }
+                            else
+                            {
+                                ltError.Text = "No Resume Available";
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        ltError.Text = "No Resume Available";
+                    }
+
+                    reader.Close();
+                    connection.Close();
+
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+            }
+
+        }
+
+        protected string GetStudentIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
+            {
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+
+                string studentId = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
+
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    studentId = cmd.ExecuteScalar().ToString();
+                }
+
+                return studentId;
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
+
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            if (FileUpload1.HasFile)
+            {
+                string fileExtension = Path.GetExtension(FileUpload1.FileName);
+
+                if (fileExtension.ToLower() != ".pdf")
+                {
+                    lblMessage.Text = "Only Files with .pdf Extension are Allowed";
+                    lblMessage.ForeColor = System.Drawing.Color.Red;
+                }
+                else
+                {
+                    int fileSize = FileUpload1.PostedFile.ContentLength;
+                    int fileNameLength = FileUpload1.FileName.ToString().Length;
+
+                    if (fileSize > 2097152 || fileNameLength > 20)          // Prevent file larger than this many bytes or 2MB from being uploaded
+                    {
+                        lblMessage.Text = "Maximum File Size (2MB) Exceeded OR Maximum File Name of 20 Letters Exceeded";
+                    }
+                    else
+                    {
+                        FileUpload1.SaveAs(Server.MapPath("~/Resumes/" + FileUpload1.FileName));
+                        lblMessage.Text = "Resume Uploaded";
+                        lblMessage.ForeColor = System.Drawing.Color.Green;
+
+                        SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+                        try
+                        {
+                            if (FirstUpload())
+                            {
+                                string insertString = "INSERT INTO Resume (FileName, FileLocation, StudentID) VALUES (@fileName, @fileLocation, @StudentID)";
+                                dbConnection.Open();
+
+                                using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
+                                {
+                                    cmd.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload1.FileName.ToString();
+                                    cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = "~/Resumes/" + FileUpload1.FileName;
+                                    cmd.Parameters.Add("@StudentID", SqlDbType.Int).Value = GetStudentIDFromSql();
+                                    cmd.ExecuteNonQuery();
+                                }
+
+                            }
+                            else
+                            {
+                                lblMessage.Text = "Maximum of 1 Resume Uploaded Please Delete then ReUpload!!!";
+                            }
+                            
+                        }
+                        catch (SqlException ex)
+                        {
+                            lblMessage.Text = ex.Message;
+                        }
+                        finally
+                        {
+                            dbConnection.Close();
+                            dbConnection.Dispose();
+                        }
+
+                    }
                 }
             }
-            
-                
+            else
+            {
+                lblMessage.Text = "Please Select a File to Upload";
+                lblMessage.ForeColor = System.Drawing.Color.Red;
+            }
         }
+        protected Boolean FirstUpload()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
+            {
+                string queryResume = "SELECT Count(1) FROM Resume WHERE StudentID=@studentId";
+
+                SqlCommand command = new SqlCommand(queryResume, dbConnection);
+
+                command.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(GetStudentIDFromSql());
+
+                string check = command.ExecuteNonQuery().ToString();
+
+                if(check.Equals("1"))
+                {
+                    dbConnection.Close();
+                    return false;
+                }
+                else
+                {
+                    dbConnection.Close();
+                    return true;
+                }
+
+                
+            }
+            catch (SqlException ex)
+            {
+                ltError.Text = ex.Message;
+                return false;
+            }
+        }
+
     }
 }
