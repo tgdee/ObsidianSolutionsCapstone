@@ -14,9 +14,12 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] == null)
+            {
+                Response.Redirect("~/LoginChoice.aspx");
+            }
+           
         }
-
 
 
         protected void InsertIntoLab3Member()
@@ -217,7 +220,16 @@ namespace Lab3
 
         protected void btnRetur_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Homepage.aspx");
+            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account viewing Student pages
+            {
+                
+                Response.Redirect("~/StudentHomepage.aspx");
+
+            }
+            else
+            {
+                Response.Redirect("~/Homepage.apsx");
+            }
         }
 
         protected void ddlAccountType_SelectedIndexChanged(object sender, EventArgs e)

@@ -15,7 +15,15 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Username"] == null)
+            {
+                Response.Redirect("~/LoginChoice.aspx");
+            }
+            if ((string)Session["AccountType"] == "Member" || (string)Session["AccountType"] == "Alum") //Restrictions on the Alum Account and Alum viewing Student pages
+            {
+                Session["CannotDo"] = "You are not a Student";
+                Response.Redirect("~/Homepage.aspx");
+            }
         }
 
         protected string GetStudentIDFromSql()
