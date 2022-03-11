@@ -73,7 +73,7 @@ namespace Lab3
                         sqlCommand.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = row.Cells[4].Text;
                         dbConnection.Open();
                         sqlCommand.ExecuteNonQuery();
-                        Response.Redirect("~/AdminPages/AdminPage.aspx");
+                        Response.Redirect("~/AdminPage.aspx");
 
                     }
                     else if (row.Cells[6].Text.Equals("Approved"))
@@ -84,7 +84,7 @@ namespace Lab3
                         sqlCommand.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = row.Cells[4].Text;
                         dbConnection.Open();
                         sqlCommand.ExecuteNonQuery();
-                        Response.Redirect("~/AdminPages/AdminPage.aspx");
+                        Response.Redirect("~/AdminPage.aspx");
                         
                     }
                     else
