@@ -30,7 +30,7 @@
     <br />
     <asp:Label ID="lblGraduationYear" runat="server" Text="Graduation Year"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-    <asp:TextBox ID="txtGraduationYear" runat="server" ValidationGroup="1"></asp:TextBox>
+    <asp:TextBox ID="txtGraduationYear" runat="server" placeholder="YYYY" ValidationGroup="1"></asp:TextBox>
     <br />
     <asp:Label ID="Label12" runat="server" Text="Major"></asp:Label>
     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
@@ -59,7 +59,7 @@
                             window.document.forms[0].target = '_blank';
                             setTimeout(function () { window.document.forms[0].target = ''; }, 0);
                         }
-                        /*Use some javascript to open a new window... Could probably find a different way to do this but i think its pretty neat*/
+                        /*Used some javascript to open a new window... Could probably find a different way to do this but i think its pretty neat at least thats what my mom said*/
                     </script>
                 </ItemTemplate>
             </asp:TemplateField>

@@ -78,6 +78,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnAssign;
 
         /// <summary>
+        /// gvActiveMentors control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvActiveMentors;
+
+        /// <summary>
         /// MemberSource control.
         /// </summary>
         /// <remarks>
@@ -94,5 +103,14 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource StudentTableDataSource;
+
+        /// <summary>
+        /// MentorshipRelationshipSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource MentorshipRelationshipSource;
     }
 }

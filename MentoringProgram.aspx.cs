@@ -87,6 +87,17 @@ namespace Lab3
 
             }
         }
+
+        protected void btnViewActiveMentors_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void gvActiveMentors_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 
 }
