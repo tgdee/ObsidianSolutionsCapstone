@@ -13,24 +13,38 @@ namespace Lab3
     public partial class ScholarshipApplication : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-            //create the restriction of access depending on user or member status
         {
-            if (Session["Username"] == null)
+   
+        }
+
+        protected string GetStudentIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+            try
             {
-                Session["MustLogin"] = "You Must Login to Access that Page!";
-                Response.Redirect("LoginPages/LoginChoice.aspx");
+                string queryString = "SELECT StudentID FROM Student WHERE Username=@userName";
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
+
+                string studentId = "";
+
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
+
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    studentId = cmd.ExecuteScalar().ToString();
+                }
+
+                return studentId;
             }
-            //if ((string)Session["AccountType"] == "Alum" || (string)Session["AccountType"] == "Admin")
-            //{
-            //    Response.Redirect("~/Homepage.aspx");
-                 
-            //}
-        }
-
-        protected void ddlStudent_SelectedIndexChanged(object sender, EventArgs e)
-        {
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
 
         }
+
 
         protected void btnApply_Click(object sender, EventArgs e)
         {
@@ -42,38 +56,28 @@ namespace Lab3
                 {
 
                     //creates the strings for textboxes and sql commands for the ddl 
-                    string scholarshipAppDate = txtDate.Text.ToString();
-                    string scholarshipName = ddlScholarshipName.SelectedValue;
+                    string date = DateTime.Now.ToString();
+                    string scholarshipName = ddlScholarshipNames.SelectedItem.Value;
+                    string email = txtStudentEmail.Text;
+                    int scholarshipId = ddlScholarshipNames.SelectedIndex;
+                    string studentId = GetStudentIDFromSql();
 
-                    string studEmail = ddlStudent.SelectedValue;
-
-
-
-                    string getStudentIdSql = "SELECT Student.StudentID FROM Student WHERE Student.Email='" + studEmail + "'";
-                    string getScholarshipIdSql = "SELECT Scholarship.ScholarshipID FROM Scholarship WHERE Scholarship.ScholarshipName='" + scholarshipName + "'"; 
-
-                    //opnes the conenction and uploads the data depending on the user choices
+                    
                     dbConnection.Open();
 
-                    SqlCommand sqlCommand = new SqlCommand(getStudentIdSql, dbConnection);
-                    string studentId = sqlCommand.ExecuteScalar().ToString();
 
-                    SqlCommand sqlCommand1 = new SqlCommand(getScholarshipIdSql, dbConnection);
-                    string scholarshipId = sqlCommand1.ExecuteScalar().ToString();
-
-                    string insertString = "INSERT INTO ScholarshipApplication (StudentID, Date, ScholarshipName, ScholarshipID) " +
-                            " VALUES (@studentId, @date, @name, @scholarshipId)";
+                    string insertString = "INSERT INTO ScholarshipApplication (StudentID, Date, ScholarshipName, ScholarshipID, Email) " +
+                            " VALUES (@studentId, @date, @scholarshipName, @scholarshipId, @email)";
 
 
                     using (SqlCommand cmd = new SqlCommand(insertString, dbConnection))
                     {
                         cmd.Parameters.Add("@studentId", SqlDbType.Int).Value = studentId;
-                        cmd.Parameters.Add("@date", SqlDbType.Date).Value = scholarshipAppDate;
-                        cmd.Parameters.Add("@name", SqlDbType.NVarChar, 50).Value = scholarshipName;
+                        cmd.Parameters.Add("@date", SqlDbType.Date).Value = date;
+                        cmd.Parameters.Add("@scholarshipName", SqlDbType.NVarChar, 50).Value = scholarshipName;
                         cmd.Parameters.Add("@scholarshipId", SqlDbType.Int).Value = scholarshipId;
+                        cmd.Parameters.Add("@email", SqlDbType.NVarChar, 50).Value = email;
                         
-                        
-
 
                         cmd.ExecuteNonQuery();
 
@@ -96,8 +100,6 @@ namespace Lab3
                     dbConnection.Close();
                     dbConnection.Dispose();
                 }
-
-                
 
 
             }

@@ -24,31 +24,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// lblDate control.
+        /// lblScholarship control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDate;
+        protected global::System.Web.UI.WebControls.Label lblScholarship;
 
         /// <summary>
-        /// txtDate control.
+        /// ddlScholarshipNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDate;
+        protected global::System.Web.UI.WebControls.DropDownList ddlScholarshipNames;
 
         /// <summary>
-        /// reqFieldValidatorCompany control.
+        /// rfvScholarshipName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator reqFieldValidatorCompany;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvScholarshipName;
 
         /// <summary>
         /// lblStudentEmail control.
@@ -60,40 +60,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblStudentEmail;
 
         /// <summary>
-        /// ddlStudent control.
+        /// txtStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlStudent;
+        protected global::System.Web.UI.WebControls.TextBox txtStudentEmail;
 
         /// <summary>
-        /// lblScholarshipName control.
+        /// rfvStudentEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblScholarshipName;
-
-        /// <summary>
-        /// ddlScholarshipName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlScholarshipName;
-
-        /// <summary>
-        /// lblStudentFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStudentFirstName;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStudentEmail;
 
         /// <summary>
         /// btnApply control.
@@ -105,30 +87,12 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnApply;
 
         /// <summary>
-        /// StudentTableDataSource control.
+        /// sdsScholarshipNames control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource StudentTableDataSource;
-
-        /// <summary>
-        /// ScholarshipSource control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ScholarshipSource;
-
-        /// <summary>
-        /// FormView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView FormView1;
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsScholarshipNames;
     }
 }
