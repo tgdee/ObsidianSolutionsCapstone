@@ -15,7 +15,7 @@ namespace Lab3
 {
     public partial class _Default : Page
     {
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -38,9 +38,10 @@ namespace Lab3
 
                 cmd.ExecuteNonQuery();
 
-                SqlDataAdapter da = new SqlDataAdapter();
-
-                da.SelectCommand = cmd;
+                SqlDataAdapter da = new SqlDataAdapter
+                {
+                    SelectCommand = cmd
+                };
 
                 DataSet ds = new DataSet();
 
@@ -239,6 +240,10 @@ namespace Lab3
                             }
                         }
 
+                    }
+                    else
+                    {
+                        ltError.Text = "No Resume Available";
                     }
 
                     reader.Close();

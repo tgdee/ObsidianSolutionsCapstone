@@ -14,7 +14,7 @@ namespace Lab3
 {
     public partial class MemberInformation : System.Web.UI.Page
     {
-        SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
+        readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
         protected void Page_Load(object sender, EventArgs e)
         {
