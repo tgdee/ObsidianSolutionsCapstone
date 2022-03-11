@@ -133,6 +133,7 @@ namespace Lab3
 
         }
 
+        // Commented this method out because it seems like it is obsolete under the new design on the user's creating their accounts and then waiting for approval
 
         //protected void btnAddRow_Click(object sender, EventArgs e)
         //{
@@ -190,7 +191,7 @@ namespace Lab3
 
 
         //    }
-        //}
+        //}         // Commented this out because now that u
 
 
 
