@@ -160,7 +160,6 @@
     <Content Include="LoginChoice.aspx" />
     <Content Include="MemberTest.aspx" />
     <Content Include="MentoringProgram.aspx" />
-    <Content Include="ResumeUpload.aspx" />
     <Content Include="Scholarship.aspx" />
     <Content Include="ScholarshipApplication.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -352,13 +351,6 @@
     </Compile>
     <Compile Include="PasswordHash.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResumeUpload.aspx.cs">
-      <DependentUpon>ResumeUpload.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ResumeUpload.aspx.designer.cs">
-      <DependentUpon>ResumeUpload.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Scholarship.aspx.cs">
       <DependentUpon>Scholarship.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
