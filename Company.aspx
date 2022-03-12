@@ -127,7 +127,7 @@
     <br />
     <asp:Label ID="lblSelectedStudent" runat="server" Text=""></asp:Label>
     <br />
-    <asp:Button ID="btnApprove" runat="server" Text="Award" ValidationGroup="2" OnClick="btnApprove_Click" />
+    <asp:Button ID="btnApprove" runat="server" Text="Award" ValidationGroup="2" OnClick="btnApprove_Click" Visible="false" />
 
     <asp:SqlDataSource ID="JobApplications" 
         runat="server"

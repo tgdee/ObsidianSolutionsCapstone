@@ -66,11 +66,11 @@
                         <li><a runat="server" href="~/AccountCreation.aspx">Account Creation</a></li>
                         <%if ((string)Session["AccountType"] == "Admin")
                             {%>
-                            <li><a runat="server" href="~/AdminPages/AdminPage.aspx" Visible="true">Admin Page</a></li>
+                            <li><a runat="server" href="~/AdminPage.aspx" Visible="true">Admin Page</a></li>
                            <% }%>
                         <%else
                             {%>
-                            <li><a runat="server" href="~/AdminPages/AdminPages.aspx" Visible="false">Admin Page</a></li>
+                            <li><a runat="server" href="~/AdminPages.aspx" Visible="false">Admin Page</a></li>
                            <% } %>
                         
 

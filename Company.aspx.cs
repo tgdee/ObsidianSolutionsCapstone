@@ -16,7 +16,7 @@ namespace Lab3
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);      // Create an initial conenction with the database 
 
         protected void Page_Load(object sender, EventArgs e)
-            //Master Page covers the restriction of accesing pages without login
+        //Master Page covers the restriction of accesing pages without login
         {
 
             if (!Page.IsPostBack)
@@ -46,7 +46,7 @@ namespace Lab3
                     {
                         string firstName = txtFirstName.Text;
                         string lastName = txtLastName.Text;
-                        DateTime  meetingTime = DateTime.Parse(txtMeetingTime.Text);
+                        DateTime meetingTime = DateTime.Parse(txtMeetingTime.Text);
                         string email = txtEmail.Text;
                         string companyName = txtCompanyName.Text;
 
@@ -112,7 +112,7 @@ namespace Lab3
                 da.Fill(ds, "Email");
                 da.Fill(ds, "FirstName");
                 da.Fill(ds, "LastName");
-                
+
 
 
                 ViewState["ds"] = ds;
@@ -123,7 +123,7 @@ namespace Lab3
 
 
 
-                
+
 
 
 
@@ -156,6 +156,7 @@ namespace Lab3
                 try
                 {
 
+
                     string applicationNumber = gvCurrentJobApplication.DataKeys[gvCurrentJobApplication.SelectedIndex].Values["ApplicationNumber"].ToString();
 
                     if (row.Cells[6].Text.Equals("Unawarded"))         // Check if the row is unapproved 
@@ -183,6 +184,7 @@ namespace Lab3
 
 
 
+
                 }
                 catch (SqlException ex)
                 {
@@ -196,14 +198,18 @@ namespace Lab3
 
 
             }
-
         }
+
+
+
 
         protected void gvCurrentJobApplication_SelectedIndexChanged(object sender, EventArgs e)
         {
             GridViewRow row = gvCurrentJobApplication.SelectedRow;
 
-            if(row.Cells[6].Text.Equals("Unawarded"))
+            btnApprove.Visible = true;
+
+            if (row.Cells[6].Text.Equals("Unawarded"))
             {
                 btnApprove.Text = "Award";
             }
@@ -214,6 +220,6 @@ namespace Lab3
 
             lblSelectedStudent.Text = "Currently Selected Student: " + row.Cells[4].Text + " " + row.Cells[5].Text + ".";
         }
-    }
 
+    }
 }

@@ -23,7 +23,7 @@
             </asp:GridView>
             <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
             <br />
-            <asp:Button ID="btnApprove" runat="server" Text="Approve/Unapprove" OnClick="btnApprove_Click" />
+            <asp:Button ID="btnApprove" runat="server" Text="Approve/Unapprove" OnClick="btnApprove_Click" Visible="false" />
         </div>
         <br />
         <asp:Button ID="btnReturn" runat="server" Text="Previous Page <-" OnClick="btnReturn_Click" />
