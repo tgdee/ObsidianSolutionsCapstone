@@ -9,9 +9,7 @@
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
     <div class="container">
-        <div class="form-row">
-
-        
+        <div class="row row-cols-4">
             <section class="col">
                 <h3>Search Student</h3>
                 <asp:Label ID="Label8" runat="server" Text="First Name"></asp:Label>
@@ -31,6 +29,7 @@
                 <asp:TextBox ID="txtEmailSearch" runat="server" ValidationGroup="1"></asp:TextBox>
                 <br />
                 <asp:Label ID="Label11" runat="server" Text="Grade"></asp:Label>
+                <br />
                 &nbsp
                 <asp:TextBox ID="txtGrade" runat="server" ValidationGroup="1"></asp:TextBox>
                 <br />
@@ -79,47 +78,4 @@
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
-<%--    <asp:Label ID="LblFirstName" runat="server" Text="First Name"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtFirstName" runat="server" ValidationGroup="2" placeholder="Enter First Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfFirst" runat="server" ControlToValidate="txtFirstName" ValidationGroup="2" ErrorMessage="Enter First Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="LblLastName" runat="server" Text="Last Name"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtLastName" runat="server" ValidationGroup="2" placeholder="Enter Last Name"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfLast" runat="server" ValidationGroup="2" ControlToValidate="txtLastName" ErrorMessage="Enter Last Name" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="lblGrade" runat="server" Text="Grade"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtGradeBox" runat="server" ValidationGroup="2" placeholder="Grade"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfGrade" runat="server" ValidationGroup="2" ControlToValidate="txtGradeBox" ErrorMessage="Enter Grade" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="LblGradYear" runat="server" Text="Graduation Year"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtGradYear" runat="server" ValidationGroup="2" placeholder="Enter Graduation Year"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfGraduationYear" runat="server" ValidationGroup="2" ControlToValidate="txtGradYear" ErrorMessage="Enter Grad Year" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="lblMajor" runat="server" Text="Major"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtMajorBox" runat="server" ValidationGroup="2" placeholder="Enter Major"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfMajor" runat="server" ValidationGroup="2" ControlToValidate="txtMajorBox" ErrorMessage="Enter Grade" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="lblNumber" runat="server" Text="Phone Number"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtPNumber" runat="server" ValidationGroup="2" placeholder="Enter Phone Number"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfPNumber" ValidationGroup="2" runat="server" ControlToValidate="txtPNumber" ErrorMessage="Enter Number" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Label ID="lblEmail" runat="server" Text="Email"></asp:Label>
-    <br />
-    <asp:TextBox ID="txtEmailBox" runat="server" ValidationGroup="2" placeholder="Enter Email"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="rqfEmail" runat="server" ValidationGroup="2" ControlToValidate="txtEmailBox" ErrorMessage="Enter Email" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
-    <br />
-    <br />
-    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" ValidationGroup="2" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />--%>
 </asp:Content>
