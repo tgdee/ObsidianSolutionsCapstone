@@ -79,7 +79,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - DukeGroup: ShaneMcCarthy, Timothy Goeke</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Obsidian Solutions</p>
             </footer>
         </div>
         <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>

@@ -36,34 +36,31 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="navbar navbar-expand-lg navbar-light" style="background-color:#b49ecd;">
             <div class="container">
                 <div class="navbar-Brand" href="#">
-                    <img src="images/logo_transparent_background.jpg" alt="" width="100" height="75"/>
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".narbarcollapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-
+                    <img src="images/logo_transparent_background.jpg" alt="" width="150" height="75"/>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler"></span>
                     </button> 
                       <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to DukeGroup!</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/StudentHomepage.aspx">Home</a></li>
-                        <li><a runat="server" href="~/InternshipApplication.aspx">Internship Application</a></li>
-                        <li><a runat="server" href="~/JobApplication.aspx">Job Application</a></li>
-                        <li><a runat="server" href="~/ScholarshipApplication.aspx">Scholarship Application</a></li>
-                        <li><a runat="server" href="~/Account.aspx">Account</a></li>
-                        <li><a runat="server" href="~/AccountCreation.aspx">Account Creation</a></li>
+                    <ul class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="StudentHomepage.aspx" >Home</a>
+                        <a class="nav-link" aria-current="page" href="InternshipApplication.aspx" >Internships</a>
+                        <a class="nav-link" aria-current="page" href="JobApplication.aspx" >Jobs</a>
+                        <a class="nav-link" aria-current="page" href="ScholarshipApplication.aspx" >Scholarships</a>
+                        <a class="nav-link" aria-current="page" href="Account.aspx" >Account</a>
+                        <a class="nav-link" aria-current="page" href="AccountCreation.aspx" >Account Creation</a>
                         
                     </ul>
                 </div>
             </div>
          </div>
+        
+        <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
+        <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>
 
         <div>
             <asp:Label ID="lblNope" runat="server" Text="" Font-Bold="true" Font-Size="Large"></asp:Label>
@@ -71,11 +68,9 @@
                 
             </asp:ContentPlaceHolder>
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - DukeGroup: ShaneMcCarthy, Timothy Goeke</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Obsidian Solutions</p>
             </footer>
         </div>
-        <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
-        <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>
     </form>
 </body>
 </html>
