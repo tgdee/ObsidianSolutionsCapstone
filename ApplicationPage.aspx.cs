@@ -15,52 +15,67 @@ namespace Lab3
 {
     public partial class ApplicationPage : System.Web.UI.Page
     {
+        // Sql connection to database named Lab3 
         SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
 
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
 
-            }
-            else
-            {
-
-            }
         }
 
         protected void BtnApplication_Click(object sender, EventArgs e)
         {
             
-            
-            string insertApplicationQuery = "INSERT INTO Application (FirstName, LastName, ApplicationFile, ResumeFile, TranscriptFile) VALUES (@firstName, @lastName, @applicationFile, @resumeFile, @transcriptFile)";
+            // SQL insert string for StudentApplication table
+            string insertApplicationQuery = "INSERT INTO StudentApplication (FirstName, LastName, EmailAddress, ApplicationFileAddress, ResumeFileAddress, TranscriptFileAddress) " +
+                "VALUES (@firstName, @lastName, @emailAddress, @applicationFile, @resumeFile, @transcriptFile)";
 
             using (SqlCommand cmd = new SqlCommand(insertApplicationQuery, con))
             {
                 try
                 {
                     con.Open();
+                    
+                    // Create strings from the textbox controls to add as parameters
                     string firstName = txtFirstName.Text;
                     string lastName = txtLastName.Text;
+                    string emailAddress = txtEmail.Text;
 
-                    ResumeTranscriptUpload();
-                    //ApplicationUpload();
+                    // Call methods to create and upload application essay, resume, and transcript if the essay is less than or equal to 500 words
+                    if( WordCount(txtEssayControl.Text) <= 500 )
+                    {
+                        ResumeTranscriptUpload();
+                        ApplicationUpload();
+                    }
+                    else
+                    {
+                        lblMessage.ForeColor = System.Drawing.Color.Red;
+                        lblMessage.Text = "Application over 500 Word maximum.";
+                        return;
+                    }
+                    
 
-                    string applicationFileLocation = Server.MapPath("~/Applications/" + txtLastName.Text + "application");
-                    string transcriptFileLocation = Server.MapPath("~ApplyingTranscripts/" + txtLastName.Text + "transcript");
-                    string resumeFileLocation = Server.MapPath("~ApplyingResumes/" + txtLastName.Text + "resume");
+                    // Create strings of the different file locations to add as parameters
+                    string applicationFileLocation = "~/Applications/" + txtFirstName.Text + "_" + txtLastName.Text + "_application";
+                    string transcriptFileLocation = "~/ApplyingTranscripts/" + txtFirstName.Text + "_" + txtLastName.Text + "_transcript";
+                    string resumeFileLocation = "~/ApplyingResumes/" + txtFirstName.Text + "_" + txtLastName.Text + "_resume";
 
 
-                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 30).Value = firstName;
-                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 30).Value = lastName;
-                    cmd.Parameters.Add("@applicationFile", SqlDbType.NVarChar, 40).Value = applicationFileLocation;
-                    cmd.Parameters.Add("@applicationFile", SqlDbType.NVarChar, 40).Value = transcriptFileLocation;
-                    cmd.Parameters.Add("@applicationFile", SqlDbType.NVarChar, 40).Value = resumeFileLocation;
+                    cmd.Parameters.Add("@firstName", SqlDbType.NVarChar, 35).Value = firstName;
+                    cmd.Parameters.Add("@lastName", SqlDbType.NVarChar, 35).Value = lastName;
+
+                    cmd.Parameters.Add("@emailAddress", SqlDbType.NVarChar, 254).Value = emailAddress;              // Need to make other email columns store this many chars
+
+                    cmd.Parameters.Add("@applicationFile", SqlDbType.NVarChar, 254).Value = applicationFileLocation;
+                    cmd.Parameters.Add("@transcriptFile", SqlDbType.NVarChar, 254).Value = transcriptFileLocation;
+                    cmd.Parameters.Add("@resumeFile", SqlDbType.NVarChar, 254).Value = resumeFileLocation;
 
                     cmd.ExecuteNonQuery();
 
-                    lblMessage.Text = "Succesfully Uploaded";
+                    
+
+                    con.Close();
                 }
                 catch (SqlException ex)
                 {
@@ -68,15 +83,13 @@ namespace Lab3
                     
                 }
                 
-
             }
-
 
         }
 
         protected void ResumeTranscriptUpload()
         {
-            if (fuResume.HasFile && fuTranscript.HasFile)
+            if (fuResume.HasFile && fuTranscript.HasFile)                                           // Check there is a resume and transcript ready to be uploaded
             {
                 string fileExtensionResume = Path.GetExtension(fuResume.FileName);
                 string fileExtensionTranscript = Path.GetExtension(fuTranscript.FileName);
@@ -85,62 +98,80 @@ namespace Lab3
                 {
                     lblMessage.Text = "Only Resumes and Transcripts with .pdf Extension are Allowed";             // Only allow pdfs
                     lblMessage.ForeColor = System.Drawing.Color.Red;
+                    return;
                 }
                 else
                 {
+                    // Store basic attributes about the resume and transcript file such as name length and data size
                     int fileSizeResume = fuResume.PostedFile.ContentLength;
                     int fileResumeNameLength = fuResume.FileName.ToString().Length;
                     int fileSizeTranscript = fuTranscript.PostedFile.ContentLength;
                     int fileTranscriptNameLength = fuTranscript.FileName.ToString().Length;
 
-                    if (fileSizeResume > 2097152 || fileSizeTranscript > 2097152 || fileResumeNameLength > 30 || fileTranscriptNameLength > 30)          // Prevent file larger than this many bytes or 2MB from being uploaded
+                    // Prevent file larger than 5MB or with a name longer than 30 from being uploaded
+                    if (fileSizeResume > 5242880 || fileSizeTranscript > 5242880 || fileResumeNameLength > 30 || fileTranscriptNameLength > 30)          
                     {
-                        lblMessage.Text = "Maximum File Size (2MB) Exceeded OR Maximum File Name of 30 Letters Exceeded";
+                        lblMessage.Text = "Maximum File Size (5MB) Exceeded OR Maximum File Name of 30 Letters Exceeded";
+                        return;
                     }
                     else
                     {
-                        fuResume.SaveAs(Server.MapPath("~/Resumes/" + fuResume.FileName));
-                        fuTranscript.SaveAs(Server.MapPath("~/Transcripts/" + fuTranscript.FileName));
-                        //ApplicationUpload();
-                        lblMessage.Text = "Application Succcessfully Submitted";
-                        lblMessage.ForeColor = System.Drawing.Color.Green;
-
+                        fuResume.SaveAs(Server.MapPath("~/ApplyingResumes/" + txtFirstName.Text + "_" + txtLastName.Text + "_resume.pdf"));
+                        fuTranscript.SaveAs(Server.MapPath("~/ApplyingTranscripts/" + txtFirstName.Text + "_" + txtLastName.Text + "_transcript.pdf"));                      
+                        
                     }
                 }
             }
         }
 
-        //protected void ApplicationUpload()
-        //{
-        //    try
-        //    {
-        //        //Pass the filepath and filename to the StreamWriter Constructor 
-        //        StreamWriter sw = new StreamWriter(Server.MapPath("~/Applications/" + txtLastName.Text));
-        //        // Write the  text
+        protected void ApplicationUpload()
+        {
+            try
+            {
+                //Pass the filepath and filename to the StreamWriter Constructor using the students first/last name for their application
+                StreamWriter sw = new StreamWriter(Server.MapPath("~/Applications/" + txtFirstName.Text + "_" + txtLastName.Text + "_application.txt"));
 
+                // Write the  text 
+                sw.WriteLine(txtEssayControl.Text);
+                lblMessage.ForeColor = System.Drawing.Color.Green;
+                lblMessage.Text = "Application Succcessfully Submitted";
 
+                sw.Close();
 
-        //        if (txtApplication.Text.Replace(" ", "").Length > 500)
-        //        {
-        //            lblMessage.ForeColor = Color.Red;
-        //            lblMessage.Text = "Essay is over 500 characters";
-        //        }
-        //        else
-        //        {
-        //            sw.WriteLine(txtApplication.Text);
-                    
+            }
+            catch (Exception e)
+            {
+                lblMessage.Text = e.Message;
+            }
 
-        //        }
+        }
 
-        //        sw.Close();
+        int WordCount(string text)
+        {
+            // Use algorithm to count words instead of .Split(). Reduce garbage collector work load
 
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        lblMessage.Text = e.Message;
-        //    }
+            int wordCount = 0;
+            int index = 0;
 
-        //}
+            // skip whitespace until first word
+            while (index < text.Length && char.IsWhiteSpace(text[index]))
+                index++;
+
+            while (index < text.Length)
+            {
+                // check if current char is part of a word
+                while (index < text.Length && !char.IsWhiteSpace(text[index]))
+                    index++;
+
+                wordCount++;
+
+                // skip whitespace until next word
+                while (index < text.Length && char.IsWhiteSpace(text[index]))
+                    index++;
+            }
+
+            return wordCount;
+        }
     }
 
 }
