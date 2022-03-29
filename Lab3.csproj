@@ -135,6 +135,8 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CustomButtons.css" />
+    <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />

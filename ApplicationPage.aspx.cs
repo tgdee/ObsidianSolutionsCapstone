@@ -32,8 +32,8 @@ namespace Lab3
 
         protected void BtnApplication_Click(object sender, EventArgs e)
         {
-
-
+            
+            
             string insertApplicationQuery = "INSERT INTO Application (FirstName, LastName, ApplicationFile, ResumeFile, TranscriptFile) VALUES (@firstName, @lastName, @applicationFile, @resumeFile, @transcriptFile)";
 
             using (SqlCommand cmd = new SqlCommand(insertApplicationQuery, con))
@@ -45,7 +45,7 @@ namespace Lab3
                     string lastName = txtLastName.Text;
 
                     ResumeTranscriptUpload();
-                    ApplicationUpload();
+                    //ApplicationUpload();
 
                     string applicationFileLocation = Server.MapPath("~/Applications/" + txtLastName.Text + "application");
                     string transcriptFileLocation = Server.MapPath("~ApplyingTranscripts/" + txtLastName.Text + "transcript");
@@ -101,7 +101,7 @@ namespace Lab3
                     {
                         fuResume.SaveAs(Server.MapPath("~/Resumes/" + fuResume.FileName));
                         fuTranscript.SaveAs(Server.MapPath("~/Transcripts/" + fuTranscript.FileName));
-                        ApplicationUpload();
+                        //ApplicationUpload();
                         lblMessage.Text = "Application Succcessfully Submitted";
                         lblMessage.ForeColor = System.Drawing.Color.Green;
 
@@ -110,37 +110,37 @@ namespace Lab3
             }
         }
 
-        protected void ApplicationUpload()
-        {
-            try
-            {
-                //Pass the filepath and filename to the StreamWriter Constructor 
-                StreamWriter sw = new StreamWriter(Server.MapPath("~/Applications/" + txtLastName.Text));
-                // Write the  text
+        //protected void ApplicationUpload()
+        //{
+        //    try
+        //    {
+        //        //Pass the filepath and filename to the StreamWriter Constructor 
+        //        StreamWriter sw = new StreamWriter(Server.MapPath("~/Applications/" + txtLastName.Text));
+        //        // Write the  text
 
 
 
-                if (txtApplication.Text.Replace(" ", "").Length > 500)
-                {
-                    lblMessage.ForeColor = Color.Red;
-                    lblMessage.Text = "Essay is over 500 characters";
-                }
-                else
-                {
-                    sw.WriteLine(txtApplication.Text);
+        //        if (txtApplication.Text.Replace(" ", "").Length > 500)
+        //        {
+        //            lblMessage.ForeColor = Color.Red;
+        //            lblMessage.Text = "Essay is over 500 characters";
+        //        }
+        //        else
+        //        {
+        //            sw.WriteLine(txtApplication.Text);
                     
 
-                }
+        //        }
 
-                sw.Close();
+        //        sw.Close();
 
-            }
-            catch (Exception e)
-            {
-                lblMessage.Text = e.Message;
-            }
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        lblMessage.Text = e.Message;
+        //    }
 
-        }
+        //}
     }
 
 }
