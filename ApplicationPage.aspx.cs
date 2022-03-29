@@ -73,8 +73,6 @@ namespace Lab3
 
                     cmd.ExecuteNonQuery();
 
-                    
-
                     con.Close();
                 }
                 catch (SqlException ex)

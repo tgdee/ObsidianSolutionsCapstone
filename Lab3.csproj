@@ -287,6 +287,7 @@
     <Content Include="Student.aspx" />
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
+    <Content Include="ViewStudentApplications.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -503,6 +504,13 @@
     </Compile>
     <Compile Include="StudentMaster.Master.designer.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStudentApplications.aspx.cs">
+      <DependentUpon>ViewStudentApplications.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewStudentApplications.aspx.designer.cs">
+      <DependentUpon>ViewStudentApplications.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
