@@ -24,11 +24,11 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="txtFirstName">First Name</label>
+                <label for="txtFirstName" class="form-label">First Name</label>
                 <asp:TextBox ID="txtFirstName" class="form-control" placeholder="John" runat="server"></asp:TextBox>
             </div>
             <div class="form-group">
-                <label for="txtLastName">Last Name</label>
+                <label for="txtLastName" class="col-form-label">Last Name</label>
                 <asp:TextBox ID="txtLastName"  class="form-control" placeholder="Doe" runat="server"></asp:TextBox>
             </div>
             <div class="form-group">

@@ -3,57 +3,92 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <br />
     <br />
-    <h1>Student Information Page</h1>
-    <h4>
-        <br />
-        <asp:Literal ID="ltError" runat="server"></asp:Literal>
-    </h4>
-    <div class="container">
-        <div class="row row-cols-4">
-            <section class="col">
-                <h3>Search Student</h3>
-                <asp:Label ID="Label8" runat="server" Text="First Name"></asp:Label>
-                &nbsp
-                <asp:TextBox ID="txtFirstNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label9" runat="server" Text="Last Name"></asp:Label>
-                &nbsp
-                <asp:TextBox ID="txtLastNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label14" runat="server" Text="Username"></asp:Label>
-                &nbsp&nbsp
-                <asp:TextBox ID="txtUserNameSearch" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label10" runat="server" Text="Email"></asp:Label>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:TextBox ID="txtEmailSearch" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label11" runat="server" Text="Grade"></asp:Label>
-                <br />
-                &nbsp
-                <asp:TextBox ID="txtGrade" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="lblGraduationYear" runat="server" Text="Graduation Year"></asp:Label>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:TextBox ID="txtGraduationYear" runat="server" placeholder="YYYY" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label12" runat="server" Text="Major"></asp:Label>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:TextBox ID="txtMajor" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <asp:Label ID="Label3" runat="server" Text="Phone Number"></asp:Label>
-                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                <asp:TextBox ID="txtPhoneNumber" runat="server" ValidationGroup="1"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn.success"/>
-            </section>
+    <div class="container my-5">
+        <div class="jumbotron border">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    <h1 class="display-4">Student Information</h1>
+                </div>
+                <div class="col-xs-2">
+                    <%--<img class="img-thumbnail" src="/images/logo_transparent_background.jpg" />--%>
+                </div>
+            </div>
         </div>
     </div>
-    <br />
-    <br />
-    <br />
-    <br />
+    <div>
+        <asp:Literal ID="ltError" runat="server"></asp:Literal>
+    </div>
+
+    <div class="container my-auto">
+        <h4 class="display-6 ">Search Students</h4>
+        <div class="row p-1">
+            <div class="col">
+                <label for="txtFirstNameSearch">First Name</label>
+            </div>
+            <div class="col">
+                <label for="txtLastNameSearch">Last Name</label>
+            </div>
+            <div class="col">
+                <label for="txtUserNameSearch">Username</label>
+            </div>
+            <div class="col">
+                <label for="txtEmailSearch">Email</label>
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col">
+                <asp:TextBox ID="txtFirstNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtLastNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtUserNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtEmailSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row p-0 pt-3">
+            <div class="col">
+                <label for="txtGradeSearch">Grade</label>
+            </div>
+            <div class="col">
+                <label for="txtGraduationYear">Graduation Year</label>
+            </div>
+            <div class="col">
+                <label for="txtMajor">Major</label>
+            </div>
+            <div class="col">
+                <label for="txtPhoneNumber">Phone Number</label>
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col">
+                <asp:TextBox ID="txtGrade" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtGraduationYear" class="form-control" runat="server" placeholder="YYYY" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtMajor" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtPhoneNumber" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+        </div>
+        <div class="row p-1 pt-2">
+            <div class="col">
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>
+            
+
+            
+
+                
+               
     <br />
     <br />
     <asp:GridView ID="gvStudent" runat="server" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" Width="500px" EmptyDataText="Student Record Not Found">
