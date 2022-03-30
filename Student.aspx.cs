@@ -20,7 +20,7 @@ namespace Lab3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            // Load the gridview with all student information upon first page load
             if (!Page.IsPostBack)
             {
                 DisplayGvStudent();
@@ -63,11 +63,16 @@ namespace Lab3
                 gvStudent.DataBind();
 
 
+                // Check if gridview member has rows and if it does hide the member id header and row cells and change headers
 
-                for (int i = 0; i < gvStudent.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells
+                for (int i = 0; i < gvStudent.Rows.Count; i++)       
                 {
                     gvStudent.HeaderRow.Cells[2].Visible = false;
                     gvStudent.Rows[i].Cells[2].Visible = false;
+                    gvStudent.HeaderRow.Cells[4].Text = "First Name";
+                    gvStudent.HeaderRow.Cells[5].Text = "Last Name";
+                    gvStudent.HeaderRow.Cells[7].Text = "Graduation Year";
+                    gvStudent.HeaderRow.Cells[9].Text = "Phone Number";
 
                 }
 
@@ -76,7 +81,7 @@ namespace Lab3
             }
             catch (SqlException ex)
             {
-                ltError.Text = ex.Message;
+                lblMessage.Text = ex.Message;
             }
         }
 
@@ -88,7 +93,7 @@ namespace Lab3
             try
             {
 
-                using (SqlCommand command = new SqlCommand("dbo.spSearchStudentInfo", con) { CommandType = CommandType.StoredProcedure })  // User stored procedure because like is tricky in code
+                using (SqlCommand command = new SqlCommand("dbo.spSearchStudentInfo", con) { CommandType = CommandType.StoredProcedure })  // Use stored procedure because it does not work in code
                 {
                     command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
                     command.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
@@ -118,7 +123,7 @@ namespace Lab3
             }
             catch (SqlException ex)
             {
-                ltError.Text = ex.Message;
+                lblMessage.Text = ex.Message;
             }
            
 
@@ -180,7 +185,7 @@ namespace Lab3
         //        }
         //        catch (SqlException ex)
         //        {
-        //            ltError.Text = ex.Message;
+        //            lblMessage.Text = ex.Message;
         //        }
         //        finally
         //        {
@@ -251,14 +256,14 @@ namespace Lab3
                             }
                             else
                             {
-                                ltError.Text = "No Resume Available";
+                                lblMessage.Text = "No Resume Available";
                             }
                         }
 
                     }
                     else
                     {
-                        ltError.Text = "No Resume Available";
+                        lblMessage.Text = "No Resume Available";
                     }
 
                     reader.Close();
@@ -269,10 +274,11 @@ namespace Lab3
             }
             catch (SqlException ex)
             {
-                ltError.Text = ex.Message;
+                lblMessage.Text = ex.Message;
             }
 
 
         }
+
     }
 }

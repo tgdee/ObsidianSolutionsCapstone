@@ -1,9 +1,7 @@
 ﻿<%@ Page Title="Student Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Student.aspx.cs" Inherits="Lab3._Default" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
-    <br />
-    <br />
-    <div class="container my-5">
+    <div class="container my-auto">
         <div class="jumbotron border">
             <div class="row">
                 <div class="col-xs-offset-2 col-xs-8">
@@ -14,12 +12,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div>
-        <asp:Literal ID="ltError" runat="server"></asp:Literal>
-    </div>
-
-    <div class="container my-auto">
         <h4 class="display-6 ">Search Students</h4>
         <div class="row p-1">
             <div class="col">
@@ -83,33 +75,30 @@
             </div>
         </div>
     </div>
-            
-
-            
-
-                
-               
-    <br />
-    <br />
-    <asp:GridView ID="gvStudent" runat="server" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" Width="500px" EmptyDataText="Student Record Not Found">
+    <div class="container my-auto">
+    <table class="table caption-top">
+    <caption class="pt-5">List of students</caption>
+    <asp:GridView ID="gvStudent" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvStudent_SelectedIndexChanged" Width="1085px" EmptyDataText="Student Record Not Found">
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbViewPDF" runat="server" Text="View Resume" ValidationGroup="ViewPDF" OnClientClick="openInNewTab()" OnClick="lbViewPDF_Click">View Resume</asp:LinkButton>
+                    <asp:LinkButton ID="lbViewPDF" runat="server" ValidationGroup="ViewPDF" OnClientClick="openInNewTab()" OnClick="lbViewPDF_Click">Resume</asp:LinkButton>
                     <script type="text/javascript">
                         function openInNewTab() {
                             window.document.forms[0].target = '_blank';
                             setTimeout(function () { window.document.forms[0].target = ''; }, 0);
                         }
-                        /*Used some javascript to open a new window... Could probably find a different way to do this but i think its pretty neat at least thats what my mom said*/
+                        /*Used some javascript to open a new window. Need to find a different way to do this cus if the student has no resume it opens a duplicate page*/
                     </script>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
-    <br />
-    <br />
+    </table>
+        <div class="p-3"></div>
+    <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
+    </div>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/popper.min.js"></script>

@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="StudentHomepage.aspx.cs" Inherits="Lab3.StudentHomepage" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+
+    
     <asp:Label ID="lblUserStat" runat="server" Text="" Font-Bold="true"></asp:Label>
     <asp:Panel runat="server" HorizontalAlign="Center">
         <br />
