@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body class="bg-image" style="background-image:url(images/faded%20background.png")">
+<body class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
