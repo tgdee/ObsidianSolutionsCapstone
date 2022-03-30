@@ -19,7 +19,7 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center text-center">
-                                <img src="https://via.placeholder.com/150" alt="Admin" class="rounded-circle" width="150" />
+                                <img src="https://via.placeholder.com/150" alt="No Profile Picture Set" class="rounded-circle" width="150" />
                                 <div class="mt-3">
                                     <div class="row">
                                         <div class="col">
@@ -49,14 +49,35 @@
                         </div>
                     </div>
                     <div class="card mt-3">
-                        <ul class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
-                            <li>
-                            <h6 class="mb-0">Facebook</h6><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ></svg>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">
+                                    <asp:HyperLink ID="hlFacebook" NavigateUrl="https://www.facebook.com/" runat="server">Facebook</asp:HyperLink>
+                                </h6>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                <h6 class="mb-0">
+                                    <asp:HyperLink ID="HyperLink2" NavigateUrl="https://www.linkedin.com/" runat="server">LinkedIn</asp:HyperLink>
+                                </h6>
                             </li>
                         </ul>
                     </div>
                 </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            CEO Statement
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                <asp:Label ID="lblCeoStmt" runat="server" Text="(CEO STATEMENT HERE)"></asp:Label>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            
 
 
 
