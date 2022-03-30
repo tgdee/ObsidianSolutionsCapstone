@@ -13,5 +13,10 @@ namespace Lab3
         {
 
         }
+
+        protected void gvStudentApplications_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
