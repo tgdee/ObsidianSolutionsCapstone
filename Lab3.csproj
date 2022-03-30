@@ -136,6 +136,9 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomButtons.css" />
+    <Content Include="DashBoards.aspx" />
+    <Content Include="images\faded background.png" />
+    <Content Include="images\loginBackground.png" />
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
@@ -300,6 +303,13 @@
     </Compile>
     <Compile Include="ApplicationPage.aspx.designer.cs">
       <DependentUpon>ApplicationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DashBoards.aspx.cs">
+      <DependentUpon>DashBoards.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DashBoards.aspx.designer.cs">
+      <DependentUpon>DashBoards.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberAccount.aspx.cs">
       <DependentUpon>MemberAccount.aspx</DependentUpon>

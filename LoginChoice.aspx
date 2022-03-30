@@ -7,7 +7,7 @@
     <title></title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
-<body>
+<body class="bg-image" style="background-image:url(images/loginBackground.png);margin-top:0px;background-size:cover">
     <form id="form1" runat="server">
         <h1>
             <image> <img src="images/logo_transparent_background.jpg" /></image>
