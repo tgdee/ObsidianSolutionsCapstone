@@ -1,5 +1,74 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentInformation.aspx.cs" Inherits="Lab3.StudentInformation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    
+    <div class="container">
+        <div class="main-body">
+
+            <!-- Breadcrumb -->
+            <nav aria-label="breadcrumb" class="main-breadcrumb pt-3">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="Homepage.aspx">Home</a></li>
+                    <li class="breadcrumb-item"><a href="Student.aspx">Student</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>
+                </ol>
+            </nav>
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="https://via.placeholder.com/150" alt="Admin" class="rounded-circle" width="150" />
+                                <div class="mt-3">
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Label ID="lblFullName" class="h4 align-items-center" runat="server" Text="Name Name"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Label ID="lblMajor" class="text-secondary mb-1" runat="server" Text="Major"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Label ID="lblHome" class="text-muted font-size-sm" runat="server" Text="San Francisco, CA"></asp:Label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <asp:Button ID="btnFavorite" class="btn btn-primary" runat="server" Text="Favorite" />
+                                        </div>
+                                        <div class="col">
+                                            <asp:Button ID="btnMessage" class="btn btn-outline-primary" runat="server" Text="Message" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-3">
+                        <ul class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                            <li>
+                            <h6 class="mb-0">Facebook</h6><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ></svg>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+
+    
+    
+    
+    
     <br />
     <br />
     <asp:Table ID="Table1" runat="server">
