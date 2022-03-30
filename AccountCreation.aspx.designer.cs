@@ -141,6 +141,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtGrade;
 
         /// <summary>
+        /// rqfGrade control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfGrade;
+
+        /// <summary>
         /// txtGraduationYear control.
         /// </summary>
         /// <remarks>
@@ -148,6 +157,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtGraduationYear;
+
+        /// <summary>
+        /// rqfGraduationYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfGraduationYear;
 
         /// <summary>
         /// txtMajor control.
@@ -159,6 +177,15 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.TextBox txtMajor;
 
         /// <summary>
+        /// rqfMajor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfMajor;
+
+        /// <summary>
         /// txtPhoneNumber control.
         /// </summary>
         /// <remarks>
@@ -166,6 +193,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPhoneNumber;
+
+        /// <summary>
+        /// rqfPhoneNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rqfPhoneNumber;
 
         /// <summary>
         /// btnCreateAccount control.

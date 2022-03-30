@@ -68,16 +68,27 @@
            
                 <label for="txtGrade" class="form-label">Grade Level (Students Only)</label>
                 <asp:TextBox ID="txtGrade" class="form-control" runat="server"></asp:TextBox>
-            
+                <asp:RequiredFieldValidator ID="rqfGrade" runat="server" ControlToValidate="txtGrade" ErrorMessage="Enter Grade" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
             
                 <label for="txtGraduationYear" class="form-label">Graduation Year (Students Only)</label>
                 <asp:TextBox ID="txtGraduationYear" class="form-control" runat="server"></asp:TextBox>
-            
+                 <asp:RequiredFieldValidator ID="rqfGraduationYear" runat="server" ControlToValidate="txtGraduationYear" ErrorMessage="Enter Year" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                 <br />
+                <br />
+
                 <label for="txtMajor" class="form-label">Major (Students Only)</label>
                 <asp:TextBox ID="txtMajor" class="form-control" runat="server"></asp:TextBox>
+                 <asp:RequiredFieldValidator ID="rqfMajor" runat="server" ControlToValidate="txtMajor" ErrorMessage="Enter Major" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
            
                 <label for="txtPhoneNumber" class="form-label">Phone Number (Students Only)</label>
                 <asp:TextBox ID="txtPhoneNumber" class="form-control" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="rqfPhoneNumber" runat="server" ControlToValidate="txtPhoneNumber" ErrorMessage="Enter Number" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
              </asp:Panel>
              </div>
             <div class="form-group">
