@@ -8,7 +8,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body class="bg-image" style="background-image:url(images/loginBackground.png);margin-top:0px;background-size:cover">
+<body class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
     <form id="form1" runat="server">
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
