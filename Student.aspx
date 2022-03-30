@@ -102,7 +102,7 @@
                             window.document.forms[0].target = '_blank';
                             setTimeout(function () { window.document.forms[0].target = ''; }, 0);
                         }
-                        /*Used some javascript to open a new window... Could probably find a different way to do this but i think its pretty neat at least thats what my mom said*/
+                        /*Used some javascript to open a new window. Need to find a different way to do this cus if the student has no resume it opens a duplicate page*/
                     </script>
                 </ItemTemplate>
             </asp:TemplateField>
