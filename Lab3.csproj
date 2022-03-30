@@ -136,6 +136,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CustomButtons.css" />
+    <Content Include="images\faded background.png" />
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />

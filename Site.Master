@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body class="bg-image" style="background-image:url(images/faded%20background.png")">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,7 +38,7 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-expand-lg navbar-light" style="background-color:#b49ecd;">
+        <div class="navbar navbar-expand-lg navbar-light" style="background-color:##ffffff;">
             <div class="container">
                 <div class="navbar-brand" href="#">
                     <img src="images/logo_transparent_background.jpg" alt="" width="150" height="75"/>
@@ -73,7 +73,9 @@
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+
+        <div class="container body-content" >
+            <%--<div class="bg-purple" style="background-color:#000000;">--%>
             <asp:Label ID="lblNope" runat="server" Text="" Font-Bold="true" Font-Size="Large"></asp:Label>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
@@ -81,7 +83,8 @@
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Obsidian Solutions</p>
             </footer>
-        </div>
+            </div>
+        <%--</div>--%>
         <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
         <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation" />
     </form>
