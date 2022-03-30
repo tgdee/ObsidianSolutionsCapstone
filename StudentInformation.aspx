@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="StudentInformation.aspx.cs" Inherits="Lab3.StudentInformation" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
     <div class="container">
         <div class="main-body">
 
@@ -52,12 +52,14 @@
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook mr-2 icon-inline text-primary"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
                                     <asp:HyperLink ID="hlFacebook" NavigateUrl="https://www.facebook.com/" runat="server">Facebook</asp:HyperLink>
                                 </h6>
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                 <h6 class="mb-0">
-                                    <asp:HyperLink ID="HyperLink2" NavigateUrl="https://www.linkedin.com/" runat="server">LinkedIn</asp:HyperLink>
+                                    <span class="iconify" data-icon="logos:linkedin-icon"></span>
+                                    <asp:HyperLink ID="HyperLink2" NavigateUrl="https://www.linkedin.com/" class="pl-3" runat="server">LinkedIn</asp:HyperLink>
                                 </h6>
                             </li>
                         </ul>
