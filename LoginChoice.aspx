@@ -9,7 +9,14 @@
 </head>
 <body>
     <form id="form1" runat="server">
-
+        <h1>
+            <image> <img src="images/logo_transparent_background.jpg" /></image>
+        </h1>
+        <div class="text-right">
+             <asp:Label ID="lblAccount" runat="server" Text="Want to Join?" Font-Italic="true" ForeColor="#333333"></asp:Label>
+             <asp:Button ID="btnNewAccount" runat="server" Text="Apply" OnClick="btnNewAccount_Click" ForeColor="Black" BackColor="White" BorderColor="Black" />
+        </div>
+    <div align="center">
             <asp:Table ID="tblLoginChoice" runat="server" >
                 <asp:TableHeaderRow>
                     <asp:TableHeaderCell>
@@ -43,20 +50,23 @@
                     </asp:TableCell>
                 </asp:TableRow>
             </asp:Table>
-           
+           <br />
+            <br />
             <asp:Button ID="btnGo" runat="server" Text="Login ->" OnClick="btnGo_Click" />
             <br />
             <br />
+        </div>
             
             <formview >
-                <asp:Label ID="LblAccount" runat="server" Text="Want to Join?" Font-Bold="true"></asp:Label>
+                
                 <br />
-                <asp:Button ID="btnNewAccount" runat="server" Text="Apply?" OnClick="btnNewAccount_Click" />
+               
                 <br />
                 <asp:Label ID="lblStatus" runat="server" Text="" Font-Bold="true" Font-Size="Larger"></asp:Label>
             </formview>
        
     </form>
+
     <script src="Script/jquery-3.6.0.min.js"> </script>
     <script src="Script/popper.min.js"> </script>
     <script src="Script/bootstrap.bundle.min.js"> </script>
