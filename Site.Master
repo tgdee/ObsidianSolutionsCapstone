@@ -16,7 +16,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -38,55 +38,53 @@
             </Scripts>
         </asp:ScriptManager>
 
-        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-expand-lg navbar-light">
             <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                <div class="navbar-brand" href="#">
+                    <img src="images/logo_transparent_background.jpg" alt="" width="150" height="75"/>
+                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/Homepage.aspx">Welcome to DukeGroup!</a>
                 </div>
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/Homepage.aspx">Homepage</a></li>
-                        <li><a runat="server" href="~/Student.aspx">Student</a></li>
-                        <li><a runat="server" href="~/MemberTest.aspx">Member</a></li>
-                        <li><a runat="server" href="~/MentoringProgram.aspx">Mentoring Program</a></li>
-                        <li><a runat="server" href="~/Company.aspx">Company</a></li>
-                        <li><a runat="server" href="~/Internship.aspx">Internship</a></li>
-                        <li><a runat="server" href="~/Scholarship.aspx">Scholarship</a></li>
-                        <li><a runat="server" href="~/MemberAccount.aspx">Account</a></li>
-                        <li><a runat="server" href="~/AccountCreation.aspx">Account Creation</a></li>
-                        <%if ((string)Session["AccountType"] == "Admin")
+                <div class="collapse navbar-collapse" id="siteMasterNav">
+                    <div class="navbar-nav">
+                        <a class="nav-link" aria-current="page" href="Homepage.aspx" >Home</a>
+                        <a class="nav-link" aria-current="page" href="Student.aspx" >Student</a>
+                        <a class="nav-link" aria-current="page" href="MemberTest.aspx" >Member</a>
+                        <a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>
+                        <a class="nav-link" aria-current="page" href="Company.aspx" >Company</a>
+                        <a class="nav-link" aria-current="page" href="Internship.aspx" >Internship</a>
+                        <a class="nav-link" aria-current="page" href="Scholarship.aspx" >Scholarship</a>
+                        <a class="nav-link" aria-current="page" href="MemberAccount.aspx" > My Account</a>
+                        <a class="nav-link" aria-current="page" href="AccountCreation.aspx" >Create an Account </a>
+                       <%if ((string)Session["AccountType"] == "Admin")
                             {%>
-                            <li><a runat="server" href="~/AdminPage.aspx" Visible="true">Admin Page</a></li>
-                           <% }%>
+                            <div class="d-block">
+                                <a class="nav-link"  aria-current="page" href="AdminPage.aspx">Admin Page</a>
+                            </div>
+                         <% }%>
                         <%else
                             {%>
-                            <li><a runat="server" href="~/AdminPages.aspx" Visible="false">Admin Page</a></li>
+                           <div class="d-none">
+                                <a class="nav-link" aria-current="page" href="AdminPage.aspx">Admin Page</a>
+                            </div>
                            <% } %>
-                        
-
-                    </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="container body-content">
+
+        <div class="container body-content" >
+            
             <asp:Label ID="lblNope" runat="server" Text="" Font-Bold="true" Font-Size="Large"></asp:Label>
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - DukeGroup: ShaneMcCarthy, Timothy Goeke</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Obsidian Solutions</p>
             </footer>
-        </div>
+            </div>
+        
         <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
         <asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation" />
     </form>
