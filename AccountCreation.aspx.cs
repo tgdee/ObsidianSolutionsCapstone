@@ -241,5 +241,7 @@ namespace Lab3
                 pnlTextBox.Visible = false;
             }
         }
+
+        
     }
 }

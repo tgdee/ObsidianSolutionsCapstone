@@ -28,12 +28,14 @@
             </div>
             <div class="form-group">
                 <label for="ddlAccountType">Account Type</label>
-                <asp:DropDownList ID="ddlAccountType" class="form-control" runat="server">
+                <asp:DropDownList ID="ddlAccountType" class="form-control" runat="server" OnSelectedIndexChanged="ddlAccountType_SelectedIndexChanged" AutoPostBack="true">
                     <asp:ListItem Text="Alum" Value="N"></asp:ListItem>
                     <asp:ListItem Text="Student" Value="Y"></asp:ListItem>
                     
                 </asp:DropDownList>
+            <hr />
             </div>
+            
             <div class="form-group">
                 <label for="txtFirstName" class="form-label">First Name</label>
                 <asp:TextBox ID="txtFirstName" class="form-control" runat="server"></asp:TextBox>
@@ -60,32 +62,40 @@
                 <asp:TextBox ID="txtPassword" class="form-control" runat="server"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="rqfPassword" runat="server" ControlToValidate="txtPassword" ErrorMessage="Enter Password" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
             </div>
+            
             <div class="form-group">
-                <asp:Panel ID="pnlTextBox" runat="server" Visible="false">
-                </asp:Panel>
-            </div>
-            <div class="form-group">
-                <label for="txtGrade" class="form-label">Grade Level (Students Only)</label>
+            <asp:Panel ID="pnlTextBox" runat="server" Visible="false">
+           
+                <label for="txtGrade" class="form-label">Grade Level</label>
                 <asp:TextBox ID="txtGrade" class="form-control" runat="server"></asp:TextBox>
-            </div> 
-            <div class="form-group">
-                <label for="txtGraduationYear" class="form-label">Graduation Year (Students Only)</label>
+                <asp:RequiredFieldValidator ID="rqfGrade" runat="server" ControlToValidate="txtGrade" ErrorMessage="Enter Grade" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
+            
+                <label for="txtGraduationYear" class="form-label">Graduation Year</label>
                 <asp:TextBox ID="txtGraduationYear" class="form-control" runat="server"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="txtMajor" class="form-label">Major (Students Only)</label>
+                 <asp:RequiredFieldValidator ID="rqfGraduationYear" runat="server" ControlToValidate="txtGraduationYear" ErrorMessage="Enter Year" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                 <br />
+                <br />
+
+                <label for="txtMajor" class="form-label">Major</label>
                 <asp:TextBox ID="txtMajor" class="form-control" runat="server"></asp:TextBox>
-            </div>
-            <div class="form-group">
-                <label for="txtPhoneNumber" class="form-label">Phone Number (Students Only)</label>
+                 <asp:RequiredFieldValidator ID="rqfMajor" runat="server" ControlToValidate="txtMajor" ErrorMessage="Enter Major" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
+           
+                <label for="txtPhoneNumber" class="form-label">Phone Number</label>
                 <asp:TextBox ID="txtPhoneNumber" class="form-control" runat="server"></asp:TextBox>
-               
-            </div>
+                <asp:RequiredFieldValidator ID="rqfPhoneNumber" runat="server" ControlToValidate="txtPhoneNumber" ErrorMessage="Enter Number" ForeColor="Red" Font-Bold="true"></asp:RequiredFieldValidator>
+                <br />
+                <br />
+             </asp:Panel>
+             </div>
             <div class="form-group">
                 <asp:Button ID="btnCreateAccount" runat="server" Text="Create Account" OnClick="btnCreateAccount_Click" />
             </div>
-
-   
+                    
+          
     <div class="form-group">
     <asp:Button ID="btnReturn" runat="server" Text="Previous Page <-" OnClick="btnRetur_Click" ValidationGroup="vdGroup" />
 

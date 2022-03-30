@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>OSAG Application Page</title>
+    <title>Student Application Page</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
 </head>
