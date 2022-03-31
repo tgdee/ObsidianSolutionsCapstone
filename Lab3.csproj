@@ -231,7 +231,6 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="SendEmailTest.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\5db340cf51d14.image.jpg" />
@@ -312,7 +311,6 @@
     <Compile Include="DashBoards.aspx.designer.cs">
       <DependentUpon>DashBoards.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logging.cs" />
     <Compile Include="MemberAccount.aspx.cs">
       <DependentUpon>MemberAccount.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -402,13 +400,6 @@
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.designer.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="SendEmailTest.aspx.cs">
-      <DependentUpon>SendEmailTest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="SendEmailTest.aspx.designer.cs">
-      <DependentUpon>SendEmailTest.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentHomepage.aspx.cs">
       <DependentUpon>StudentHomepage.aspx</DependentUpon>
