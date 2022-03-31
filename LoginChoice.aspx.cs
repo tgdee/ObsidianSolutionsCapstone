@@ -15,12 +15,16 @@ namespace Lab3
     
     public partial class LoginChoice : System.Web.UI.Page
     {
-        
+        protected void lbHome_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Homepage");
+        }
+
 
         //protected void Page_Load(object sender, EventArgs e)
         //{
 
-            
+
         //    //if (Session["MustLogin"] != null)
         //    //{
         //    //    lblUserStat.ForeColor = Color.Red;
@@ -46,7 +50,7 @@ namespace Lab3
         //    try
         //    {
         //        System.Data.SqlClient.SqlConnection sc = new SqlConnection(WebConfigurationManager.ConnectionStrings["AUTH"].ConnectionString.ToString());
-                
+
 
         //        sc.Open();
         //        // SELECT PASSWORD STRING WHERE THE ENTERED USERNAME MATCHES

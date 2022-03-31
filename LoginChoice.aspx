@@ -16,9 +16,7 @@
 </head>
 
 <body class="background">
-
-    
-
+    <form id="form1" runat="server">
 
         <!-- Logo, want to join, apply button row -->
         <div class="row">
@@ -30,10 +28,8 @@
 
             <div class="col-lg-6 ">
                 <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            <ion-icon name="home-outline"></ion-icon>
-                            Home</a>
+                    <li class="nav-item pr-1">
+                        <asp:LinkButton ID="lbHome" OnClick="lbHome_Click" class="btn btn-success" runat="server">Home</asp:LinkButton>
                     </li>
             </div>
 
@@ -87,7 +83,7 @@
                 </div>
             </div>
         </div>
-    
+    </form>
 
 
 
