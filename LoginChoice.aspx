@@ -69,7 +69,7 @@
                         </div>
                         <div class="mb-3">
                             <asp:CheckBox ID="cbRememberMe" class="form-check-label pl-1" runat="server" />
-                            <label class="form-check-label pl-1" for="exampleCheck1">Remeber Me</label>
+                            <label class="form-check-label pl-1" for="exampleCheck1">Remember Me</label>
                         </div>
                         <div class="mb-3">
                             <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click" class="btn btn-light" Text="Login" />
