@@ -129,8 +129,8 @@
             <image> <img src="images/logo_transparent_background.jpg" /></image>
         </h1>
         <div class="text-right">
-             <asp:Label ID="lblAccount" runat="server" Text="Want to Join?" Font-Italic="true" ForeColor="#333333"></asp:Label>
-             <asp:Button ID="btnNewAccount" runat="server" Text="Apply" OnClick="btnNewAccount_Click" ForeColor="Black" BackColor="White" BorderColor="Black" />
+             <asp:Label ID="lblAccount" runat="server" Text="Want to Join?" Font-Italic="true" ForeColor="White"></asp:Label>
+             <asp:Button ID="btnNewAccount" runat="server" class="rounded-pill" Text="Apply" OnClick="btnNewAccount_Click" ForeColor="#331b47" BackColor="White"/>
         </div>
     <div align="center">
             <asp:Table ID="tblLoginChoice" runat="server" >
