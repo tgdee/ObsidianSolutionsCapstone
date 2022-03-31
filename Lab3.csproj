@@ -348,6 +348,7 @@
     <Content Include="Student.aspx" />
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
+    <Content Include="StudentProfile.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="ViewStudentApplications.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -591,6 +592,13 @@
     </Compile>
     <Compile Include="StudentMaster.Master.designer.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentProfile.aspx.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentProfile.aspx.designer.cs">
+      <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentApplications.aspx.cs">
       <DependentUpon>ViewStudentApplications.aspx</DependentUpon>
