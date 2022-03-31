@@ -135,6 +135,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="CorporateSuccess.aspx" />
     <Content Include="CustomButtons.css" />
     <Content Include="DashBoards.aspx" />
     <Content Include="images\faded background.png" />
@@ -303,6 +304,13 @@
     </Compile>
     <Compile Include="ApplicationPage.aspx.designer.cs">
       <DependentUpon>ApplicationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CorporateSuccess.aspx.cs">
+      <DependentUpon>CorporateSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorporateSuccess.aspx.designer.cs">
+      <DependentUpon>CorporateSuccess.aspx</DependentUpon>
     </Compile>
     <Compile Include="DashBoards.aspx.cs">
       <DependentUpon>DashBoards.aspx</DependentUpon>
