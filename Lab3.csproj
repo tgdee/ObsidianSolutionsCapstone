@@ -138,8 +138,12 @@
     <Content Include="CorporateSuccess.aspx" />
     <Content Include="CustomButtons.css" />
     <Content Include="DashBoards.aspx" />
+    <Content Include="images\background.png" />
+    <Content Include="images\backgroundtwo.png" />
     <Content Include="images\faded background.png" />
+    <Content Include="images\fadedbackground.png" />
     <Content Include="images\loginBackground.png" />
+    <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
@@ -291,6 +295,7 @@
     <Content Include="Student.aspx" />
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
+    <Content Include="StyleSheet1.css" />
     <Content Include="ViewStudentApplications.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
