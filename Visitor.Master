@@ -17,6 +17,7 @@
 </head>
 <body class="bg-image" style="background-image:url(images/zigzags%20background.jpg);margin-top:0px;background-size:cover">
     <form id="form1" runat="server">
+        <div class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>

@@ -10,9 +10,9 @@
 </head>
 <body class="bg-image" style="background-image: url(/images/zigzags%20background.jpg); margin-top: 0px; background-size: cover">
     <form id="form1" runat="server">
-        <div>
-            <div class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
+        <div>            
             <asp:Panel runat="server" HorizontalAlign="Center">
+                <div class="bg" style="background-color:lightpink;margin-top:5px;">
                     <br />
                     <br />
                     <h1>About Us</h1>
@@ -47,10 +47,9 @@
                     <br />
                     <br />
                     <h2>Meet The Team</h2>
-
+            </div>
             </asp:Panel>
             </div>
-        </div>
     </form>
 </body>
 </html>
