@@ -1,18 +1,15 @@
-﻿<%@ Page Title="" Language="C#" CodeBehind="VisitorAbout.aspx.cs" Inherits="Lab3.VisitorAbout" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visitor.Master" AutoEventWireup="true" CodeBehind="VisitorAbout.aspx.cs" Inherits="Lab3.VisitorAbout" %>
 
-<!DOCTYPE html>
+<asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
     <title>About Us</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
-</head>
 <body class="bg-image" style="background-image: url(/images/zigzags%20background.jpg); margin-top: 0px; background-size: cover">
-    <form id="form1" runat="server">
-        <div>            
+            <div class="container-lg justify-content-center"  >
+        <div class="bg-image" style="background-color:#ffb6c1 ">
             <asp:Panel runat="server" HorizontalAlign="Center">
-                <div class="bg" style="background-color:lightpink;margin-top:5px;">
+                
                     <br />
                     <br />
                     <h1>About Us</h1>
@@ -47,9 +44,9 @@
                     <br />
                     <br />
                     <h2>Meet The Team</h2>
-            </div>
             </asp:Panel>
             </div>
-    </form>
+            </div>
 </body>
 </html>
+</asp:Content>
