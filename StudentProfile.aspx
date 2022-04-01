@@ -36,7 +36,7 @@ background-image:url("images/fadedbackground.png");
           <div class="col">
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#"><ion-icon name="home-outline"></ion-icon>Home</a>
+                  <a class="nav-link active" href='NewHomePage.aspx'><ion-icon name="home-outline"></ion-icon>Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#"><ion-icon name="person-outline"></ion-icon>Profile</a>
@@ -77,7 +77,7 @@ background-image:url("images/fadedbackground.png");
     <!--Interests/skills  -->
           <div class="col">
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Intrests</div>
+                <div class="card-header">Interests</div>
                 <div class="card-body text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

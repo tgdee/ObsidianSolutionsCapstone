@@ -91,7 +91,7 @@ background-image:url("images/fadedbackground.png");
                       </asp:DataList>
 
                   </p>
-                  <a href="#" class="btn btn-light">Resume</a>
+                  <a href="#" class="btn btn-light" onclick="btnViewResume_Click()">Resume</a>
                   <a href="#" class="btn btn-light">Portfolio</a>
                 </div>
               </div></div>
