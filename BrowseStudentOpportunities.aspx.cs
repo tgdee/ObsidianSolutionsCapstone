@@ -13,5 +13,10 @@ namespace Lab3
         {
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

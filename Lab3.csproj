@@ -348,6 +348,7 @@
     <Content Include="Student.aspx" />
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
+    <Content Include="StudentOpportunitiesStyle.css" />
     <Content Include="StudentProfile.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="ViewStudentApplications.aspx" />
