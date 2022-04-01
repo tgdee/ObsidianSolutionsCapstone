@@ -176,6 +176,7 @@
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
+    <Content Include="images\zigzags background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
