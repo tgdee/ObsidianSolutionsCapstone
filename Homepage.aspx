@@ -7,7 +7,7 @@
         <br />
         <br />
         <br />
-        <h1>Lab3: Shane McCarthy & Timothy Goeke</h1>
+        <h1>Ole School Alumni Group</h1>
         <asp:Image ID="Image1" runat="server" Height="200" Width="200" ImageUrl="~/images/5db340cf51d14.image.jpg" />
         <br />
         <br />
