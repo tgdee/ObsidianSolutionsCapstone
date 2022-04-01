@@ -15,7 +15,7 @@
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
-<body class="bg-image" style="background-image:url(images/zigzags%20background.jpg);margin-top:0px;background-size:cover">
+<body class="bg-image" style="background-image:url(images/zigzags%20background.jpg);margin-top:0px;background-size:cover;">
     <form id="form1" runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>

@@ -173,6 +173,7 @@
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
     <Content Include="images\faded background.png" />
     <Content Include="images\fadedbackground.png" />
+    <Content Include="images\JMU_Campus.jpg" />
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
