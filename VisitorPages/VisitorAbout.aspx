@@ -2,20 +2,20 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-    <title>About Us</title>
-    <link href="Content/bootstrap.css" rel="stylesheet" />
-    <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
-<body class="bg-image" style="background-image: url(/images/zigzags%20background.jpg); margin-top: 0px; background-size: cover">
+<div class="bg-image" style="background-image: url(/images/zigzags%20background.jpg); margin-top: 0px; background-size: cover">
             <div class="container-lg justify-content-center"  >
         <div class="bg-image" style="background-color:#ffb6c1 ">
-            <asp:Panel runat="server" HorizontalAlign="Center">
-                
+            <asp:Panel runat="server" HorizontalAlign="Center">         
                     <br />
                     <br />
                     <h1>About Us</h1>
                     <asp:Image ID="Image1" runat="server" Height="500" Width="700" ImageUrl="~/images/ole-school-alumni-group.png" />
                     <br />
                     <br />
+                    <h2>Meet The Team</h2>
+                    <p>
+
+                    </p>
                     <h2>Our History</h2>
                     <p>
                         The Ole School Alumni Group is a grass roots, non-profit organization envisioned by three African American James Madison University (JMU) alumni that graduated in the 1980’s.
@@ -43,10 +43,8 @@
                     </p>
                     <br />
                     <br />
-                    <h2>Meet The Team</h2>
             </asp:Panel>
             </div>
             </div>
-</body>
-</html>
+</div>
 </asp:Content>
