@@ -6,7 +6,7 @@
 
    
     <div class="container-lg justify-content-center" style="text-align:center;align-content:center"   >
-        <div class="bg-image" style="background-color:#ffb6c1 ">
+        <div class="bg-image" style="background-color:mediumpurple ">
             <div>
                 <asp:Panel runat="server" HorizontalAlign="Center">     
                     <h1> Ole School Alumni Group</h1>
