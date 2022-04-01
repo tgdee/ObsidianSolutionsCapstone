@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ApplicationPage.aspx.cs" Inherits="Lab3.ApplicationPage" %>
+﻿x`<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ApplicationPage.aspx.cs" Inherits="Lab3.ApplicationPage" %>
 
 <!DOCTYPE html>
 

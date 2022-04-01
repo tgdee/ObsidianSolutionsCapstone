@@ -15,6 +15,42 @@ namespace Lab3
     {
 
         /// <summary>
+        /// dlStudentName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlStudentName;
+
+        /// <summary>
+        /// dlStudentEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlStudentEmail;
+
+        /// <summary>
+        /// dlStudentInfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlStudentInfo;
+
+        /// <summary>
+        /// sqltesting control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sqltesting;
+
+        /// <summary>
         /// lblHeaderMessage control.
         /// </summary>
         /// <remarks>
