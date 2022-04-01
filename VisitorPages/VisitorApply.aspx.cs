@@ -13,5 +13,15 @@ namespace Lab3.VisitorPages
         {
 
         }
+
+        protected void btnApply_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/ApplicationPage.aspx");
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/NewHomePage.aspx");
+        }
     }
 }
