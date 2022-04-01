@@ -28,13 +28,17 @@ namespace Lab3
 
             if (!IsPostBack)
             {
-                BindDataList();
-                
+                BindNameDataList();
+                BindEmailDataList();
+                BindInfoDataList();
+
+
             }
+
 
         }
 
-        protected void BindDataList()
+        protected void BindNameDataList()
         {
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
@@ -42,11 +46,11 @@ namespace Lab3
             {
                 try
                 {
-                    dlAccount.DataSource = null;
-                    dlAccount.DataBind();
+                    dlStudentName.DataSource = null;
+                    dlStudentName.DataBind();
                     connection.Open();
                     string username = Session["Username"].ToString();
-                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
+                    string sqlCommandString = "SELECT FirstName, LastName FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
                     command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -54,8 +58,82 @@ namespace Lab3
                     dataAdapter.Fill(dt);
                     if(dt.Rows.Count > 0)
                     {
-                        dlAccount.DataSource = dt;
-                        dlAccount.DataBind();
+                        dlStudentName.DataSource = dt;
+                        dlStudentName.DataBind();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    ltError.Text = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindEmailDataList()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+                    dlStudentEmail.DataSource = null;
+                    dlStudentEmail.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Email FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlStudentEmail.DataSource = dt;
+                        dlStudentEmail.DataBind();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    ltError.Text = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindInfoDataList()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+                    dlStudentInfo.DataSource = null;
+                    dlStudentInfo.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Major, Grade, GraduationYear FROM Student WHERE Username=@userName";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlStudentInfo.DataSource = dt;
+                        dlStudentInfo.DataBind();
                     }
                 }
                 catch (SqlException e)
@@ -112,7 +190,9 @@ namespace Lab3
                     {
                         cmd.ExecuteNonQuery();
                         cmd1.ExecuteNonQuery();
-                        BindDataList();
+                        BindNameDataList();
+                        BindEmailDataList();
+                        BindInfoDataList();
                     }
                     else
                     {

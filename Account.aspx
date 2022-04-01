@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="Account.aspx.cs" Inherits="Lab3.Account" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
-<%--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -53,13 +53,43 @@ background-image:url("images/fadedbackground.png");
     <!--create profile/ profile photo placeholder-->
           <div class="col">
             <div> <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <img class="card-img-top" src="..." alt="Please Upload an Image">
                 <div class="card-body">
-                  <h5 class="card-title">Name:</h5>
-                  <p class="card-text"> 
-                      <p> Age:</p>
-                      <p> Region:</p>
-                      <p> Major</p>
+                  <h5 class="card-title">
+                      <asp:DataList ID="dlStudentName" runat="server">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-title">
+                                          Name: <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
+                                      </div>
+                                  </tr>
+                              </table> 
+                          </ItemTemplate>
+                      </asp:DataList>
+                  </h5>
+                  <p class="card-text">
+                      <asp:DataList ID="dlStudentEmail" runat="server">
+                         <ItemTemplate>
+                             <table>
+                                 <tr>
+                                     <div class="card-text">Email: <%# DataBinder.Eval(Container.DataItem, "Email") %></div>
+                                 </tr>
+                             </table>
+                         </ItemTemplate>
+                      </asp:DataList>
+                      <asp:DataList ID="dlStudentInfo" runat="server">
+                         <ItemTemplate>
+                             <table>
+                                 <tr>
+                                     <div class="card-text">Major: <%# DataBinder.Eval(Container.DataItem, "Major") %></div>
+                                     <div class="card-text">Grade: <%# DataBinder.Eval(Container.DataItem, "Grade") %></div>
+                                     <div class="card-text">Graduation Year: <%# DataBinder.Eval(Container.DataItem, "GraduationYear") %></div>
+                                 </tr>
+                             </table>
+                         </ItemTemplate>
+                      </asp:DataList>
+
                   </p>
                   <a href="#" class="btn btn-light">Resume</a>
                   <a href="#" class="btn btn-light">Portfolio</a>
@@ -72,7 +102,8 @@ background-image:url("images/fadedbackground.png");
                 <div class="card-header">BIO</div>
                 <div class="card-body text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                    
+                  <a href="#" class="btn btn-light">Edit Bio</a>
                 </div>
               </div>
           </div>
@@ -83,6 +114,7 @@ background-image:url("images/fadedbackground.png");
                 <div class="card-body text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>
               <div class="card border-secondary mb-3" style="max-width: 18rem;">
@@ -90,6 +122,7 @@ background-image:url("images/fadedbackground.png");
                 <div class="card-body text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-light">Edit Skills</a>
                 </div>
               </div>
           </div>
@@ -104,10 +137,12 @@ background-image:url("images/fadedbackground.png");
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
 </body>
-</html>--%>
+</html>
 
 
-
+    <asp:SqlDataSource ID="sqltesting" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>"
+        SelectCommand="SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName">
+    </asp:SqlDataSource>
 
     <asp:Table runat="server">
         <asp:TableHeaderRow>
