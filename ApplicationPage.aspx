@@ -10,6 +10,8 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="bg-image" style="background-image:url(/images/faded%20background.png);margin-top:0px;background-size:cover">
+            
         <div class="container my-5">
             <div class="jumbotron">
                 <div class="container">
@@ -63,6 +65,7 @@
             <div class="form-group">
             <asp:Button ID="BtnApplication" runat="server" Text="Submit" OnClick="BtnApplication_Click" class="customPurpleButton" />
             <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            </div>
             </div>
             </div>
     </form>

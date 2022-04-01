@@ -6,7 +6,7 @@
 
 
         <div class="container-lg justify-content-center"  >
-        <div class="bg-image" style="background-color:#ffb6c1 ">
+        <div class="bg-image" style="background-color:mediumpurple ">
             <div>
                 <asp:Panel runat="server" HorizontalAlign="Center">     
                     <h1> Ole School Alumni Group Application Process</h1>
@@ -16,7 +16,7 @@
                 <div class="row">
                     <div class="col-12" style="text-align:center"><h2>Information Needed To Apply: </h2>
                         <p>
-                           In order to recieve the full benefits that Ole School Alumni Group offers, each applicatant will be required to provide their full first and last name, a 500 word essay, an uploaded resume, and transcript.
+                           In order to recieve the full benefits that Ole School Alumni Group offers, each applicatant will be required to provide their full first and last name, current email address, current grade level, a 500 word essay, an uploaded resume, and transcript.
                         </p>
                     </div>                                        
                     </div>

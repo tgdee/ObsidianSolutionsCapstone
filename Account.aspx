@@ -53,7 +53,7 @@ background-image:url("images/fadedbackground.png");
     <!--create profile/ profile photo placeholder-->
           <div class="col">
             <div> <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Please Upload an Image">
+                <img class="card-img-top rounded-circle img-thumbnail" src="images/DefaultProfileIMG.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
                       <asp:DataList ID="dlStudentName" runat="server">
@@ -91,8 +91,11 @@ background-image:url("images/fadedbackground.png");
                       </asp:DataList>
 
                   </p>
-                  <a href="#" class="btn btn-light" onclick="btnViewResume_Click()">Resume</a>
-                  <a href="#" class="btn btn-light">Portfolio</a>
+                  <label for="formFile" class="form-label fw-bold">Upload Resume</label>
+                  <input class="form-control" type="file" id="formResume">
+                  <br />
+                  <label for="formFile" class="form-label fw-bold">Upload Portfolio</label>
+                  <input class="form-control" type="file" id="formPortfolio">
                 </div>
               </div></div>
           </div>
@@ -110,7 +113,7 @@ background-image:url("images/fadedbackground.png");
     <!--Interests/skills  -->
           <div class="col">
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Intrests</div>
+                <div class="card-header">Interests</div>
                 <div class="card-body text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

@@ -17,7 +17,7 @@ namespace Lab3
     {
         protected void lbHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Homepage");
+            Response.Redirect("~/NewHomePage");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
