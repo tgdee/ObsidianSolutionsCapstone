@@ -4,7 +4,12 @@
 
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
-
+    <style> 
+   .margin{ 
+       margin-left:45px;
+       margin-right:45px;
+   }
+    </style>
         <div class="container-lg justify-content-center"  >
         <div class="bg-image" style="background-color:mediumpurple ">
             <div>
@@ -14,14 +19,17 @@
                     <br />
                     <br />       
                 <div class="row">
+                    <div class="margin">
                     <div class="col-12" style="text-align:center"><h2>Information Needed To Apply: </h2>
                         <p>
                            In order to recieve the full benefits that Ole School Alumni Group offers, each applicatant will be required to provide their full first and last name, current email address, current grade level, a 500 word essay, an uploaded resume, and transcript.
                         </p>
                     </div>                                        
                     </div>
+                    </div>
                     <br />                    
                 <div class="row">
+                    <div class="margin">
                     <div class="col-12" style="text-align:center">
                         <h2>Benefits of Applying With Ole School: </h2>
                         <p>
@@ -29,6 +37,7 @@
                         </p>
                     </div>
                 </div>
+                    </div>
                     <br />
                 <div class="row">
                     <div class="col-12" style="text-align:center">
@@ -46,6 +55,7 @@
                 </div>
             </div>
             </div>
+    
     <script src="Scripts/jquery-3.6.0.slim.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>    
