@@ -51,8 +51,7 @@
             <div class="row">
                 <asp:Button ID="btnApply" runat="server" Text="Apply Now!" OnClick="btnApply_Click" />
             </div>
-            <br />
-            <br />
+            <br />            
             <div class="row">
                 <asp:Button ID="btnBack" runat="server" Text="<-- Return To Home Page" OnClick="btnBack_Click" />
             </div>

@@ -23,5 +23,6 @@ namespace Lab3.VisitorPages
         {
             Response.Redirect("~/NewHomePage.aspx");
         }
+
     }
 }
