@@ -43,7 +43,7 @@
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler"></span>
                     </button> 
-                      <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to DukeGroup!</a>
+                      <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to Ole School Alumni Group!</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav">
