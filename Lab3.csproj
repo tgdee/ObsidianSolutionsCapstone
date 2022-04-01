@@ -187,7 +187,7 @@
     <Content Include="Global.asax" />
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
-    <Content Include="NewHomepage.aspx" />
+    <Content Include="NewHomePage.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -478,12 +478,12 @@
     <Compile Include="InternshipInformation.aspx.designer.cs">
       <DependentUpon>InternshipInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewHomepage.aspx.cs">
-      <DependentUpon>NewHomepage.aspx</DependentUpon>
+    <Compile Include="NewHomePage.aspx.cs">
+      <DependentUpon>NewHomePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NewHomepage.aspx.designer.cs">
-      <DependentUpon>NewHomepage.aspx</DependentUpon>
+    <Compile Include="NewHomePage.aspx.designer.cs">
+      <DependentUpon>NewHomePage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>

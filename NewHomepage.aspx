@@ -1,13 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewHomepage.aspx.cs" Inherits="Lab3.NewHomepage" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
-    <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Visitor.Master" AutoEventWireup="true" CodeBehind="NewHomePage.aspx.cs" Inherits="Lab3.NewHomePage" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+     <div class="bg-image" style="background-image:url(images/faded%20background.png);margin-top:0px;background-size:cover">
+    
         <div class="col-lg-6 ">
                 <ul class="nav justify-content-end">
                     <li class="nav-item pr-1">
@@ -27,10 +21,6 @@
                 
     </asp:Panel>
         </div>
+      </div>
 
-    </form>
-    <script src="Scripts/jquery-3.6.0.slim.js"></script>
-    <script src="Scripts/popper.min.js"></script>
-    <script src="Scripts/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+</asp:Content>
