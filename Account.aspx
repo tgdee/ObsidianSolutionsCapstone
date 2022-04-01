@@ -53,7 +53,7 @@ background-image:url("images/fadedbackground.png");
     <!--create profile/ profile photo placeholder-->
           <div class="col">
             <div> <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Please Upload an Image">
+                <img class="card-img-top rounded-circle img-thumbnail" src="images/DefaultProfileIMG.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
                       <asp:DataList ID="dlStudentName" runat="server">
@@ -91,8 +91,11 @@ background-image:url("images/fadedbackground.png");
                       </asp:DataList>
 
                   </p>
-                  <a href="#" class="btn btn-light">Resume</a>
-                  <a href="#" class="btn btn-light">Portfolio</a>
+                  <label for="formFile" class="form-label fw-bold">Upload Resume</label>
+                  <input class="form-control" type="file" id="formResume">
+                  <br />
+                  <label for="formFile" class="form-label fw-bold">Upload Portfolio</label>
+                  <input class="form-control" type="file" id="formPortfolio">
                 </div>
               </div></div>
           </div>
