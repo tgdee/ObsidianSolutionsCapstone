@@ -5,8 +5,8 @@
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
 
    
-    <div class="container-lg justify-content-center" style="text-align:center;align-content:center"   >
-        <div class="bg-image" style="background-color:mediumpurple ">
+    <div class="container-lg justify-content-center mg" style="text-align:center;align-content:center"   >
+        <div class="bg-image" style="background-color:#f2f4f7 ">
             <div>
                 <asp:Panel runat="server" HorizontalAlign="Center">     
                     <h1> Ole School Alumni Group</h1>

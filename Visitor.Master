@@ -38,7 +38,7 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-        <div class="navbar navbar-expand-lg navbar-dark" style="background-color:#78518f;color:#ffffff">
+        <div class="navbar navbar-expand-lg navbar-dark" style="background-color:#78518f;">
             <div class="container">
                 <div class="navbar-brand" href="#">
                     <img src="/images/logo_transparent_background.jpg" alt="" width="150" height="75"/>
