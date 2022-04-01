@@ -46,7 +46,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="siteMasterNav">
                     <div class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="NewHomepage.aspx" >Home</a>
+                        <a class="nav-link" aria-current="page" href="NewHomePage.aspx" >Home</a>
                         <a class="nav-link" aria-current="page" href="VisitorPages/VisitorAbout.aspx" >About Us</a>
                         <a class="nav-link" aria-current="page" href="VisitorPages/VisitorEngagement.aspx" >Engagement</a>
                         <a class="nav-link" aria-current="page" href="VisitorPages/VisitorApply.aspx">Apply</a>                       
