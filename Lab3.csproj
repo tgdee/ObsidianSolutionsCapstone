@@ -165,9 +165,7 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="CorporateSuccess.aspx" />
     <Content Include="CustomButtons.css" />
-    <Content Include="DashBoards.aspx" />
     <Content Include="images\background.png" />
     <Content Include="images\backgroundtwo.png" />
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
@@ -188,6 +186,7 @@
     <Content Include="Global.asax" />
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
+    <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -377,20 +376,6 @@
     </Compile>
     <Compile Include="BrowseStudentOpportunities.aspx.designer.cs">
       <DependentUpon>BrowseStudentOpportunities.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="CorporateSuccess.aspx.cs">
-      <DependentUpon>CorporateSuccess.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="CorporateSuccess.aspx.designer.cs">
-      <DependentUpon>CorporateSuccess.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DashBoards.aspx.cs">
-      <DependentUpon>DashBoards.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DashBoards.aspx.designer.cs">
-      <DependentUpon>DashBoards.aspx</DependentUpon>
     </Compile>
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
       <DependentUpon>FCExporter.aspx</DependentUpon>
@@ -706,6 +691,9 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>newfavicon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
