@@ -43,7 +43,7 @@
                     <div class="col-6 pl-5">
                         <div class="pl-5">
                             <h1 class="display-1 pl-5">
-                                <p class="welcome pl-5">Student  Portal</p>
+                                <p class="welcome pl-5">Login  Portal</p>
                             </h1>
                         </div>
                     </div>

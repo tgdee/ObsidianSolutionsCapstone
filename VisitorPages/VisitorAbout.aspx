@@ -5,7 +5,8 @@
 <div class="bg-image" style="background-image: url(/images/zigzags%20background.jpg); margin-top: 0px; background-size: cover">
             <div class="container-lg justify-content-center"  >
         <div class="bg-image" style="background-color:#ffb6c1 ">
-            <asp:Panel runat="server" HorizontalAlign="Center">         
+            <asp:Panel runat="server" HorizontalAlign="Center">
+                
                     <br />
                     <br />
                     <h1>About Us</h1>

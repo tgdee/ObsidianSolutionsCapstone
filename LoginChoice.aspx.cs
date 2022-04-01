@@ -17,7 +17,7 @@ namespace Lab3
     {
         protected void lbHome_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Homepage");
+            Response.Redirect("~/NewHomePage");
         }
 
         protected void btnLogin_Click(object sender, EventArgs e)
@@ -50,11 +50,11 @@ namespace Lab3
                                 Session["AccountType"] = GetAccountType();
                                 if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Student")))     // Login if the user is approved or admin
                                 {
-                                    Response.Redirect("~/StudentHomepage.aspx");
+                                    Response.Redirect("~/Account.aspx");
                                 }
                                 else if ((GetApprovedStatus().Equals("Approved") && GetAccountType().Equals("Alum")) || GetApprovedStatus().Equals("Admin"))
                                 {
-                                    Response.Redirect("~/Homepage.aspx");
+                                    Response.Redirect("~/MemberAccount.aspx");
                                 }
                                 //else if (GetApprovedStatus().Equals("Admin"))
                                 //{
