@@ -10,121 +10,129 @@
     <link href="StudentOpportunitiesStyle.css" rel="stylesheet" />
 </head>
 <body>
-<section id="sectionJobList" class="section section-job-list gradient-light--lean-left">
-      <div class="container">
+    <section id="sectionJobList" class="section section-job-list gradient-light--lean-left">
+        <div class="container">
 
-        <div class="row row-grid justify-content-center">
+            <div class="row row-grid justify-content-center">
 
-          <div class="col-md-8 col-lg-7 col-xl-6 text-center">
-            <h2 class="section__title mb-4">Jobs Openings at Fluxo</h2>
+                <div class="col-md-8 col-lg-7 col-xl-6 text-center">
+                    <h2 class="section__title mb-4">Jobs Openings at Fluxo</h2>
 
-            <p>We’re always searching for amazing people to join our team. Take a look at our current openings.</p>
+                    <p>We’re always searching for amazing people to join our team. Take a look at our current openings.</p>
 
-          </div>
-
-          <div class="col-md-10">
-
-            <form class="filter-form mt-5 mb-4" runat="server">
-              <div class="row">
-
-                <div class="col-md-4 mb-3">
-                  <div class="form-group">
-                      <label for="ddlIndustry">Industry </label>
-                      <asp:DropDownList ID="ddlIndustry" runat="server" class="custom-select">
-                          <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                          <asp:ListItem Value="Banking">Banking</asp:ListItem>
-                          <asp:ListItem Value="FinServices">Financial Services</asp:ListItem>
-                          <asp:ListItem Value="HCare">Healthcare</asp:ListItem>
-                          <asp:ListItem Value="Insurance">Insurance</asp:ListItem>
-                          <asp:ListItem Value="ProServices">Professional Services</asp:ListItem>
-                          <asp:ListItem Value="electricUtility">Utility</asp:ListItem>
-                      </asp:DropDownList>
-
-                  </div>
                 </div>
 
-                <div class="col-md-4 mb-3">
-                  <div class="form-group">
-                    <label for="ddlType">Type </label>
-                    <asp:DropDownList ID="ddlType" runat="server" class="custom-select">
-                          <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                          <asp:ListItem Value="fullTime">Full-Time</asp:ListItem>
-                          <asp:ListItem Value="partTime">Part-Time</asp:ListItem>
-                          <asp:ListItem Value="internShip">Internship</asp:ListItem>
-                      </asp:DropDownList>
-                  </div>
+                <div class="col-md-10">
+
+                    <form class="filter-form mt-5 mb-4" runat="server">
+                        <div class="row">
+
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="ddlIndustry">Industry </label>
+                                    <asp:DropDownList ID="ddlIndustry" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="Banking">Banking</asp:ListItem>
+                                        <asp:ListItem Value="FinServices">Financial Services</asp:ListItem>
+                                        <asp:ListItem Value="HCare">Healthcare</asp:ListItem>
+                                        <asp:ListItem Value="Insurance">Insurance</asp:ListItem>
+                                        <asp:ListItem Value="ProServices">Professional Services</asp:ListItem>
+                                        <asp:ListItem Value="electricUtility">Utility</asp:ListItem>
+                                    </asp:DropDownList>
+
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="ddlType">Type </label>
+                                    <asp:DropDownList ID="ddlType" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="fullTime">Full-Time</asp:ListItem>
+                                        <asp:ListItem Value="partTime">Part-Time</asp:ListItem>
+                                        <asp:ListItem Value="internShip">Internship</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="ddlLocation">Location </label>
+                                    <asp:DropDownList ID="ddlLocation" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="virginia">Virginia, US</asp:ListItem>
+                                        <asp:ListItem Value="newYork">Michigan, US</asp:ListItem>
+                                        <asp:ListItem Value="michigan">New York, US</asp:ListItem>
+                                        <asp:ListItem Value="california">California, US</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 mb-4">
+                                <div class="form-group">
+                                    <label for="ddlMajor">Major </label>
+                                    <asp:DropDownList ID="ddlMajor" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="accounting">Accounting</asp:ListItem>
+                                        <asp:ListItem Value="CIS">Computer Information Systems</asp:ListItem>
+                                        <asp:ListItem Value="economics">Economics</asp:ListItem>
+                                        <asp:ListItem Value="engineering">Engineering</asp:ListItem>
+                                        <asp:ListItem Value="finance">Finance</asp:ListItem>
+                                        <asp:ListItem Value="psych">Psychology</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 mb-4">
+                                <div class="form-group">
+                                    <label for="jobLocation">Employer </label>
+                                    <asp:DropDownList ID="ddlEmployer" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="capOne">Capital One</asp:ListItem>
+                                        <asp:ListItem Value="dominionEnergy">Dominion Energy</asp:ListItem>
+                                        <asp:ListItem Value="eY">EY</asp:ListItem>
+                                        <asp:ListItem Value="freddieMac">Freddie Mac</asp:ListItem>
+                                        <asp:ListItem Value="jpMorgan">JP Morgan</asp:ListItem>
+                                        <asp:ListItem Value="markel">Markel</asp:ListItem>
+                                        <asp:ListItem Value="pnc">PNC</asp:ListItem>
+                                        <asp:ListItem Value="pra">PRA</asp:ListItem>
+                                        <asp:ListItem Value="schroders">Schroders</asp:ListItem>
+                                        <asp:ListItem Value="sentara">Sentara</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="col-md-5 mb-4">
+                                <div class="form-group">
+                                    <label for="txtSearch">Search </label>
+                                    <asp:TextBox ID="txtSerach" class="form-control" runat="server"></asp:TextBox>
+
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 mb-4 pt-4 pl-3">
+                                <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn-lg btn-success" />
+                            </div>
+
+                        </div>
+
+
+                        <div class="job-list__wrapper mb-6">
+                            <h3 class="mb-4">Design</h3>
+                            <div>
+                                <asp:ListView ID="lvStudentOpportunities" runat="server" DataSourceID="sdsOpportunities">
+                                </asp:ListView>
+                            </div>
+                        </div>
+                    </form>
                 </div>
+            </div>
+        </div>
 
-                <div class="col-md-4 mb-3">
-                  <div class="form-group">
-                    <label for="ddlLocation">Location </label>
-                   <asp:DropDownList ID="ddlLocation" runat="server" class="custom-select">
-                          <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                          <asp:ListItem Value="virginia">Virginia, US</asp:ListItem>
-                          <asp:ListItem Value="newYork">Michigan, US</asp:ListItem>
-                          <asp:ListItem Value="michigan">New York, US</asp:ListItem>
-                          <asp:ListItem Value="california">California, US</asp:ListItem>
-                      </asp:DropDownList>
-                  </div>
-                </div>
 
-                  <div class="col-md-5 mb-4">
-                  <div class="form-group">
-                    <label for="ddlMajor">Major </label>
-                    <asp:DropDownList ID="ddlMajor" runat="server" class="custom-select">
-                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                        <asp:ListItem Value="accounting">Accounting</asp:ListItem>
-                        <asp:ListItem Value="CIS">Computer Information Systems</asp:ListItem>
-                        <asp:ListItem Value="economics">Economics</asp:ListItem>
-                        <asp:ListItem Value="engineering">Engineering</asp:ListItem>
-                        <asp:ListItem Value="finance">Finance</asp:ListItem>
-                        <asp:ListItem Value="psych">Psychology</asp:ListItem>
-                      </asp:DropDownList>
-                  </div>
-                </div>
+        <asp:SqlDataSource ID="sdsOpportunities" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT [Title], [Type], [City], [State], [Deadline], [Link], [Industry], [CorpName] FROM [Opportunity] ORDER BY [OpportunityID]"></asp:SqlDataSource>
 
-                  <div class="col-md-5 mb-4">
-                      <div class="form-group">
-                          <label for="jobLocation">Employer </label>
-                          <asp:DropDownList ID="ddlEmployer" runat="server" class="custom-select">
-                              <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                              <asp:ListItem Value="capOne">Capital One</asp:ListItem>
-                              <asp:ListItem Value="dominionEnergy">Dominion Energy</asp:ListItem>
-                              <asp:ListItem Value="eY">EY</asp:ListItem>
-                              <asp:ListItem Value="freddieMac">Freddie Mac</asp:ListItem>
-                              <asp:ListItem Value="jpMorgan">JP Morgan</asp:ListItem>
-                              <asp:ListItem Value="markel">Markel</asp:ListItem>
-                              <asp:ListItem Value="pnc">PNC</asp:ListItem>
-                              <asp:ListItem Value="pra">PRA</asp:ListItem>
-                              <asp:ListItem Value="schroders">Schroders</asp:ListItem>
-                              <asp:ListItem Value="sentara">Sentara</asp:ListItem>
-                          </asp:DropDownList>
-                      </div>
-                  </div>
-
-                  <div class="col-md-5 mb-4">
-                      <div class="form-group">
-                          <label for="jobLocation">Search </label>
-                          <asp:TextBox ID="txtSerach" class="form-control" runat="server"></asp:TextBox>
-
-                      </div>
-
-                  </div>
-                  <div class="col-md-4 mb-4 pt-4 pl-3">
-                      <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn-lg btn-success" />
-                  </div>
-
-              </div>
-            </form>
-
-              <div class="job-list__wrapper mb-6">
-                  <h3 class="mb-4">Design</h3>
-                  <div>
-                      <asp:GridView ID="gvJobList" runat="server"></asp:GridView>
-                  </div>
-              </div>
-
-              <%--<a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
+        <%--<a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
                     <span class="col-md-5 color--heading">
