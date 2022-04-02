@@ -166,17 +166,29 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CorporateInformation.aspx" />
+    <Content Include="CorporateSponsor.aspx" />
     <Content Include="CustomButtons.css" />
     <Content Include="images\background.png" />
     <Content Include="images\backgroundtwo.png" />
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
+    <Content Include="images\capitalone.png" />
+    <Content Include="images\dominionenergy.png" />
+    <Content Include="images\ey.png" />
     <Content Include="images\faded background.png" />
     <Content Include="images\fadedbackground.png" />
+    <Content Include="images\freddiemac.png" />
+    <Content Include="images\j.p morgan.png" />
     <Content Include="images\JMU_Campus.jpg" />
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
+    <Content Include="images\markel.png" />
     <Content Include="images\ole-school-alumni-group.png" />
+    <Content Include="images\pnc.png" />
+    <Content Include="images\pra.png" />
+    <Content Include="images\roweprice.png" />
+    <Content Include="images\schroders.png" />
+    <Content Include="images\sentara.png" />
     <Content Include="images\zigzags background.jpg" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
@@ -386,6 +398,13 @@
     </Compile>
     <Compile Include="CorporateInformation.aspx.designer.cs">
       <DependentUpon>CorporateInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CorporateSponsor.aspx.cs">
+      <DependentUpon>CorporateSponsor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorporateSponsor.aspx.designer.cs">
+      <DependentUpon>CorporateSponsor.aspx</DependentUpon>
     </Compile>
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
       <DependentUpon>FCExporter.aspx</DependentUpon>

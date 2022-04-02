@@ -11,7 +11,7 @@
     </style>
    
     <div class="container-lg justify-content-center" style="text-align:center;align-content:center"   >
-        <div class="bg-image" style="background-color:mediumpurple ">
+        <div class="bg-image" style:"background-color:mediumpurple">
            
             
                 <asp:Panel runat="server" HorizontalAlign="Center">     
