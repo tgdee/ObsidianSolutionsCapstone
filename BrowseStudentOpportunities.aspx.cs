@@ -44,9 +44,11 @@ namespace Lab3
             string typeParam = "";
             string industryParam = "";
             string corpNameParam = "";
+            string cityParam = "";
+            string stateParam = "";
 
             // Create cmd string NOT including the columns which can be selected using a drop down list
-            string cmd = "SELECT Title, Type, City, State, Industry, Deadline, CorpName, Link FROM Opportunity WHERE ((Title LIKE '%' + @title + '%') OR (Deadline LIKE '%' + @deadLine + '%') OR (City LIKE '%' + @city + '%') OR (State LIKE '%' + @state + '%')";
+            string cmd = "SELECT Title, Type, City, State, Industry, Deadline, CorpName, Link FROM Opportunity WHERE ((Title LIKE '%' + @title + '%') OR (Deadline LIKE '%' + @deadLine + '%')";
 
             // Check which ddls are not being used and add the correct text and set the params. This is done first so the query is correctly built with the ANDs coming last
             if (ddlType.SelectedValue.Equals("0"))
@@ -67,7 +69,18 @@ namespace Lab3
                 corpNameParam = txtSearch.Text;
             }
 
-            //[ADD THE OTHER DROPDOWNLIST COLUMNS HERE TOMORRW]!
+            if (ddlCity.SelectedValue.Equals("0"))
+            {
+                cmd += "OR (City LIKE '%' + @city + '%')";
+                cityParam = txtSearch.Text;
+            }
+
+            if (ddlState.SelectedValue.Equals("0"))
+            {
+                cmd += "OR (State LIKE '%' + @state + '%')";
+                stateParam = txtSearch.Text;
+            }
+ 
 
             // Add the ending ) after LIKEs but before the ANDs
             cmd += ")";
@@ -90,7 +103,19 @@ namespace Lab3
                 cmd += " AND (CorpName = @corpName)";
                 corpNameParam = ddlEmployer.SelectedItem.Text;
             }
-            
+
+            if (!ddlCity.SelectedValue.Equals("0"))
+            {
+                cmd += "AND (City = @city)";
+                cityParam = ddlCity.SelectedItem.Text;
+            }
+
+            if (!ddlState.SelectedValue.Equals("0"))
+            {
+                cmd += "AND (State = @state)";
+                stateParam = ddlState.SelectedItem.Text;
+            }
+
 
 
             SqlDataAdapter da = new SqlDataAdapter(cmd, con);
@@ -98,11 +123,10 @@ namespace Lab3
 
 
             da.SelectCommand.Parameters.AddWithValue("@title", txtSearch.Text);
-            da.SelectCommand.Parameters.AddWithValue("@city", txtSearch.Text);
-            da.SelectCommand.Parameters.AddWithValue("@state", txtSearch.Text);
             da.SelectCommand.Parameters.AddWithValue("@deadLine", txtSearch.Text);
-            
 
+            da.SelectCommand.Parameters.AddWithValue("@city", cityParam);
+            da.SelectCommand.Parameters.AddWithValue("@state", stateParam);
             da.SelectCommand.Parameters.AddWithValue("@type", typeParam);
             da.SelectCommand.Parameters.AddWithValue("@industry", industryParam);
             da.SelectCommand.Parameters.AddWithValue("@corpName", corpNameParam);

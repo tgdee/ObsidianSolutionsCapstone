@@ -54,24 +54,10 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
-
                             <div class="col-md-4 mb-3">
                                 <div class="form-group">
-                                    <label for="ddlLocation">Location </label>
-                                    <asp:DropDownList ID="ddlLocation" runat="server" class="custom-select">
-                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
-                                        <asp:ListItem Value="virginia">Virginia, US</asp:ListItem>
-                                        <asp:ListItem Value="newYork">Michigan, US</asp:ListItem>
-                                        <asp:ListItem Value="michigan">New York, US</asp:ListItem>
-                                        <asp:ListItem Value="california">California, US</asp:ListItem>
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-
-                            <div class="col-md-5 mb-4">
-                                <div class="form-group">
                                     <label for="ddlMajor">Major </label>
-                                    <asp:DropDownList ID="ddlMajor" runat="server" class="custom-select">
+                                    <asp:DropDownList ID="DropDownList1" runat="server" class="custom-select">
                                         <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
                                         <asp:ListItem Value="accounting">Accounting</asp:ListItem>
                                         <asp:ListItem Value="CIS">Computer Information Systems</asp:ListItem>
@@ -82,8 +68,34 @@
                                     </asp:DropDownList>
                                 </div>
                             </div>
+                            
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="ddlCity">City </label>
+                                    <asp:DropDownList ID="ddlCity" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="newYorkCity">New York City</asp:ListItem>
+                                        <asp:ListItem Value="hBurg">Harrisonburg</asp:ListItem>
+                                        <asp:ListItem Value="mcLean">McLean</asp:ListItem>
+                                        <asp:ListItem Value="chicago">Chicago</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
 
-                            <div class="col-md-5 mb-4">
+                            <div class="col-md-4 mb-3">
+                                <div class="form-group">
+                                    <label for="ddlState">State </label>
+                                    <asp:DropDownList ID="ddlState" runat="server" class="custom-select">
+                                        <asp:ListItem Selected="True" Value="0">-Select-</asp:ListItem>
+                                        <asp:ListItem Value="virginia">Virginia</asp:ListItem>
+                                        <asp:ListItem Value="newYork">Michigan</asp:ListItem>
+                                        <asp:ListItem Value="michigan">New York</asp:ListItem>
+                                        <asp:ListItem Value="california">California</asp:ListItem>
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 mb-3">
                                 <div class="form-group">
                                     <label for="jobLocation">Employer </label>
                                     <asp:DropDownList ID="ddlEmployer" runat="server" class="custom-select">
