@@ -5,26 +5,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> student profile</title>
+    <title>Student Profile</title>
     <link href="StyleSheet.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
-
-<style> 
-.background { 
-background-repeat: repeat;
-background-attachment:scroll;
-background-position: center center;
-background-size: cover;
-background-image:url("images/fadedbackground.png");
-}
- 
-
-</style>
-
-
 <body class="background">
+    <style>
+        .background {
+            background-repeat: repeat;
+            background-attachment: scroll;
+            background-position: center center;
+            background-size: cover;
+            background-image: url("images/fadedbackground.png");
+        }
+    </style>
  
     <div class="container">
         <div class="row">
@@ -51,13 +46,25 @@ background-image:url("images/fadedbackground.png");
     <!--create profile/ profile photo placeholder-->
           <div class="col">
             <div> <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
+                <asp:Image ID="imgUser" class="card-img-top" runat="server" />
                 <div class="card-body">
-                  <h5 class="card-title">Name:</h5>
+                  <h5 class="card-title">Name:
+                      <asp:Label ID="lblName" runat="server" Text="Placeholder"></asp:Label>
+                  </h5>
+                   
                   <p class="card-text"> 
-                      <p> Age:</p>
-                      <p> Region:</p>
-                      <p> Major</p>
+                      <p> 
+                          Age: 
+                          <asp:Label ID="lblAge" class="ps-5" runat="server" Text="Not Set"></asp:Label>
+                      </p>
+                      <p> 
+                          Region:
+                          <asp:Label ID="lblRegion" class="ps-4" runat="server" Text="Not Set"></asp:Label>
+                      </p>
+                      <p> Major:
+                          &nbsp
+                          <asp:Label ID="lblMajor" class="ps-4" runat="server" Text="Not Set"></asp:Label>
+                      </p>
                   </p>
                   <a href="#" class="btn btn-light">Resume</a>
                   <a href="#" class="btn btn-light">Portfolio</a>

@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Browse Opportunities</title>
 
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="StudentOpportunitiesStyle.css" rel="stylesheet" />
@@ -125,7 +125,6 @@
                             <div class="col-md-4 mb-4 pt-4 pl-3">
                                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn-lg btn-success" />
                             </div>
-
                         </div>
 
                         <asp:ListView ID="lvStudentOpportunities" runat="server">
