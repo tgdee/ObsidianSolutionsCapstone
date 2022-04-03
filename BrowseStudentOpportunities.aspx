@@ -105,7 +105,7 @@
                             <div class="col-md-5 mb-4">
                                 <div class="form-group">
                                     <label for="txtSearch">Search </label>
-                                    <asp:TextBox ID="txtSerach" class="form-control" runat="server"></asp:TextBox>
+                                    <asp:TextBox ID="txtSearch" class="form-control" runat="server"></asp:TextBox>
 
                                 </div>
 

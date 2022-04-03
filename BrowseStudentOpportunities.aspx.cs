@@ -20,6 +20,7 @@ namespace Lab3
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Upon first page load add all the data from the Opportunity table into the ListView
             if (!Page.IsPostBack)
             {
                 con.Open();
@@ -40,17 +41,74 @@ namespace Lab3
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             con.Open();
-            string cmd = "SELECT Title, Type, City, State, Industry, Deadline, CorpName, Link FROM  Opportunity WHERE (Title LIKE '%' + @title + '%') OR (Type LIKE '%' + @type + '%') OR (City LIKE '%' + @city + '%') OR (State LIKE '%' + @state + '%') OR (Industry LIKE '%' + @industry + '%') OR (Deadline LIKE '%' + @deadLine + '%') OR (CorpName LIKE '%' + @corpName + '%')";
+
+            string typeParam = "";
+            string industryParam = "";
+            string corpNameParam = "";
+
+            // Create cmd string NOT including the columns which can be selected using a drop down list
+            string cmd = "SELECT Title, Type, City, State, Industry, Deadline, CorpName, Link FROM Opportunity WHERE ((Title LIKE '%' + @title + '%') OR (Deadline LIKE '%' + @deadLine + '%') OR (City LIKE '%' + @city + '%') OR (State LIKE '%' + @state + '%')";
+
+            // Check which ddls are not being used and add the correct text and set the params. This is done first so the query is correctly built with the ANDs coming last
+            if (ddlType.SelectedValue.Equals("0"))
+            {
+                cmd += " OR (Type LIKE '%' + @type + '%')";
+                typeParam = txtSearch.Text;
+            }
+
+            if (ddlIndustry.SelectedValue.Equals("0"))
+            {
+                cmd += " OR (Industry LIKE '%' + @industry + '%')";
+                industryParam = txtSearch.Text;
+            }
+
+            if (ddlEmployer.SelectedValue.Equals("0"))
+            {
+                cmd += " OR (CorpName LIKE '%' + @corpName + '%')";
+                corpNameParam = txtSearch.Text;
+            }
+
+            //[ADD THE OTHER DROPDOWNLIST COLUMNS HERE TOMORRW]!
+
+            // Add the ending ) after LIKEs but before the ANDs
+            cmd += ")";
+
+            // Check which ddls are being used and add the ANDs and set the params.
+            if (!ddlType.SelectedValue.Equals("0"))
+            {
+                cmd += " AND (Type = @type)";
+                typeParam = ddlType.SelectedItem.Text;
+            }
+
+            if (!ddlIndustry.SelectedValue.Equals("0"))
+            {
+                cmd += " AND (Industry = @industry)";
+                industryParam = ddlIndustry.SelectedItem.Text;
+            }
+
+            if (!ddlEmployer.SelectedValue.Equals("0"))
+            {
+                cmd += " AND (CorpName = @corpName)";
+                corpNameParam = ddlEmployer.SelectedItem.Text;
+            }
+            
+
 
             SqlDataAdapter da = new SqlDataAdapter(cmd, con);
 
-            da.SelectCommand.Parameters.AddWithValue("@title", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@type", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@city", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@state", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@industry", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@deadLine", txtSerach.Text);
-            da.SelectCommand.Parameters.AddWithValue("@corpName", txtSerach.Text);
+
+
+            da.SelectCommand.Parameters.AddWithValue("@title", txtSearch.Text);
+            da.SelectCommand.Parameters.AddWithValue("@city", txtSearch.Text);
+            da.SelectCommand.Parameters.AddWithValue("@state", txtSearch.Text);
+            da.SelectCommand.Parameters.AddWithValue("@deadLine", txtSearch.Text);
+            
+
+            da.SelectCommand.Parameters.AddWithValue("@type", typeParam);
+            da.SelectCommand.Parameters.AddWithValue("@industry", industryParam);
+            da.SelectCommand.Parameters.AddWithValue("@corpName", corpNameParam);
+
+
 
             DataSet ds = new DataSet();
             da.Fill(ds, "table");
@@ -60,39 +118,5 @@ namespace Lab3
             con.Close();
         }
 
-        protected void ListView()
-        {
-            try
-            {
-                string searchQuery = "SELECT Title, Type, City, State, Industry, Deadline, Link, CorpName FROM Opportunity";
-
-                SqlCommand cmd = new SqlCommand(searchQuery, con);
-
-                con.Open();
-
-                SqlDataReader reader = cmd.ExecuteReader();
-
-                if(reader.HasRows)
-                {
-                    while (reader.Read())
-                    {
-
-                    }
-                }
-
-                
-
-                
-
-                
-                
-
-            }
-            catch (SqlException ex)
-            {
-
-            }
-
-        }
     }
 }
