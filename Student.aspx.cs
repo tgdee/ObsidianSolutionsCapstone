@@ -46,15 +46,7 @@ namespace Lab3
 
                 DataSet ds = new DataSet();
 
-                da.Fill(ds, "StudentID");
-                da.Fill(ds, "Username");
-                da.Fill(ds, "FirstName");
-                da.Fill(ds, "LastName");
-                da.Fill(ds, "Grade");
-                da.Fill(ds, "GraduationYear");
-                da.Fill(ds, "Major");
-                da.Fill(ds, "PhoneNumber");
-                da.Fill(ds, "Email");
+                
 
                 ViewState["ds"] = ds;
 

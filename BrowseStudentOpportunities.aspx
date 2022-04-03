@@ -118,9 +118,57 @@
 
 
                         <div class="job-list__wrapper mb-6">
-                            <h3 class="mb-4">Design</h3>
+                            <h3 class="mb-4">Opportunities</h3>
                             <div>
-                                <asp:ListView ID="lvStudentOpportunities" runat="server" DataSourceID="sdsOpportunities">
+                                <asp:ListView ID="lvStudentOpportunities" runat="server">
+                                    <LayoutTemplate>
+                                        <table cellpadding="2" width="640px" border="1" id="tbl1" runat="server">
+                                            <tr runat="server" style="background-color: #98FB98">
+                                                <th runat="server">Title</th>
+                                                <th runat="server">Type</th>
+                                                <th runat="server">City</th>
+                                                <th runat="server">State</th>
+                                                <th runat="server">Industry</th>
+                                                <th runat="server">Deadline</th>
+                                                <th runat="server">Link</th>
+                                                <th runat="server">Employer</th>
+                                            </tr>
+                                            <tr runat="server" id="itemPlaceholder" />
+                                        </table>
+                                        <asp:DataPager ID="DataPager1" runat="server">
+                                            <Fields>
+                                                <asp:NumericPagerField />
+                                            </Fields>
+                                        </asp:DataPager>
+                                    </LayoutTemplate>
+                                    <ItemTemplate>
+                                        <tr runat="server">
+                                            <td>
+                                                <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblIndustry" runat="server" Text='<%# Eval("Industry") %>' />
+                                            </td>
+                                             <td>
+                                                <asp:Label ID="lblDeadLine" runat="server" Text='<%# Eval("Deadline") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblLink" runat="server" Text='<%# Eval("Link") %>' />
+                                            </td>
+                                            <td>
+                                                <asp:Label ID="lblCorpName" runat="server" Text='<%# Eval("CorpName") %>' />
+                                            </td>
+                                        </tr>
+                                    </ItemTemplate>
                                 </asp:ListView>
                             </div>
                         </div>
@@ -130,8 +178,9 @@
         </div>
 
 
-        <asp:SqlDataSource ID="sdsOpportunities" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT [Title], [Type], [City], [State], [Deadline], [Link], [Industry], [CorpName] FROM [Opportunity] ORDER BY [OpportunityID]"></asp:SqlDataSource>
 
+        <asp:SqlDataSource ID="sdsOpportunities" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT [Title], [Type], [City], [State], [Deadline], [Link], [Industry], [CorpName] FROM [Opportunity] ORDER BY [OpportunityID]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="sdsEmployerName" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT [CorpName] FROM [Opportunity] ORDER BY [CorpName]"></asp:SqlDataSource>
         <%--<a href="career-single.html" class="card p-0 mb-3 border-0 shadow-sm shadow--on-hover">
                 <div class="card-body">
                   <span class="row justify-content-between align-items-center">
