@@ -46,15 +46,23 @@ namespace Lab3
             string corpNameParam = "";
             string cityParam = "";
             string stateParam = "";
+            string majorParam = "";
 
             // Create cmd string NOT including the columns which can be selected using a drop down list
             string cmd = "SELECT Title, Type, City, State, Industry, Deadline, CorpName, Link FROM Opportunity WHERE ((Title LIKE '%' + @title + '%') OR (Deadline LIKE '%' + @deadLine + '%')";
 
             // Check which ddls are not being used and add the correct text and set the params. This is done first so the query is correctly built with the ANDs coming last
+            // These if statements will use the search box text as their parameter if they are true
             if (ddlType.SelectedValue.Equals("0"))
             {
                 cmd += " OR (Type LIKE '%' + @type + '%')";
                 typeParam = txtSearch.Text;
+            }
+
+            if (ddlMajor.SelectedValue.Equals("0"))
+            {
+                cmd += " OR (Major LIKE '%' + @major + '%'";
+                majorParam = txtSearch.Text;
             }
 
             if (ddlIndustry.SelectedValue.Equals("0"))
@@ -86,10 +94,17 @@ namespace Lab3
             cmd += ")";
 
             // Check which ddls are being used and add the ANDs and set the params.
+            // These if statements will use the ddl selected item as parameters if true
             if (!ddlType.SelectedValue.Equals("0"))
             {
                 cmd += " AND (Type = @type)";
                 typeParam = ddlType.SelectedItem.Text;
+            }
+
+            if (!ddlMajor.SelectedValue.Equals("0"))
+            {
+                cmd += " AND (Major = @major)";
+                typeParam = ddlMajor.SelectedItem.Text;
             }
 
             if (!ddlIndustry.SelectedValue.Equals("0"))
@@ -130,6 +145,7 @@ namespace Lab3
             da.SelectCommand.Parameters.AddWithValue("@type", typeParam);
             da.SelectCommand.Parameters.AddWithValue("@industry", industryParam);
             da.SelectCommand.Parameters.AddWithValue("@corpName", corpNameParam);
+            da.SelectCommand.Parameters.AddWithValue("@major", majorParam);
 
 
 
