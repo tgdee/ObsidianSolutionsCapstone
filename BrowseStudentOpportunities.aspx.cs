@@ -15,7 +15,6 @@ namespace Lab3
     public partial class BrowseStudentOpportunities : System.Web.UI.Page
     {
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
-        private ListView textListView = new ListView();
         
 
         protected void Page_Load(object sender, EventArgs e)
