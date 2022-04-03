@@ -74,18 +74,43 @@
                                                 <asp:Label ID="lblHome" class="text-muted font-size-sm" runat="server" Text="San Francisco, CA"></asp:Label>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col">
-                                                <asp:Button ID="btnFavorite" class="btn btn-primary" runat="server" Text="Favorite" />
-                                            </div>
-                                            <div class="col">
-                                                <asp:Button ID="btnMessage" class="btn btn-outline-primary" runat="server" Text="Message" />
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="card mt-3">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Graduation Year
+                                        &nbsp&nbsp&nbsp
+                                        <asp:Label ID="lblGradYear" class="text-secondary ps-5" runat="server" Text="Not Set"></asp:Label>
+                                    </h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Current Grade
+                                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <asp:Label ID="lblGrade" class="text-secondary ps-5" runat="server" Text="Not Set"></asp:Label>
+                                    </h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Phone Number
+                                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <asp:Label ID="lblPhoneNumber" class="text-secondary ps-0" runat="server" Text="Not Set"></asp:Label>
+                                    </h6>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+                                    <h6 class="mb-0">
+                                        Email Address
+                                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                        <asp:Label ID="lblEmailAddress" class="text-secondary ps-5" runat="server" Text="Not Set"></asp:Label>
+                                    </h6>
+                                </li>
+                            </ul>
+                        </div>
+
                         <div class="card mt-3">
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
@@ -98,7 +123,7 @@
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0">
                                         <span class="iconify" data-icon="logos:linkedin-icon"></span>
-                                        <asp:HyperLink ID="HyperLink2" NavigateUrl="https://www.linkedin.com/" class="pl-3" runat="server">LinkedIn</asp:HyperLink>
+                                        <asp:HyperLink ID="HyperLink2" NavigateUrl="https://www.linkedin.com/" class="ps-2" runat="server">LinkedIn</asp:HyperLink>
                                     </h6>
                                 </li>
                             </ul>
