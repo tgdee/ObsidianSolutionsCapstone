@@ -14,7 +14,7 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected string GetStudentIDFromSql()
@@ -58,7 +58,7 @@ namespace Lab3
                     //create the string variables from text input
                     string companyName = ddlCompanyNames.SelectedItem.Text;
                     string date = DateTime.Now.ToString();
-                    string position = txtPosition.Text;
+                    string position = ddlPosition.SelectedItem.Text;
                     string applyingStudentId = GetStudentIDFromSql();
                     string email = txtStudentEmail.Text;
                     
@@ -99,7 +99,7 @@ namespace Lab3
                 }
 
                                                             
-                txtPosition.Text = "";                          //Clear textboxes after insert
+                //Clear textboxes after insert
                 txtStudentEmail.Text = "";
             }
         }

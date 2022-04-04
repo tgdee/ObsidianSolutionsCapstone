@@ -33,15 +33,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList ddlType;
 
         /// <summary>
-        /// ddlLocation control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlLocation;
-
-        /// <summary>
         /// ddlMajor control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,24 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMajor;
+
+        /// <summary>
+        /// ddlCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlCity;
+
+        /// <summary>
+        /// ddlState control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlState;
 
         /// <summary>
         /// ddlEmployer control.
@@ -60,13 +69,13 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DropDownList ddlEmployer;
 
         /// <summary>
-        /// txtSerach control.
+        /// txtSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSerach;
+        protected global::System.Web.UI.WebControls.TextBox txtSearch;
 
         /// <summary>
         /// btnSearch control.
@@ -78,12 +87,30 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// gvJobList control.
+        /// lvStudentOpportunities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvJobList;
+        protected global::System.Web.UI.WebControls.ListView lvStudentOpportunities;
+
+        /// <summary>
+        /// sdsOpportunities control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsOpportunities;
+
+        /// <summary>
+        /// sdsEmployerName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource sdsEmployerName;
     }
 }

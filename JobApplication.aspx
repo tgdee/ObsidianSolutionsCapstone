@@ -14,7 +14,7 @@
                     <asp:Label ID="lblCompany" runat="server" Text="Company Name:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:DropDownList ID="ddlCompanyNames" runat="server" DataSourceID="sdsCompanyNames" ValidationGroup="1" DataTextField="CompanyName" DataValueField="CompanyName" AppendDataBoundItems="true">
+                    <asp:DropDownList ID="ddlCompanyNames" runat="server" DataSourceID="sdsJobInfo" ValidationGroup="1" DataTextField="CorpName" DataValueField="CorpName" AppendDataBoundItems="true">
                         <asp:ListItem Text="Please Select" Value="0"></asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ID="rfvCompanyName" runat="server" ControlToValidate="ddlCompanyNames" InitialValue="0" ValidationGroup="1" ErrorMessage="Company Name Not Selected" ForeColor="Red"></asp:RequiredFieldValidator>
@@ -25,8 +25,10 @@
                     <asp:Label ID="lblPosition" runat="server" Text="Position Title:"></asp:Label>
                 </asp:TableCell>
                 <asp:TableCell>
-                    <asp:TextBox ID="txtPosition" runat="server" Text=""></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="reqFieldValidatorPosition" Enabled="true" ValidationGroup="1" runat="server" ControlToValidate="txtPosition" ErrorMessage="Enter Position Title" Font-Bold="true" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:DropDownList ID="ddlPosition" runat="server" DataSourceID="sdsJobInfo" ValidationGroup="1" DataTextField="Title" DataValueField="Title" AppendDataBoundItems="true">
+                        <asp:ListItem Text="Please Select" Value="0"></asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ID="rfvPosition" runat="server" ControlToValidate="ddlPosition" InitialValue="0" ValidationGroup="1" ErrorMessage="Position Not Selected" ForeColor="Red"></asp:RequiredFieldValidator>
                 </asp:TableCell>
             </asp:TableRow>
             <asp:TableRow>
@@ -44,5 +46,7 @@
         <asp:Button ID="btnApply" runat="server" Text="Apply" ValidationGroup="1" OnClick="btnApply_Click" />
     </div>
 
-    <asp:SqlDataSource ID="sdsCompanyNames" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" SelectCommand="SELECT [CompanyName] FROM [Company] ORDER BY [CompanyName]"></asp:SqlDataSource>
+    <asp:SqlDataSource ID="sdsJobInfo" runat="server" 
+        ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" 
+        SelectCommand="SELECT CorpName, Title FROM Opportunity ORDER BY CorpName"></asp:SqlDataSource>
 </asp:Content>

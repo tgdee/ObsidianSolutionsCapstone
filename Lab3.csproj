@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\AspNet.ScriptManager.bootstrap.4.5.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
@@ -166,6 +169,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="CorporateInformation.aspx" />
+    <Content Include="CorporateSponsors.aspx" />
     <Content Include="CorporateSponsor.aspx" />
     <Content Include="CustomButtons.css" />
     <Content Include="images\background.png" />
@@ -190,6 +194,7 @@
     <Content Include="images\schroders.png" />
     <Content Include="images\sentara.png" />
     <Content Include="images\zigzags background.jpg" />
+    <Content Include="JobOpportunities.aspx" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
@@ -203,6 +208,7 @@
     <Content Include="InternshipInformation.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
+    <Content Include="NewStudentProfile.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -234,6 +240,8 @@
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.ocean.js" />
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.umber.js" />
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.zune.js" />
+    <Content Include="Scripts\jquery.easypiechart.js" />
+    <Content Include="Scripts\jquery.easypiechart.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
@@ -369,7 +377,6 @@
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
     <Content Include="StudentOpportunitiesStyle.css" />
-    <Content Include="StudentProfile.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="ViewStudentApplications.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -399,6 +406,13 @@
     <Compile Include="CorporateInformation.aspx.designer.cs">
       <DependentUpon>CorporateInformation.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CorporateSponsors.aspx.cs">
+      <DependentUpon>CorporateSponsors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CorporateSponsors.aspx.designer.cs">
+      <DependentUpon>CorporateSponsors.aspx</DependentUpon>
+    </Compile>
     <Compile Include="CorporateSponsor.aspx.cs">
       <DependentUpon>CorporateSponsor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -409,6 +423,13 @@
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
       <DependentUpon>FCExporter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobOpportunities.aspx.cs">
+      <DependentUpon>JobOpportunities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobOpportunities.aspx.designer.cs">
+      <DependentUpon>JobOpportunities.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberAccount.aspx.cs">
       <DependentUpon>MemberAccount.aspx</DependentUpon>
@@ -499,6 +520,13 @@
     </Compile>
     <Compile Include="NewHomePage.aspx.designer.cs">
       <DependentUpon>NewHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewStudentProfile.aspx.cs">
+      <DependentUpon>NewStudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewStudentProfile.aspx.designer.cs">
+      <DependentUpon>NewStudentProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
@@ -627,13 +655,6 @@
     </Compile>
     <Compile Include="StudentMaster.Master.designer.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StudentProfile.aspx.cs">
-      <DependentUpon>StudentProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentProfile.aspx.designer.cs">
-      <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentApplications.aspx.cs">
       <DependentUpon>ViewStudentApplications.aspx</DependentUpon>
