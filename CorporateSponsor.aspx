@@ -83,7 +83,7 @@ background-image:url("images/fadedbackground.png");
               <div class="card-body">
                 <h5 class="card-title">Capital One</h5>
                 <p class="card-text">American bank holding company specializing in credit cards, auto loans, banking, and savings accounts</p>
-                <a href="#" class="btn btn-outline-dark">Visit Our Website</a>
+                <a href="https://www.capitalonecareers.com/" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ background-image:url("images/fadedbackground.png");
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                <a href="https://careers.dominionenergy.com/" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -103,7 +103,7 @@ background-image:url("images/fadedbackground.png");
               <div class="card-body">
                 <h5 class="card-title">Card title</h5>
                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                <a href="https://www.ey.com/en_us/careers" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -121,7 +121,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://careers.freddiemac.com/us/en" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -131,7 +131,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://careers.jpmorgan.com/us/en/home" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -141,7 +141,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://www.markel.com/insurance/careers-at-markel" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -160,7 +160,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://schroders.referrals.selectminds.com/careers" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -170,7 +170,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://www.sentaracareers.com/" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -180,7 +180,7 @@ background-image:url("images/fadedbackground.png");
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <a href="https://www.troweprice.com/corporate/us/en/careers.html" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -198,7 +198,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+              <a href="https://careers.pnc.com/global/en" class="btn btn-outline-dark">Learn More</a>
             </div>
           </div>
         </div>
@@ -208,23 +208,20 @@ background-image:url("images/fadedbackground.png");
             <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+              <a href="https://www.pragroup.com/careers/" class="btn btn-outline-dark">Learn More</a>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card h-100" style="width: 18rem;">
-            <img src="images/sponsors.png" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+          <div class="col">
+          <div>
+          
+           
             </div>
           </div>
-        </div>
+        </div>        
       </div>
     </div>
-  </div>
+  
 
 
 <!--Dont touch -->
