@@ -119,6 +119,7 @@
                     McLaurine serves as Executive Director, Fredericksburg Savings Charitable Foundation since 1998.  She coordinates the approval and distribution of $1-2M in annual grant funds to local nonprofits with primary focus on education, health and community service.  Prior to joining the Foundation, McLaurine served as a development associate with the science fund raising team of The Nature Conservancy for ten years. Her interest is in sharing experiences related to philanthropy and community service.
                 </p>
                 <br />
+                <asp:Image ID="Image9" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/0b6b9a_ddf81f4627a042389483cd52af7c90ba_mv2.png" />
                 <h3>Lesa Diggs</h3>
                 <p>
                     James Madison University, Office Administration
@@ -126,6 +127,7 @@
                 <p>
                     Diggs is a Legal Assistant and CEO of LJM Enterprises, LLC which instills the importance of health, wellness and financial security.  She is currently in the process of adding day trading to her business portfolio.  She is a Board member of the Vickie Belk Scholarship Foundation at Oakland Baptist Church in Alexandria, VA and guest/motivational speaker for women's organizations in DC, Maryland and Virginia.  Her interests are in helping people focus in on their passion.
                 </p>
+                <br />
                 <br />
                 <br />
                 <h2>Our History</h2>
@@ -138,6 +140,7 @@
                     The group of alumni and friends committed themselves to giving back to JMU specifically in support of African American recruitment and retention efforts.
                         The effort was initiated to stimulate and increase the growth and development of the JMU African American students.
                 </p>
+                <br />
                 <br />
                 <br />
                 <h2>What We Do</h2>
