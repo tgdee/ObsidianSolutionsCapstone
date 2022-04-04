@@ -69,7 +69,7 @@ background-image:url("images/fadedbackground.png");
               <div class="card-body">
                 <h5 class="card-title">Capital One</h5>
                 <p class="card-text">American bank holding company specializing in credit cards, auto loans, banking, and savings accounts</p>
-                <a href="#" class="btn btn-outline-dark">Visit Our Website</a>
+                <a href="https://www.capitalonecareers.com/" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -77,9 +77,9 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-100" style="width: 18rem;">
               <img src="images/dominionenergy.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title"> Dominion Energy </h5>
-                <p class="card-text">Dominion Energy, Inc. (Dominion) is a producer and distributor of energy. Dominion is focused on providing electricity, natural gas and related services to customers primarily in the eastern and Rocky Mountain regions of the United States.</p>
-                <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://careers.dominionenergy.com/" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -87,9 +87,9 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-100" style="width: 18rem;">
               <img src="images/ey.png" class="card-img-top" alt="...">
               <div class="card-body">
-                <h5 class="card-title">Ernst & Young</h5>
-                 <p class="card-text">Ernst & Young Global Limited, doing business as EY, is a multinational professional services network with headquarters in London, England. EY is one of the largest professional services networks in the world.</p>
-                <a href="#" class="btn btn-outline-dark"></a>
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="https://www.ey.com/en_us/careers" class="btn btn-outline-dark">Learn More</a>
               </div>
             </div>
           </div>
@@ -105,9 +105,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/freddiemac.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Freddie Mac</h5>
-            <p class="card-text">The Federal Home Loan Mortgage Corporation, commonly known as Freddie Mac, is a publicly traded, government-sponsored enterprise, headquartered in Tysons Corner, Virginia.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://careers.freddiemac.com/us/en" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -115,9 +115,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/j.p morgan.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">J.P. Morgan</h5>
-            <p class="card-text">JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City and incorporated in Delaware.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://careers.jpmorgan.com/us/en/home" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -125,9 +125,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/markel.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Markel Insurance</h5>
-            <p class="card-text">JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City and incorporated in Delaware.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://www.markel.com/insurance/careers-at-markel" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -144,9 +144,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/schroders.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Schroders</h5>
-            <p class="card-text">Schroders plc is a British multinational asset management company, founded in 1804. The company employs over 5,000 people worldwide in 32 locations around Europe, America, Asia, Africa and the Middle East. </p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://schroders.referrals.selectminds.com/careers" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -154,9 +154,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/sentara.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Sentara Healthcare</h5>
-            <p class="card-text">Sentara Healthcare is a not-for-profit healthcare organization serving Virginia and northeastern North Carolina.</p>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://www.sentaracareers.com/" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -164,8 +164,9 @@ background-image:url("images/fadedbackground.png");
         <div class="card h-100" style="width: 18rem;">
           <img src="images/roweprice.png" class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">T.RowePrice</h5>
-            <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="https://www.troweprice.com/corporate/us/en/careers.html" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>
       </div>
@@ -181,8 +182,9 @@ background-image:url("images/fadedbackground.png");
           <div class="card h-100" style="width: 18rem;">
             <img src="images/pnc.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">PNC Bank</h5>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="https://careers.pnc.com/global/en" class="btn btn-outline-dark">Learn More</a>
             </div>
           </div>
         </div>
@@ -190,24 +192,22 @@ background-image:url("images/fadedbackground.png");
           <div class="card h-100" style="width: 18rem;">
             <img src="images/pra.png" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">PRA Group</h5>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card h-100" style="width: 18rem;">
-            <img src="images/sponsors.png" class="card-img-top" alt="...">
-            <div class="card-body">
               <h5 class="card-title">Card title</h5>
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-outline-dark">Go somewhere</a>
+              <a href="https://www.pragroup.com/careers/" class="btn btn-outline-dark">Learn More</a>
             </div>
           </div>
         </div>
+          <div class="col">
+          <div>
+          
+           
+            </div>
+          </div>
+        </div>        
       </div>
     </div>
-  </div>
+  
 
 
 <!--Dont touch -->

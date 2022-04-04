@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> student profile</title>
     <link href="StyleSheet.css" rel="stylesheet">
+    <link href="Border.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <style> 
@@ -31,15 +32,19 @@ background-image:url("images/fadedbackground.png");
     <div class="container">
         <div class="row">
     <!--logo-->
-          <div class="col">
+          <%--<div class="col">
             <img src="images/logo.png" class="rounded float-left" alt="Responsive image" >
-          </div>
+          </div>--%>
     <!--nav bar-->
+          <div class="col">
+            <ul class="nav justify-content-end">
+              </ul>
+          </div>
         </div>
         <div class="row">
     <!--create profile/ profile photo placeholder-->
           <div class="col">
-            <div> <div class="card" style="width: 18rem;">
+            <div> <div class="card border-warning" style="width: 18rem;">
                 <img class="card-img-top rounded-circle img-thumbnail" src="images/DefaultProfileIMG.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
@@ -47,8 +52,7 @@ background-image:url("images/fadedbackground.png");
                           <ItemTemplate>
                               <table>
                                   <tr>
-                                      <div class="card-title">
-                                          Name: <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
+                                      <div class="card-title fw-bold">Name:</div><div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
                                       </div>
                                   </tr>
                               </table> 
@@ -60,7 +64,7 @@ background-image:url("images/fadedbackground.png");
                          <ItemTemplate>
                              <table>
                                  <tr>
-                                     <div class="card-text">Email: <%# DataBinder.Eval(Container.DataItem, "Email") %></div>
+                                     <div class="card-text fw-bold">Email:</div> <div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "Email") %></div>
                                  </tr>
                              </table>
                          </ItemTemplate>
@@ -69,28 +73,31 @@ background-image:url("images/fadedbackground.png");
                          <ItemTemplate>
                              <table>
                                  <tr>
-                                     <div class="card-text">Major: <%# DataBinder.Eval(Container.DataItem, "Major") %></div>
-                                     <div class="card-text">Grade: <%# DataBinder.Eval(Container.DataItem, "Grade") %></div>
-                                     <div class="card-text">Graduation Year: <%# DataBinder.Eval(Container.DataItem, "GraduationYear") %></div>
+                                     <div class="card-text fw-bold">Major:</div> <div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "Major") %></div>
+                                     <div class="card-text fw-bold">Grade:</div> <div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "Grade") %></div>
+                                     <div class="card-text fw-bold">Graduation Year:</div> <div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "GraduationYear") %></div>
                                  </tr>
                              </table>
                          </ItemTemplate>
                       </asp:DataList>
-
                   </p>
-                  <label for="formFile" class="form-label fw-bold">Upload Resume</label>
-                  <input class="form-control" type="file" id="formResume">
-                  <br />
-                  <label for="formFile" class="form-label fw-bold">Upload Portfolio</label>
-                  <input class="form-control" type="file" id="formPortfolio">
+                  <label for="formFile" class="form-label fw-bold">Resume</label>
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                        <asp:Button ID="btnUpload" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
+                        <br />
+                        <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
+                        <br />
+                        <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
+                        <br />
+                    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
                 </div>
               </div></div>
           </div>
     <!--CEO Statement-->
           <div class="col">
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">BIO</div>
-                <div class="card-body text-secondary">
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header fw-bold">BIO</div>
+                <div class="card-body fw-normal text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                    
                   <a href="#" class="btn btn-light">Edit Bio</a>
@@ -99,17 +106,17 @@ background-image:url("images/fadedbackground.png");
           </div>
     <!--Interests/skills  -->
           <div class="col">
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Interests</div>
-                <div class="card-body text-secondary">
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header fw-bold">Interests</div>
+                <div class="card-body fw-normal text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>
-              <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header">Skills</div>
-                <div class="card-body text-secondary">
+              <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header fw-bold">Skills</div>
+                <div class="card-body fw-normal text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                   <a href="#" class="btn btn-light">Edit Skills</a>
@@ -134,6 +141,8 @@ background-image:url("images/fadedbackground.png");
         SelectCommand="SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName">
     </asp:SqlDataSource>
 
+
+    <!--
     <asp:Table runat="server">
         <asp:TableHeaderRow>
             <asp:TableHeaderCell HorizontalAlign="Center">
@@ -196,23 +205,5 @@ background-image:url("images/fadedbackground.png");
         </asp:TableRow>
     </asp:Table>
     <br />
-
-    <h1>Upload Resume</h1>
-        <div>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
-            <asp:Button ID="btnUpload" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
-            <br />
-            <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
-            <br />
-            <br />
-        </div>
-
-
-
-    <br />
-    <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
-    <br />
-    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
-
-
+        -->
 </asp:Content>
