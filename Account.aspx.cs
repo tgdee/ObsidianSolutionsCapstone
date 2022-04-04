@@ -452,5 +452,9 @@ namespace Lab3
             }
         }
 
+        protected void btnBio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
