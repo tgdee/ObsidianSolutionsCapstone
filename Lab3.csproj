@@ -182,6 +182,7 @@
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="images\ole-school-alumni-group.png" />
     <Content Include="images\zigzags background.jpg" />
+    <Content Include="JobOpportunities.aspx" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
     <Content Include="AccountCreation.aspx" />
@@ -403,6 +404,13 @@
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
       <DependentUpon>FCExporter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobOpportunities.aspx.cs">
+      <DependentUpon>JobOpportunities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="JobOpportunities.aspx.designer.cs">
+      <DependentUpon>JobOpportunities.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberAccount.aspx.cs">
       <DependentUpon>MemberAccount.aspx</DependentUpon>

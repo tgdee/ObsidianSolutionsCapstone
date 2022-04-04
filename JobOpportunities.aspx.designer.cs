@@ -11,7 +11,7 @@ namespace Lab3
 {
 
 
-    public partial class JobApplication
+    public partial class JobOpportunities
     {
 
         /// <summary>
@@ -24,102 +24,84 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// lblCompany control.
+        /// txtTitleSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompany;
+        protected global::System.Web.UI.WebControls.TextBox txtTitleSearch;
 
         /// <summary>
-        /// ddlCompanyNames control.
+        /// txtTypeSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCompanyNames;
+        protected global::System.Web.UI.WebControls.TextBox txtTypeSearch;
 
         /// <summary>
-        /// rfvCompanyName control.
+        /// txtCitySearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvCompanyName;
+        protected global::System.Web.UI.WebControls.TextBox txtCitySearch;
 
         /// <summary>
-        /// lblPosition control.
+        /// txtStateSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPosition;
+        protected global::System.Web.UI.WebControls.TextBox txtStateSearch;
 
         /// <summary>
-        /// ddlPosition control.
+        /// txtIndustrySearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPosition;
+        protected global::System.Web.UI.WebControls.TextBox txtIndustrySearch;
 
         /// <summary>
-        /// rfvPosition control.
+        /// txtCorpNameSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvPosition;
+        protected global::System.Web.UI.WebControls.TextBox txtCorpNameSearch;
 
         /// <summary>
-        /// lblStudentEmail control.
+        /// btnSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStudentEmail;
+        protected global::System.Web.UI.WebControls.Button btnSearch;
 
         /// <summary>
-        /// txtStudentEmail control.
+        /// gvOpportunity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtStudentEmail;
+        protected global::System.Web.UI.WebControls.GridView gvOpportunity;
 
         /// <summary>
-        /// rfvStudentEmail control.
+        /// lblMessage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvStudentEmail;
-
-        /// <summary>
-        /// btnApply control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnApply;
-
-        /// <summary>
-        /// sdsJobInfo control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sdsJobInfo;
+        protected global::System.Web.UI.WebControls.Label lblMessage;
     }
 }
