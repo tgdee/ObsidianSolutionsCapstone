@@ -100,7 +100,7 @@
                                 </li>
                                 <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
                                     <h6 class="mb-0">
-                                        Email Address
+                                        Email 
                                          &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                                         <asp:Label ID="lblEmailAddress" class="text-secondary ps-5" runat="server" Text="Not Set"></asp:Label>
                                     </h6>
@@ -134,6 +134,18 @@
                             <div class="card-body">
                                 <p class="card-text">
                                     <asp:Label ID="lblCeoStmt" runat="server" Text="(CEO STATEMENT HERE)"></asp:Label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card mb-3">
+                            <div class="card-header">
+                                CEO Statement
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <asp:Label ID="Label1" runat="server" Text="(CEO STATEMENT HERE)"></asp:Label>
                                 </p>
                             </div>
                         </div>

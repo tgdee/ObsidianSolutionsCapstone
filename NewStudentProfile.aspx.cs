@@ -17,7 +17,11 @@ namespace Lab3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!Page.IsPostBack)
+            {
+                LoadStudentData();
+            }
+            
 
         }
 
@@ -30,11 +34,11 @@ namespace Lab3
 
             SqlCommand cmd = new SqlCommand(sqlSelet, con);
 
-            cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = Session["Username"].ToString();
+            cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = "goeketx";
 
             SqlDataReader reader = cmd.ExecuteReader();
 
-            if (reader.Read())
+            if (reader.HasRows)
             {
                 while (reader.Read())
                 {
@@ -53,10 +57,17 @@ namespace Lab3
                     lblPhoneNumber.Text = phoneNumber;
                     lblEmailAddress.Text = email;
 
-                    lblHome.Text = "SQL Needed";
                 }
             }
 
+            con.Close();
+
+
+        }
+
+        protected void CheckForEmptyData()
+        {
+            if ()
 
         }
     }
