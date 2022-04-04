@@ -99,8 +99,8 @@ background-image:url("images/fadedbackground.png");
                 <div class="card-header fw-bold">BIO</div>
                 <div class="card-body fw-normal text-secondary">
                   <h5 class="card-title">Secondary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                    
-                  <a href="#" class="btn btn-light">Edit Bio</a>
+                  <%--<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>  --%>                  
+                    <asp:Button ID="btnBio" runat="server" Text="Edit Bio" OnClick="btnBio_Click" />
                 </div>
               </div>
           </div>
