@@ -45,7 +45,7 @@ background-image:url("images/fadedbackground.png");
     <!--create profile/ profile photo placeholder-->
           <div class="col">
             <div> <div class="card border-secondary" style="width: 18rem;">
-                <img class="card-img-top rounded-circle img-thumbnail" src="images/DefaultProfileIMG.jpg" alt="Upload Image">
+                <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
                       <asp:DataList ID="dlStudentName" runat="server">

@@ -77,7 +77,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             
             </asp:ContentPlaceHolder>
-            <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
+            <asp:Label ID="lblUserStat2" runat="server" Text=""></asp:Label>
             <%--<asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>--%>
             <footer>
                 <p>&copy; <%: DateTime.Now.Year %> - Obsidian Solutions</p>
