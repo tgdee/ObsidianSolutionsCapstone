@@ -13,6 +13,8 @@
                 <br />
                 <br />
                 <h2>Meet The Team</h2>
+                <br />
+                <asp:Image ID="Image2" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/derek_Steele.png" />
                 <h3>Derek Steele</h3>
                 <p>
                     Master of Education, Educational Administration and Supervision; Virginia Polytechnic Institute and State University, May 2011, Bachelor of Science; 
@@ -24,6 +26,7 @@
                         Fairfax County Public Schools, former AVID District Director within FCPS,
                 </p>
                 <br />
+                <asp:Image ID="Image3" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/malcom_taylor.jpeg"/>
                 <h3>Malcolm Taylor</h3>
                 <p>
                     Bachelor of Science in Social Work, with a focus in Criminal Justice, JMU, 1982.
@@ -39,6 +42,7 @@
                         He is a Guest Lecturer at several Virginia colleges and universities over the past 15 years.  His interests include sharing field experiences with students matriculating at JMU in Justice Services, Sociology, or Psychology.
                 </p>
                 <br />
+                <asp:Image ID="Image4" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/charles_may.jpeg" />
                 <h3>Charles May</h3>
                 <p>
                     Bachelor of Science in Communication, James Madison University, 1983; Master of Arts, in Organizational Leadership, American Military University 2007.
@@ -51,6 +55,7 @@
                         His support interests are mentorship, "leadership," and service.
                 </p>
                 <br />
+                <asp:Image ID="Image5" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/Angela_Russell.jpeg" />
                 <h3>Angela J. Russell</h3>
                 <p>
                     Currently serves as Director of Managed Care for Bon Secours Health System (Virginia Division).  In this capacity, I negotiate contracts with insurance companies and manage patient revenues in excess of $2B annually for our hospitals (8), ancillary sites (including nursing homes, 
@@ -67,6 +72,7 @@
                     Harris represent the company, in court, tribunals, and in meetings with legal representatives.
                 </p>
                 <br />
+                <asp:Image ID="Image6" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/russell-angela.jpeg" />
                 <h3>Angela L. Russell</h3>
                 <p>
                     Bachelor of Science, Living Sciences, James Madison University, 1985.
@@ -78,6 +84,7 @@
                     Russell also has spent the last 14 years serving as a psychotherapist specializing in the areas of depression, anxiety, grief and loss, ADHD,  and impaired relationships.  She has assisted more than 150 clients (including teens, adults, families and couples) to a place where they can successfully manage their lives on their own.  As a Life Coach and Retreat Leader, Russell encourages wo(men) to give themselves permission to slow down from the “busyness” of life by providing custom retreats in the Washington Metropolitan area and abroad; Family Team Meeting Supervisor with DC Child and Family Services Agency for the past 10 years.  Her team has been instrumental in preventing hundreds of children from being placed in the foster care system on an annual basis in addition to finding permanency for those children who are in care.
                 </p>
                 <br />
+                <asp:Image ID="Image7" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/marvin-stith.jpeg" />
                 <h3>Marvin Stith</h3>
                 <p>
                     Bachelor of Business Administration, Accounting, James Madison University, 1983.
@@ -92,6 +99,7 @@
                     Stith also served from 1983 through 1993 as an officer in the US Army (via the JMU Army ROTC program) with the Corp of Engineers and Finance Corps.  He served tours of duty in Operations Desert Shield and Desert Storm.
                 </p>
                 <br />
+                <asp:Image ID="Image8" runat="server" Height="350" Width="350" BorderStyle="Solid" BorderColor="Goldenrod" ImageUrl="~/images/kimberely-hundley.jpeg" />
                 <h3>Kimberly Hundley</h3>
                 <p>
                     Bachelor of Science, Early Childhood, James Madison University, 1984.

@@ -172,10 +172,13 @@
     <Content Include="CorporateSponsors.aspx" />
     <Content Include="CorporateSponsor.aspx" />
     <Content Include="CustomButtons.css" />
+    <Content Include="images\Angela_Russell.jpeg" />
     <Content Include="images\background.png" />
     <Content Include="images\backgroundtwo.png" />
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
     <Content Include="images\capitalone.png" />
+    <Content Include="images\charles_may.jpeg" />
+    <Content Include="images\derek_Steele.png" />
     <Content Include="images\dominionenergy.png" />
     <Content Include="images\ey.png" />
     <Content Include="images\faded background.png" />
@@ -183,14 +186,18 @@
     <Content Include="images\freddiemac.png" />
     <Content Include="images\j.p morgan.png" />
     <Content Include="images\JMU_Campus.jpg" />
+    <Content Include="images\kimberely-hundley.jpeg" />
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
+    <Content Include="images\malcom_taylor.jpeg" />
     <Content Include="images\markel.png" />
+    <Content Include="images\marvin-stith.jpeg" />
     <Content Include="images\ole-school-alumni-group.png" />
     <Content Include="images\pnc.png" />
     <Content Include="images\pra.png" />
     <Content Include="images\roweprice.png" />
+    <Content Include="images\russell-angela.jpeg" />
     <Content Include="images\schroders.png" />
     <Content Include="images\sentara.png" />
     <Content Include="images\zigzags background.jpg" />
@@ -208,6 +215,7 @@
     <Content Include="InternshipInformation.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
+    <Content Include="NewMemberInfo.aspx" />
     <Content Include="NewStudentProfile.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -520,6 +528,13 @@
     </Compile>
     <Compile Include="NewHomePage.aspx.designer.cs">
       <DependentUpon>NewHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewMemberInfo.aspx.cs">
+      <DependentUpon>NewMemberInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewMemberInfo.aspx.designer.cs">
+      <DependentUpon>NewMemberInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewStudentProfile.aspx.cs">
       <DependentUpon>NewStudentProfile.aspx</DependentUpon>
