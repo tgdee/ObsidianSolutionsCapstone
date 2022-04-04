@@ -201,6 +201,7 @@
     <Content Include="images\schroders.png" />
     <Content Include="images\sentara.png" />
     <Content Include="images\zigzags background.jpg" />
+    <Content Include="Inbox.aspx" />
     <Content Include="JobOpportunities.aspx" />
     <Content Include="MemberAccount.aspx" />
     <Content Include="Account.aspx" />
@@ -431,6 +432,13 @@
     <Compile Include="FusionChartsExportHandler\FCExporter.aspx.cs">
       <DependentUpon>FCExporter.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="JobOpportunities.aspx.cs">
       <DependentUpon>JobOpportunities.aspx</DependentUpon>
