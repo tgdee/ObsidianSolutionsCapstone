@@ -69,7 +69,7 @@
             </div>
          </div>
         
-       <%-- <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>--%>
+        <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
         <%--<asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>--%>
 
         <div>
