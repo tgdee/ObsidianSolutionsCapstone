@@ -192,9 +192,6 @@
                 </div>
             </div>
 
-
-
-
             <asp:Button ID="CloseButton" runat="server" Text="Close" />
 
         </asp:Panel>
