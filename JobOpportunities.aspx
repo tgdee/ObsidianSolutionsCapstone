@@ -62,7 +62,7 @@
                 OnSelectedIndexChanged="gvOpportunity_SelectedIndexChanged"
                 Width="1085px" EmptyDataText="Job Record Not Found">
                 <Columns>
-                    <asp:CommandField ShowSelectButton="true" />
+                    <asp:CommandField selecttext="Apply" ShowSelectButton="true"/>
                 </Columns>
             </asp:GridView>
         </table>
