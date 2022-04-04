@@ -192,6 +192,7 @@
     <Content Include="InternshipInformation.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
+    <Content Include="NewStudentProfile.aspx" />
     <Content Include="ScholarshipInformation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -358,7 +359,6 @@
     <Content Include="MemberInformation.aspx" />
     <Content Include="StudentInformation.aspx" />
     <Content Include="StudentOpportunitiesStyle.css" />
-    <Content Include="StudentProfile.aspx" />
     <Content Include="StyleSheet1.css" />
     <Content Include="ViewStudentApplications.aspx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -489,6 +489,13 @@
     <Compile Include="NewHomePage.aspx.designer.cs">
       <DependentUpon>NewHomePage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NewStudentProfile.aspx.cs">
+      <DependentUpon>NewStudentProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewStudentProfile.aspx.designer.cs">
+      <DependentUpon>NewStudentProfile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ScholarshipInformation.aspx.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -616,13 +623,6 @@
     </Compile>
     <Compile Include="StudentMaster.Master.designer.cs">
       <DependentUpon>StudentMaster.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StudentProfile.aspx.cs">
-      <DependentUpon>StudentProfile.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentProfile.aspx.designer.cs">
-      <DependentUpon>StudentProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentApplications.aspx.cs">
       <DependentUpon>ViewStudentApplications.aspx</DependentUpon>

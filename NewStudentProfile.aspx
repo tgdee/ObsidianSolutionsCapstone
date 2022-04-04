@@ -1,11 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="StudentProfile.aspx.cs" Inherits="Lab3.StudentProfile" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewStudentProfile.aspx.cs" Inherits="Lab3.NewStudentProfile" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Profile</title>
     <link href="StyleSheet.css" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
@@ -23,6 +19,7 @@
     </style>
 
     <form id="form1" runat="server">
+        <asp:Label runat="server" ID="lbl"></asp:Label>
         <div class="container">
             <div class="row">
                 <!--logo-->
