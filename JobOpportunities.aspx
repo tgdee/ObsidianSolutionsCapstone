@@ -56,17 +56,88 @@
             </div>
         </div>    
     <div = class="container my-auto">
-        <table class="table caption-top">
+        <table class="table caption-top" "table-light">
             <asp:GridView ID="gvOpportunity" runat="server"
                 class="table table-hover table table-bordered table-condensed"
                 OnSelectedIndexChanged="gvOpportunity_SelectedIndexChanged"
                 Width="1085px" EmptyDataText="Job Record Not Found">
                 <Columns>
                     <asp:CommandField selecttext="Apply" ShowSelectButton="true"/>
+                    <%--<asp:BoundField HeaderText="Job Title" DataField="Title" SortExpression="Title"/>
+                    <asp:BoundField HeaderText="Information" DataField="Link" SortExpression="Link"/>--%>
                 </Columns>
             </asp:GridView>
         </table>
             <div class="p-3"></div>
             <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
         </div>
+    <asp:ListView ID="lvStudentOpportunities" runat="server">
+                            <LayoutTemplate>
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto col-md-auto">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <h4>Browse Opportunities</h4>
+                                                </div>
+                                                <div class="card-body">
+                                                    <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
+                                                        <table class="table table-striped" id="tbl1" runat="server">
+                                                            <tr runat="server">
+                                                                <th runat="server">Title</th>
+                                                                <th runat="server">Info</th>
+                                                                <%--<th runat="server">Type</th>
+                                                                <th runat="server">City</th>
+                                                                <th runat="server">State</th>
+                                                                <th runat="server">Industry</th>
+                                                                <th runat="server">Deadline</th>
+                                                                <th runat="server">Link</th>
+                                                                <th runat="server">Employer</th>--%>
+                                                            </tr>
+                                                            <tr runat="server" id="itemPlaceholder" />
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <asp:DataPager ID="DataPager1" runat="server">
+                                    <Fields>
+                                        <asp:NumericPagerField />
+                                    </Fields>
+                                </asp:DataPager>
+                            </LayoutTemplate>
+                            <ItemTemplate>
+                                <tr runat="server">
+                                    <td>
+                                        <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
+                                    </td>
+                                    <%--<td>
+                                        <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblIndustry" runat="server" Text='<%# Eval("Industry") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblDeadLine" runat="server" Text='<%# Eval("Deadline") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblLink" runat="server" Text='<%# Eval("Link") %>' />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblCorpName" runat="server" Text='<%# Eval("CorpName") %>' />
+                                    </td>--%>
+                                </tr>
+                            </ItemTemplate>
+                        </asp:ListView>
 </asp:Content>

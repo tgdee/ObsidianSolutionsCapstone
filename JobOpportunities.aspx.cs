@@ -16,6 +16,21 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             DisplayGvOpportunity();
+            // Upon first page load add all the data from the Opportunity table into the ListView
+            if (!Page.IsPostBack)
+            {
+                con.Open();
+                //string cmd = "SELECT [Title], [Type], [City], [State], [Deadline], [Link], [Industry], [CorpName] FROM [Opportunity] ORDER BY [OpportunityID]";
+                string cmd = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
+                SqlDataAdapter da = new SqlDataAdapter(cmd, con);
+
+                DataSet ds = new DataSet();
+
+                da.Fill(ds, "table");
+                lvStudentOpportunities.DataSource = ds.Tables["table"];
+                lvStudentOpportunities.DataBind();
+                con.Close();
+            }
         }
 
         protected void DisplayGvOpportunity()
@@ -23,7 +38,7 @@ namespace Lab3
 
             try
             {
-                string searchQuery = "SELECT * FROM Opportunity";
+                string searchQuery = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
 
                 SqlCommand cmd = new SqlCommand(searchQuery, con);
 
@@ -39,13 +54,14 @@ namespace Lab3
                 DataSet ds = new DataSet();
                 da.Fill(ds, "OpportunityID");
                 da.Fill(ds, "Title");
-                da.Fill(ds, "Type");
-                da.Fill(ds, "City");
-                da.Fill(ds, "State");
-                da.Fill(ds, "Industry");
-                da.Fill(ds, "Deadline");
-                da.Fill(ds, "Link");
-                da.Fill(ds, "CorpName");
+                da.Fill(ds, "Info");
+                //da.Fill(ds, "Type");
+                //da.Fill(ds, "City");
+                //da.Fill(ds, "State");
+                //da.Fill(ds, "Industry");
+                //da.Fill(ds, "Deadline");
+                //da.Fill(ds, "Link");
+                //da.Fill(ds, "CorpName");
 
 
                 ViewState["ds"] = ds;
@@ -61,8 +77,7 @@ namespace Lab3
                 {
                     gvOpportunity.HeaderRow.Cells[1].Visible = false;
                     gvOpportunity.Rows[i].Cells[1].Visible = false;
-                    gvOpportunity.HeaderRow.Cells[8].Text = "Company";
-
+                    //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
                 }
 
                 con.Close();
