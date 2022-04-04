@@ -89,37 +89,36 @@ background-image:url("images/fadedbackground.png");
                         <br />
                         <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
                         <br />
-                    <asp:Button ID="btnDelete" runat="server" Text="Delete Selected Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
+                    <asp:Button ID="btnDelete" runat="server" Text="Remove Current Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
                 </div>
               </div></div>
           </div>
     <!--CEO Statement-->
           <div class="col">
             <div class="card border-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header fw-bold">BIO</div>
-                <div class="card-body fw-normal text-secondary">
-                  <h5 class="card-title">Secondary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>                    
+                <div class="card-header fw-bold">Bio</div>
+                <div class="card-body">
+                  <p class="card-text">My name is John and I am a Junior SMAD major that is attending James Madison University. I am proficient in Microsoft Office and am looking for an internship for the summer.  </p>                    
                   <a href="#" class="btn btn-light">Edit Bio</a>
                 </div>
               </div>
           </div>
     <!--Interests/skills  -->
           <div class="col">
-            <div class="card border-warning mb-3" style="max-width: 18rem;">
-                <div class="card-header fw-bold">Interests</div>
-                <div class="card-body fw-normal text-secondary">
-                  <h5 class="card-title">Secondary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-light">Edit Interests</a>
-                </div>
-              </div>
               <div class="card border-warning mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Skills</div>
-                <div class="card-body fw-normal text-secondary">
-                  <h5 class="card-title">Secondary card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card-body">
+                  <p class="card-text">Microsoft Word</p>
+                  <p class="card-text">Microsoft Excel</p>
+                  <p class="card-text">Microsoft Powerpoint</p>
                   <a href="#" class="btn btn-light">Edit Skills</a>
+                </div>
+              </div>
+            <div class="card border-warning mb-3" style="max-width: 18rem;">
+                <div class="card-header fw-bold">Interests</div>
+                <div class="card-body">
+                  <p class="card-text">Reading, writing, sports, painting, and sky diving.</p>
+                  <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>
           </div>
