@@ -49,12 +49,12 @@
                     <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler"></span>
                     </button> 
-                      <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx">Welcome to Ole School Alumni Group!</a>
+                      <a class="navbar-brand" runat="server" href ="~/StudentHomepage.aspx"></a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav">
-                        <a class="nav-link" aria-current="page" href="StudentHomepage.aspx" >Home</a>
-                        <%--<a class="nav-link" aria-current="page" href="StudentHomepage.aspx" >Inbox</a>--%>
+                        <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Home</a>
+                        <%--<a class="nav-link" aria-current="page" href="Inbox.aspx" >Inbox</a>--%>
                         <%--<a class="nav-link" aria-current="page" href="InternshipApplication.aspx" >Internships</a>
                         <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Jobs</a>
                         <a class="nav-link" aria-current="page" href="ScholarshipApplication.aspx" >Scholarships</a>--%>
@@ -69,7 +69,7 @@
             </div>
          </div>
         
-       <%-- <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>--%>
+        <asp:Label ID="lblUserStat" runat="server" Text=""></asp:Label>
         <%--<asp:Button ID="btnFullLogout" runat="server" Text="<-Logout" OnClick="btnFullLogout_Click" ValidationGroup="MasterValidation"/>--%>
 
         <div>
