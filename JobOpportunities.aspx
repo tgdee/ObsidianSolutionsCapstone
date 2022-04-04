@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
-    <h1>Job Opportunities </h1>
+    <h1>Feed </h1>
     <h4>
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     </h4>
