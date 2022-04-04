@@ -35,19 +35,6 @@ background-image:url("images/fadedbackground.png");
             <img src="images/logo.png" class="rounded float-left" alt="Responsive image" >
           </div>
     <!--nav bar-->
-          <div class="col">
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                  <a class="nav-link active" href="#"><ion-icon name="home-outline"></ion-icon>Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"><ion-icon name="person-outline"></ion-icon>Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#"> <ion-icon name="briefcase-outline"></ion-icon>Jobs</a>
-                </li>
-              </ul>
-          </div>
         </div>
         <div class="row">
     <!--create profile/ profile photo placeholder-->
