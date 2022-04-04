@@ -53,7 +53,7 @@
                         <a class="nav-link" aria-current="page" href="ScholarshipApplication.aspx" >Scholarships</a>
                         <a class="nav-link" aria-current="page" href="CorporateSponsors.aspx" >Corporate Sponsors</a>
                         <a class="nav-link" aria-current="page" href="BrowseStudentOpportunities.aspx" >Opportunities</a>
-                        <a class="nav-link" aria-current="page" href="Account.aspx" >Account</a>
+                        <a class="nav-link" aria-current="page" href="NewStudentProfile.aspx" >Profile</a>
                         
                         
                     </ul>
