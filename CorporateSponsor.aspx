@@ -55,9 +55,9 @@ background-image:url("images/fadedbackground.png");
 
 <div class="header"> 
  <h1> Current Sponsors</h1>
- <div> <input type="text" placeholder="Search..."></div>
+<%-- <div> <input type="text" placeholder="Search..."></div>--%>
 </div>
-
+    
 
 <!--First row of cards -->
 <div class="rowone"> 
