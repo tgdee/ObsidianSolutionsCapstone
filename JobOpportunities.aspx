@@ -2,11 +2,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <br />
-    <h1>Job Application Page </h1>
+    <h1>Job Opportunities </h1>
     <h4>
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     </h4>
-    <div>
+<%--    <div>
         <h4 class="display-6 ">Search Jobs</h4>
         <div class="row p-1">
             <div class="col">
@@ -49,13 +49,13 @@
             <asp:TextBox ID="txtCorpNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
         </div>
         
-    </div>
-    <div class="row p-1 pt-2">
+    </div>--%>
+    <%--<div class="row p-1 pt-2">
             <div class="col">
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn btn-success"/>
             </div>
-        </div>    
-    <div = class="container my-auto">
+        </div>--%>    
+    <%--<div = class="container my-auto">
         <table class="table caption-top" "table-light">
             <asp:GridView ID="gvOpportunity" runat="server"
                 class="table table-hover table table-bordered table-condensed"
@@ -63,14 +63,14 @@
                 Width="1085px" EmptyDataText="Job Record Not Found">
                 <Columns>
                     <asp:CommandField selecttext="Apply" ShowSelectButton="true"/>
-                    <%--<asp:BoundField HeaderText="Job Title" DataField="Title" SortExpression="Title"/>
-                    <asp:BoundField HeaderText="Information" DataField="Link" SortExpression="Link"/>--%>
+                    <asp:BoundField HeaderText="Job Title" DataField="Title" SortExpression="Title"/>
+                    <asp:BoundField HeaderText="Information" DataField="Link" SortExpression="Link"/>
                 </Columns>
             </asp:GridView>
         </table>
             <div class="p-3"></div>
             <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
-        </div>
+        </div>--%>
     <asp:ListView ID="lvStudentOpportunities" runat="server">
                             <LayoutTemplate>
                                 <div class="container-fluid">
