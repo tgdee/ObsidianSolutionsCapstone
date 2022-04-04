@@ -27,7 +27,7 @@
             <table class="table caption-top">
                 <asp:GridView ID="gvCorporateSponsor" runat="server" 
                     class="table table-hover table table-bordered table-condensed" 
-                    Width="1085px" EmptyDataText="Student Record Not Found">
+                    Width="1085px" EmptyDataText="Sponsor Record Not Found">
 
                 </asp:GridView>
             </table>
