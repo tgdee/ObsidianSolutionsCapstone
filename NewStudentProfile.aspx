@@ -1,11 +1,36 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="NewStudentProfile.aspx.cs" Inherits="Lab3.NewStudentProfile" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title>Student Profile</title>
     <link href="StyleSheet.css" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .modalBackground
+        {
+            background-color:black;
+            filter: opacity(90);
+            opacity:0.6 !important;
+            z-index:20;
+        }
+        .modalpopup
+        {
+            padding:20px 0px 24px 10px;
+            position:relative;
+            width:1127px;
+            height:205px;
+            background-color:white;
+            border:1px solid black;
+            top: 15px;
+            left: -4px;
+        }
+    </style>
+
 </head>
 <body class="background">
     <style>
@@ -153,12 +178,32 @@
                 </div>
             </div>
         </div>
+        
+<%--        Modal for editing profile--%>
+
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <asp:Button ID="btnOpen" runat="server" Text="Button" />
+        <asp:Panel ID="ModalPanel" runat="server" CssClass="modalpopup">
+            <div class="row">
+                <div class="col">
+                    <asp:FileUpload ID="UploadProfilePic" runat="server" />
+                    <asp:Button ID="btnUploadProfilePic" runat="server" Text="Upload Profile Picture" class="btn btn-success" OnClick="btnUploadProfilePic_Click" />
+                </div>
+            </div>
+
+
+
+
+            <asp:Button ID="CloseButton" runat="server" Text="Close" />
+
+        </asp:Panel>
+        <ajaxToolkit:ModalPopupExtender ID="mpe" runat="server" TargetControlID="btnOpen" PopupControlID="ModalPanel" OkControlID="CloseButton" BackgroundCssClass="modalBackground"></ajaxToolkit:ModalPopupExtender>
+
     </form>
-
-
-
     <!--Dont touch-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+   
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
