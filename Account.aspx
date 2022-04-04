@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> student profile</title>
     <link href="StyleSheet.css" rel="stylesheet">
+    <link href="ProfileButtons.css" rel="stylesheet" />
     <link href="Border.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -82,14 +83,14 @@ background-image:url("images/fadedbackground.png");
                       </asp:DataList>
                   </p>
                   <label for="formFile" class="form-label fw-bold">Resume</label>
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
-                        <asp:Button ID="btnUpload" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
+                    <asp:FileUpload ID="FileUpload1" CssClass="profileButtonFile" runat="server" />
+                        <asp:Button ID="btnUpload" CssClass="profileButton" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
                         <br />
                         <asp:Label ID="lblMessage" runat="server" Font-Bold="true"></asp:Label>
                         <br />
-                        <asp:Button ID="btnViewResume" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
+                        <asp:Button ID="btnViewResume" CssClass="profileButton" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
                         <br />
-                    <asp:Button ID="btnDelete" runat="server" Text="Remove Current Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
+                    <asp:Button ID="btnDelete" CssClass="profileButton" runat="server" Text="Remove Current Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
                 </div>
               </div></div>
           </div>
