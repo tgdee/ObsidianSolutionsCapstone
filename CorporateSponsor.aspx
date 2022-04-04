@@ -1,17 +1,7 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CorporateSponsor.aspx.cs" Inherits="Lab3.CorporateSponsor" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="CorporateSponsor.aspx.cs" Inherits="Lab3.CorporateSponsor" %>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>job page</title>
-    <link href="StyleSheet.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" >
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&family=Palette+Mosaic&display=swap" rel="stylesheet">
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
 
 <style> 
@@ -43,10 +33,10 @@ background-image:url("images/fadedbackground.png");
 
 
 </style>
-</head>
+
 <body class="background">
 <!--nav bar-->
-<div class="col">
+<%--<div class="col">
   <ul class="nav justify-content-end">
       <li class="nav-item">
         <a class="nav-link active" href="#"><ion-icon name="home-outline"></ion-icon>Home</a>
@@ -58,12 +48,10 @@ background-image:url("images/fadedbackground.png");
         <a class="nav-link" href="#"> <ion-icon name="briefcase-outline"></ion-icon>Jobs</a>
       </li>
     </ul>
-</div>
+</div>--%>
 
 <!--logo-->
-<div class="col">
-  <img src="images/logo.png" class="rounded float-left" alt="Responsive image" >
-</div>
+
 
 <!-- Header -->
 
@@ -229,4 +217,5 @@ background-image:url("images/fadedbackground.png");
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
-</html>
+
+    </asp:Content>
