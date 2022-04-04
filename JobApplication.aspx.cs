@@ -159,6 +159,7 @@ namespace Lab3
                 lblMessage.Text = ex.Message;
             }
         }
+
         protected void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -172,7 +173,7 @@ namespace Lab3
                     command.Parameters.Add("@State", SqlDbType.NVarChar, 2).Value = txtStateSearch.Text;
                     command.Parameters.Add("@Industry", SqlDbType.NVarChar, 30).Value = txtIndustrySearch.Text;
                     command.Parameters.Add("@CorpName", SqlDbType.NVarChar, 30).Value = txtCorpNameSearch.Text;
-                    
+
 
 
                     con.Open();
@@ -206,7 +207,6 @@ namespace Lab3
             }
 
             con.Close();
-
         }
     }
 }
