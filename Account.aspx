@@ -32,9 +32,9 @@ background-image:url("images/fadedbackground.png");
     <div class="container">
         <div class="row">
     <!--logo-->
-          <div class="col">
+          <%--<div class="col">
             <img src="images/logo.png" class="rounded float-left" alt="Responsive image" >
-          </div>
+          </div>--%>
     <!--nav bar-->
           <div class="col">
             <ul class="nav justify-content-end">
