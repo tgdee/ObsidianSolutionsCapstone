@@ -44,8 +44,8 @@ background-image:url("images/fadedbackground.png");
         <div class="row">
     <!--create profile/ profile photo placeholder-->
           <div class="col">
-            <div> <div class="card border-warning" style="width: 18rem;">
-                <img class="card-img-top rounded-circle img-thumbnail" src="images/DefaultProfileIMG.jpg" alt="Upload Image">
+            <div> <div class="card border-secondary" style="width: 18rem;">
+                <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
                       <asp:DataList ID="dlStudentName" runat="server">
@@ -95,7 +95,7 @@ background-image:url("images/fadedbackground.png");
           </div>
     <!--CEO Statement-->
           <div class="col">
-            <div class="card border-warning mb-3" style="max-width: 18rem;">
+            <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Bio</div>
                 <div class="card-body">
                   <p class="card-text">My name is John and I am a Junior SMAD major that is attending James Madison University. I am proficient in Microsoft Office and am looking for an internship for the summer.  </p>                    
@@ -105,7 +105,7 @@ background-image:url("images/fadedbackground.png");
           </div>
     <!--Interests/skills  -->
           <div class="col">
-              <div class="card border-warning mb-3" style="max-width: 18rem;">
+              <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Skills</div>
                 <div class="card-body">
                   <p class="card-text">Microsoft Word</p>
@@ -114,7 +114,7 @@ background-image:url("images/fadedbackground.png");
                   <a href="#" class="btn btn-light">Edit Skills</a>
                 </div>
               </div>
-            <div class="card border-warning mb-3" style="max-width: 18rem;">
+            <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Interests</div>
                 <div class="card-body">
                   <p class="card-text">Reading, writing, sports, painting, and sky diving.</p>
