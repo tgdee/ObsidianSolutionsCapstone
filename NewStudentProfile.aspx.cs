@@ -50,6 +50,7 @@ namespace Lab3
                     string phoneNumber = reader["PhoneNumber"].ToString();
                     string email = reader["Email"].ToString();
 
+
                     lblFullName.Text = fName + " " + lName;
                     lblMajor.Text = major;
                     lblGradYear.Text = gradYear;
@@ -65,9 +66,19 @@ namespace Lab3
 
         }
 
-        protected void CheckForEmptyData()
+
+        protected void btnShowEditModal_Click(object sender, EventArgs e)
         {
-            if ()
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+        }
+
+        protected void btnUpload_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void btnUploadProfilePic_Click(object sender, EventArgs e)
+        {
 
         }
     }

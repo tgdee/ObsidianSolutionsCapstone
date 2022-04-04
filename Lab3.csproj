@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>packages\AjaxControlToolkit.20.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="AspNet.ScriptManager.bootstrap, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\AspNet.ScriptManager.bootstrap.4.5.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
     </Reference>
@@ -224,6 +227,8 @@
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.ocean.js" />
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.umber.js" />
     <Content Include="Scripts\FusionCharts\themes\fusioncharts.theme.zune.js" />
+    <Content Include="Scripts\jquery.easypiechart.js" />
+    <Content Include="Scripts\jquery.easypiechart.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
