@@ -1,0 +1,84 @@
+﻿body {
+}
+
+.profileButton {
+display: inline-block;
+background-color: rebeccapurple;
+border-radius: 10px;
+border: 2px double #cccccc;
+color: #eeeeee;
+text-align: center;
+font-size: 15px;
+font-weight: bold;
+padding: 10px;
+width: 235px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+}
+
+.profileButton span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.profileButton span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.profileButton:hover {
+background-color: #f7c2f9;
+}
+
+.profileButton:hover span:after {
+opacity: 1;
+right: 0;
+}
+
+.profileButtonFile {
+display: inline-block;
+background-color: #ffffff;
+border-radius: 10px;
+border: 2px double #cccccc;
+color: rebeccapurple;
+text-align: center;
+font-weight: bold;
+font-size: 15px;
+padding: 10px;
+width: 235px;
+transition: all 0.5s;
+cursor: pointer;
+margin: 5px;
+}
+
+.profileButtonFile span {
+cursor: pointer;
+display: inline-block;
+position: relative;
+transition: 0.5s;
+}
+
+.profileButtonFile span:after {
+content: '\00bb';
+position: absolute;
+opacity: 0;
+top: 0;
+right: -20px;
+transition: 0.5s;
+}
+
+.profileButtonFile:hover {
+background-color: #f7c2f9;
+}
+
+.profileButtonFile:hover span:after {
+opacity: 1;
+right: 0;
+}
