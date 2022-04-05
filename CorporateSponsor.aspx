@@ -128,7 +128,7 @@ background-image:url("images/fadedbackground.png");
           <img src="images/markel.png" class="card-img-top" alt="...">
           <div class="card-body">
             <h5 class="card-title">Markel Insurance</h5>
-            <p class="card-text">JPMorgan Chase & Co. is an American multinational investment bank and financial services holding company headquartered in New York City and incorporated in Delaware.</p>
+            <p class="card-text">Markel Corporation is a holding company for insurance, reinsurance, and investment operations around the world.</p>
             <a href="https://www.markel.com/insurance/careers-at-markel" class="btn btn-outline-dark">Learn More</a>
           </div>
         </div>

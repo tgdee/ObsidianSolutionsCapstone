@@ -3,7 +3,7 @@
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <br />
     <br />
-    <h1>Job Opportunities </h1>
+    <h1>Feed </h1>
     <h4>
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     </h4>
