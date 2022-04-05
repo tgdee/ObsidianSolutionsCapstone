@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="JobOpportunities.aspx.cs" Inherits="Lab3.JobOpportunities" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
     <br />
     <br />
     <h1>Job Opportunities </h1>
@@ -82,6 +83,8 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
+                                                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                        <br>
                                                         <table class="table table-striped" id="tbl1" runat="server">
                                                             <tr runat="server">
                                                                 <th runat="server">Title</th>
@@ -96,6 +99,16 @@
                                                             </tr>
                                                             <tr runat="server" id="itemPlaceholder" />
                                                         </table>
+                                                        <script>
+                                                            $(document).ready(function () {
+                                                                $("#myInput").on("keyup", function () {
+                                                                    var value = $(this).val().toLowerCase();
+                                                                    $("#myTable tr").filter(function () {
+                                                                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                                    });
+                                                                });
+                                                            });
+                                                        </script>
                                                     </div>
                                                 </div>
                                             </div>
@@ -140,4 +153,7 @@
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>
+    <script src="Scripts/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/bootstrap.bundle.min.js"></script>
+    <script src="Scripts/popper.min.js"></script>
 </asp:Content>
