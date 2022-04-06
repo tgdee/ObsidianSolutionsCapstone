@@ -118,14 +118,8 @@ background-image:url("images/fadedbackground.png");
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Interests</div>
                 <div class="card-body">
-                  <%--<p class="card-text">Reading, writing, sports, painting, and sky diving.</p>--%>
-                    <asp:Label ID="lblInterests" runat="server" Text="Cock and Ballz"></asp:Label>
-                    <br />
-                    <asp:TextBox ID="txtInterestsEdit" runat="server" Visible="false"></asp:TextBox>
-                    <br />
-                    <asp:Button ID="btnInterestsEdit" runat="server" Text="Edit Interests" OnClick="btnInterestsEdit_Click" />
-                    <asp:Button ID="btnInterestsSave" runat="server" Text="Save" Visible="false" OnClick="btnInterestsSave_Click" />
-                  <%--<a href="#" class="btn btn-light">Edit Interests</a>--%>
+                  <p class="card-text">Reading, writing, sports, painting, and sky diving.</p>
+                  <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>
           </div>

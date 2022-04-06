@@ -456,23 +456,5 @@ namespace Lab3
         {
 
         }
-
-        protected void btnInterestsEdit_Click(object sender, EventArgs e)
-        {
-            txtInterestsEdit.Visible = true;
-            lblInterests.Visible = false;
-            btnInterestsEdit.Visible = false;
-            btnInterestsSave.Visible = true;
-        }
-
-        protected void btnInterestsSave_Click(object sender, EventArgs e)
-        {
-            lblInterests.Text = txtInterestsEdit.Text;
-            txtInterestsEdit.Visible = false;
-            lblInterests.Visible = true;
-            btnInterestsEdit.Visible = true;
-            btnInterestsSave.Visible = false;
-            txtInterestsEdit.Text = null;
-        }
     }
 }
