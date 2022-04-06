@@ -87,6 +87,24 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnDelete;
 
         /// <summary>
+        /// dlBio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlBio;
+
+        /// <summary>
+        /// btnBio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBio;
+
+        /// <summary>
         /// sqltesting control.
         /// </summary>
         /// <remarks>
@@ -94,6 +112,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqltesting;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// lblHeaderMessage control.
