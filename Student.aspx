@@ -83,21 +83,21 @@
             <asp:CommandField ShowSelectButton="true" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbViewPDF" runat="server" ValidationGroup="ViewPDF" OnClientClick="openInNewTab()" OnClick="lbViewPDF_Click">Resume</asp:LinkButton>
-                    <script type="text/javascript">
+                    <asp:LinkButton ID="lbViewPDF" runat="server" ValidationGroup="ViewPDF"  OnClick="lbViewPDF_Click">Resume</asp:LinkButton>
+                    <%--<script type="text/javascript">
                         function openInNewTab() {
                             window.document.forms[0].target = '_blank';
                             setTimeout(function () { window.document.forms[0].target = ''; }, 0);
                         }
                         /*Used some javascript to open a new window. Need to find a different way to do this cus if the student has no resume it opens a duplicate page*/
-                    </script>
+                    </script>--%>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
     </table>
         <div class="p-3"></div>
-    <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
+    <asp:Label ID="lblMessage" runat="server" Font-Bold="true" ForeColor="Red" class="form-label"></asp:Label>
     </div>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
