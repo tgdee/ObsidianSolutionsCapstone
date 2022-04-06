@@ -217,6 +217,7 @@
     <Content Include="Global.asax" />
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
+    <Content Include="MentorFeed.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
     <Content Include="NewStudentProfile.aspx" />
@@ -531,6 +532,13 @@
     </Compile>
     <Compile Include="InternshipInformation.aspx.designer.cs">
       <DependentUpon>InternshipInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MentorFeed.aspx.cs">
+      <DependentUpon>MentorFeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MentorFeed.aspx.designer.cs">
+      <DependentUpon>MentorFeed.aspx</DependentUpon>
     </Compile>
     <Compile Include="NewHomePage.aspx.cs">
       <DependentUpon>NewHomePage.aspx</DependentUpon>
