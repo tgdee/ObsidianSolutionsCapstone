@@ -31,7 +31,7 @@ namespace Lab3
                 BindNameDataList();
                 BindEmailDataList();
                 BindInfoDataList();
-
+                BindBioData();
 
             }
 
@@ -42,7 +42,7 @@ namespace Lab3
         {
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
-            using(SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
                 try
                 {
@@ -56,7 +56,7 @@ namespace Lab3
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
-                    if(dt.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
                         dlStudentName.DataSource = dt;
                         dlStudentName.DataBind();
@@ -152,7 +152,7 @@ namespace Lab3
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            
+
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];            // Connect to AUTH from configuration
 
@@ -201,7 +201,7 @@ namespace Lab3
 
 
                 }
-                catch (SqlException ex) 
+                catch (SqlException ex)
                 {
                     ltError.Text = ex.Message;
                 }
@@ -389,7 +389,7 @@ namespace Lab3
                                 lblMessage.Text = "Maximum of 1 Resume Uploaded Please Delete then ReUpload!!!";        // Only allow one resume at a time to simplify data storage
 
                             }
-                            
+
                         }
                         catch (SqlException ex)
                         {
@@ -422,7 +422,7 @@ namespace Lab3
 
                 SqlCommand command = new SqlCommand(queryResume, dbConnection);
 
-                
+
 
                 command.Parameters.Add("@studentId", SqlDbType.Int).Value = Int32.Parse(GetStudentIDFromSql());
 
@@ -432,7 +432,7 @@ namespace Lab3
 
                 int intCheck = Convert.ToInt32(check);
 
-                if(intCheck == 0)
+                if (intCheck == 0)
                 {
                     dbConnection.Close();
                     return true;
@@ -443,7 +443,7 @@ namespace Lab3
                     return false;
                 }
 
-                
+
             }
             catch (SqlException ex)
             {
@@ -452,9 +452,82 @@ namespace Lab3
             }
         }
 
-        protected void btnBio_Click(object sender, EventArgs e)
+        protected void BindBioData()
         {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
 
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT BIO from StudentProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void btnBio_Click1(object sender, EventArgs e)
+        {
+            //        txtBio.Visible = true;
+
+            //        var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];            // Connect to OSAG from configuration
+
+            //        using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))        // Create SQL Connection from Lab3
+            //        {
+            //            try
+            //            {
+            //                ltError.Text = "";                                      // Clear errors in case there is old error 
+            //                dbConnection.Open();
+            //                string bio = txtBio.Text;     // Get the username of whomever is signed in from the Session variable
+
+
+
+            //                string updateAccountSql = "UPDATE StudentProfile SET BIO=@BIO WHERE Username=@userName";
+            //                SqlCommand cmd = new SqlCommand(updateAccountSql, dbConnection);
+            //                cmd.Parameters.Add("@BIO", SqlDbType.NVarChar, 2000).Value = bio;
+
+
+            //            }
+            //            catch (SqlException ex)
+            //            {
+            //                ltError.Text = ex.Message;
+            //            }
+            //            finally
+            //            {
+            //                dbConnection.Close();
+            //                dbConnection.Dispose();
+            //            }
+            //        }
+
+            //        txtBio.Visible = false;
+
+
+
+            //}
         }
     }
 }
