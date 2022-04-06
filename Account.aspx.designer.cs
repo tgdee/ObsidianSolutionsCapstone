@@ -87,40 +87,22 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.Button btnDelete;
 
         /// <summary>
-        /// lblInterests control.
+        /// dlBio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblInterests;
+        protected global::System.Web.UI.WebControls.DataList dlBio;
 
         /// <summary>
-        /// txtInterestsEdit control.
+        /// btnBio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtInterestsEdit;
-
-        /// <summary>
-        /// btnInterestsEdit control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInterestsEdit;
-
-        /// <summary>
-        /// btnInterestsSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInterestsSave;
+        protected global::System.Web.UI.WebControls.Button btnBio;
 
         /// <summary>
         /// sqltesting control.
@@ -130,6 +112,15 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource sqltesting;
+
+        /// <summary>
+        /// SqlDataSource2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource2;
 
         /// <summary>
         /// lblHeaderMessage control.

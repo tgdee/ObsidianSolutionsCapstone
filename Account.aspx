@@ -99,8 +99,23 @@ background-image:url("images/fadedbackground.png");
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Bio</div>
                 <div class="card-body">
-                  <p class="card-text">My name is John and I am a Junior SMAD major that is attending James Madison University. I am proficient in Microsoft Office and am looking for an internship for the summer.  </p>                    
-                  <a href="#" class="btn btn-light">Edit Bio</a>
+                  <p class="card-text">
+                      <asp:DataList ID="dlBio" runat="server">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>                                     
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"BIO")%>
+                                          <asp:TextBox ID="txtBio" runat="server" Text="" Visible="false" > </asp:TextBox>                            
+                                      </div>   
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                      </asp:DataList>
+                  </p>
+                    <div class="btn btn-light">
+                        <asp:Button ID="btnBio" runat="server" Text="Edit Bio" OnClick="btnBio_Click1"/>
+                    </div>
+                    <%--<a href="#" class="btn btn-light">Edit Bio</a>--%>
                 </div>
               </div>
           </div>
@@ -146,6 +161,12 @@ background-image:url("images/fadedbackground.png");
     <asp:SqlDataSource ID="sqltesting" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>"
         SelectCommand="SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName">
     </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OSAG %>"
+        SelectCommand="SELECT * FROM StudentProfile WHERE Username=@Username">
+    </asp:SqlDataSource>
+
+    
 
 
     <!--
