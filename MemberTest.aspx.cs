@@ -130,7 +130,7 @@ namespace Lab3
             try
             {
 
-                using (SqlCommand command = new SqlCommand("dbo.spMemberInformation", con) { CommandType = CommandType.StoredProcedure })  // Use stored procedure because it does not work in code
+                using (SqlCommand command = new SqlCommand("dbo.spSearchMemberInfo", con) { CommandType = CommandType.StoredProcedure })  // Use stored procedure because it does not work in code
                 {
                     command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
                     command.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
