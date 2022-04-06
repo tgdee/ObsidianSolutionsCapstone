@@ -49,10 +49,11 @@
                 <div class="collapse navbar-collapse" id="siteMasterNav">
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="MentorFeed.aspx" >Home</a>
+                        <a class="nav-link" aria-current="page" href="MemberInbox.aspx" >Inbox</a>
                         <a class="nav-link" aria-current="page" href="Student.aspx" >Student</a>
                         <a class="nav-link" aria-current="page" href="MemberTest.aspx" >Member</a>
                         <a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>
-                        <a class="nav-link" aria-current="page" href="MemberInbox.aspx" >Inbox</a>
+                        
                         <%--<a class="nav-link" aria-current="page" href="Internship.aspx" >Internship</a>
                         <a class="nav-link" aria-current="page" href="Scholarship.aspx" >Scholarship</a>--%>
                         <a class="nav-link" aria-current="page" href="MemberAccount.aspx" > My Account</a>
