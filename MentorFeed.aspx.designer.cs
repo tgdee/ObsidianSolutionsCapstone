@@ -11,34 +11,25 @@ namespace Lab3
 {
 
 
-    public partial class SiteMaster
+    public partial class MentorFeed
     {
 
         /// <summary>
-        /// lblNope control.
+        /// lblError control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNope;
+        protected global::System.Web.UI.WebControls.Label lblError;
 
         /// <summary>
-        /// MainContent control.
+        /// lvStudentOpportunities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
-
-        /// <summary>
-        /// lblUserStat control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblUserStat;
+        protected global::System.Web.UI.WebControls.ListView lvStudentOpportunities;
     }
 }

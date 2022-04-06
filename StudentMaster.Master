@@ -54,7 +54,7 @@
                 <div class="navbar-collapse collapse">
                     <ul class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Home</a>
-                        <%--<a class="nav-link" aria-current="page" href="Inbox.aspx" >Inbox</a>--%>
+                        <a class="nav-link" aria-current="page" href="Inbox.aspx" >Inbox</a>
                         <%--<a class="nav-link" aria-current="page" href="InternshipApplication.aspx" >Internships</a>
                         <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Jobs</a>
                         <a class="nav-link" aria-current="page" href="ScholarshipApplication.aspx" >Scholarships</a>--%>

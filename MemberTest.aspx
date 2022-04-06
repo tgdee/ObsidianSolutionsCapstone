@@ -1,18 +1,87 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberTest.aspx.cs" Inherits="Lab3.MemberTest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <div class="container my-auto">
+        <div class="jumbotron border">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8">
+                    <h1 class="display-4">Member Information</h1>
+                </div>
+                <div class="col-xs-2">
+                    <%--<img class="img-thumbnail" src="/images/logo_transparent_background.jpg" />--%>
+                </div>
+            </div>
+        </div>
+        <h4 class="display-6 ">Search Member Information</h4>
+        <div class="row p-1">
+            <div class="col">
+                <label for="txtFirstNameSearch">First Name</label>
+            </div>
+            <div class="col">
+                <label for="txtLastNameSearch">Last Name</label>
+            </div>
+            <div class="col">
+                <label for="txtUserNameSearch">Username</label>
+            </div>
+            <div class="col">
+                <label for="txtEmailSearch">Email</label>
+            </div>
+        </div>
+        <div class="row p-1">
+            <div class="col">
+                <asp:TextBox ID="txtFirstNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtLastNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtUserNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+            <div class="col">
+                <asp:TextBox ID="txtEmailSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
+            </div>
+        </div>
+        
+        
+        <div class="row p-1 pt-2">
+            <div class="col">
+            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn btn-success"/>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <%-- <br />
     <br />
-    <br />
-    <h1>Member Information</h1>
+    <h1>Member Information</h1>--%>
     <h4>
         <asp:Literal ID="ltError" runat="server"></asp:Literal>
     </h4>
 
-    <asp:GridView ID="gvMember" runat="server" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
+    <div class="container my-auto">
+    <table class="table caption-top">
+    <caption class="pt-5">List of students</caption>
+
+    <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
         </Columns>
     </asp:GridView>
+        </table>
+        <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
+        </div>
 
 
 
