@@ -256,14 +256,14 @@ namespace Lab3
                             }
                             else
                             {
-                                lblMessage.Text = "No Resume Available";
+                                lblMessage.Text = "No Resume Available For Selected Student";
                             }
                         }
 
                     }
                     else
                     {
-                        lblMessage.Text = "No Resume Available";
+                        lblMessage.Text = "No Resume Available For Selected Student";
                     }
 
                     reader.Close();
