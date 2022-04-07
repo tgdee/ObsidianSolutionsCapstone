@@ -83,7 +83,7 @@
             <asp:CommandField ShowSelectButton="true" />
             <asp:TemplateField>
                 <ItemTemplate>
-                    <asp:LinkButton ID="lbViewPDF" runat="server" ValidationGroup="ViewPDF"  OnClick="lbViewPDF_Click">Resume</asp:LinkButton>
+                    <asp:LinkButton ID="lbViewPDF" runat="server" ValidationGroup="ViewPDF"  OnClick="lbViewPDF_Click">View Resume</asp:LinkButton>
                     <%--<script type="text/javascript">
                         function openInNewTab() {
                             window.document.forms[0].target = '_blank';

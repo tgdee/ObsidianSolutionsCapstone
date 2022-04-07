@@ -7,9 +7,7 @@
     <h1>Mentoring Program Assignment Page</h1>
     <h4><asp:Label ID="lblError" runat="server"></asp:Label></h4>
     <h4>Using the emails of Students and Members not currently assigned a mentorship, please assign a Member as Mentor to a Student</h4>
-    <h5>Also check out the over the top sql I used to get these emails on the MentoringProgram page. And they say its rare to use Full Outer Join maybe it could
-        have been done in a different way but it wouldn't have been as funny.
-    </h5>
+    
     <br />
     <asp:Table ID="Table1" runat="server">
         <asp:TableRow>

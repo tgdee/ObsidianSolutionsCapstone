@@ -186,8 +186,23 @@ namespace Lab3
 
                     }
 
+                    string insertStringOSAG = "USE OSAG" + " INSERT INTO StudentProfile (Username)" +" VALUES (@Username)";
 
-                    txtFirstName.Text = "";
+                    using (SqlCommand cmd1 = new SqlCommand(insertStringOSAG, dbConnection))         // Create SqlCommand for insertStringOSAG
+                    {
+                        SqlCommand queryCmd1 = new SqlCommand(queryLastUserId, dbConnection);
+                        int userID2 = (Int32)queryCmd1.ExecuteScalar();
+                        string userName1 = txtUserName.Text;
+
+                        cmd1.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = userName1;     //Add the values into the OSAG Student Profile 
+
+                        cmd1.ExecuteNonQuery();
+
+                    }
+
+
+
+                        txtFirstName.Text = "";
                     txtLastName.Text = "";
                     txtUserName.Text = "";
                     txtEmail.Text = "";
@@ -211,6 +226,7 @@ namespace Lab3
                     dbConnection.Close();
                     dbConnection.Dispose();
                 }
+
             }
             
         }
