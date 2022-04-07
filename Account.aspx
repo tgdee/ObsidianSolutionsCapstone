@@ -94,7 +94,7 @@ background-image:url("images/fadedbackground.png");
                 </div>
               </div></div>
           </div>
-    <!--CEO Statement-->
+    <!--Student Bio-->
           <div class="col">
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Bio</div>
@@ -124,16 +124,39 @@ background-image:url("images/fadedbackground.png");
               <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Skills</div>
                 <div class="card-body">
-                  <p class="card-text">Microsoft Word</p>
-                  <p class="card-text">Microsoft Excel</p>
-                  <p class="card-text">Microsoft Powerpoint</p>
+                  <p class="card-text">
+                      <asp:DataList runat="server" ID="dlInterests">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"Interests")%>
+
+                                      </div>
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                      </asp:DataList>
+                  </p>
+
                   <a href="#" class="btn btn-light">Edit Skills</a>
                 </div>
               </div>
             <div class="card border-secondary mb-3" style="max-width: 18rem;">
                 <div class="card-header fw-bold">Interests</div>
                 <div class="card-body">
-                  <p class="card-text">Reading, writing, sports, painting, and sky diving.</p>
+                  <p class="card-text">
+                       <asp:DataList runat="server" ID="dlSkills">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"Skills")%>
+
+                                      </div>
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                      </asp:DataList>
+                  </p>
                   <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>

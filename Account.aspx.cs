@@ -32,6 +32,8 @@ namespace Lab3
                 BindEmailDataList();
                 BindInfoDataList();
                 BindBioData();
+                BindSkillData();
+                BindInterestData();
 
             }
 
@@ -475,6 +477,82 @@ namespace Lab3
                     {
                         dlBio.DataSource = dt;
                         dlBio.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindInterestData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlInterests.DataSource = null;
+                    dlInterests.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Interests from StudentProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterests.DataSource = dt;
+                        dlInterests.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindSkillData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Skills from StudentProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
                     }
                 }
                 catch (SqlException ex)
