@@ -15,6 +15,15 @@ namespace Lab3
     {
 
         /// <summary>
+        /// btnChangePicture control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnChangePicture;
+
+        /// <summary>
         /// dlStudentName control.
         /// </summary>
         /// <remarks>
@@ -96,13 +105,40 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DataList dlBio;
 
         /// <summary>
-        /// btnBio control.
+        /// txtBioEdit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBio;
+        protected global::System.Web.UI.WebControls.TextBox txtBioEdit;
+
+        /// <summary>
+        /// btnBioEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBioEdit;
+
+        /// <summary>
+        /// btnBioSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBioSave;
+
+        /// <summary>
+        /// btnBioCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnBioCancel;
 
         /// <summary>
         /// dlInterests control.
@@ -114,6 +150,42 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DataList dlInterests;
 
         /// <summary>
+        /// txtInterestsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtInterestsEdit;
+
+        /// <summary>
+        /// btnInterestsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInterestsEdit;
+
+        /// <summary>
+        /// btnInterestsSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInterestsSave;
+
+        /// <summary>
+        /// btnInterestsCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnInterestsCancel;
+
+        /// <summary>
         /// dlSkills control.
         /// </summary>
         /// <remarks>
@@ -121,6 +193,42 @@ namespace Lab3
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList dlSkills;
+
+        /// <summary>
+        /// txtSkillsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSkillsEdit;
+
+        /// <summary>
+        /// btnSkillsEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSkillsEdit;
+
+        /// <summary>
+        /// btnSkillsSave control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSkillsSave;
+
+        /// <summary>
+        /// btnSkillsCancel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnSkillsCancel;
 
         /// <summary>
         /// sqltesting control.

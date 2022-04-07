@@ -29,7 +29,6 @@ background-image:url("images/fadedbackground.png");
 
 
 <body class="background">
- 
     <div class="container">
         <div class="row">
     <!--logo-->
@@ -49,6 +48,7 @@ background-image:url("images/fadedbackground.png");
                 <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
+                      <asp:Button ID="btnChangePicture" runat="server" Text="Change Picture" CssClass="profileButton"/>
                       <asp:DataList ID="dlStudentName" runat="server">
                           <ItemTemplate>
                               <table>
@@ -96,33 +96,34 @@ background-image:url("images/fadedbackground.png");
           </div>
     <!--Student Bio-->
           <div class="col">
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card border-secondary mb-3" >
                 <div class="card-header fw-bold">Bio</div>
                 <div class="card-body">
                   <p class="card-text">
-                      <asp:DataList ID="dlBio" runat="server">
+                      <asp:DataList ID="dlBio" runat="server" >
                           <ItemTemplate>
                               <table>
                                   <tr>                                     
-                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"BIO")%>
-                                          <asp:TextBox ID="txtBio" runat="server" Text="" Visible="false" > </asp:TextBox>                            
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"BIO")%>                       
                                       </div>   
                                   </tr>
                               </table>
                           </ItemTemplate>
+                          
                       </asp:DataList>
-                  </p>
-                    <div class="btn btn-light">
-                        <asp:Button ID="btnBio" runat="server" Text="Edit Bio" OnClick="btnBio_Click1"/>
-                    </div>
-                    <%--<a href="#" class="btn btn-light">Edit Bio</a>--%>
+                      <asp:TextBox ID="txtBioEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnBioEdit" CssClass="profileButton" runat="server" Text="Edit Bio" OnClick="btnBioEdit_Click" />
+                      <asp:Button ID="btnBioSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnBioSave_Click" />
+                      <asp:Button ID="btnBioCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnBioCancel_Click" />
+                   </p> 
                 </div>
               </div>
-          </div>
     <!--Interests/skills  -->
-          <div class="col">
-              <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header fw-bold">Skills</div>
+          <div class="row">
+              <div class="col">
+              <div class="card border-secondary mb-3" style="width: 19rem;">
+                <div class="card-header fw-bold">Interests</div>
                 <div class="card-body">
                   <p class="card-text">
                       <asp:DataList runat="server" ID="dlInterests">
@@ -136,13 +137,18 @@ background-image:url("images/fadedbackground.png");
                               </table>
                           </ItemTemplate>
                       </asp:DataList>
+                      <asp:TextBox ID="txtInterestsEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnInterestsEdit" CssClass="profileButton" runat="server" Text="Edit Interests" OnClick="btnInterestsEdit_Click"/>
+                      <asp:Button ID="btnInterestsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnInterestsSave_Click"/>
+                      <asp:Button ID="btnInterestsCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnInterestsCancel_Click" />
                   </p>
-
-                  <a href="#" class="btn btn-light">Edit Skills</a>
                 </div>
               </div>
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header fw-bold">Interests</div>
+                  </div>
+              <div class ="col">
+            <div class="card border-secondary mb-3" style="width: 19rem;">
+                <div class="card-header fw-bold">Skills</div>
                 <div class="card-body">
                   <p class="card-text">
                        <asp:DataList runat="server" ID="dlSkills">
@@ -156,11 +162,17 @@ background-image:url("images/fadedbackground.png");
                               </table>
                           </ItemTemplate>
                       </asp:DataList>
+                      <asp:TextBox ID="txtSkillsEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnSkillsEdit" CssClass="profileButton" runat="server" Text="Edit Interests" OnClick="btnSkillsEdit_Click"/>
+                      <asp:Button ID="btnSkillsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnSkillsSave_Click"/>
+                      <asp:Button ID="btnSkillsCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnSkillsCancel_Click"/>
                   </p>
-                  <a href="#" class="btn btn-light">Edit Interests</a>
                 </div>
               </div>
           </div>
+              </div>
+            </div>
 <!--dont touch closing tags-->
 </div>
 </div>
