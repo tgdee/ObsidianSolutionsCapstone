@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row">
                 <!--create profile/ profile photo placeholder-->
-                <div class="col">
+                <div class="col" style="column-width: 18rem;">
                         <div class="card border-secondary">
                             <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                             <div class="card-body">
