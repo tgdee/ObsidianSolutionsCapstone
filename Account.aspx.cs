@@ -574,7 +574,43 @@ namespace Lab3
             btnBioSave.Visible = true;
             dlBio.Visible = false;
             btnBioCancel.Visible = true;
-            
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select BIO FROM StudentProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                        txtBioEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+
         }
 
         protected void btnBioSave_Click(object sender, EventArgs e)
@@ -643,6 +679,42 @@ namespace Lab3
             btnInterestsSave.Visible = true;
             dlInterests.Visible = false;
             btnInterestsCancel.Visible = true;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlInterests.DataSource = null;
+                    dlInterests.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select Interests FROM StudentProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterests.DataSource = dt;
+                        dlInterests.DataBind();
+                        txtInterestsEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
         }
 
         protected void btnInterestsSave_Click(object sender, EventArgs e)
@@ -709,6 +781,44 @@ namespace Lab3
             btnSkillsSave.Visible = true;
             dlSkills.Visible = false;
             btnSkillsCancel.Visible = true;
+
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select Skills FROM StudentProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
+                        txtSkillsEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+
         }
 
         protected void btnSkillsSave_Click(object sender, EventArgs e)
