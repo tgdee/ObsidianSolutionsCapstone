@@ -1,6 +1,10 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="JobOpportunities.aspx.cs" Inherits="Lab3.JobOpportunities" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <br />
     <br />
     <h1>Feed </h1>
@@ -86,30 +90,25 @@
                                                         <input class="form-control" id="myInput" type="text" placeholder="Search..">
                                                         <br>
                                                         <table class="table table-striped" id="tbl1" runat="server">
-                                                            <tr runat="server">
-                                                                <th runat="server">Title</th>
-                                                                <th runat="server">Info</th>
-                                                                <%--<th runat="server">Type</th>
-                                                                <th runat="server">City</th>
-                                                                <th runat="server">State</th>
-                                                                <th runat="server">Industry</th>
-                                                                <th runat="server">Deadline</th>
-                                                                <th runat="server">Link</th>
-                                                                <th runat="server">Employer</th>--%>
-                                                            </tr>
-                                                            <tr runat="server" id="itemPlaceholder" />
+                                                            <tbody id="myTable">
+                                                                <tr runat="server">
+                                                                    <th runat="server">Title</th>
+                                                                    <th runat="server">Info</th>
+                                                                </tr>
+                                                                <tr runat="server" id="itemPlaceholder" />
+                                                            </tbody>
                                                         </table>
-                                                        <script>
-                                                            $(document).ready(function () {
-                                                                $("#myInput").on("keyup", function () {
-                                                                    var value = $(this).val().toLowerCase();
-                                                                    $("#myTable tr").filter(function () {
-                                                                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                                                                    });
-                                                                });
-                                                            });
-                                                        </script>
                                                     </div>
+                                                    <script>
+                                                        $(document).ready(function(){
+                                                          $("#myInput").on("keyup", function() {
+                                                            var value = $(this).val().toLowerCase();
+                                                            $("#myTable tr").filter(function() {
+                                                              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                                                            });
+                                                          });
+                                                        });
+                                                    </script>
                                                 </div>
                                             </div>
                                         </div>
@@ -129,27 +128,6 @@
                                     <td>
                                         <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
                                     </td>
-                                    <%--<td>
-                                        <asp:Label ID="lblType" runat="server" Text='<%# Eval("Type") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblCity" runat="server" Text='<%# Eval("City") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblState" runat="server" Text='<%# Eval("State") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblIndustry" runat="server" Text='<%# Eval("Industry") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblDeadLine" runat="server" Text='<%# Eval("Deadline") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblLink" runat="server" Text='<%# Eval("Link") %>' />
-                                    </td>
-                                    <td>
-                                        <asp:Label ID="lblCorpName" runat="server" Text='<%# Eval("CorpName") %>' />
-                                    </td>--%>
                                 </tr>
                             </ItemTemplate>
                         </asp:ListView>

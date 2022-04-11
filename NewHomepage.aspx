@@ -35,17 +35,9 @@
 
                     </div>
                </div>
-                
          </div>
          </div>
- 
-
             </div>
-
-      
-    
-
-
     <script src="Scripts/jquery-3.6.0.slim.js"></script>
     <script src="Scripts/popper.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
