@@ -124,5 +124,53 @@ namespace Lab3
 
 
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                using (SqlCommand command = new SqlCommand("dbo.spSearchMemberInfo", con) { CommandType = CommandType.StoredProcedure })  // Use stored procedure because it does not work in code
+                {
+                    command.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstNameSearch.Text;
+                    command.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastNameSearch.Text;
+                    command.Parameters.Add("@Username", SqlDbType.NVarChar, 20).Value = txtUserNameSearch.Text;
+                    command.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmailSearch.Text;
+                    
+
+                    con.Open();
+
+
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);               // Fill a data adapter with data gathered from stored procedure
+
+                    DataTable dt = new DataTable();
+
+                    dataAdapter.Fill(dt);                                                   // Fill a datatable
+
+                    gvMember.DataSource = dt;                                              // Set the gridview's datasource to the filled datatable
+
+                    gvMember.DataBind();                                                   // Bind the gridviews datasource data with the displayed gridview
+
+                }
+
+
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
+
+
+
+            for (int i = 0; i < gvMember.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells on every row
+            {
+                gvMember.HeaderRow.Cells[2].Visible = false;
+                gvMember.Rows[i].Cells[2].Visible = false;
+            }
+
+            con.Close();
+
+        }
     }
-}
+
+ }

@@ -1,0 +1,8 @@
+﻿body {
+}
+.border-warning {
+    border: 5px outset !important;
+    background-color: #f8efff !important;
+    border-color: indigo !important;
+    color: rebeccapurple !important;
+}

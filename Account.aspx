@@ -29,7 +29,6 @@ background-image:url("images/fadedbackground.png");
 
 
 <body class="background">
- 
     <div class="container">
         <div class="row">
     <!--logo-->
@@ -49,6 +48,7 @@ background-image:url("images/fadedbackground.png");
                 <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                 <div class="card-body">
                   <h5 class="card-title">
+                      <asp:Button ID="btnChangePicture" runat="server" Text="Change Picture" CssClass="profileButton"/>
                       <asp:DataList ID="dlStudentName" runat="server">
                           <ItemTemplate>
                               <table>
@@ -94,35 +94,85 @@ background-image:url("images/fadedbackground.png");
                 </div>
               </div></div>
           </div>
-    <!--CEO Statement-->
+    <!--Student Bio-->
           <div class="col">
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+            <div class="card border-secondary mb-3" >
                 <div class="card-header fw-bold">Bio</div>
                 <div class="card-body">
-                  <p class="card-text">My name is John and I am a Junior SMAD major that is attending James Madison University. I am proficient in Microsoft Office and am looking for an internship for the summer.  </p>                    
-                  <a href="#" class="btn btn-light">Edit Bio</a>
+                  <p class="card-text">
+                      <asp:DataList ID="dlBio" runat="server" >
+                          <ItemTemplate>
+                              <table>
+                                  <tr>                                     
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"BIO")%>                       
+                                      </div>   
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                          
+                      </asp:DataList>
+                      <asp:TextBox ID="txtBioEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnBioEdit" CssClass="profileButton" runat="server" Text="Edit Bio" OnClick="btnBioEdit_Click" />
+                      <asp:Button ID="btnBioSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnBioSave_Click" />
+                      <asp:Button ID="btnBioCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnBioCancel_Click" />
+                   </p> 
                 </div>
               </div>
-          </div>
     <!--Interests/skills  -->
-          <div class="col">
-              <div class="card border-secondary mb-3" style="max-width: 18rem;">
-                <div class="card-header fw-bold">Skills</div>
-                <div class="card-body">
-                  <p class="card-text">Microsoft Word</p>
-                  <p class="card-text">Microsoft Excel</p>
-                  <p class="card-text">Microsoft Powerpoint</p>
-                  <a href="#" class="btn btn-light">Edit Skills</a>
-                </div>
-              </div>
-            <div class="card border-secondary mb-3" style="max-width: 18rem;">
+          <div class="row">
+              <div class="col">
+              <div class="card border-secondary mb-3" style="width: 19rem;">
                 <div class="card-header fw-bold">Interests</div>
                 <div class="card-body">
-                  <p class="card-text">Reading, writing, sports, painting, and sky diving.</p>
-                  <a href="#" class="btn btn-light">Edit Interests</a>
+                  <p class="card-text">
+                      <asp:DataList runat="server" ID="dlInterests">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"Interests")%>
+
+                                      </div>
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                      </asp:DataList>
+                      <asp:TextBox ID="txtInterestsEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnInterestsEdit" CssClass="profileButton" runat="server" Text="Edit Interests" OnClick="btnInterestsEdit_Click"/>
+                      <asp:Button ID="btnInterestsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnInterestsSave_Click"/>
+                      <asp:Button ID="btnInterestsCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnInterestsCancel_Click" />
+                  </p>
+                </div>
+              </div>
+                  </div>
+              <div class ="col">
+            <div class="card border-secondary mb-3" style="width: 19rem;">
+                <div class="card-header fw-bold">Skills</div>
+                <div class="card-body">
+                  <p class="card-text">
+                       <asp:DataList runat="server" ID="dlSkills">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-text fw-normal">  <%# DataBinder.Eval(Container.DataItem,"Skills")%>
+
+                                      </div>
+                                  </tr>
+                              </table>
+                          </ItemTemplate>
+                      </asp:DataList>
+                      <asp:TextBox ID="txtSkillsEdit" runat="server" Visible="false"></asp:TextBox>
+                      <br />
+                      <asp:Button ID="btnSkillsEdit" CssClass="profileButton" runat="server" Text="Edit Interests" OnClick="btnSkillsEdit_Click"/>
+                      <asp:Button ID="btnSkillsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnSkillsSave_Click"/>
+                      <asp:Button ID="btnSkillsCancel" CssClass="profileButton" runat="server" Text ="Cancel" Visible="false" OnClick="btnSkillsCancel_Click"/>
+                  </p>
                 </div>
               </div>
           </div>
+              </div>
+            </div>
 <!--dont touch closing tags-->
 </div>
 </div>
@@ -140,6 +190,12 @@ background-image:url("images/fadedbackground.png");
     <asp:SqlDataSource ID="sqltesting" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>"
         SelectCommand="SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName">
     </asp:SqlDataSource>
+
+    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:OSAG %>"
+        SelectCommand="SELECT * FROM StudentProfile WHERE Username=@Username">
+    </asp:SqlDataSource>
+
+    
 
 
     <!--
