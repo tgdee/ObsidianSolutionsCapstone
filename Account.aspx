@@ -106,7 +106,7 @@
                                     </ItemTemplate>
 
                                 </asp:DataList>
-                                <asp:TextBox ID="txtBioEdit" runat="server" Visible="false"></asp:TextBox>
+                                <asp:TextBox ID="txtBioEdit" runat="server" Visible="false" CssClass="form-control" MaxLength="2000"></asp:TextBox>
                                 <br />
                                 <asp:Button ID="btnBioEdit" CssClass="profileButton" runat="server" Text="Edit Bio" OnClick="btnBioEdit_Click" />
                                 <asp:Button ID="btnBioSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnBioSave_Click" />
@@ -132,7 +132,7 @@
                                                 </table>
                                             </ItemTemplate>
                                         </asp:DataList>
-                                        <asp:TextBox ID="txtInterestsEdit" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtInterestsEdit" runat="server" Visible="false" CssClass="form-control" MaxLength="500"></asp:TextBox>
                                         <br />
                                         <asp:Button ID="btnInterestsEdit" CssClass="profileButton" runat="server" Text="Edit Interests" OnClick="btnInterestsEdit_Click" />
                                         <asp:Button ID="btnInterestsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnInterestsSave_Click" />
@@ -157,7 +157,7 @@
                                                 </table>
                                             </ItemTemplate>
                                         </asp:DataList>
-                                        <asp:TextBox ID="txtSkillsEdit" runat="server" Visible="false"></asp:TextBox>
+                                        <asp:TextBox ID="txtSkillsEdit" runat="server" Visible="false" CssClass="form-control" MaxLength="500"></asp:TextBox>
                                         <br />
                                         <asp:Button ID="btnSkillsEdit" CssClass="profileButton" runat="server" Text="Edit Skills" OnClick="btnSkillsEdit_Click" />
                                         <asp:Button ID="btnSkillsSave" CssClass="profileButton" runat="server" Text="Save" Visible="false" OnClick="btnSkillsSave_Click" />
