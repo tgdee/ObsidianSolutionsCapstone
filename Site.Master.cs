@@ -26,10 +26,10 @@ namespace Lab3
                 Response.Redirect("~/LoginChoice.aspx");
             }
 
-            if ((string)Session["AccountType"] == "Student") //Restrictions on the Alum Account and Member viewing Student pages
+            if ((string)Session["AccountType"] == "Member") //Restrictions on the Alum Account and Member viewing Student pages
             {
-                Session["CannotDo"] = "You are not a Member";
-                Response.Redirect("~/StudentHomepage.aspx");
+                Session["CannotDo"] = "You are not a Student";
+                Response.Redirect("~/LoginChoice.aspx");
 
             }
             //else if ((string)Session["AccountType"] == "Admin") // Restrictions on the Admin account viewing student pages

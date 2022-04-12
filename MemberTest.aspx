@@ -145,7 +145,7 @@
 
     </asp:GridView>
     <br />--%>
-    <br />
+    <%--<br />
     <br />
     <br />
     <asp:Label ID="lblMemberFirstName" runat="server" Text="First Name:"></asp:Label>
@@ -170,7 +170,7 @@
     <br />
 
 
-    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />
+    <asp:Button ID="btnAddRow" runat="server" Text="Add New Row" CssClass="btn btn-primary" OnClick="btnAddRow_Click" />--%>
 
 
     <asp:SqlDataSource ID="MemberDataSource" runat="server" ConnectionString="<%$ ConnectionStrings:Lab3ConnectionString %>" DeleteCommand="DELETE FROM [Member] WHERE [MemberID] = @MemberID" InsertCommand="INSERT INTO [Member] ([FirstName], [LastName], [Email]) VALUES (@FirstName, @LastName, @Email)" SelectCommand="SELECT * FROM [Member] ORDER BY [MemberID]" UpdateCommand="UPDATE [Member] SET [FirstName] = @FirstName, [LastName] = @LastName, [Email] = @Email WHERE [MemberID] = @MemberID">

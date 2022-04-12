@@ -31,7 +31,7 @@ namespace Lab3
 
                 if ((string)Session["AccountType"] == "Alum") //Restrictions on the Alum Account viewing Student pages
                 {
-                    Session["CannotDo"] = "You are not a Student";
+                    Session["CannotDo"] = "You are not a Member";
                     Response.Redirect("~/Homepage.aspx");
 
                 }
