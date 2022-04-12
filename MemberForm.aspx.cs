@@ -7,14 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace Lab3
 {
-    public partial class Inbox : System.Web.UI.Page
+    public partial class MemberForm : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected void button_Click(object sender, EventArgs e)
+        protected void btnSendMessage_Click(object sender, EventArgs e)
         {
 
         }
