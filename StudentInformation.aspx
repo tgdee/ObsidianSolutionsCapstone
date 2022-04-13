@@ -23,7 +23,18 @@
                                 <div class="mt-3">
                                     <div class="row">
                                         <div class="col">
-                                            <asp:Label ID="lblFullName" class="h4 align-items-center" runat="server" Text="Name Name"></asp:Label>
+                                            <asp:DataList ID="dlName" runat="server">
+                                                <ItemTemplate>
+                                                    <table>
+                                                        <tr>
+                                                            <div class="fw-normal fw-bold" >
+                                                                 <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
+                                                            </div>
+                                                        </tr>
+                                                    </table>
+                                                </ItemTemplate>
+                                            </asp:DataList>
+                                            
                                         </div>
                                     </div>
                                     <div class="row">
@@ -85,7 +96,8 @@
     
     <br />
     <br />
-    <asp:Table ID="Table1" runat="server">
+    <asp:Literal ID="ltError" runat="server"></asp:Literal>
+    <%--<asp:Table ID="Table1" runat="server">
         <asp:TableHeaderRow>
             <asp:TableHeaderCell>
                 <asp:Label ID="lblHeader" runat="server"></asp:Label>
@@ -156,6 +168,6 @@
                 <asp:Button ID="btnReturn" runat="server" Text="<- Previous Page" ValidationGroup="ReturnValidation" OnClick="btnReturn_Click" />
             </asp:TableCell>
         </asp:TableRow>
-    </asp:Table>
+    </asp:Table>--%>
 
 </asp:Content>

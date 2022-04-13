@@ -22,6 +22,8 @@
                 background-size: cover;
                 background-image: url("images/fadedbackground.png");
             }
+
+         
         </style>
 
     </head>
@@ -31,7 +33,7 @@
         <div class="container">
             <div class="row">
                 <!--create profile/ profile photo placeholder-->
-                <div class="col" style="column-width: 18rem;">
+                <div class="col">
                         <div class="card border-secondary">
                             <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
                             <div class="card-body">
@@ -167,6 +169,7 @@
                             </div>
                         </div>
                     </div>
+                     </div>
                 </div>
                 <!--dont touch closing tags-->
             </div>
