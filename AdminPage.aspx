@@ -1,16 +1,19 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPage.aspx.cs" Inherits="Lab3.AdminPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AdminPage.aspx.cs" Inherits="Lab3.AdminPage" %>
 
-<!DOCTYPE html>
+<%--<!DOCTYPE html>--%>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<%--<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<body>--%>
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+<%--    <form id="form1" runat="server">--%>
+        <div class="container my-auto">
+        <table class="table caption-top">
+        <caption class="pt-5">List of applications</caption>
             <asp:Literal ID="ltError" Text="" runat="server"></asp:Literal>
-            <asp:GridView ID="gvApprovedAccounts" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
+            <asp:GridView ID="gvApprovedAccounts" class="table table-hover table-bordered table-condensed" runat="server" Width="500px" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="UserID" HeaderText="UserID" Visible="false" ReadOnly="True" SortExpression="UserID" />
@@ -21,13 +24,14 @@
                     <asp:BoundField DataField="AccountState" HeaderText="AccountState" SortExpression="AccountState" />
                 </Columns>
             </asp:GridView>
+            </table>
             <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
             <br />
             <asp:Button ID="btnApprove" runat="server" Text="Approve/Unapprove" OnClick="btnApprove_Click" Visible="false" />
         </div>
         <br />
         <asp:Button ID="btnReturn" runat="server" Text="Previous Page <-" OnClick="btnReturn_Click" />
-    </form>
+   <%-- </form>--%>
     <asp:SqlDataSource ID="UserAccounts" runat="server" ConnectionString="<%$ ConnectionStrings:AUTHConnectionString %>" DeleteCommand="DELETE FROM [UserLogin] WHERE [UserID] = @UserID" InsertCommand="INSERT INTO [UserLogin] ([FirstName], [LastName], [Username], [AccountType]) VALUES (@FirstName, @LastName, @Username, @AccountType)" SelectCommand="SELECT * FROM [UserLogin] ORDER BY [UserID]" UpdateCommand="UPDATE [UserLogin] SET [FirstName] = @FirstName, [LastName] = @LastName, [Username] = @Username, [AccountType] = @AccountType WHERE [UserID] = @UserID">
         <DeleteParameters>
             <asp:Parameter Name="UserID" Type="Int32" />
@@ -46,7 +50,8 @@
             <asp:Parameter Name="UserID" Type="Int32" />
         </UpdateParameters>
     </asp:SqlDataSource>
-</body>
+<%--</body>
 
-</html>
+</html>--%>
+    </asp:Content>
 
