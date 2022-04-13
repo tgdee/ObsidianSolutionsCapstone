@@ -27,6 +27,23 @@
                 </div>
             </div>
         </div>
+        <asp:ListView ID="Table1" runat="server">
+            <LayoutTemplate>
+                <div class="container-fluid">
+                    <div class="column">
+                        <div class="col align-self-start">
+                            One of three columns
+                        </div>
+                        <div class="col align-self-start">
+                            One of three columns
+                        </div>
+                        <div class="col align-self-start">
+                            One of three columns
+                        </div>
+                    </div>
+                </div>
+            </LayoutTemplate>
+        </asp:ListView>
     </form>
 </body>
 </html>

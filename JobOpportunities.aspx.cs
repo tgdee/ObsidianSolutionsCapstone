@@ -29,7 +29,20 @@ namespace Lab3
                 da.Fill(ds, "table");
                 lvStudentOpportunities.DataSource = ds.Tables["table"];
                 lvStudentOpportunities.DataBind();
+
                 con.Close();
+
+                con.Open();
+                string cmd2 = "SELECT[AnnouncementID],[Title],[Body],[TimePost],[MemberUsername] FROM [Announcement]";
+                SqlDataAdapter da2 = new SqlDataAdapter(cmd2, con);
+
+                DataSet ds2 = new DataSet();
+
+                da2.Fill(ds2, "table");
+                lvAnnouncements.DataSource = ds2.Tables["table"];
+                lvAnnouncements.DataBind();
+                con.Close();
+
             }
         }
 
