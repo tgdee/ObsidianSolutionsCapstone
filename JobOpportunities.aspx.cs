@@ -15,7 +15,7 @@ namespace Lab3
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DisplayGvOpportunity();
+            DisplayGvOpportunity();
             // Upon first page load add all the data from the Opportunity table into the ListView
             if (!Page.IsPostBack)
             {
@@ -29,65 +29,67 @@ namespace Lab3
                 da.Fill(ds, "table");
                 lvStudentOpportunities.DataSource = ds.Tables["table"];
                 lvStudentOpportunities.DataBind();
+
                 con.Close();
             }
         }
 
-        //protected void DisplayGvOpportunity()
-        //{
 
-        //    try
-        //    {
-        //        string searchQuery = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
+        protected void DisplayGvOpportunity()
+        {
 
-        //        SqlCommand cmd = new SqlCommand(searchQuery, con);
+            try
+            {
+                string searchQuery = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
 
-        //        con.Open();
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
 
-        //        cmd.ExecuteNonQuery();
+                con.Open();
 
-        //        SqlDataAdapter da = new SqlDataAdapter
-        //        {
-        //            SelectCommand = cmd
-        //        };
+                cmd.ExecuteNonQuery();
 
-        //        DataSet ds = new DataSet();
-        //        da.Fill(ds, "OpportunityID");
-        //        da.Fill(ds, "Title");
-        //        da.Fill(ds, "Info");
-        //        //da.Fill(ds, "Type");
-        //        //da.Fill(ds, "City");
-        //        //da.Fill(ds, "State");
-        //        //da.Fill(ds, "Industry");
-        //        //da.Fill(ds, "Deadline");
-        //        //da.Fill(ds, "Link");
-        //        //da.Fill(ds, "CorpName");
+                SqlDataAdapter da = new SqlDataAdapter
+                {
+                    SelectCommand = cmd
+                };
 
-
-        //        ViewState["ds"] = ds;
-
-        //        gvOpportunity.DataSource = ds;
-
-        //        gvOpportunity.DataBind();
+                DataSet ds = new DataSet();
+                da.Fill(ds, "OpportunityID");
+                da.Fill(ds, "AnnounceTitle");
+                da.Fill(ds, "AnnounceBody");
+                da.Fill(ds, "AnnounceTimePost");
+                da.Fill(ds, "MemberUsername");
+                //da.Fill(ds, "State");
+                //da.Fill(ds, "Industry");
+                //da.Fill(ds, "Deadline");
+                //da.Fill(ds, "Link");
+                //da.Fill(ds, "CorpName");
 
 
-        //        //Check if gridview member has rows and if it does hide the member id header and row cells and change headers
+                ViewState["ds"] = ds;
 
-        //        for (int i = 0; i < gvOpportunity.Rows.Count; i++)
-        //        {
-        //            gvOpportunity.HeaderRow.Cells[1].Visible = false;
-        //            gvOpportunity.Rows[i].Cells[1].Visible = false;
-        //            //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
-        //        }
+                gvOpportunity.DataSource = ds;
 
-        //        con.Close();
+                gvOpportunity.DataBind();
 
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        lblMessage.Text = ex.Message;
-        //    }
-        //}
+
+                //Check if gridview member has rows and if it does hide the member id header and row cells and change headers
+
+                for (int i = 0; i < gvOpportunity.Rows.Count; i++)
+                {
+                    gvOpportunity.HeaderRow.Cells[2].Visible = false;
+                    gvOpportunity.Rows[i].Cells[2].Visible = false;
+                    //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
+                }
+
+                con.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
+        }
 
         //protected void btnSearch_Click(object sender, EventArgs e)
         //{

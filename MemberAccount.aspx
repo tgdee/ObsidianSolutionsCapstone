@@ -8,13 +8,14 @@
     <br />
     <br />
     <br />
+    <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
     <asp:Table runat="server">
         <asp:TableHeaderRow>
             <asp:TableHeaderCell HorizontalAlign="Center">
                 <asp:Label ID="lblHeaderMessage" runat="server" Text="Account Information" Font-Underline="true"></asp:Label>
                 <br />
                 <br />
-                <asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>
+                <%--<asp:Literal ID="ltError" runat="server" Text=""></asp:Literal>--%>
             </asp:TableHeaderCell>
         </asp:TableHeaderRow>
         <asp:TableRow>
