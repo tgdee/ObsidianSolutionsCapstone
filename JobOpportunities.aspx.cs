@@ -15,7 +15,7 @@ namespace Lab3
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DisplayGvOpportunity();
+            DisplayGvOpportunity();
             // Upon first page load add all the data from the Opportunity table into the ListView
             if (!Page.IsPostBack)
             {
@@ -31,77 +31,65 @@ namespace Lab3
                 lvStudentOpportunities.DataBind();
 
                 con.Close();
-
-                con.Open();
-                string sqlcmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
-                SqlDataAdapter daa = new SqlDataAdapter(sqlcmd, con);
-
-                DataSet dataset = new DataSet();
-
-                daa.Fill(dataset, "table");
-                lvAnnouncements.DataSource = dataset.Tables["table"];
-                lvAnnouncements.DataBind();
-                con.Close();
-
             }
         }
 
 
-        //protected void DisplayGvOpportunity()
-        //{
+        protected void DisplayGvOpportunity()
+        {
 
-        //    try
-        //    {
-        //        string searchQuery = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
+            try
+            {
+                string searchQuery = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
 
-        //        SqlCommand cmd = new SqlCommand(searchQuery, con);
+                SqlCommand cmd = new SqlCommand(searchQuery, con);
 
-        //        con.Open();
+                con.Open();
 
-        //        cmd.ExecuteNonQuery();
+                cmd.ExecuteNonQuery();
 
-        //        SqlDataAdapter da = new SqlDataAdapter
-        //        {
-        //            SelectCommand = cmd
-        //        };
+                SqlDataAdapter da = new SqlDataAdapter
+                {
+                    SelectCommand = cmd
+                };
 
-        //        DataSet ds = new DataSet();
-        //        da.Fill(ds, "OpportunityID");
-        //        da.Fill(ds, "Title");
-        //        da.Fill(ds, "Info");
-        //        //da.Fill(ds, "Type");
-        //        //da.Fill(ds, "City");
-        //        //da.Fill(ds, "State");
-        //        //da.Fill(ds, "Industry");
-        //        //da.Fill(ds, "Deadline");
-        //        //da.Fill(ds, "Link");
-        //        //da.Fill(ds, "CorpName");
-
-
-        //        ViewState["ds"] = ds;
-
-        //        gvOpportunity.DataSource = ds;
-
-        //        gvOpportunity.DataBind();
+                DataSet ds = new DataSet();
+                da.Fill(ds, "OpportunityID");
+                da.Fill(ds, "AnnounceTitle");
+                da.Fill(ds, "AnnounceBody");
+                da.Fill(ds, "AnnounceTimePost");
+                da.Fill(ds, "MemberUsername");
+                //da.Fill(ds, "State");
+                //da.Fill(ds, "Industry");
+                //da.Fill(ds, "Deadline");
+                //da.Fill(ds, "Link");
+                //da.Fill(ds, "CorpName");
 
 
-        //        //Check if gridview member has rows and if it does hide the member id header and row cells and change headers
+                ViewState["ds"] = ds;
 
-        //        for (int i = 0; i < gvOpportunity.Rows.Count; i++)
-        //        {
-        //            gvOpportunity.HeaderRow.Cells[1].Visible = false;
-        //            gvOpportunity.Rows[i].Cells[1].Visible = false;
-        //            //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
-        //        }
+                gvOpportunity.DataSource = ds;
 
-        //        con.Close();
+                gvOpportunity.DataBind();
 
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        lblMessage.Text = ex.Message;
-        //    }
-        //}
+
+                //Check if gridview member has rows and if it does hide the member id header and row cells and change headers
+
+                for (int i = 0; i < gvOpportunity.Rows.Count; i++)
+                {
+                    gvOpportunity.HeaderRow.Cells[2].Visible = false;
+                    gvOpportunity.Rows[i].Cells[2].Visible = false;
+                    //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
+                }
+
+                con.Close();
+
+            }
+            catch (SqlException ex)
+            {
+                lblMessage.Text = ex.Message;
+            }
+        }
 
         //protected void btnSearch_Click(object sender, EventArgs e)
         //{

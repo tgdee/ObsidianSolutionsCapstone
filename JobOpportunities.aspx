@@ -60,22 +60,20 @@
             <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn btn-success"/>
             </div>
         </div>--%>    
-    <%--<div = class="container my-auto">
+    <div class="container my-auto">
         <table class="table caption-top" "table-light">
             <asp:GridView ID="gvOpportunity" runat="server"
                 class="table table-hover table table-bordered table-condensed"
-                OnSelectedIndexChanged="gvOpportunity_SelectedIndexChanged"
                 Width="1085px" EmptyDataText="Job Record Not Found">
                 <Columns>
-                    <asp:CommandField selecttext="Apply" ShowSelectButton="true"/>
-                    <asp:BoundField HeaderText="Job Title" DataField="Title" SortExpression="Title"/>
-                    <asp:BoundField HeaderText="Information" DataField="Link" SortExpression="Link"/>
+                    <asp:BoundField HeaderText="Title" DataField="AnnounceTitle" SortExpression="Title"/>
+                    <asp:BoundField HeaderText="Information" DataField="AnnounceBody" SortExpression="Link"/>
                 </Columns>
             </asp:GridView>
         </table>
             <div class="p-3"></div>
             <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
-        </div>--%>
+        </div>
     <asp:ListView ID="lvStudentOpportunities" runat="server">
         <LayoutTemplate>
             <div class="container-fluid">
@@ -120,39 +118,6 @@
                 </Fields>
             </asp:DataPager>
         </LayoutTemplate>
-    </asp:ListView>
-    <asp:ListView ID="lvAnnouncements" runat="server">
-        <LayoutTemplate>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 col-sm-auto col-md-auto">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4>Announcements</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
-                                    <table class="table table-striped" id="tbl1" runat="server">
-                                        <tbody id="myTable">
-                                            <tr runat="server">
-                                                <th runat="server">Title</th>
-                                                <th runat="server">Body</th>
-                                            </tr>
-                                            <tr runat="server" id="itemPlaceholder" />
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <asp:DataPager ID="DataPager1" runat="server">
-                <Fields>
-                    <asp:NumericPagerField />
-                </Fields>
-            </asp:DataPager>
-        </LayoutTemplate>
         <ItemTemplate>
             <tr runat="server">
                 <td>
@@ -160,12 +125,6 @@
                 </td>
                 <td>
                     <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="lblAnnouncementTitle" runat="server" Text='<%# Eval("AnnounceTitle") %>' />
-                </td>
-                <td>
-                    <asp:Label ID="lblBody" runat="server" Text='<%# Eval("AnnounceBody") %>' />
                 </td>
             </tr>
         </ItemTemplate>

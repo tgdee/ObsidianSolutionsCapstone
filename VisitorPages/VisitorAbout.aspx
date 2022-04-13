@@ -9,7 +9,6 @@
                 <br />
                 <br />
                 <h1>About Us</h1>
-                <asp:Image ID="Image1" runat="server" Height="500" Width="700" ImageUrl="~/images/ole-school-alumni-group.png" />
                 <br />
                 <br />
                 <h2>Meet The Team</h2>
