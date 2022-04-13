@@ -8,9 +8,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div>
+        <div class="container my-auto">
+        <table class="table caption-top">
+        <caption class="pt-5">List of applications</caption>
             <asp:Literal ID="ltError" Text="" runat="server"></asp:Literal>
-            <asp:GridView ID="gvApprovedAccounts" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
+            <asp:GridView ID="gvApprovedAccounts" class="table table-hover table-bordered table-condensed" runat="server" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="UserID" HeaderText="UserID" Visible="false" ReadOnly="True" SortExpression="UserID" />
@@ -21,6 +23,7 @@
                     <asp:BoundField DataField="AccountState" HeaderText="AccountState" SortExpression="AccountState" />
                 </Columns>
             </asp:GridView>
+            </table>
             <asp:Label ID="lblSelected" runat="server" Text=""></asp:Label>
             <br />
             <asp:Button ID="btnApprove" runat="server" Text="Approve/Unapprove" OnClick="btnApprove_Click" Visible="false" />
