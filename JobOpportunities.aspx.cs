@@ -29,9 +29,23 @@ namespace Lab3
                 da.Fill(ds, "table");
                 lvStudentOpportunities.DataSource = ds.Tables["table"];
                 lvStudentOpportunities.DataBind();
+
                 con.Close();
+
+                con.Open();
+                string sqlcmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
+                SqlDataAdapter daa = new SqlDataAdapter(sqlcmd, con);
+
+                DataSet dataset = new DataSet();
+
+                daa.Fill(dataset, "table");
+                lvAnnouncements.DataSource = dataset.Tables["table"];
+                lvAnnouncements.DataBind();
+                con.Close();
+
             }
         }
+
 
         //protected void DisplayGvOpportunity()
         //{
