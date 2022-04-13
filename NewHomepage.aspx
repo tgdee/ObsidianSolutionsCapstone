@@ -16,7 +16,7 @@
             
                 <asp:Panel runat="server" HorizontalAlign="Center">     
                     <h1> Ole School Alumni Group</h1>
-                    <asp:Image ID="Image1" runat="server" Height="500" Width="800px" ImageUrl="images/JMU_Campus.jpg"/>
+                    <asp:Image ID="Image1" runat="server" Height="500" Width="800px" ImageUrl="~/images/ole-school-alumni-group.png"/>
                     <br />
                     <br />        
                 </asp:Panel>
