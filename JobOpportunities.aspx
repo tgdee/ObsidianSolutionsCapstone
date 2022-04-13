@@ -156,16 +156,16 @@
         <ItemTemplate>
             <tr runat="server">
                 <td>
-                    <asp:Label ID="Label1" runat="server" Text='<%# Eval("Title") %>' />
+                    <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
                 </td>
                 <td>
                     <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
+                    <asp:Label ID="lblAnnouncementTitle" runat="server" Text='<%# Eval("AnnounceTitle") %>' />
                 </td>
                 <td>
-                    <asp:Label ID="lblBody" runat="server" Text='<%# Eval("Body") %>' />
+                    <asp:Label ID="lblBody" runat="server" Text='<%# Eval("AnnounceBody") %>' />
                 </td>
             </tr>
         </ItemTemplate>

@@ -33,18 +33,19 @@ namespace Lab3
                 con.Close();
 
                 con.Open();
-                string cmd2 = "SELECT[AnnouncementID],[Title],[Body],[TimePost],[MemberUsername] FROM [Announcement]";
-                SqlDataAdapter da2 = new SqlDataAdapter(cmd2, con);
+                string sqlcmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
+                SqlDataAdapter daa = new SqlDataAdapter(sqlcmd, con);
 
-                DataSet ds2 = new DataSet();
+                DataSet dataset = new DataSet();
 
-                da2.Fill(ds2, "table");
-                lvAnnouncements.DataSource = ds2.Tables["table"];
+                daa.Fill(dataset, "table");
+                lvAnnouncements.DataSource = dataset.Tables["table"];
                 lvAnnouncements.DataBind();
                 con.Close();
 
             }
         }
+
 
         //protected void DisplayGvOpportunity()
         //{
