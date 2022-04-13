@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="logo">
-                    <img src="images/logo.png" class="rounded float-left" class="img-fluid" alt="Responsive image">
+                    <img src="images/logo_transparent_background.jpg" class="rounded float-left" class="img-fluid" alt="Responsive image">
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
                 <div class="text-white pl-5">
                     <div class="col-6 pl-5">
                         <div class="pl-5">
-                            <h1 class="display-1 pl-5">
+                            <h1 class="display-1 pl-5" >
                                 <p class="welcome pl-5">Login  Portal</p>
                             </h1>
                         </div>
