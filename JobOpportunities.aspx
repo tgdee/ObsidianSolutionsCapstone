@@ -87,7 +87,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
-                                                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                                        <input class="form-control" id="myInput" type="text" placeholder="Search.." onkeyup="function()">
                                                         <br>
                                                         <table class="table table-striped" id="tbl1" runat="server">
                                                             <tbody id="myTable">
