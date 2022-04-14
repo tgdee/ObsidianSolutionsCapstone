@@ -21,7 +21,7 @@ namespace Lab3
 
         protected void btnSendMessage_Click(object sender, EventArgs e)
         {
-            String messageQuery = "INSERT INTO Announcement (Title, Body, TimePost, Username) VALUES (@Title, @Body, @Time, @Username)";
+            String messageQuery = "INSERT INTO Announcement (AnnounceTitle, AnnounceBody, AnnounceTimePost, MemberUsername) VALUES (@Title, @Body, @Time, @Username)";
             
             using (SqlCommand command = new SqlCommand(messageQuery, con))
             {
