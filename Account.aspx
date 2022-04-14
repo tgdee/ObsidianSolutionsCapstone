@@ -30,28 +30,31 @@
 
 
     <body class="background">
-        <div class="container">
-            <div class="row">
-                <!--create profile/ profile photo placeholder-->
-                <div class="col">
-                        <div class="card border-secondary">
-                            <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image">
-                            <div class="card-body">
-                                <h5 class="card-title">
-                                    <asp:Button ID="btnChangePicture" runat="server" Text="Change Picture" CssClass="profileButton" />
-                                    <asp:DataList ID="dlStudentName" runat="server">
-                                        <ItemTemplate>
-                                            <table>
-                                                <tr>
-                                                    <div class="card-title fw-bold">Name:</div>
-                                                    <div class="fw-normal">
-                                                        <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
-                                                    </div>
-                                                </tr>
-                                            </table>
-                                        </ItemTemplate>
-                                    </asp:DataList>
-                                </h5>
+    <div class="container">
+        <div class="row">
+    <!--create profile/ profile photo placeholder-->
+          <div class="col">
+            <div> <div class="card border-secondary" style="width: 18rem;">
+                <br />
+                <asp:Image ID="profilePic" CssClass="card-img-top rounded-circle img-thumbnail" Height="275px" Width="400px" runat="server" />
+               <!-- <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image" /> -->
+                <div class="card-body">
+                  <h5 class="card-title">
+                      <!-- IMG UPLOADING WIP -->
+                      <asp:FileUpload ID="FileUpload2" CssClass="profileButtonFile" runat="server" />
+                      <asp:Button ID="btnChangePicture" runat="server" OnClick="btnChangePicture_Click" Text="Change Picture" CssClass="profileButton"/>
+                      <asp:Label ID="lblUploadMess" runat="server" Text=""></asp:Label>
+                      <asp:DataList ID="dlStudentName" runat="server">
+                          <ItemTemplate>
+                              <table>
+                                  <tr>
+                                      <div class="card-title fw-bold">Name:</div><div class="fw-normal"> <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
+                                      </div>
+                                  </tr>
+                              </table> 
+                          </ItemTemplate>
+                      </asp:DataList>
+                  </h5>
                                 <p class="card-text">
                                     <asp:DataList ID="dlStudentEmail" runat="server">
                                         <ItemTemplate>
