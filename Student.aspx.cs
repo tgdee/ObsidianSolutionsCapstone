@@ -205,7 +205,9 @@ namespace Lab3
             GridViewRow row = gvStudent.SelectedRow;        // Makes a gridview row equal to the selected row of gvStudent
 
             string studentId = row.Cells[2].Text;        // Stores the student id in Session for use on Student Information page
+            //string studentUserName = row.Cells[3].Text;
 
+            //Session["StudentUserName"] = studentUserName;
             Session["StudentID"] = studentId;
 
             Response.Redirect("~/StudentInformation.aspx");         // Redirect to student information page
