@@ -24,24 +24,6 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.DataList dlName;
 
         /// <summary>
-        /// lblMajor control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMajor;
-
-        /// <summary>
-        /// lblHome control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblHome;
-
-        /// <summary>
         /// btnFavorite control.
         /// </summary>
         /// <remarks>
@@ -78,13 +60,31 @@ namespace Lab3
         protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
 
         /// <summary>
-        /// lblCeoStmt control.
+        /// dlBio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCeoStmt;
+        protected global::System.Web.UI.WebControls.DataList dlBio;
+
+        /// <summary>
+        /// dlInterest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlInterest;
+
+        /// <summary>
+        /// dlSkills control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList dlSkills;
 
         /// <summary>
         /// ltError control.

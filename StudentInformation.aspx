@@ -27,26 +27,30 @@
                                                 <ItemTemplate>
                                                     <table>
                                                         <tr>
-                                                            <div class="fw-normal fw-bold" >
-                                                                 <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>
+                                                            <div class="fw-normal fw-bold mb-1" style="font-size:x-large;align-content:center">
+                                                                 <%# DataBinder.Eval(Container.DataItem, "FirstName") %> <%# DataBinder.Eval(Container.DataItem, "LastName") %>                                                               
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div class="fw-normal fw-bold mb-1" style="font-size:x-large;align-content:center">
+                                                                 <asp:Label ID="LblMajor" class="text-secondary mb-1" runat="server" Text="Major:" Font-Size="Medium"></asp:Label>
+                                                                 <%# DataBinder.Eval(Container.DataItem, "Major") %>
+                                                            </div>
+                                                        </tr>
+                                                        <tr>
+                                                            <div>
+                                                             <asp:Label ID="LblEmail" class="text-secondary mb-1" runat="server" Text="Email:" Font-Size="Medium"></asp:Label>
+                                                             <%# DataBinder.Eval(Container.DataItem, "Email") %>
                                                             </div>
                                                         </tr>
                                                     </table>
                                                 </ItemTemplate>
+                                                
                                             </asp:DataList>
                                             
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <asp:Label ID="lblMajor" class="text-secondary mb-1" runat="server" Text="Major"></asp:Label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <asp:Label ID="lblHome" class="text-muted font-size-sm" runat="server" Text="San Francisco, CA"></asp:Label>
-                                        </div>
-                                    </div>
+                                    </div>                               
+                                </div>
                                     <div class="row">
                                         <div class="col">
                                             <asp:Button ID="btnFavorite" class="btn btn-primary" runat="server" Text="Favorite" />
@@ -55,7 +59,6 @@
                                             <asp:Button ID="btnMessage" class="btn btn-outline-primary" runat="server" Text="Message" />
                                         </div>
                                     </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -78,16 +81,67 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card mb-3">
-                        <div class="card-header">
-                            CEO Statement
-                        </div>
+                        <div class="card-header">Bio</div>
                         <div class="card-body">
                             <p class="card-text">
-                                <asp:Label ID="lblCeoStmt" runat="server" Text="(CEO STATEMENT HERE)"></asp:Label>
+                                <asp:DataList runat="server" ID="dlBio">
+                                    <ItemTemplate>
+                                        <table>
+                                            <tr>
+                                                <div class="card-text fw-normal">
+                                                 <%# DataBinder.Eval(Container.DataItem, "BIO") %>
+                                                </div>
+                                            </tr>
+                                        </table>
+                                    </ItemTemplate>
+                                </asp:DataList>
                             </p>
                         </div>
                     </div>
+                    <div class="row justify-content-center">                 
+                        <div class="card mb-3" style="width:23rem">
+                            <div class="card-header">Interests</div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <asp:DataList runat="server" ID="dlInterest">
+                                        <ItemTemplate>
+                                            <table>
+                                                <tr>
+                                                    <div class="card-text fw-normal">
+                                                         <%# DataBinder.Eval(Container.DataItem, "Interests") %>
+                                                    </div>
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:DataList>                                   
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card mb-3" style="width:23rem">
+                            <div class="card-header">Skills</div>
+                            <div class="card-body">
+                                <p class="card-text">
+                                    <asp:DataList runat="server" ID="dlSkills">
+                                        <ItemTemplate>
+                                            <table>
+                                                <tr>
+                                                    <div class="card-text fw-normal">
+                                                         <%# DataBinder.Eval(Container.DataItem, "Skills") %>
+                                                    </div>
+                                                </tr>
+                                            </table>
+                                        </ItemTemplate>
+                                    </asp:DataList>    
+                                </p>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
+               
+                    
+
+                
             </div>
 
         </div>
