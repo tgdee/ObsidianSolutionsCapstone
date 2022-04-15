@@ -34,7 +34,7 @@ height:auto;}
 background-attachment:scroll;
 background-position: center center;
 background-size: cover;
-background-image:url("images/ole-school-alumni-group.png");
+background-image:url("images/fadedbackground.png");
 margin-bottom: 0px;
 }
  
