@@ -882,9 +882,9 @@ namespace Lab3
          protected void btnChangePicture_Click(object sender, EventArgs e)
         {
             // PROFILE IMAGES WIP
-            if (FileUpload2.PostedFile != null)
+            if (FileUpload3.PostedFile != null)
             {
-                string strpath = Path.GetExtension(FileUpload2.PostedFile.FileName);
+                string strpath = Path.GetExtension(FileUpload3.PostedFile.FileName);
                 if (strpath != ".jpg" && strpath != ".png" && strpath != ".jpeg")
                 {
                     lblUploadMess.Text = "Only Image Files Allowed";
@@ -895,8 +895,8 @@ namespace Lab3
                     lblUploadMess.Text = "Profile Image Saved!";
                     lblUploadMess.ForeColor = Color.Green;
 
-                    string fileimg = Path.GetFileName(FileUpload2.PostedFile.FileName);
-                    FileUpload2.SaveAs(Server.MapPath("~/UserImages/") + fileimg);
+                    string fileimg = Path.GetFileName(FileUpload3.PostedFile.FileName);
+                    FileUpload3.SaveAs(Server.MapPath("~/UserImages/") + fileimg);
 
                     SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
@@ -905,7 +905,7 @@ namespace Lab3
 
                     using (SqlCommand sqlcomm = new SqlCommand(insertString, dbConnection))
                     {
-                        sqlcomm.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload2.FileName.ToString();
+                        sqlcomm.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload3.FileName.ToString();
                         sqlcomm.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = "~/UserImages/" + fileimg;
                         sqlcomm.Parameters.Add("@StudentID", SqlDbType.Int).Value = GetStudentIDFromSql();
                         sqlcomm.ExecuteNonQuery();
