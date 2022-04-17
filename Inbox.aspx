@@ -158,7 +158,7 @@
                         </table>
                     </div>
                     <!--email form-->
-                    <div class="col">
+                    <%--<div class="col">
                         <div class="mb-3">
                             <label for="exampleFormControlInput1" class="form-label"><b>Email address</b></label>
                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
@@ -168,7 +168,7 @@
                             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                             <button type="button" class="btn btn-secondary">Send</button>
                         </div>
-                    </div>
+                    </div>--%>
                 </div>
                 <!-- calendar row -->
                 <div class="calendarrow">

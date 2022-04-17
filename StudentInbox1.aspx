@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="StudentInbox1.aspx.cs" Inherits="Lab3.StudentInbox1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    
+    <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
         <br />
         <br />
         <br />
@@ -9,7 +9,7 @@
             <tr>
                 <td>TO</td>
                 <td>
-                    <asp:DropDownList ID="ddlTo" runat="server">
+                    <asp:DropDownList ID="ddlTo" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTo_SelectedIndexChanged">
                         <asp:ListItem Text="Hayes Eagen" Value="eagenhayes@gmail.com"></asp:ListItem>
                         <asp:ListItem Text="Charles May" Value="thecage2@aol.com"></asp:ListItem>
                         <asp:ListItem Text="Malcolm Taylor" Value="mt1tr2@comcast.net"></asp:ListItem>
@@ -23,6 +23,7 @@
                         <asp:ListItem Text="Kimberly Hundley" Value="kimberleyhundley1962@gmail.com"></asp:ListItem>
                         <asp:ListItem Text="Vonda Sparks" Value="vlsdls@aol.com"></asp:ListItem>
                         <asp:ListItem Text="George Harris" Value="gwhlll3@hotmail.com"></asp:ListItem>
+                        <asp:ListItem Text="Shane Mccarthy" Value="smccarthy1145@gmail.com"></asp:ListItem>
 
                     </asp:DropDownList>
                     <br />
@@ -45,11 +46,11 @@
             </tr>
             <tr>
                 <td></td>
-                <td><asp:Button ID="btnSend" OnClick="btnSend_Click" runat="server" Text="Send" /></td>
+                <td><asp:Button ID="btnSend" OnClick="btnSend_Click" runat="server" Text="Send" class="customPurpleButton" /></td>
             </tr>
             <tr>
                 <td></td>
-                <td><asp:Label ID="lblStatus" runat="server" /></td>
+                <td><asp:Label ID="lblStatus" runat="server" ForeColor="Green" /></td>
             </tr>
         </table>
    

@@ -12,7 +12,7 @@ namespace Lab3
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            txtTo.Text = ddlTo.SelectedValue;
+            
             txtFrom.Text = "eagenhayes@gmail.com";
         }
 
@@ -20,7 +20,7 @@ namespace Lab3
         {
             try
             {
-                MailMessage message = new MailMessage(txtTo.Text, txtFrom.Text, txtSubject.Text, txtBody.Text);
+                MailMessage message = new MailMessage(txtFrom.Text, txtTo.Text, txtSubject.Text, txtBody.Text);
                 message.IsBodyHtml = true;
                 SmtpClient client = new SmtpClient
                 {
@@ -41,9 +41,14 @@ namespace Lab3
             }
             catch(Exception ex)
             {
-                lblStatus.Text = ex.StackTrace;
+                lblStatus.Text = "An error occurred";
             }
             
+        }
+
+        protected void ddlTo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtTo.Text = ddlTo.SelectedValue;
         }
     }
 }
