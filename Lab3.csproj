@@ -192,12 +192,14 @@
     <Content Include="images\john.jpg" />
     <Content Include="images\john2.jpg" />
     <Content Include="images\kimberely-hundley.jpeg" />
+    <Content Include="images\LesaMoore.jpg" />
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="images\malcom_taylor.jpeg" />
     <Content Include="images\markel.png" />
     <Content Include="images\marvin-stith.jpeg" />
+    <Content Include="images\NoraC.png" />
     <Content Include="images\ole-school-alumni-group.png" />
     <Content Include="images\pnc.png" />
     <Content Include="images\pra.png" />
@@ -205,6 +207,7 @@
     <Content Include="images\russell-angela.jpeg" />
     <Content Include="images\schroders.png" />
     <Content Include="images\sentara.png" />
+    <Content Include="images\VondaSpark.jpg" />
     <Content Include="images\zigzags background.jpg" />
     <Content Include="Inbox.aspx" />
     <Content Include="JobOpportunities.aspx" />
@@ -220,6 +223,7 @@
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
     <Content Include="MakeAnnouncement.aspx" />
+    <Content Include="MemberChoice.aspx" />
     <Content Include="MemberInbox.aspx" />
     <Content Include="MentorFeed.aspx" />
     <Content Include="newfavicon.ico" />
@@ -557,6 +561,13 @@
     </Compile>
     <Compile Include="MakeAnnouncement.aspx.designer.cs">
       <DependentUpon>MakeAnnouncement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberChoice.aspx.cs">
+      <DependentUpon>MemberChoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberChoice.aspx.designer.cs">
+      <DependentUpon>MemberChoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberInbox.aspx.cs">
       <DependentUpon>MemberInbox.aspx</DependentUpon>
