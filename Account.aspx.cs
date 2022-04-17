@@ -878,5 +878,45 @@ namespace Lab3
             txtSkillsEdit.Text = null;
             
         }
+        
+         protected void btnChangePicture_Click(object sender, EventArgs e)
+        {
+            // PROFILE IMAGES WIP
+            if (FileUpload3.PostedFile != null)
+            {
+                string strpath = Path.GetExtension(FileUpload3.PostedFile.FileName);
+                if (strpath != ".jpg" && strpath != ".png" && strpath != ".jpeg")
+                {
+                    lblUploadMess.Text = "Only Image Files Allowed";
+                    lblUploadMess.ForeColor = Color.Red;
+                }
+                else
+                {
+                    lblUploadMess.Text = "Profile Image Saved!";
+                    lblUploadMess.ForeColor = Color.Green;
+
+                    string fileimg = Path.GetFileName(FileUpload3.PostedFile.FileName);
+                    FileUpload3.SaveAs(Server.MapPath("~/UserImages/") + fileimg);
+
+                    SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+                    string insertString = "INSERT INTO Profile (FileName, FileLocation, StudentID) VALUES (@fileName, @fileLocation, @StudentID)";
+                    dbConnection.Open();
+
+                    using (SqlCommand sqlcomm = new SqlCommand(insertString, dbConnection))
+                    {
+                        sqlcomm.Parameters.Add("@fileName", SqlDbType.NVarChar, 50).Value = FileUpload3.FileName.ToString();
+                        sqlcomm.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = "~/UserImages/" + fileimg;
+                        sqlcomm.Parameters.Add("@StudentID", SqlDbType.Int).Value = GetStudentIDFromSql();
+                        sqlcomm.ExecuteNonQuery();
+                    }
+                    profilePic.ImageUrl = ("~/UserImages/" + fileimg);
+                }
+            }
+            else
+            {
+                lblUploadMess.Text = "Error";
+            }
+        }
     }
 }

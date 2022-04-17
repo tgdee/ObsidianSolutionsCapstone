@@ -53,5 +53,10 @@ namespace Lab3
             Response.Redirect("LoginChoice.aspx");
         }
 
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Response.Redirect("LoginChoice.aspx");
+        }
     }
 }
