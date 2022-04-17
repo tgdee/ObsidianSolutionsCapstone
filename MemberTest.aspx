@@ -6,14 +6,14 @@
         <div class="jumbotron border">
             <div class="row">
                 <div class="col-xs-offset-2 col-xs-8">
-                    <h1 class="display-4">Member Information</h1>
+                    <h1 class="display-4">Mentor Information</h1>
                 </div>
                 <div class="col-xs-2">
                     <%--<img class="img-thumbnail" src="/images/logo_transparent_background.jpg" />--%>
                 </div>
             </div>
         </div>
-        <h4 class="display-6 ">Search Member Information</h4>
+        <h4 class="display-6 ">Search Mentor Information</h4>
         <div class="row p-1">
             <div class="col">
                 <label for="txtFirstNameSearch">First Name</label>
@@ -72,7 +72,7 @@
 
     <div class="container my-auto">
     <table class="table caption-top">
-    <caption class="pt-5">List of students</caption>
+    <caption class="pt-5">List of Mentors</caption>
 
     <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
         <Columns>
