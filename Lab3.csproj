@@ -225,6 +225,7 @@
     <Content Include="MakeAnnouncement.aspx" />
     <Content Include="MemberChoice.aspx" />
     <Content Include="MemberInbox.aspx" />
+    <Content Include="MemberInbox1.aspx" />
     <Content Include="MentorFeed.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
@@ -361,6 +362,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="StudentInbox1.aspx" />
     <Content Include="VisitorPages\VisitorAbout.aspx" />
     <Content Include="VisitorPages\VisitorApply.aspx" />
     <Content Include="VisitorPages\VisitorEngagement.aspx" />
@@ -576,6 +578,13 @@
     <Compile Include="MemberInbox.aspx.designer.cs">
       <DependentUpon>MemberInbox.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MemberInbox1.aspx.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberInbox1.aspx.designer.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MentorFeed.aspx.cs">
       <DependentUpon>MentorFeed.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -603,6 +612,13 @@
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.designer.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.designer.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitor.Master.cs">
       <DependentUpon>Visitor.Master</DependentUpon>

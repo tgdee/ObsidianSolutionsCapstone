@@ -38,7 +38,7 @@ namespace Lab3
         protected void DisplayGvOpportunity()
         {
             con.Open();
-            string cmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
+            string cmd = "SELECT Announcement.AnnouncementID, Announcement.AnnounceTitle, Announcement.AnnounceBody, Announcement.AnnounceTimePost, Announcement.MemberUsername, Member.FirstName + ' ' + member.LastName AS FullName FROM Announcement INNER JOIN Member ON Announcement.MemberUsername = Member.Username";
 
             SqlDataAdapter da = new SqlDataAdapter(cmd, con);
 

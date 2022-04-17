@@ -15,6 +15,7 @@ namespace Lab3
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplayGvOpportunity();
             if (!Page.IsPostBack)
             {
                 con.Open();
@@ -30,6 +31,25 @@ namespace Lab3
                 con.Close();
             }
 
+        }
+        protected void DisplayGvOpportunity()
+        {
+            con.Open();
+            string cmd = "SELECT Announcement.AnnouncementID, Announcement.AnnounceTitle, Announcement.AnnounceBody, Announcement.AnnounceTimePost, Announcement.MemberUsername, Member.FirstName + ' ' + member.LastName AS FullName FROM Announcement INNER JOIN Member ON Announcement.MemberUsername = Member.Username";
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd, con);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "table");
+            lvAnnouncements.DataSource = ds.Tables["table"];
+            lvAnnouncements.DataBind();
+            con.Close();
+        }
+
+        protected void btnNewAnnounce_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MakeAnnouncement.aspx");
         }
     }
 }
