@@ -39,9 +39,9 @@ namespace Lab3
 
         }
 
-        protected void LinkButton3_Click(object sender, EventArgs e)
+        protected void SearchLeader(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/MemberTest.aspx");
         }
     }
 }
