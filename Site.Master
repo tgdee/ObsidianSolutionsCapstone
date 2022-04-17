@@ -60,7 +60,7 @@
                             <div class="d-block">
                                 <a class="nav-link"  aria-current="page" href="AdminPage.aspx">Admin Page</a>
 
-                                <a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>
+                                <%--<a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>--%>
                             </div>
                          <% }%>
                         <%else
@@ -68,7 +68,7 @@
                            <div class="d-none">
                                 <a class="nav-link" aria-current="page" href="AdminPage.aspx">Admin Page</a>
 
-                                <a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>
+                                <%--<a class="nav-link" aria-current="page" href="MentoringProgram.aspx">Mentoring</a>--%>
                             </div>
                            <% } %>
                     </div>

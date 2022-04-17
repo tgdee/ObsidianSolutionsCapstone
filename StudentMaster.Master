@@ -55,6 +55,7 @@
                     <ul class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Home</a>
                         <a class="nav-link" aria-current="page" href="Inbox.aspx" >Inbox</a>
+                        <a class="nav-link" aria-current="page" href="StudentInbox1.aspx">Message</a>
                         <a class="nav-link" aria-current="page" href="MemberTest" >Mentors</a>
                         <%--<a class="nav-link" aria-current="page" href="InternshipApplication.aspx" >Internships</a>
                         <a class="nav-link" aria-current="page" href="JobOpportunities.aspx" >Jobs</a>

@@ -357,6 +357,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="StudentInbox1.aspx" />
     <Content Include="VisitorPages\VisitorAbout.aspx" />
     <Content Include="VisitorPages\VisitorApply.aspx" />
     <Content Include="VisitorPages\VisitorEngagement.aspx" />
@@ -592,6 +593,13 @@
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.designer.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.designer.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitor.Master.cs">
       <DependentUpon>Visitor.Master</DependentUpon>
