@@ -43,5 +43,10 @@ namespace Lab3
         {
             Response.Redirect("~/MemberTest.aspx");
         }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
