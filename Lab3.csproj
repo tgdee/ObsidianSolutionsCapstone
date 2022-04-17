@@ -221,6 +221,7 @@
     <Content Include="InternshipInformation.aspx" />
     <Content Include="MakeAnnouncement.aspx" />
     <Content Include="MemberInbox.aspx" />
+    <Content Include="MemberInbox1.aspx" />
     <Content Include="MentorFeed.aspx" />
     <Content Include="newfavicon.ico" />
     <Content Include="NewHomePage.aspx" />
@@ -565,6 +566,13 @@
     </Compile>
     <Compile Include="MemberInbox.aspx.designer.cs">
       <DependentUpon>MemberInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberInbox1.aspx.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberInbox1.aspx.designer.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
     </Compile>
     <Compile Include="MentorFeed.aspx.cs">
       <DependentUpon>MentorFeed.aspx</DependentUpon>
