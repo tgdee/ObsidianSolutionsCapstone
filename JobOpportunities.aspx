@@ -7,76 +7,48 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <br />
     <br />
-    <h1>Feed </h1>
+    <style>
+        h1 {
+            text-align: center;
+        }
+    </style>
+    <h1>Feed</h1>
     <h4>
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
-    </h4>
-<%--    <div>
-        <h4 class="display-6 ">Search Jobs</h4>
-        <div class="row p-1">
-            <div class="col">
-                <label for="txtTitleSearch">Title</label>
-            </div>
-            <div class="col">
-                <label for="txtTypeSearch">Type</label>
-            </div>
-            <div class="col">
-                <label for="txtCitySearch">City</label>
-            </div>
-            <div class="col">
-                <label for="txtStateSearch">State</label>
-            </div>
-            <div class="col">
-                <label for="txtIndustrySearch">Industry</label>
-            </div>
-            <div class="col">
-                <label for="txtCorpNameSearch">Corporate Sponsor</label>
-            </div>
-        </div>
-    </div>
-    <div class="row p-1">
-        <div class="col">
-            <asp:TextBox ID="txtTitleSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        <div class="col">
-            <asp:TextBox ID="txtTypeSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        <div class="col">
-            <asp:TextBox ID="txtCitySearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        <div class="col">
-            <asp:TextBox ID="txtStateSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        <div class="col">
-            <asp:TextBox ID="txtIndustrySearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        <div class="col">
-            <asp:TextBox ID="txtCorpNameSearch" class="form-control" runat="server" ValidationGroup="1"></asp:TextBox>
-        </div>
-        
-    </div>--%>
-    <%--<div class="row p-1 pt-2">
-            <div class="col">
-            <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" ValidationGroup="1" class="btn btn-success"/>
-            </div>
-        </div>--%>    
-    <div class="container my-auto">
-        <table class="table caption-top" "table-light">
-            <asp:GridView ID="gvOpportunity" runat="server"
-                class="table table-hover table table-bordered table-condensed"
-                Width="1085px" EmptyDataText="Job Record Not Found">
-                <Columns>
-                    <asp:BoundField HeaderText="Title" DataField="AnnounceTitle" SortExpression="Title"/>
-                    <asp:BoundField HeaderText="Information" DataField="AnnounceBody" SortExpression="Link"/>
-                </Columns>
-            </asp:GridView>
-        </table>
-            <div class="p-3"></div>
-            <asp:Label ID="lblMessage" runat="server" class="form-label"></asp:Label>
-        </div>
+    </h4>   
+    <asp:ListView ID="lvAnnouncements" runat="server">
+            <layouttemplate>
+                <tr runat="server" id="itemplaceholder" />
+            </layouttemplate>
+            <itemtemplate>
+                <div>
+                    <div class="card m-auto" style="max-width: 1000px;">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="card-body">
+                                    <tr runat="server">
+                                        <td>
+                                            <h5 class="card-title" runat="server"><asp:Label ID="lblTitle" class="card-title" runat="server" Text='<%# Eval("AnnounceTitle") %>' /></h5>
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <p class="card-text" runat="server"><asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' /></p>
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <p class="card-text" runat="server"><small class="text-muted"><asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small></p>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ItemTemplate>
+        </asp:ListView>
     <asp:ListView ID="lvStudentOpportunities" runat="server">
         <LayoutTemplate>
-            <div class="container-fluid">
+            <div class="container-fluid m-auto">
                 <div class="row">
                     <div class="col-12 col-sm-auto col-md-auto">
                         <div class="card">

@@ -19,30 +19,45 @@
                 <div class="row no-gutters">
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                            <h5 class="card-title" runat="server">AnnounceTitle</h5>
+                            <p class="card-text" runat="server">AnnounceBody</p>
+                            <p class="card-text" runat="server"><small class="text-muted">AnnounceTimePost</small></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <asp:ListView ID="Table1" runat="server">
+        <asp:ListView ID="lvAnnouncements" runat="server">
             <LayoutTemplate>
-                <div class="container-fluid">
-                    <div class="column">
-                        <div class="col align-self-start">
-                            One of three columns
-                        </div>
-                        <div class="col align-self-start">
-                            One of three columns
-                        </div>
-                        <div class="col align-self-start">
-                            One of three columns
+                <tr runat="server" id="itemPlaceholder" />
+            </LayoutTemplate>
+            <ItemTemplate>
+                <div>
+                    <div class="card m-auto" style="max-width: 1000px;">
+                        <div class="row">
+                            <div class="col-auto">
+                                <div class="card-body">
+                                    <tr runat="server">
+                                        <td>
+                                            <h5 class="card-title" runat="server"><asp:Label ID="lblTitle" class="card-title" runat="server" Text='<%# Eval("AnnounceTitle") %>' /></h5>
+                                            <br />
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <p class="card-text" runat="server"><asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' /></p>
+                                            <br />
+                                            <br />
+                                        </td>
+                                        <td>
+                                            <p class="card-text" runat="server"><small class="text-muted"><asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small></p>
+                                        </td>
+                                    </tr>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </LayoutTemplate>
+            </ItemTemplate>
         </asp:ListView>
     </form>
 </body>
