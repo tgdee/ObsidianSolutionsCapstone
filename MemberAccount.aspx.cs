@@ -5,10 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using System.IO;
 using System.Data;
 using System.Data.SqlClient;
 using System.Web.Configuration;
 using System.Drawing;
+using System.Net;
 
 namespace Lab3
 {
@@ -26,34 +28,38 @@ namespace Lab3
 
             if (!IsPostBack)
             {
-                BindDataList();
-                //DisplayResume();
+                BindNameDataList();
+                BindEmailDataList();
+                BindBioData();
+                BindSkillData();
+                BindInterestData();
+
             }
 
         }
 
-        protected void BindDataList()
+        protected void BindNameDataList()
         {
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
-            using(SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
                 try
                 {
-                    dlAccount.DataSource = null;
-                    dlAccount.DataBind();
+                    dlMemberName.DataSource = null;
+                    dlMemberName.DataBind();
                     connection.Open();
                     string username = Session["Username"].ToString();
-                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM UserLogin WHERE Username=@userName";
+                    string sqlCommandString = "SELECT FirstName, LastName FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
                     command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
-                    if(dt.Rows.Count > 0)
+                    if (dt.Rows.Count > 0)
                     {
-                        dlAccount.DataSource = dt;
-                        dlAccount.DataBind();
+                        dlMemberName.DataSource = dt;
+                        dlMemberName.DataBind();
                     }
                 }
                 catch (SqlException e)
@@ -69,47 +75,46 @@ namespace Lab3
             }
         }
 
-        //protected void DisplayResume()
-        //{
-        //    var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];        // Connect to AUTH Database where Resume table is
+        protected void BindEmailDataList()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
 
-        //    using(SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
-        //    {
-        //        try
-        //        {
-        //            string userName = Session["Username"].ToString();                                           // Find the current username of whomever is signed in
-        //            string queryResume = "SELECT FileName, FileLocation FROM Resume WHERE Username=@userName";  
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+                    dlMemberEmail.DataSource = null;
+                    dlMemberEmail.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Email FROM UserLogin WHERE Username=@userName";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlMemberEmail.DataSource = dt;
+                        dlMemberEmail.DataBind();
+                    }
+                }
+                catch (SqlException e)
+                {
+                    ltError.Text = e.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
 
-        //            dbConnection.Open();
-                    
-        //            using (SqlCommand cmd = new SqlCommand(queryResume, dbConnection))
-        //            {
-        //                cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
-
-        //                SqlDataAdapter sdr = new SqlDataAdapter(cmd);               // FIll SqlDataAdapter using SELECT query
-        //                DataTable dt = new DataTable();
-        //                sdr.Fill(dt);                                               // Fill the data table using SqlDataAdapter
-        //                gvDisplay.DataSource = dt;                                  // Set the data datasource of the gridview to the new data table
-        //                gvDisplay.DataBind();                                       // Bind the data from the datasource to the grid view
-
-
-        //            }
-        //        }
-        //        catch (SqlException ex)
-        //        {
-        //            ltError.Text = ex.Message;
-        //        }
-        //        finally
-        //        {
-        //            dbConnection.Close();
-        //            dbConnection.Dispose();
-        //        }
-        //    }
-        //}
+            }
+        }
 
         protected void btnUpdate_Click(object sender, EventArgs e)
         {
-            
+
 
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];            // Connect to AUTH from configuration
 
@@ -147,7 +152,8 @@ namespace Lab3
                     {
                         cmd.ExecuteNonQuery();
                         cmd1.ExecuteNonQuery();
-                        BindDataList();
+                        BindNameDataList();
+                        BindEmailDataList();
                     }
                     else
                     {
@@ -156,7 +162,7 @@ namespace Lab3
 
 
                 }
-                catch (SqlException ex) 
+                catch (SqlException ex)
                 {
                     ltError.Text = ex.Message;
                 }
@@ -174,54 +180,458 @@ namespace Lab3
 
         }
 
-        //protected void LinkButton1_Click(object sender, EventArgs e)
-        //{
-        //    LinkButton linkDownload = sender as LinkButton;
-        //    GridViewRow gridRow = linkDownload.NamingContainer as GridViewRow;
-        //    string downloadFile = gvDisplay.DataKeys[gridRow.RowIndex].Value.ToString();
-        //    Response.AddHeader("Content-Disposition", "attachment;filename=\"" + downloadFile + "\"");
-        //    Response.TransmitFile(Server.MapPath(downloadFile));
-        //    Response.End();
-        //}
+        protected string GetMemberIDFromSql()
+        {
+            SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
-        //protected void gvDisplay_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    GridViewRow row = gvDisplay.SelectedRow;
+            try
+            {
+                string queryString = "SELECT MemberID FROM Member WHERE Username=@userName";              // Get the Member id of the currently signed in user
+                string userName = Session["Username"].ToString();
+                dbConnection.Open();
 
-        //    lblSelected.Text = "Currently Selected Resume: " + row.Cells[2].Text + ".";     // Notify the user which row is currently selected
-        //}
+                string memberId = "";
 
-        //protected void btnDelete_Click(object sender, EventArgs e)
-        //{
-        //    GridViewRow row = gvDisplay.SelectedRow;
+                using (SqlCommand cmd = new SqlCommand(queryString, dbConnection))
+                {
 
-        //    var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];
+                    cmd.Parameters.Add("@userName", SqlDbType.NVarChar, 20).Value = userName;
+                    memberId = cmd.ExecuteScalar().ToString();
+                }
 
-        //    using (SqlConnection dbConnection = new SqlConnection(connectionFromConfiguration.ConnectionString))
-        //    {
-        //        try
-        //        {
-        //            string deleteResume = "DELETE FROM Resume WHERE FileLocation=@fileLocation";
-        //            dbConnection.Open();
-        //            SqlCommand cmd = new SqlCommand(deleteResume, dbConnection);
-        //            cmd.Parameters.Add("@fileLocation", SqlDbType.NVarChar, 50).Value = row.Cells[3].Text;
-        //            cmd.ExecuteNonQuery();
-        //            lblSelected.Text = "";
-        //            DisplayResume();
-        //        }
-        //        catch (SqlException ex)
-        //        {
-        //            lblSelected.Text = ex.Message;
+                return memberId;
+            }
+            catch (SqlException ex)
+            {
+                return ex.Message;
+            }
 
-        //        }
-        //        finally
-        //        {
-        //            dbConnection.Close();
-        //            dbConnection.Dispose();
-        //        }
-        //    }
-            
-                
-        //}
+        }
+
+        protected void BindBioData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT BIO from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindInterestData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlInterests.DataSource = null;
+                    dlInterests.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterests.DataSource = dt;
+                        dlInterests.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void BindSkillData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "SELECT Skills from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void btnBioEdit_Click(object sender, EventArgs e)
+        {
+            txtBioEdit.Visible = true;
+            btnBioEdit.Visible = false;
+            btnBioSave.Visible = true;
+            dlBio.Visible = false;
+            btnBioCancel.Visible = true;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select BIO FROM MemberProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                        txtBioEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+
+        }
+
+        protected void btnBioSave_Click(object sender, EventArgs e)
+        {
+
+            String newBio = txtBioEdit.Text.ToString();
+
+            txtBioEdit.Visible = false;
+            btnBioEdit.Visible = true;
+            btnBioSave.Visible = false;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "UPDATE MemberProfile SET BIO = '" + newBio + "' WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                    dlBio.Visible = true;
+                    txtBioEdit.Text = null;
+                    Response.Redirect("MemberAccount.aspx");
+                }
+
+            }
+
+        }
+
+        protected void btnBioCancel_Click(object sender, EventArgs e)
+        {
+            txtBioEdit.Visible = false;
+            btnBioEdit.Visible = true;
+            btnBioCancel.Visible = false;
+            btnBioSave.Visible = false;
+            dlBio.Visible = true;
+            txtBioEdit.Text = null;
+        }
+
+        protected void btnInterestsEdit_Click(object sender, EventArgs e)
+        {
+            txtInterestsEdit.Visible = true;
+            btnInterestsEdit.Visible = false;
+            btnInterestsSave.Visible = true;
+            dlInterests.Visible = false;
+            btnInterestsCancel.Visible = true;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlInterests.DataSource = null;
+                    dlInterests.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select Interests FROM MemberProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterests.DataSource = dt;
+                        dlInterests.DataBind();
+                        txtInterestsEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        protected void btnInterestsSave_Click(object sender, EventArgs e)
+        {
+            String newInterests = txtInterestsEdit.Text.ToString();
+
+            txtInterestsEdit.Visible = false;
+            btnInterestsEdit.Visible = true;
+            btnInterestsSave.Visible = false;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlInterests.DataSource = null;
+                    dlInterests.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "UPDATE MemberProfile SET Interests = '" + newInterests + "' WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterests.DataSource = dt;
+                        dlInterests.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                    dlInterests.Visible = true;
+                    txtInterestsEdit.Text = null;
+                    Response.Redirect("MemberAccount.aspx");
+                }
+
+            }
+        }
+
+        protected void btnInterestsCancel_Click(object sender, EventArgs e)
+        {
+            txtInterestsEdit.Visible = false;
+            btnInterestsEdit.Visible = true;
+            btnInterestsCancel.Visible = false;
+            btnInterestsSave.Visible = false;
+            dlInterests.Visible = true;
+            txtInterestsEdit.Text = null;
+        }
+
+        protected void btnSkillsEdit_Click(object sender, EventArgs e)
+        {
+            txtSkillsEdit.Visible = true;
+            btnSkillsEdit.Visible = false;
+            btnSkillsSave.Visible = true;
+            dlSkills.Visible = false;
+            btnSkillsCancel.Visible = true;
+
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "Select Skills FROM MemberProfile WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
+                        txtSkillsEdit.Text = command.ExecuteScalar().ToString();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+
+        }
+
+        protected void btnSkillsSave_Click(object sender, EventArgs e)
+        {
+            String newSkills = txtSkillsEdit.Text.ToString();
+
+            txtSkillsEdit.Visible = false;
+            btnSkillsEdit.Visible = true;
+            btnSkillsSave.Visible = false;
+
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string sqlCommandString = "UPDATE MemberProfile SET Skills = '" + newSkills + "' WHERE Username=@Username";      // Command to update data
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                    dlSkills.Visible = true;
+                    txtSkillsEdit.Text = null;
+                    Response.Redirect("MemberAccount.aspx");
+                }
+
+            }
+        }
+
+        protected void btnSkillsCancel_Click(object sender, EventArgs e)
+        {
+            txtSkillsEdit.Visible = false;
+            btnSkillsEdit.Visible = true;
+            btnSkillsCancel.Visible = false;
+            btnSkillsSave.Visible = false;
+            dlSkills.Visible = true;
+            txtSkillsEdit.Text = null;
+
+        }
     }
 }

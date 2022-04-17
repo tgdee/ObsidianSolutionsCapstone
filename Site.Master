@@ -50,6 +50,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link" aria-current="page" href="MentorFeed.aspx" >Home</a>
                         <a class="nav-link" aria-current="page" href="MemberInbox.aspx" >Inbox</a>
+                        <a class="nav-link" aria-current="page" href="MemberInbox1.aspx" >Message</a>
                         <a class="nav-link" aria-current="page" href="Student.aspx" >Students</a>                   
                         <a class="nav-link" aria-current="page" href="MemberAccount.aspx" > My Account</a>
                         <%--<a class="nav-link" aria-current="page" href="LoginChoice.aspx" >LOGOUT</a>--%>

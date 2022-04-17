@@ -73,7 +73,9 @@ namespace Lab3
             GridViewRow row = gvMember.SelectedRow;
 
             string check = row.Cells[1].Text;
+            string memberUsername = row.Cells[2].Text;
 
+            Session["memberUsername"] = memberUsername;
             Session["MemberID"] = check;
 
             Response.Redirect("~/MemberInformation.aspx");

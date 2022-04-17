@@ -1,7 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="StudentInbox1.aspx.cs" Inherits="Lab3.StudentInbox1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberInbox1.aspx.cs" Inherits="Lab3.MemberInbox1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
-    <style>
+     <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
+        <style>
          .header {
             text-align: left;
             font-size: 35px;
