@@ -41,7 +41,7 @@
                                 <!-- IMG UPLOADING WIP -->
                                 <asp:FileUpload ID="FileUpload3" CssClass="profileButtonFile" runat="server" />
                                 <%--<asp:FileUpload ID="FileUpload2" CssClass="profileButtonFile" runat="server" />--%>
-                                <asp:Button ID="btnChangePicture" runat="server" Text="Change Picture" CssClass="profileButton" />
+                                <asp:Button ID="btnChangePicture" OnClick="btnChangePicture_Click" runat="server" Text="Change Picture" CssClass="profileButton" />
                                 <asp:Label ID="lblUploadMess" runat="server" Text=""></asp:Label>
                                 <asp:DataList ID="dlMemberName" runat="server">
                                     <ItemTemplate>
