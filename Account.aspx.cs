@@ -34,7 +34,7 @@ namespace Lab3
                 BindBioData();
                 BindSkillData();
                 BindInterestData();
-                
+
                 if (Session["FileLocation"] != null)
                 {
                     profilePic.ImageUrl = "~/UserImages/FileName";
@@ -43,7 +43,8 @@ namespace Lab3
                 else
                 {
                     profilePic.ImageUrl = "~/UserImages/DefaultProfileIMG.jpg";
-                }                       
+                }
+            }
         }
 
         protected void BindNameDataList()
