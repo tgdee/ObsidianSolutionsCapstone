@@ -11,19 +11,35 @@
         h1 {
             text-align: center;
         }
+        body
+        {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+        .list1
+        {
+            float: left;
+        }
+        .list2
+        {
+            float: right;
+        }
     </style>
-    <h1>Feed</h1>
-    <h4>
-        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
-    </h4>   
-    <div>
+    <h1>Leader Feed</h1>
+    <div class="list1">
         <asp:ListView ID="lvAnnouncements" runat="server">
             <LayoutTemplate>
-                <tr runat="server" id="itemplaceholder" />
+                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
+                    <h4">Announcements</h4>
+                </div>
+                <div class="col-md-4 mb-4 pt-4 pl-3">
+                    <asp:Button ID="btnNewAnnounce" runat="server" Text="New" OnClick="btnNewAnnounce_Click" class="btn-lg btn-success" />
+                </div>
+                <tr runat="server" id="itemplaceholder"/>
             </LayoutTemplate>
             <ItemTemplate>
                 <div>
-                    <div class="card m-auto border" style="max-width: 750px;">
+                    <div class="card m-auto border" style="max-width: 550px;">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="card-body">
@@ -34,39 +50,42 @@
                                             <br />
                                         </td>
                                         <td>
-                                            <p class="card-text" runat="server"><small>
-                                                <asp:Label ID="lblMember" class="card-text" runat="server" Text='<%# Eval("FullName") %>' /></small></p>
+                                            <p class="card-text" runat="server">
+                                                <small>
+                                                    <asp:Label ID="lblMember" class="card-text" runat="server" Text='<%# Eval("FullName") %>' /></small>
+                                            </p>
                                         </td>
                                         <td>
                                             <p class="card-text" runat="server">
-                                                <asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' /></p>
+                                                <asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' />
+                                            </p>
                                             <br />
                                         </td>
                                         <td>
-                                            <p class="card-text" runat="server"><small class="text-muted">
-                                                <asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small></p>
+                                            <p class="card-text" runat="server">
+                                                <small class="text-muted">
+                                                    <asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small>
+                                            </p>
                                         </td>
                                     </tr>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
             </ItemTemplate>
         </asp:ListView>
-        <div class="col-md-4 mb-4 pt-4 pl-3">
-            <asp:Button ID="btnNewAnnounce" runat="server" Text="New" OnClick="btnNewAnnounce_Click" class="btn-lg btn-success" />
-        </div>
+    </div>
+    <div class="list2">
         <asp:ListView ID="lvStudentOpportunities" runat="server">
             <LayoutTemplate>
-                <div class="container-fluid">
+                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
+                    <h4">Current Opportunites</h4>
+                </div>
+                <div class="container-fluid" style="max-width: 550px;">
                     <div class="row">
                         <div class="col-auto">
                             <div class="card">
-                                <div class="card-header">
-                                    <h4 class="center">Browse Opportunities</h4>
-                                </div>
                                 <div class="card-body">
                                     <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
                                         <input class="form-control" id="myInput" type="text" placeholder="Search.." onkeyup="function()">
@@ -103,17 +122,22 @@
                 </asp:DataPager>
             </LayoutTemplate>
             <ItemTemplate>
-                <tr runat="server">
-                    <td>
-                        <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
-                    </td>
-                </tr>
+                <div width="600px">
+                    <tr runat="server">
+                        <td>
+                            <asp:Label ID="lblTitle" runat="server" Text='<%# Eval("Title") %>' />
+                        </td>
+                        <td>
+                            <asp:Label ID="lblInfo" runat="server" Text='<%# Eval("Info") %>' />
+                        </td>
+                    </tr>
+                </div>
             </ItemTemplate>
         </asp:ListView>
     </div>
+    <h4>
+        <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
+    </h4>
     <script src="Scripts/jquery-3.6.0.min.js"></script>
     <script src="Scripts/bootstrap.bundle.min.js"></script>
     <script src="Scripts/popper.min.js"></script>
