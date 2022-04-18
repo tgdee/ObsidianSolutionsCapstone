@@ -122,10 +122,10 @@ namespace Lab3
                     dlInterest.DataSource = null;
                     dlInterest.DataBind();
                     connection.Open();
-                    string studUserName = Session["StudentUserName"].ToString();
-                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    string memUserName = Session["memberUsername"].ToString();
+                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@userName";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
-                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = studUserName;
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
