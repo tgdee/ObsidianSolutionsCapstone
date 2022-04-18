@@ -43,6 +43,8 @@
         <div class="form-group">
             <asp:Button ID="btnSendMessage" runat="server" Text="Post" OnClick="btnSendMessage_Click" class="customPurpleButton" />
             <br />
+            <asp:Button ID="btnBack" runat="server" Text="Return to Feed" OnClick="btnBack_Click" />
+            <br />
             <asp:Label ID="lblMessage" runat="server" Font-Bold="true" ForeColor="Red"></asp:Label>
             <asp:Label ID="lblSent" runat="server" Text=""></asp:Label>
         </div>
