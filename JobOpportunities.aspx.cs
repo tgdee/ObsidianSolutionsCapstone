@@ -15,7 +15,7 @@ namespace Lab3
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
-            //DisplayGvOpportunity();
+            DisplayGvOpportunity();
             // Upon first page load add all the data from the Opportunity table into the ListView
             if (!Page.IsPostBack)
             {
@@ -31,136 +31,23 @@ namespace Lab3
                 lvStudentOpportunities.DataBind();
 
                 con.Close();
-
-                con.Open();
-                string sqlcmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
-                SqlDataAdapter daa = new SqlDataAdapter(sqlcmd, con);
-
-                DataSet dataset = new DataSet();
-
-                daa.Fill(dataset, "table");
-                lvAnnouncements.DataSource = dataset.Tables["table"];
-                lvAnnouncements.DataBind();
-                con.Close();
-
             }
         }
 
 
-        //protected void DisplayGvOpportunity()
-        //{
+        protected void DisplayGvOpportunity()
+        {
+            con.Open();
+            string cmd = "SELECT Announcement.AnnouncementID, Announcement.AnnounceTitle, Announcement.AnnounceBody, Announcement.AnnounceTimePost, Announcement.MemberUsername, Member.FirstName + ' ' + member.LastName AS FullName FROM Announcement INNER JOIN Member ON Announcement.MemberUsername = Member.Username";
 
-        //    try
-        //    {
-        //        string searchQuery = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
+            SqlDataAdapter da = new SqlDataAdapter(cmd, con);
 
-        //        SqlCommand cmd = new SqlCommand(searchQuery, con);
+            DataSet ds = new DataSet();
 
-        //        con.Open();
-
-        //        cmd.ExecuteNonQuery();
-
-        //        SqlDataAdapter da = new SqlDataAdapter
-        //        {
-        //            SelectCommand = cmd
-        //        };
-
-        //        DataSet ds = new DataSet();
-        //        da.Fill(ds, "OpportunityID");
-        //        da.Fill(ds, "Title");
-        //        da.Fill(ds, "Info");
-        //        //da.Fill(ds, "Type");
-        //        //da.Fill(ds, "City");
-        //        //da.Fill(ds, "State");
-        //        //da.Fill(ds, "Industry");
-        //        //da.Fill(ds, "Deadline");
-        //        //da.Fill(ds, "Link");
-        //        //da.Fill(ds, "CorpName");
-
-
-        //        ViewState["ds"] = ds;
-
-        //        gvOpportunity.DataSource = ds;
-
-        //        gvOpportunity.DataBind();
-
-
-        //        //Check if gridview member has rows and if it does hide the member id header and row cells and change headers
-
-        //        for (int i = 0; i < gvOpportunity.Rows.Count; i++)
-        //        {
-        //            gvOpportunity.HeaderRow.Cells[1].Visible = false;
-        //            gvOpportunity.Rows[i].Cells[1].Visible = false;
-        //            //gvOpportunity.HeaderRow.Cells[8].Text = "Company";
-        //        }
-
-        //        con.Close();
-
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        lblMessage.Text = ex.Message;
-        //    }
-        //}
-
-        //protected void btnSearch_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-
-        //        using (SqlCommand command = new SqlCommand("dbo.spSearchOpportunity", con) { CommandType = CommandType.StoredProcedure })  // Use stored procedure because it does not work in code
-        //        {
-        //            command.Parameters.Add("@Title", SqlDbType.NVarChar, 50).Value = txtTitleSearch.Text;
-        //            command.Parameters.Add("@Type", SqlDbType.NVarChar, 30).Value = txtTypeSearch.Text;
-        //            command.Parameters.Add("@City", SqlDbType.NVarChar, 20).Value = txtCitySearch.Text;
-        //            command.Parameters.Add("@State", SqlDbType.NVarChar, 2).Value = txtStateSearch.Text;
-        //            command.Parameters.Add("@Industry", SqlDbType.NVarChar, 30).Value = txtIndustrySearch.Text;
-        //            command.Parameters.Add("@CorpName", SqlDbType.NVarChar, 30).Value = txtCorpNameSearch.Text;
-
-
-
-        //            con.Open();
-
-
-        //            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);               // Fill a data adapter with data gathered from stored procedure
-
-        //            DataTable dt = new DataTable();
-
-        //            dataAdapter.Fill(dt);                                                   // Fill a datatable
-
-        //            gvOpportunity.DataSource = dt;                                              // Set the gridview's datasource to the filled datatable
-
-        //            gvOpportunity.DataBind();                                                   // Bind the gridviews datasource data with the displayed gridview
-
-        //        }
-
-
-        //    }
-        //    catch (SqlException ex)
-        //    {
-        //        lblMessage.Text = ex.Message;
-        //    }
-
-
-
-        //    for (int i = 0; i < gvOpportunity.Rows.Count; i++)       // Check if gridview member has rows and if it does hide the member id header and row cells on every row
-        //    {
-        //        gvOpportunity.HeaderRow.Cells[0].Visible = false;
-        //        gvOpportunity.Rows[i].Cells[0].Visible = false;
-        //    }
-
-        //    con.Close();
-        //}
-
-        //protected void gvOpportunity_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    GridViewRow row = gvOpportunity.SelectedRow;        // Makes a gridview row equal to the selected row of gvOpportunity
-
-        //    string opportunityId = row.Cells[1].Text;        // Stores the opportunity id in Session for use on Job Application page
-
-        //    Session["OpportunityID"] = opportunityId;
-
-        //    Response.Redirect("~/JobApplication.aspx");         // Redirect to Job Application page
-        //}
+            da.Fill(ds, "table");
+            lvAnnouncements.DataSource = ds.Tables["table"];
+            lvAnnouncements.DataBind();
+            con.Close();
+        }
     }
 }

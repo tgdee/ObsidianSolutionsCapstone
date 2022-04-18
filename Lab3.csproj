@@ -160,6 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AnnouncementLayout.aspx" />
     <Content Include="ApplicationPage.aspx" />
     <Content Include="BrowseStudentOpportunities.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -191,12 +192,14 @@
     <Content Include="images\john.jpg" />
     <Content Include="images\john2.jpg" />
     <Content Include="images\kimberely-hundley.jpeg" />
+    <Content Include="images\LesaMoore.jpg" />
     <Content Include="images\loginBackground.png" />
     <Content Include="images\logo.png" />
     <Content Include="images\logo_transparent_background.jpg" />
     <Content Include="images\malcom_taylor.jpeg" />
     <Content Include="images\markel.png" />
     <Content Include="images\marvin-stith.jpeg" />
+    <Content Include="images\NoraC.png" />
     <Content Include="images\ole-school-alumni-group.png" />
     <Content Include="images\pnc.png" />
     <Content Include="images\pra.png" />
@@ -204,7 +207,7 @@
     <Content Include="images\russell-angela.jpeg" />
     <Content Include="images\schroders.png" />
     <Content Include="images\sentara.png" />
-    <Content Include="images\stellaprofilepic.jpg" />
+    <Content Include="images\VondaSpark.jpg" />
     <Content Include="images\zigzags background.jpg" />
     <Content Include="Inbox.aspx" />
     <Content Include="JobOpportunities.aspx" />
@@ -219,8 +222,10 @@
     <Content Include="Global.asax" />
     <Content Include="CompanyInformation.aspx" />
     <Content Include="InternshipInformation.aspx" />
-    <Content Include="MemberForm.aspx" />
+    <Content Include="MakeAnnouncement.aspx" />
+    <Content Include="MemberChoice.aspx" />
     <Content Include="MemberInbox.aspx" />
+    <Content Include="MemberInbox1.aspx" />
     <Content Include="MentorFeed.aspx" />
     <Content Include="MentorSearchforStudents.aspx" />
     <Content Include="newfavicon.ico" />
@@ -358,6 +363,7 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
+    <Content Include="StudentInbox1.aspx" />
     <Content Include="VisitorPages\VisitorAbout.aspx" />
     <Content Include="VisitorPages\VisitorApply.aspx" />
     <Content Include="VisitorPages\VisitorEngagement.aspx" />
@@ -402,6 +408,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementLayout.aspx.cs">
+      <DependentUpon>AnnouncementLayout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AnnouncementLayout.aspx.designer.cs">
+      <DependentUpon>AnnouncementLayout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationPage.aspx.cs">
       <DependentUpon>ApplicationPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -545,12 +558,19 @@
     <Compile Include="InternshipInformation.aspx.designer.cs">
       <DependentUpon>InternshipInformation.aspx</DependentUpon>
     </Compile>
-    <Compile Include="MemberForm.aspx.cs">
-      <DependentUpon>MemberForm.aspx</DependentUpon>
+    <Compile Include="MakeAnnouncement.aspx.cs">
+      <DependentUpon>MakeAnnouncement.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MemberForm.aspx.designer.cs">
-      <DependentUpon>MemberForm.aspx</DependentUpon>
+    <Compile Include="MakeAnnouncement.aspx.designer.cs">
+      <DependentUpon>MakeAnnouncement.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberChoice.aspx.cs">
+      <DependentUpon>MemberChoice.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberChoice.aspx.designer.cs">
+      <DependentUpon>MemberChoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="MemberInbox.aspx.cs">
       <DependentUpon>MemberInbox.aspx</DependentUpon>
@@ -558,6 +578,13 @@
     </Compile>
     <Compile Include="MemberInbox.aspx.designer.cs">
       <DependentUpon>MemberInbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MemberInbox1.aspx.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MemberInbox1.aspx.designer.cs">
+      <DependentUpon>MemberInbox1.aspx</DependentUpon>
     </Compile>
     <Compile Include="MentorFeed.aspx.cs">
       <DependentUpon>MentorFeed.aspx</DependentUpon>
@@ -593,6 +620,13 @@
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.designer.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentInbox1.aspx.designer.cs">
+      <DependentUpon>StudentInbox1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitor.Master.cs">
       <DependentUpon>Visitor.Master</DependentUpon>
