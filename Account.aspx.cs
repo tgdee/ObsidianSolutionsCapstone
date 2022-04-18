@@ -35,10 +35,17 @@ namespace Lab3
                 BindSkillData();
                 BindInterestData();
 
-            }
-                       
-        }
+                if (Session["FileLocation"] != null)
+                {
+                    profilePic.ImageUrl = "~/UserImages/FileName";
+                }
 
+                else
+                {
+                    profilePic.ImageUrl = "~/UserImages/JMU_Campus.jpg";
+                }
+            }
+        }
         protected void BindNameDataList()
         {
             var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["AUTH"];

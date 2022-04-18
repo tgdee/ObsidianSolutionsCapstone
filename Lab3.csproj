@@ -337,7 +337,6 @@
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\5db340cf51d14.image.jpg" />
-    <Content Include="Internship.aspx" />
     <Content Include="InternshipApplication.aspx" />
     <Content Include="JobApplication.aspx" />
     <Content Include="LoginChoice.aspx" />
@@ -363,6 +362,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="StudentInbox1.aspx" />
+    <Content Include="UserImages\JMU_Campus.jpg" />
     <Content Include="VisitorPages\VisitorAbout.aspx" />
     <Content Include="VisitorPages\VisitorApply.aspx" />
     <Content Include="VisitorPages\VisitorEngagement.aspx" />
@@ -640,13 +640,6 @@
     </Compile>
     <Compile Include="Homepage.aspx.designer.cs">
       <DependentUpon>Homepage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Internship.aspx.cs">
-      <DependentUpon>Internship.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Internship.aspx.designer.cs">
-      <DependentUpon>Internship.aspx</DependentUpon>
     </Compile>
     <Compile Include="InternshipApplication.aspx.cs">
       <DependentUpon>InternshipApplication.aspx</DependentUpon>

@@ -16,22 +16,20 @@
     <body>
         <style>
             div {
-                text-align:center;
+                text-align: center;
             }
         </style>
         <div class="bg-image" style="background-image: url(/images/faded%20background.png); margin-top: 0px; background-size: cover">
-            <div class="container my-auto">
-                <div class="jumbotron">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-xs-offset-2 col-xs-8">
-                                <h1 class="display-4" style="color: #78518f">Create Announcement</h1>
-                            </div>
+            <div class="container">
+                <div class="jumbotron border">
+                    <div class="row">
+                        <div class="col-xs-offset-2 col-xs-8">
+                            <h1 class="display-4" style="color: #78518f">Create Announcement</h1>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
         <div class="form-group">
             <label for="txtSubject" class="col-form">Subject</label>
             <br />

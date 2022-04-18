@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="MemberTest.aspx.cs" Inherits="Lab3.MemberTest" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="MemberTest.aspx.cs" Inherits="Lab3.MemberTest" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="Content/bootstrap.css" rel="stylesheet" />
@@ -57,7 +57,7 @@
 
     <div class="container my-auto">
     <table class="table caption-top">
-    <caption class="pt-5">Current Mentors</caption>
+    <caption class="pt-5">Our Mentors</caption>
 
     <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
         <Columns>
