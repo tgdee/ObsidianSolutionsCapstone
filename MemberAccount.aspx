@@ -29,12 +29,12 @@
 
     <body class="background">
         <div class="container">
-            <div class="row">
+            <div class="row gutters-sm">
                 <!--create profile/ profile photo placeholder-->
-                <div class="col">
-                    <div class="card border-secondary" style="width: 18rem;">
+                <div class="col-md-4">
+                    <div class="card border-secondary" style="width: 24rem;">
                         <br />
-                        <asp:Image ID="profilePic" CssClass="card-img-top rounded-circle img-thumbnail" Height="275px" Width="400px" runat="server" />
+                        <asp:Image ID="profilePic" CssClass="card-img-top rounded-circle img-thumbnail align-content-center" Height="350px" Width="400px" runat="server" />
                         <!-- <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image" /> -->
                         <div class="card-body">
                             <h5 class="card-title">
@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <!--Member Bio-->
-                <div class="col">
+                <div class="col-md-8">
                     <div class="card border-secondary mb-3">
                         <div class="card-header fw-bold">Bio</div>
                         <div class="card-body">
@@ -98,7 +98,7 @@
                         </div>
                     </div>
                     <!--Interests/skills  -->
-                    <div class="row">
+                    <div class="row justify-content-center">
                         <div class="col">
                             <div class="card border-secondary mb-3">
                                 <div class="card-header fw-bold">Interests</div>
