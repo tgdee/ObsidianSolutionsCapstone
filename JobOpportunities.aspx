@@ -16,7 +16,7 @@
     <h4>
         <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
     </h4>   
-    <div class="col-md-6">
+    <div>
         <asp:ListView ID="lvAnnouncements" runat="server">
             <LayoutTemplate>
                 <tr runat="server" id="itemplaceholder" />
