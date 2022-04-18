@@ -18,18 +18,16 @@ namespace Lab3
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
             if (!Page.IsPostBack)
             {
-                if(Session["MemberID"] != null && Session["Username"] != null)
+                if (Session["Username"] != null)
                 {
-                    DisplayUserData();
-                }
-                else if (Session["Username"] != null)
-                {
-                    Response.Redirect("~/Homepage.aspx");
-                }
-                else
+                    BindName();
+                    BindBioData();
+                    BindInterestData();
+                    BindSkillData();
+
+                } else
                 {
                     Response.Redirect("~/LoginChoice.aspx");
                 }
@@ -37,126 +35,220 @@ namespace Lab3
             }
 
         }
-
-        protected void btnUpdate_Click(object sender, EventArgs e)
+        protected void BindName()
         {
-            try
-            {
-                SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["Lab3"];
 
-                dbConnection.Open();
-
-                using (var sqlComm = new SqlCommand("dbo.spUpdateMemberInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+                try
                 {
-                    int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());
-
-
-                    sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
-                    sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
-                    sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
-                    sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
-
-                    sqlComm.ExecuteNonQuery();
-
-                    dbConnection.Close();
-
-                    DisplayUserData();
-
-
-                }
-
-            }
-            catch (SqlException ex)
-            {
-                ltError.Text = ex.Message;
-            }
-        }
-
-        protected void DisplayUserData()
-        {
-            try
-            {
-                int selectedMemberId = Int32.Parse(Session["MemberID"].ToString());     // get the memberId frome the session variable set on member test
-
-
-                con.Open();
-
-                using (var command = new SqlCommand("dbo.spMemberInformation", con) { CommandType = CommandType.StoredProcedure })
-                {
-
-                    command.Parameters.Add("@MemberID", SqlDbType.Int).Value = selectedMemberId;
-
-                    SqlDataAdapter da = new SqlDataAdapter(command);
-
+                    dlName.DataSource = null;
+                    dlName.DataBind();
+                    connection.Open();
+                    string username = Session["Username"].ToString();
+                    string memberID = Session["MemberID"].ToString();
+                    string sqlCommandString = "SELECT FirstName, LastName, Email FROM Member WHERE MemberID=@memberID";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = username;
+                    command.Parameters.Add("@memberID", SqlDbType.Int).Value = memberID;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
-
-                    da.Fill(dt);
-
-                    if(dt.Rows.Count > 0)
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
                     {
-                        dlMemberInfo.DataSource = dt;
-                        dlMemberInfo.DataBind();
+                        dlName.DataSource = dt;
+                        dlName.DataBind();
                     }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+        }
+        protected void BindBioData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
 
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlBio.DataSource = null;
+                    dlBio.DataBind();
+                    connection.Open();
+                    string memUserName = Session["MemberUserName"].ToString();
+                    string memberID = Session["MemberID"].ToString();
+                    string sqlCommandString = "SELECT BIO from MemberProfile WHERE Username=@userName";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
+                    command.Parameters.Add("@memberID", SqlDbType.Int).Value = memberID;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlBio.DataSource = dt;
+                        dlBio.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
                 }
 
             }
-            catch (SqlException ex)
-            {
-                ltError.Text = ex.Message;
-            }
-            finally
-            {
-                con.Close();
-                con.Dispose();
-            }
-            
-
         }
 
-        protected void btnReturn_Click(object sender, EventArgs e)
+        protected void BindInterestData()
         {
-            if((string)Session["AccountType"] == "Admin")
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
+
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
             {
-                Response.Redirect("~/AdminPages/AdminMember.aspx");
-            }
-            else
-            {
-                Response.Redirect("~/MemberTest.aspx");
+                try
+                {
+
+                    dlInterest.DataSource = null;
+                    dlInterest.DataBind();
+                    connection.Open();
+                    string memUserName = Session["memberUsername"].ToString();
+                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlInterest.DataSource = dt;
+                        dlInterest.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
             }
         }
 
-      
+        protected void BindSkillData()
+        {
+            var connectionFromConfiguration = WebConfigurationManager.ConnectionStrings["OSAG"];
 
-        //protected void BindDataList()
+            using (SqlConnection connection = new SqlConnection(connectionFromConfiguration.ConnectionString))
+            {
+                try
+                {
+
+                    dlSkills.DataSource = null;
+                    dlSkills.DataBind();
+                    connection.Open();
+                    string memUserName = Session["memberUsername"].ToString();
+                    string sqlCommandString = "SELECT Skills from MemberProfile WHERE Username=@Username";      // Command to fill the data list
+                    SqlCommand command = new SqlCommand(sqlCommandString, connection);
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
+                    SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                    DataTable dt = new DataTable();
+                    dataAdapter.Fill(dt);
+                    if (dt.Rows.Count > 0)
+                    {
+                        dlSkills.DataSource = dt;
+                        dlSkills.DataBind();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    ltError.Text = ex.Message;
+                }
+                finally
+                {
+                    connection.Close();
+                    connection.Dispose();
+                }
+
+            }
+        }
+
+        //protected void btnUpdate_Click(object sender, EventArgs e)
         //{
         //    try
         //    {
         //        SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
 
-        //        using (var sqlComm = new SqlCommand("dbo.spMemberInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
+        //        dbConnection.Open();
+
+        //        using (var sqlComm = new SqlCommand("dbo.spUpdateStudentInfo", dbConnection) { CommandType = CommandType.StoredProcedure })
+        //        {
+        //            int selectedStudentId = Int32.Parse(Session["StudentID"].ToString());
+
+        //            sqlComm.Parameters.Add("@StudentID", SqlDbType.Int).Value = selectedStudentId;
+        //            sqlComm.Parameters.Add("@FirstName", SqlDbType.NVarChar, 20).Value = txtFirstName.Text;
+        //            sqlComm.Parameters.Add("@LastName", SqlDbType.NVarChar, 30).Value = txtLastName.Text;
+        //            sqlComm.Parameters.Add("@Grade", SqlDbType.NVarChar, 20).Value = txtGrade.Text;
+        //            sqlComm.Parameters.Add("@GraduationYear", SqlDbType.NVarChar, 20).Value = txtGraduationYear.Text;
+        //            sqlComm.Parameters.Add("@Major", SqlDbType.NVarChar, 20).Value = txtMajor.Text;
+        //            sqlComm.Parameters.Add("@PhoneNumber", SqlDbType.NVarChar, 10).Value = txtPhoneNumber.Text;
+        //            sqlComm.Parameters.Add("@Email", SqlDbType.NVarChar, 50).Value = txtEmail.Text;
+
+        //            sqlComm.ExecuteNonQuery();
+
+        //            dbConnection.Close();
+
+        //            BindDataList();
+        //        }
+
+        //    }
+        //    catch (SqlException ex)
+        //    {
+        //        ltError.Text = ex.Message;
+        //    }
+        //}
+
+        //protected void BindDataList()
+        //{
+        //    try
+        //    {
+
+        //        SqlConnection dbConnection = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString.ToString());
+
+        //        using (var sqlComm = new SqlCommand("dbo.spStudentInformation", dbConnection) { CommandType = CommandType.StoredProcedure })
         //        {
 
-        //            string selectedMemberId = Session["MemberID"].ToString();
-        //            int memberId = Int32.Parse(selectedMemberId);
+        //            string selectedStudentId = Session["StudentID"].ToString();
 
-
-        //            dlMemberInfo.DataSource = null;
-        //            dlMemberInfo.DataBind();
+        //            dlStudentInfo.DataSource = null;
+        //            dlStudentInfo.DataBind();
         //            dbConnection.Open();
-        //            sqlComm.Parameters.Add("@MemberID", SqlDbType.Int).Value = memberId; 
+        //            sqlComm.Parameters.Add("@StudentID", SqlDbType.Int).Value = Int32.Parse(selectedStudentId); 
 
         //            SqlDataAdapter dataAdapter = new SqlDataAdapter(sqlComm);
         //            DataTable dt = new DataTable();
         //            dataAdapter.Fill(dt);
         //            if (dt.Rows.Count > 0)
         //            {
-        //                dlMemberInfo.DataSource = dt;
-        //                dlMemberInfo.DataBind();
+        //                dlStudentInfo.DataSource = dt;
+        //                dlStudentInfo.DataBind();
         //            }
         //            else
         //            {
-        //                ltError.Text = "Member Information For this Member Does Not Exist. Please Create it on the Member Page";  // NEED TO CREATE THIS ON OTHER PAGES!!!
+        //                ltError.Text = "Student Information For this Student Does Not Exist. Please Create it on the Student Page";  // NEED TO CREATE THIS ON OTHER PAGES!!!
         //            }
 
         //            dbConnection.Close();
@@ -169,5 +261,22 @@ namespace Lab3
 
         //}
 
+        protected void btnReturn_Click(object sender, EventArgs e)
+        {
+            if ((string)Session["AccountType"] != "Admin")
+            {
+                Response.Redirect("~/LoginChoice.aspx");
+            }
+            else
+            {
+                Response.Redirect("~/Member.aspx");
+            }
+        }
+
+        protected void btnMessage_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("StudentInbox1.aspx");
+        }
     }
+
 }

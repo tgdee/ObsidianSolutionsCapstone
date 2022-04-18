@@ -41,7 +41,7 @@ namespace Lab3
                     command.ExecuteNonQuery();
 
                     con.Close();
-                    lblSent.Text = "Message Sent!";
+                    lblSent.Text = "Announcement Posted!";
                 }
                 catch (SqlException ex)
                 {

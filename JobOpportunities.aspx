@@ -23,7 +23,7 @@
             </LayoutTemplate>
             <ItemTemplate>
                 <div>
-                    <div class="card m-auto border" style="max-width: 750px;">
+                    <div class="card m-auto border" style="max-width: 600px;">
                         <div class="row">
                             <div class="col-auto">
                                 <div class="card-body">
@@ -34,17 +34,22 @@
                                             <br />
                                         </td>
                                         <td>
-                                            <p class="card-text" runat="server"><small>
-                                                <asp:Label ID="lblMember" class="card-text" runat="server" Text='<%# Eval("FullName") %>' /></small></p>
+                                            <p class="card-text" runat="server">
+                                                <small>
+                                                    <asp:Label ID="lblMember" class="card-text" runat="server" Text='<%# Eval("FullName") %>' /></small>
+                                            </p>
                                         </td>
                                         <td>
                                             <p class="card-text" runat="server">
-                                                <asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' /></p>
+                                                <asp:Label ID="lblBody" class="card-text" runat="server" Text='<%# Eval("AnnounceBody") %>' />
+                                            </p>
                                             <br />
                                         </td>
                                         <td>
-                                            <p class="card-text" runat="server"><small class="text-muted">
-                                                <asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small></p>
+                                            <p class="card-text" runat="server">
+                                                <small class="text-muted">
+                                                    <asp:Label ID="lblDate" class="card-text" runat="server" Text='<%# Eval("AnnounceTimePost") %>' /></small>
+                                            </p>
                                         </td>
                                     </tr>
                                 </div>
@@ -54,14 +59,16 @@
                 </div>
             </ItemTemplate>
         </asp:ListView>
+    </div>
+    <div>
         <asp:ListView ID="lvStudentOpportunities" runat="server">
             <LayoutTemplate>
-                <div class="container-fluid">
+                <div class="container-fluid col-md-6" style="display:inline-block; margin-right:auto">
                     <div class="row">
                         <div class="col-auto">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 style="align-content:center;">Browse Opportunities</h4>
+                                    <h4">Browse Opportunities</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
