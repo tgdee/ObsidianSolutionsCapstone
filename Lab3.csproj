@@ -362,6 +362,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="StudentInbox1.aspx" />
+    <Content Include="UserImages\JMU_Campus.jpg" />
     <Content Include="VisitorPages\VisitorAbout.aspx" />
     <Content Include="VisitorPages\VisitorApply.aspx" />
     <Content Include="VisitorPages\VisitorEngagement.aspx" />
@@ -784,7 +785,6 @@
     <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="Resumes\" />
-    <Folder Include="UserImages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
