@@ -1,7 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/StudentMaster.Master" AutoEventWireup="true" CodeBehind="StudentInbox1.aspx.cs" Inherits="Lab3.StudentInbox1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <link href="CustomButtons.css" rel="stylesheet" type="text/css" />
-        <br />
+    <style>
+         .header {
+            text-align: left;
+            font-size: 35px;
+            font-family: 'Courier Prime', monospace;
+            margin-bottom: 10px;
+            margin-left: 35px;
+        }
+        </style>
+    <br />
+    <div class="header" >Send a Message </div>
         <br />
         <br />
         <table align="center" width="60%">

@@ -126,7 +126,6 @@
                                 <asp:Button ID="btnSearch" runat="server" Text="Search" OnClick="btnSearch_Click" class="btn-lg btn-success" />
                             </div>
                         </div>
-
                         <asp:ListView ID="lvStudentOpportunities" runat="server">
                             <LayoutTemplate>
                                 <div class="container-fluid">

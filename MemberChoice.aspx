@@ -124,7 +124,7 @@ background-image:url("images/fadedbackground.png");
           <div class="col">
             <div class="card h-60" style="width: 18rem;">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">
-                <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkButton3_Click" Text="All Leaders"></asp:LinkButton>
+                <asp:LinkButton ID="LinkButton6" runat="server" OnClick="SearchLeader" Text="All Leaders"></asp:LinkButton>
               </div>
             </div>
           </div>
