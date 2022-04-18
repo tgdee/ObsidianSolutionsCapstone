@@ -123,7 +123,7 @@ namespace Lab3
                     dlInterest.DataBind();
                     connection.Open();
                     string memUserName = Session["memberUsername"].ToString();
-                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@userName";      // Command to fill the data list
+                    string sqlCommandString = "SELECT Interests from MemberProfile WHERE Username=@Username";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
                     command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
@@ -160,10 +160,10 @@ namespace Lab3
                     dlSkills.DataSource = null;
                     dlSkills.DataBind();
                     connection.Open();
-                    string studUserName = Session["StudentUserName"].ToString();
+                    string memUserName = Session["memberUsername"].ToString();
                     string sqlCommandString = "SELECT Skills from MemberProfile WHERE Username=@Username";      // Command to fill the data list
                     SqlCommand command = new SqlCommand(sqlCommandString, connection);
-                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = studUserName;
+                    command.Parameters.Add("@userName", SqlDbType.NVarChar, 50).Value = memUserName;
                     SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
                     DataTable dt = new DataTable();
                     dataAdapter.Fill(dt);
