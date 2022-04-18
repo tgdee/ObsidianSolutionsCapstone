@@ -275,7 +275,7 @@ namespace Lab3
 
         protected void btnMessage_Click(object sender, EventArgs e)
         {
-            Response.Redirect("MemberInbox1.aspx");
+            Response.Redirect("StudentInbox1.aspx");
         }
     }
 
