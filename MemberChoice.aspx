@@ -18,7 +18,7 @@ background-image:url("images/fadedbackground.png");
 }
 .rowone{ 
   margin-bottom: 50px;
-  
+  border-radius: 50px;
 }
 
 .rowtwo{ 
