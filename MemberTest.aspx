@@ -57,7 +57,7 @@
 
     <div class="container my-auto">
     <table class="table caption-top">
-    <caption class="pt-5">Current Mentors</caption>
+    <caption class="pt-5">Our Mentors</caption>
 
     <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
         <Columns>
