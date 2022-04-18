@@ -49,6 +49,8 @@ namespace Lab3
                 }
 
 
+
+
             }
 
             catch (SqlException ex)                        //Catch Sql Exception
@@ -100,8 +102,7 @@ namespace Lab3
                     cmd.ExecuteNonQuery();
 
                 }
-
-
+                           
             }
 
             catch (SqlException ex)                        //Catch Sql Exception
@@ -186,23 +187,40 @@ namespace Lab3
 
                     }
 
-                    string insertStringOSAG = "USE OSAG" + " INSERT INTO StudentProfile (Username)" +" VALUES (@Username)";
-
-                    using (SqlCommand cmd1 = new SqlCommand(insertStringOSAG, dbConnection))         // Create SqlCommand for insertStringOSAG
+                    if (ddlAccountType.SelectedItem.Value == "Y")
                     {
-                        SqlCommand queryCmd1 = new SqlCommand(queryLastUserId, dbConnection);
-                        int userID2 = (Int32)queryCmd1.ExecuteScalar();
-                        string userName1 = txtUserName.Text;
+                        string insertStringOSAG = "USE OSAG" + " INSERT INTO StudentProfile (Username)" + " VALUES (@Username)";
 
-                        cmd1.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = userName1;     //Add the values into the OSAG Student Profile 
+                        using (SqlCommand cmd1 = new SqlCommand(insertStringOSAG, dbConnection))         // Create SqlCommand for insertStringOSAG
+                        {
+                            SqlCommand queryCmd1 = new SqlCommand(queryLastUserId, dbConnection);
+                            int userID2 = (Int32)queryCmd1.ExecuteScalar();
+                            string userName1 = txtUserName.Text;
 
-                        cmd1.ExecuteNonQuery();
+                            cmd1.Parameters.Add("@Username", SqlDbType.NVarChar, 50).Value = userName1;     //Add the values into the OSAG Student Profile 
 
+                            cmd1.ExecuteNonQuery();
+
+                        }
+                    }
+                    else
+                    {
+                        string insertStringOSAG2 = "USE OSAG" + " INSERT INTO MemberProfile (Username)" + " VALUES (@Username2)";
+
+                        using (SqlCommand cmd2 = new SqlCommand(insertStringOSAG2, dbConnection))         // Create SqlCommand for insertStringOSAG
+                        {
+                            SqlCommand queryCmd2 = new SqlCommand(queryLastUserId, dbConnection);
+                            int userID3 = (Int32)queryCmd2.ExecuteScalar();
+                            string userName2 = txtUserName.Text;
+
+                            cmd2.Parameters.Add("@Username2", SqlDbType.NVarChar, 50).Value = userName2;     //Add the values into the OSAG Member Profile 
+
+                            cmd2.ExecuteNonQuery();
+
+                        }
                     }
 
-
-
-                        txtFirstName.Text = "";
+                    txtFirstName.Text = "";
                     txtLastName.Text = "";
                     txtUserName.Text = "";
                     txtEmail.Text = "";
