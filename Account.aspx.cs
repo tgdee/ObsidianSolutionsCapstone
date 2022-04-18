@@ -42,7 +42,7 @@ namespace Lab3
 
                 else
                 {
-                    profilePic.ImageUrl = "~/UserImages/DefaultProfileIMG.jpg";
+                    profilePic.ImageUrl = "~/UserImages/JMU_Campus.jpg";
                 }
             }
         }
