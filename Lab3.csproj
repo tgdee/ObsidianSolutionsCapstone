@@ -334,6 +334,7 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="StudentFeed.aspx" />
     <Content Include="StudentHomepage.aspx" />
     <Content Include="Homepage.aspx" />
     <Content Include="images\5db340cf51d14.image.jpg" />
@@ -362,7 +363,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="StudentInbox1.aspx" />
-    <Content Include="UserImages\Angela_Russell.jpeg" />
+    <Content Include="images\Angela_Russell.jpeg" />
     <Content Include="UserImages\JMU_Campus.jpg" />
     <Content Include="UserImages\NoraC.png" />
     <Content Include="UserImages\Studentuserstella.png" />
@@ -615,6 +616,13 @@
     </Compile>
     <Compile Include="ScholarshipInformation.aspx.designer.cs">
       <DependentUpon>ScholarshipInformation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentFeed.aspx.cs">
+      <DependentUpon>StudentFeed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentFeed.aspx.designer.cs">
+      <DependentUpon>StudentFeed.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentInbox1.aspx.cs">
       <DependentUpon>StudentInbox1.aspx</DependentUpon>
