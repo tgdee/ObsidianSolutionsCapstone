@@ -39,12 +39,13 @@
                 <asp:Image ID="profilePic" CssClass="card-img-top rounded-circle img-thumbnail align-content-center" Height="350px" Width="400px" runat="server"  />
                <!-- <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image" /> -->
                 <div class="card-body">
-                  <h5 class="card-title">
+                  <h5 class="card-title text-center">
                       <!-- IMG UPLOADING WIP -->
                       <asp:FileUpload ID="FileUpload3" CssClass="profileButtonFile" runat="server" />
                       <%--<asp:FileUpload ID="FileUpload2" CssClass="profileButtonFile" runat="server" />--%>
                       <asp:Button ID="btnChangePicture" runat="server" OnClick="btnChangePicture_Click" Text="Change Picture" CssClass="profileButton"/>
                       <asp:Label ID="lblUploadMess" runat="server" Text=""></asp:Label>
+                  </h5>       
                       <asp:DataList ID="dlStudentName" runat="server">
                           <ItemTemplate>
                               <table>
@@ -55,7 +56,6 @@
                               </table> 
                           </ItemTemplate>
                       </asp:DataList>
-                  </h5>
                                 <p class="card-text">
                                     <asp:DataList ID="dlStudentEmail" runat="server">
                                         <ItemTemplate>
@@ -82,6 +82,7 @@
                                         </ItemTemplate>
                                     </asp:DataList>
                                 </p>
+                                <p class="text-center">
                                 <label for="formFile" class="form-label fw-bold">Resume</label>
                                 <asp:FileUpload ID="FileUpload1" CssClass="profileButtonFile" runat="server" />
                                 <asp:Button ID="btnUpload" CssClass="profileButton" runat="server" ValidationGroup="DisplayResumeValidation" Text="Upload File" OnClick="btnUpload_Click" />
@@ -91,6 +92,7 @@
                                 <asp:Button ID="btnViewResume" CssClass="profileButton" runat="server" Text="View Your Resume" ValidationGroup="DisplayResumeValidation" OnClick="btnViewResume_Click" />
                                 <br />
                                 <asp:Button ID="btnDelete" CssClass="profileButton" runat="server" Text="Remove Current Resume" OnClick="btnDelete_Click" ValidationGroup="DisplayResumeValidation" />
+                                </p>    
                             </div>
                         </div>
                 </div>

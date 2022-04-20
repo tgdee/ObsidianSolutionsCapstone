@@ -37,12 +37,13 @@
                         <asp:Image ID="profilePic" CssClass="card-img-top rounded-circle img-thumbnail align-content-center" Height="350px" Width="400px" runat="server" />
                         <!-- <img class="card-img-top rounded-circle img-thumbnail" src="images/john2.jpg" alt="Upload Image" /> -->
                         <div class="card-body">
-                            <h5 class="card-title">
+                            <h5 class="card-title text-center">
                                 <!-- IMG UPLOADING WIP -->
                                 <asp:FileUpload ID="FileUpload3" CssClass="profileButtonFile" runat="server" />
                                 <%--<asp:FileUpload ID="FileUpload2" CssClass="profileButtonFile" runat="server" />--%>
                                 <asp:Button ID="btnChangePicture" OnClick="btnChangePicture_Click" runat="server" Text="Change Picture" CssClass="profileButton" />
                                 <asp:Label ID="lblUploadMess" runat="server" Text=""></asp:Label>
+                            </h5>    
                                 <asp:DataList ID="dlMemberName" runat="server">
                                     <ItemTemplate>
                                         <table>
@@ -55,7 +56,6 @@
                                         </table>
                                     </ItemTemplate>
                                 </asp:DataList>
-                            </h5>
                             <p class="card-text">
                                 <asp:DataList ID="dlMemberEmail" runat="server">
                                     <ItemTemplate>

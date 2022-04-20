@@ -13,7 +13,7 @@
         <table class="table caption-top">
         <caption class="pt-5">List of applications</caption>
             <asp:Literal ID="ltError" Text="" runat="server"></asp:Literal>
-            <asp:GridView ID="gvApprovedAccounts" class="table table-hover table-bordered table-condensed" runat="server" Width="500px" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged">
+            <asp:GridView ID="gvApprovedAccounts" class="table table-hover table-bordered table-condensed" runat="server" Width="500px" AutoGenerateColumns="False" DataKeyNames="UserID" DataSourceID="UserAccounts" OnSelectedIndexChanged="gvApprovedAccounts_SelectedIndexChanged" BackColor="White">
                 <Columns>
                     <asp:CommandField ShowSelectButton="True" />
                     <asp:BoundField DataField="UserID" HeaderText="UserID" Visible="false" ReadOnly="True" SortExpression="UserID" />

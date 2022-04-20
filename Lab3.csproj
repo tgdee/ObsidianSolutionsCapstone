@@ -175,7 +175,7 @@
     <Content Include="CustomButtons.css" />
     <Content Include="FilterableTable.aspx" />
     <Content Include="images\0b6b9a_ddf81f4627a042389483cd52af7c90ba_mv2.png" />
-    <Content Include="images\Angela_Russell.jpeg" />
+    <Content Include="images\AngelaRussell.jpeg" />
     <Content Include="images\background.png" />
     <Content Include="images\backgroundtwo.png" />
     <Content Include="FusionChartsExportHandler\FCExporter.aspx" />
@@ -362,7 +362,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="StudentInbox1.aspx" />
-    <Content Include="UserImages\Angela_Russell.jpeg" />
+    <Content Include="images\Angela_Russell.jpeg" />
     <Content Include="UserImages\JMU_Campus.jpg" />
     <Content Include="UserImages\NoraC.png" />
     <Content Include="UserImages\Studentuserstella.png" />
