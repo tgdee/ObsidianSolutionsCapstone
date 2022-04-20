@@ -26,14 +26,13 @@
         }
     </style>
     <h1>Student Feed</h1>
-    <br />
     <div class="list1">
         <asp:ListView ID="lvAnnouncements" runat="server">
             <LayoutTemplate>
-                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
+                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 20pt">
                     <h4">Announcements</h4>
                 </div>
-                <tr runat="server" id="itemplaceholder" />
+                <tr runat="server" id="itemplaceholder"/>
             </LayoutTemplate>
             <ItemTemplate>
                 <div>
@@ -77,7 +76,7 @@
     <div class="list2">
         <asp:ListView ID="lvStudentOpportunities" runat="server">
             <LayoutTemplate>
-                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
+                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 20pt">
                     <h4">Current Opportunites</h4>
                 </div>
                 <div class="container-fluid" style="max-width: 550px;">

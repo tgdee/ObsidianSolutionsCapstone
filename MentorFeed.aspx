@@ -29,11 +29,8 @@
     <div class="list1">
         <asp:ListView ID="lvAnnouncements" runat="server">
             <LayoutTemplate>
-                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
-                    <h4">Announcements</h4>
-                </div>
-                <div class="col-md-4 mb-4 pt-4 pl-3">
-                    <asp:Button ID="btnNewAnnounce" runat="server" Text="New" OnClick="btnNewAnnounce_Click" class="btn-lg btn-success" />
+                <div class="col-md-4" style="padding: 9px">
+                    <asp:Button ID="btnNewAnnounce" runat="server" Text="Announcements" OnClick="btnNewAnnounce_Click" class="btn-lg btn-success" />
                 </div>
                 <tr runat="server" id="itemplaceholder"/>
             </LayoutTemplate>
@@ -79,7 +76,7 @@
     <div class="list2">
         <asp:ListView ID="lvStudentOpportunities" runat="server">
             <LayoutTemplate>
-                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 15pt">
+                <div class="col-md-6" style="padding: 12px; align-content:center; font-size: 20pt">
                     <h4">Current Opportunites</h4>
                 </div>
                 <div class="container-fluid" style="max-width: 550px;">
