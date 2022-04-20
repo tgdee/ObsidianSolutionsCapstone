@@ -362,7 +362,7 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="StudentInbox1.aspx" />
-    <Content Include="UserImages\Angela_Russell.jpeg" />
+    <Content Include="images\Angela_Russell.jpeg" />
     <Content Include="UserImages\JMU_Campus.jpg" />
     <Content Include="UserImages\NoraC.png" />
     <Content Include="UserImages\Studentuserstella.png" />
