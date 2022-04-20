@@ -13,7 +13,7 @@ namespace Lab3
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            txtFrom.Text = "eagenhayes@gmail.com";
+            txtFrom.Text = "oleschoolfakeemail@gmail.com";
         }
 
         protected void btnSend_Click(object sender, EventArgs e)
@@ -32,8 +32,8 @@ namespace Lab3
                 client.UseDefaultCredentials = false;
                 client.Credentials = new System.Net.NetworkCredential()
                 {
-                    UserName = "eagenhayes@gmail.com",
-                    Password = "Sirfloyd99!"
+                    UserName = "oleschoolfakeemail@gmail.com",
+                    Password = "oleschool123!"
                 };
                 
                 client.Send(message);

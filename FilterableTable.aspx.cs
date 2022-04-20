@@ -17,20 +17,37 @@ namespace Lab3
         readonly SqlConnection con = new SqlConnection(WebConfigurationManager.ConnectionStrings["Lab3"].ConnectionString);
         protected void Page_Load(object sender, EventArgs e)
         {
+            DisplayGvOpportunity();
+            // Upon first page load add all the data from the Opportunity table into the ListView
             if (!Page.IsPostBack)
             {
                 con.Open();
-                string cmd = "SELECT[AnnouncementID],[AnnounceTitle],[AnnounceBody],[AnnounceTimePost],[MemberUsername] FROM [Announcement]";
-
+                //string cmd = "SELECT [Title], [Type], [City], [State], [Deadline], [Link], [Industry], [CorpName] FROM [Opportunity] ORDER BY [OpportunityID]";
+                string cmd = "SELECT OpportunityID, Title, Type+', '+City+', '+State+', '+Industry+', '+Link+', '+CorpName AS Info FROM Opportunity";
                 SqlDataAdapter da = new SqlDataAdapter(cmd, con);
 
                 DataSet ds = new DataSet();
 
                 da.Fill(ds, "table");
-                lvAnnouncements.DataSource = ds.Tables["table"];
-                lvAnnouncements.DataBind();
+                lvStudentOpportunities.DataSource = ds.Tables["table"];
+                lvStudentOpportunities.DataBind();
+
                 con.Close();
             }
+        }
+        protected void DisplayGvOpportunity()
+        {
+            con.Open();
+            string cmd = "SELECT Announcement.AnnouncementID, Announcement.AnnounceTitle, Announcement.AnnounceBody, Announcement.AnnounceTimePost, Announcement.MemberUsername, Member.FirstName + ' ' + member.LastName AS FullName FROM Announcement INNER JOIN Member ON Announcement.MemberUsername = Member.Username";
+
+            SqlDataAdapter da = new SqlDataAdapter(cmd, con);
+
+            DataSet ds = new DataSet();
+
+            da.Fill(ds, "table");
+            lvAnnouncements.DataSource = ds.Tables["table"];
+            lvAnnouncements.DataBind();
+            con.Close();
         }
     }
 }
