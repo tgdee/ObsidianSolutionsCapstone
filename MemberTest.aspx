@@ -59,7 +59,7 @@
     <table class="table caption-top">
     <caption class="pt-5">Our Mentors</caption>
 
-    <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found">
+    <asp:GridView ID="gvMember" runat="server" class="table table-hover table-bordered table-condensed" OnSelectedIndexChanged="gvMember_SelectedIndexChanged" Width="500px" EmptyDataText="Member Record Not Found" BackColor="White">
         <Columns>
             <asp:CommandField ShowSelectButton="true" />
         </Columns>
