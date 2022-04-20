@@ -69,9 +69,9 @@ margin-bottom: 0px;
          <div class="col-lg-6 ">
            <ul class="nav justify-content-end">
                <li class="nav-item">
-                 <a class="nav-link active" href="#"><ion-icon name="home-outline"></ion-icon>Home</a>
+                 <a class="nav-link active" href="NewHomePage.aspx"><ion-icon name="home-outline"></ion-icon>Home</a>
                </li>
-         
+            </ul>
           </div>
   
 </div>
