@@ -45,7 +45,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/NoraC.png" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-right" style="font-size:large;font-weight:bold">
-                  <asp:LinkButton ID="Link" runat="server" OnClick="Link_Click">Nora Crouch</asp:LinkButton>
+                  <asp:Label ID="Label1" runat="server" Text="Nora Crouch"></asp:Label>
                  <%-- Nora Crouch--%>
                 <%--<a href="https://www.capitalonecareers.com/" target="https://www.capitalonecareers.com/" class="btn btn-outline-dark">Learn More</a>--%>
               </div>
@@ -55,7 +55,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/charles_may.jpeg" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">               
-                 <asp:LinkButton ID="Lk2" runat="server" OnClick="Lk2_Click">Charles May</asp:LinkButton>
+                  <asp:Label ID="Label2" runat="server" Text="Charles May"></asp:Label>
               </div>
             </div>
           </div>
@@ -63,7 +63,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/LesaMoore.jpg" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">
-                <asp:LinkButton ID="Lk3" runat="server" OnClick="Lk3_Click">Lesa Moore</asp:LinkButton>
+                  <asp:Label ID="Label3" runat="server" Text="Lesa Moore"></asp:Label>
               </div>
             </div>
           </div>
@@ -78,7 +78,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/malcom_taylor.jpeg"class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-right" style="font-size:large;font-weight:bold">
-                  <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Malcom Taylor</asp:LinkButton>
+                  <asp:Label ID="Label4" runat="server" Text="Malcom Taylor"></asp:Label>
               </div>
             </div>
           </div>
@@ -86,7 +86,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/Angela_Russell.jpeg" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">               
-                 <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Angela J Russell</asp:LinkButton>
+                  <asp:Label ID="Label5" runat="server" Text="Angela J Russell"></asp:Label>
               </div>
             </div>
           </div>
@@ -94,7 +94,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/derek_Steele.png" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">
-                <asp:LinkButton ID="LinkButton3" runat="server" OnClick="LinkButton3_Click">Derek Steele</asp:LinkButton>
+                  <asp:Label ID="Label6" runat="server" Text="Derek Steele"></asp:Label>
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/kimberely-hundley.jpeg" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-right" style="font-size:large;font-weight:bold">
-                  <asp:LinkButton ID="LinkButton4" runat="server" OnClick="LinkButton1_Click" Text="Kimberley Hundley"></asp:LinkButton>
+                  <asp:Label ID="Label7" runat="server" Text="Kimberley Hundley"></asp:Label>
               </div>
             </div>
           </div>
@@ -117,7 +117,7 @@ background-image:url("images/fadedbackground.png");
             <div class="card h-60" style="width: 18rem;">
               <img src="images/VondaSpark.jpg" class="card-img-top rounded-circle img-thumbnail" alt="...">
               <div class="card-body align-content-center" style="font-size:large;font-weight:bold">               
-                 <asp:LinkButton ID="LinkButton5" runat="server" OnClick="LinkButton2_Click" Text="Vonda Sparks"></asp:LinkButton>
+                  <asp:Label ID="Label8" runat="server" Text="Vonda Sparks"></asp:Label>
               </div>
             </div>
           </div>
