@@ -85,8 +85,6 @@
                             <div class="card">
                                 <div class="card-body">
                                     <div class="table-responsive" id="tableScorll" tabindex="2" style="height: 400px; overflow: hidden; outline: none;">
-                                        <input class="form-control" id="myInput" type="text" placeholder="Search.." onkeyup="function()">
-                                        <br>
                                         <table class="table table-striped" id="tbl1" runat="server">
                                             <tbody id="myTable">
                                                 <tr runat="server">
@@ -97,16 +95,6 @@
                                             </tbody>
                                         </table>
                                     </div>
-                                    <script>
-                                        $(document).ready(function () {
-                                            $("#myInput").on("keyup", function () {
-                                                var value = $(this).val().toLowerCase();
-                                                $("#myTable tr").filter(function () {
-                                                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                                                });
-                                            });
-                                        });
-                                    </script>
                                 </div>
                             </div>
                         </div>
