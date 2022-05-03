@@ -13,6 +13,7 @@
                 <asp:TableCell>
                     <asp:Label ID="lblScholarship" runat="server" Text="Scholarship Name:"></asp:Label>
                 </asp:TableCell>
+
                 <asp:TableCell>
                     <asp:DropDownList ID="ddlScholarshipNames" runat="server" DataSourceID="sdsScholarshipNames" ValidationGroup="1" DataTextField="ScholarshipName" DataValueField="ScholarshipName" AppendDataBoundItems="true">
                         <asp:ListItem Text="Please Select" Value="0"></asp:ListItem>

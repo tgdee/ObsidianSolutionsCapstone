@@ -40,7 +40,9 @@ namespace Lab3
             }
             catch (SqlException ex)
             {
+
                 return ex.Message;
+
             }
 
         }
